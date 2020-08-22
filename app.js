@@ -2,6 +2,12 @@
 const express = require("express")
 const app = express()
 
+// Public directory for css/js/image
+app.use(express.static(__dirname + "/public"))
+
+
+
+
 app.get("/", (req, res) => {
    res.render("home.ejs")
 })
