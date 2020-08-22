@@ -5,6 +5,10 @@ const app = express()
 // Public directory for css/js/image
 app.use(express.static(__dirname + "/public"))
 
+// Flash
+// const flash = require("connect-flash")
+// app.use(flash())
+
 //SQL
 const mySqlConnection = require("./config/SQL-config")
 mySqlConnection.connect((err) => {
@@ -15,10 +19,8 @@ mySqlConnection.connect((err) => {
    } else console.log("Database Connected!")
 })
 
-
-app.get("/", (req, res) => {
-   res.render("home.ejs")
-})
+const homeRoutes = require("./routes/home.js")
+app.use(homeRoutes)
 
 app.listen(process.env.PORT || 3000, process.env.IP, (req, res) => {
    console.log("Server Started")
