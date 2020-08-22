@@ -5,9 +5,6 @@ const app = express()
 // Public directory for css/js/image
 app.use(express.static(__dirname + "/public"))
 
-
-//test heroku
-
 app.get("/", (req, res) => {
    res.render("home.ejs")
 })
