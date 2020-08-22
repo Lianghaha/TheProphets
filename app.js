@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static(__dirname + "/public"))
 
 
-
+//test heroku
 
 app.get("/", (req, res) => {
    res.render("home.ejs")
