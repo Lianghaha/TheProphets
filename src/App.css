@@ -1,38 +1,89 @@
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 200vh;
+  background-color: pink;
   display: flex;
+  flex-wrap:wrap;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.Navbar {
+  width: 100%;
+  height: 6vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  float: left;
+  list-style: none;
+  position: fixed;
+  /* background-color: blue; */
+}
+
+.Navbar li {
+  display: inline-block;
+  /* border: 3px solid red; */
+}
+
+/*NavbarItem Hover Background无法占满整个Navbar的高 */
+.Navbar li a {
+  text-decoration: none;
   color: white;
+  padding: 2vh 2vw;
+  /* border: 3px solid yellow; */
 }
 
-.App-link {
-  color: #61dafb;
+.Navbar li a:hover{
+  background-color: white;
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Cover {
+  background-color: tomato;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+
+  float: left;
+
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8)), url("./Image/Warren Buffett.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.CoverText{ 
+  color: #fff;
+  width: 30vw;
+  height: 30vh;
+  margin-top: 60vh;
+  text-align: center;
+  word-wrap:break-word
+}
+
+.CoverText h1 {
+  margin-bottom: 1.5vh;
+}
+
+.Icon {
+  margin-bottom: 10vh;
+}
+
+
+.ProphetsList {
+  background-color: teal;
+  width: 85vw;
+  height: 50vh;
+  display: flex;
+}
+
+.ProphetsList h2 {
+  margin: 5vh 0
 }
