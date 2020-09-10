@@ -1,0 +1,70 @@
+
+.Card {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 2%;
+    transition:  box-shadow .3s ease-out, filter .3s;
+    box-shadow: 0px 0px 5px grey;
+    filter: brightness(90%);
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+}
+
+.Card:hover{ 
+    box-shadow: 0px 0px 10px grey;
+    transition:  box-shadow .3s ease-in, filter .3s;
+    filter: brightness(105%)
+  }
+
+.Card img {
+    width:100%;
+    height: 40%;
+    object-fit: cover;
+    border-top-left-radius: 2%;
+    border-top-right-radius: 2%;
+}
+
+.Card #name {
+    width:100%;
+    margin: 16px 0;
+    text-align: center;
+}
+
+.Card #description {
+    height: 20%;
+    text-align: start;
+    margin: 0 12px;
+}
+
+.NumberSection {
+    text-align: center;
+    width: 100%;
+    margin: 5px 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Score .number{
+    color: #ffb400;
+    font-family: 'Special Elite', cursive;
+
+}
+
+.number span {
+    font-size:2.5rem;
+}
+
+.Predictions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.Predictions span {
+    color: #ffb400;
+    font-family: 'Special Elite', cursive;
+    font-size:3.8rem;
+}
