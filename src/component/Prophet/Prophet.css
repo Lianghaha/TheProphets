@@ -1,7 +1,7 @@
 
 .Card {
-    width: 300px;
-    height: 400px;
+    width: 16vw;
+    height: 45vh;
     background-color: white;
     border-radius: 2%;
     transition:  box-shadow .3s ease-out, filter .3s;
@@ -36,7 +36,7 @@
 .Card #description {
     height: 20%;
     text-align: start;
-    margin: 0 12px;
+    margin: 0 25px;
 }
 
 .NumberSection {

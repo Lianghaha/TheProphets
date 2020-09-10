@@ -58,7 +58,6 @@ function App() {
                <Prophet data={mockdata} />
                <Prophet data={mockdata} />
                <Prophet data={mockdata} />
-               <Prophet data={mockdata} />
             </div>
          </div>
       </div>
