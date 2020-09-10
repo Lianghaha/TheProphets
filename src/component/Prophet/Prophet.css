@@ -1,7 +1,9 @@
 
 .Card {
-    width: 16vw;
+    width: 20vw;
     height: 45vh;
+    min-width: 265px;
+    min-height: 420px;
     background-color: white;
     border-radius: 2%;
     transition:  box-shadow .3s ease-out, filter .3s;
