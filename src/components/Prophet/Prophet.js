@@ -1,11 +1,12 @@
 import React from "react"
 import "./Prophet.css"
 import Rating from "@material-ui/lab/Rating"
+import WB from "../../lib/image/WarrenBuffett.jpg"
 
 function Prophet(props) {
    return (
       <div className="Card">
-         <img src={props.data.image} alt="profile" />
+         <img src={WB} alt="profile" />
          <h4 id="name">{props.data.name}</h4>
          <p id="description">{props.data.description}</p>
          <div className="NumberSection">

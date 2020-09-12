@@ -12,7 +12,7 @@
 
     display: flex;
     flex-wrap: wrap;
-    align-content: start;
+    align-content: flex-start;
 }
 
 .Card:hover{ 
