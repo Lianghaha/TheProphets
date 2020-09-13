@@ -14,22 +14,27 @@
    /* background-color: blue; */
 }
 
+@media screen and (max-width:1000px) {
+   .Navbar {
+      font-size: 2vw;
+   }
+}
+
 .active{
    background: #2a2a2ab6;
    transition:  background .3s;
 }
 
 .NavLeft {
-   list-style: none;
    /* border: 3px solid red; */
 }
 
 .NavRight {
-   list-style: none;
    /* border: 3px solid red; */
 }
 
 .Navbar ul {
+   list-style: none;
    display: inline-block;
    /* border: 3px solid green; */
    display: flex;
