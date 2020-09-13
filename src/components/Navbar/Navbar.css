@@ -10,12 +10,12 @@
 
    list-style: none;
    position: fixed;
-   font-size: 1.2rem;
+   font-size: 1vw;
    /* background-color: blue; */
 }
 
-.Navbar .active{
-   background: #292929c2;
+.active{
+   background: #2a2a2ab6;
    transition:  background .3s;
 }
 

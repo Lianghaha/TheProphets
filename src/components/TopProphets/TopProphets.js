@@ -4,10 +4,16 @@ import Prophet from "./Prophet/Prophet"
 //Card Slider react-elastic-carousel
 import Carousel, { consts } from "react-elastic-carousel"
 import Button from "react-elastic-carousel"
+
 //Card Slider react slick
 // import "slick-carousel/slick/slick.css"
 // import "slick-carousel/slick/slick-theme.css"
 // import Slider from "react-slick"
+
+//Antd
+// import { Carousel } from "antd"
+
+
 
 window.addEventListener("load", addID())
 
@@ -36,9 +42,14 @@ const breakPoints = [
    { width: 1150, itemsToShow: 4 },
    { width: 1450, itemsToShow: 5 },
    { width: 1700, itemsToShow: 6 },
+   { width: 2000, itemsToShow: 7 },
 ]
 
 const style = {}
+
+
+
+
 
 //react-slick
 // const settings = {
@@ -48,6 +59,24 @@ const style = {}
 //    slidesToShow: 1,
 //    slidesToScroll: 1,
 // }
+
+
+
+
+//Antd
+// function onChange(a, b, c) {
+//    console.log(a, b, c)
+// }
+
+// const contentStyle = {
+//    width: "100px",
+//    height: "160px",
+//    color: "#fff",
+//    lineHeight: "160px",
+//    textAlign: "center",
+//    background: "#364d79",
+// }
+
 
 function TopProphets(props) {
    return (
@@ -89,6 +118,23 @@ function TopProphets(props) {
                   </div>
                </Slider>
             </div> */}
+
+
+
+            {/* <Carousel afterChange={onChange}>
+               <div>
+                  <h3 style={contentStyle}>1</h3>
+               </div>
+               <div>
+                  <h3 style={contentStyle}>2</h3>
+               </div>
+               <div>
+                  <h3 style={contentStyle}>3</h3>
+               </div>
+               <div>
+                  <h3 style={contentStyle}>4</h3>
+               </div>
+            </Carousel> */}
 
 
          </div>

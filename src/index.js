@@ -21,17 +21,9 @@ function App() {
 
    return (
       <div className="App">
-         <div className="Navbar">
             <Navbar />
-         </div>
-
-         <div className="Cover">
             <Cover />
-         </div>
-
-         <div className="TopProphets">
             <TopProphets data={mockDataList} />
-         </div>
       </div>
    )
 }

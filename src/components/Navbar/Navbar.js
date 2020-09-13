@@ -5,7 +5,7 @@ function Navbar() {
    const [scroll, setScroll] = useState(false)
 
    const changeBackground = () => {
-      if (window.scrollY >= 200) {
+      if (window.scrollY >= 100) {
          setScroll(true)
       }
       else {

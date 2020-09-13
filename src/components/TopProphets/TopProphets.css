@@ -1,9 +1,9 @@
 .TopProphets {
+   border: 3px solid green;
    width: 90vw;
    display: flex;
    flex-wrap: wrap;
    align-content: flex-start;
-   margin: 5vh 0;
    font-family: "Roboto Slab", serif;
 }
 
