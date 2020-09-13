@@ -6,16 +6,16 @@ import { VscFoldDown } from "react-icons/vsc"
 function Cover() {
    return (
       <div className="Cover">
-            <div className="CoverText">
-               <h1>Find The Prohets</h1>
-               <p>
-                  asdasdajsldkajskldjaskldjaklsjdlaksjdaklsjdlaksjdklajsdlkajsdklajsdklajsdklajskldajsldkjaskldjalskdjalksdjalksjdlaksjdlaksjdklajsdl
-               </p>
-            </div>
-            <div className="Icon">
-               <VscFoldDown color="white" size="1.8em" />
-            </div>
+         <div className="CoverText">
+            <h1>Find The Prohets</h1>
+            <p>
+               asdasdajsldkajskldjaskldjaklsjdlaksjdaklsjdlaksjdklajsdlkajsdklajsdklajsdklajskldajsldkjaskldjalskdjalksdjalksjdlaksjdlaksjdklajsdlslkjalksjdklasjdklajsdklajsdklajsdlkajskldajskldjaklsjdaklsjdlkajsdlkajsdlkajskladadadadaddddeoirunckamsndckmnaskdhfjklasdhjfklasdlaksjdklajsdlslkjalksjdklasjdklajsdklajsdklajsdlkajskldajskldjaklsjdaklsjdlkajsdlkajsdlkajskladadadadaddddeoirunckamsndckmnaskdhfjklasdhjfklaslaksjdklajsdlslkj
+            </p>
          </div>
+         <div className="Icon">
+            <VscFoldDown color="white" size="1.8em" />
+         </div>
+      </div>
    )
 }
 
