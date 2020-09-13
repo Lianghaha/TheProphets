@@ -1,14 +1,16 @@
 
 .Card {
-    width: 20vw;
+    width: 10vw;
     height: 45vh;
     min-width: 265px;
     min-height: 450px;
-    background-color: white;
     border-radius: 2%;
-    transition:  box-shadow .3s ease-out, filter .3s;
+
+    background-color: white;
     box-shadow: 0px 0px 5px grey;
     filter: brightness(90%);
+    transition:  box-shadow .3s ease-out, filter .3s;
+
 
     display: flex;
     flex-wrap: wrap;
@@ -17,8 +19,8 @@
 
 .Card:hover{ 
     box-shadow: 0px 0px 10px grey;
+    filter: brightness(105%);
     transition:  box-shadow .3s ease-in, filter .3s;
-    filter: brightness(105%)
   }
 
 .Card img {

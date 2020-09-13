@@ -28,16 +28,26 @@ function myArrow({ type, onClick, isEdge }) {
 function TopProphets(props) {
    const breakPoints = [
       { width: 1, itemsToShow: 1 },
-      { width: 550, itemsToShow: 2 },
-      { width: 768, itemsToShow: 3 },
-      { width: 1200, itemsToShow: 4 },
+      { width: 600, itemsToShow: 2 },
+      { width: 850, itemsToShow: 3 },
+      { width: 1150, itemsToShow: 4 },
+      { width: 1450, itemsToShow: 5 },
+      { width: 1700, itemsToShow: 6 },
    ]
+
+   const style = {
+   }
+
+window.addEventListener("resize", () => {
+   console.log(window.innerWidth);
+})
 
    return (
       <div id="123" className="TopProphets">
          <h2>Top Prophets</h2>
          <div className="ProphetsList">
-            <Carousel breakPoints={breakPoints} pagination={false} disableArrowsOnEnd={false}>
+            <Carousel breakPoints={breakPoints} pagination={false} disableArrowsOnEnd={false}
+            style={style}>
                {props.data.map((data) => {
                   return (
                      <div className="Card">
