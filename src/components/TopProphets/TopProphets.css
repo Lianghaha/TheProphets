@@ -1,0 +1,27 @@
+.TopProphets {
+   width: 90vw;
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+   margin: 5vh 0;
+   font-family: "Roboto Slab", serif;
+}
+
+.TopProphets h2 {
+   width: 100%;
+   margin: 5vh 6vh;
+   color: white;
+}
+
+.ProphetsList {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+
+.Test {
+   width: 100px;
+   height: 100px;
+   background-color: red;
+}
+

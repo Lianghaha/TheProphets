@@ -1,131 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 
 * {
-  margin: 0;
-  padding: 0;
+   margin: 0;
+   padding: 0;
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+   width: 3px;
 }
 ::-webkit-scrollbar-track {
-  background: black;
+   background: black;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: grey;
-  border-radius: 20px;
+   background-color: grey;
+   border-radius: 20px;
 }
 
 .App {
    width: 100%;
-   height: 200vh;
+   height: 400vh;
    background-color: black;
    display: flex;
    flex-wrap: wrap;
    flex-direction: column;
    align-items: center;
-   font-family: 'Playfair Display', serif;
+   font-family: "Playfair Display", serif;
 }
 
-.Navbar {
-   width: 100%;
-   height: 6vh;
-
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-
-   float: left;
-   list-style: none;
-   position: fixed;
-
-   font-size: 1.2rem;
-   /* background-color: blue; */
-}
-
-.Navbar li {
-   display: inline-block;
-   /* border: 3px solid red; */
-}
-
-/*NavbarItem Hover Background无法占满整个Navbar的高 */
-.Navbar li a {
-   text-decoration: none;
-   color: white;
-   padding: 2vh 2vw;
-   transition: .5s;
-   /* border: 3px solid yellow; */
-}
-
-.Navbar li a:hover {
+.Test {
    background-color: white;
-   color: black;
-}
-
-.Cover {
-   background-color: tomato;
-   width: 100%;
-   height: 100vh;
-
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   justify-content: space-around;
-
-   float: left;
-
-   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
-      url("./lib/image/WarrenBuffett.jpg");
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: center center;
-}
-
-.CoverText {
-   color: #fff;
-   width: 20vw;
-   height: 30vh;
-   margin-top: 60vh;
-   text-align: center;
-   word-wrap: break-word;
-}
-
-.CoverText h1 {
-   margin-bottom: 1.5vh;
-}
-
-
-
-.Icon {
-   margin-bottom: 10vh;
-   transition: transform 0.2s;
-}
-
-.Icon:hover {
-   transform: scale(1.2);
-}
-
-.TopProphets {
-   background-color: black;
-   width: 85vw;
-   height: 60vh;
-   display: flex;
-   flex-wrap: wrap;
-   align-content: flex-start;
-   margin:5vh 0;
-   font-family: 'Roboto Slab', serif;
-}
-
-.TopProphets h2 {
-   width: 100%;
-   margin: 5vh 0;
-   color: white;
-}
-
-.Prophets {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
 }

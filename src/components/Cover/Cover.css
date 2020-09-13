@@ -1,0 +1,41 @@
+.Cover {
+   background-color: tomato;
+   width: 100%;
+   height: 100vh;
+
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: space-around;
+
+   float: left;
+
+   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+      url("../../lib/image/WarrenBuffett.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+}
+
+.CoverText {
+   color: #fff;
+   width: 20vw;
+   min-width: 300px;
+   height: 30vh;
+   margin-top: 60vh;
+   text-align: center;
+   word-wrap: break-word;
+}
+
+.CoverText h1 {
+   margin-bottom: 1.5vh;
+}
+
+.Icon {
+   margin-bottom: 10vh;
+   transition: transform 0.2s;
+}
+
+.Icon:hover {
+   transform: scale(1.2);
+}

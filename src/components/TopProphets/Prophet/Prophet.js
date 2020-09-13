@@ -1,7 +1,7 @@
 import React from "react"
 import "./Prophet.css"
 import Rating from "@material-ui/lab/Rating"
-import WB from "../../lib/image/WarrenBuffett.jpg"
+import WB from "../../../lib/image/WarrenBuffett.jpg"
 
 function Prophet(props) {
    return (

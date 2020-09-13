@@ -1,0 +1,53 @@
+.Navbar {
+   width: 100%;
+   height: 6vh;
+   background: transparent;
+   transition:  background .3s;
+   z-index: 1000;
+
+   display: flex;
+   justify-content: space-between;
+
+   list-style: none;
+   position: fixed;
+   font-size: 1.2rem;
+   /* background-color: blue; */
+}
+
+.Navbar .active{
+   background: #292929d3;
+   transition:  background .3s;
+}
+
+.NavLeft {
+   list-style: none;
+   /* border: 3px solid red; */
+}
+
+.NavRight {
+   list-style: none;
+   /* border: 3px solid red; */
+}
+
+.Navbar ul {
+   display: inline-block;
+   /* border: 3px solid green; */
+   display: flex;
+   align-items: center;
+}
+
+
+
+/*NavbarItem Hover Background无法占满整个Navbar的高 */
+.Navbar li a {
+   text-decoration: none;
+   color: white;
+   padding: 1.8vh 2vw;
+   transition: 0.5s;
+   /* border: 3px solid yellow; */
+}
+
+.Navbar li a:hover {
+   background-color: white;
+   color: black;
+}
