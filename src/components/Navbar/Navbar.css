@@ -40,6 +40,7 @@
 }
 
 .Navbar ul {
+   height: 100%;
    list-style: none;
    display: inline-block;
    display: flex;

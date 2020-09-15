@@ -17,7 +17,7 @@ function App() {
    }
 
    let mockDataList = []
-   for (let i = 0; i < 10; i++) mockDataList.push(mockData)
+   for (let i = 0; i < 20; i++) mockDataList.push(mockData)
 
    return (
       <div className="App">

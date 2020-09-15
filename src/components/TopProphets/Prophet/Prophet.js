@@ -5,13 +5,13 @@ import WB from "../../../lib/image/WarrenBuffett.jpg"
 
 function Prophet(props) {
    return (
-      <div className="Card">
+      <div className="ProphetCard">
          <img src={WB} alt="profile" />
          <h4 id="name">{props.data.name}</h4>
          <p id="description">{props.data.description}</p>
          <div className="NumberSection">
             <div className="Score">
-               <p className="number">
+               <p className="ScoreNumber">
                   <span>{props.data.score}</span>/10
                </p>
                <Rating
@@ -25,9 +25,7 @@ function Prophet(props) {
             </div>
             <hr />
             <div className="Predictions">
-               <p>
-                  <span>{props.data.num_predictions}</span>
-               </p>
+               <span>{props.data.num_predictions}</span>
                <p>Predictions</p>
             </div>
          </div>
