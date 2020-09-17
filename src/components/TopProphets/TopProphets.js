@@ -1,6 +1,6 @@
-import React, {useRef} from "react"
+import React, { useRef } from "react"
 import "./TopProphets.css"
-import Prophet from "./Prophet/Prophet"
+import ProphetCard from "./ProphetCard/ProphetCard"
 //Antd
 import { Carousel } from "antd"
 //Icons
@@ -8,19 +8,7 @@ import { GoChevronRight, GoChevronLeft } from "react-icons/go"
 //Button
 import Button from "@material-ui/core/Button"
 
-window.addEventListener("load", addID())
-
-function addID() {
-   let element = document.getElementsByClassName("TopProphets")
-   let element2 = document.getElementById("123")
-   console.log(element)
-   console.log(element2)
-   console.log(element[0])
-}
-
-
-
-//Antd
+//Antd Carousel Settings
 const settings = {
    arrows: false,
    dots: false,
@@ -57,6 +45,7 @@ const settings = {
          settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
+            speed: 700,
          },
       },
       {
@@ -64,16 +53,17 @@ const settings = {
          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            speed: 500,
          },
       },
    ],
 }
 
-
 function TopProphets(props) {
    const carouselRef = useRef()
-   function CarouselNext(){
-      carouselRef.current.next();
+
+   function CarouselNext() {
+      carouselRef.current.next()
    }
    function CarouselPrev() {
       carouselRef.current.prev()
@@ -84,23 +74,22 @@ function TopProphets(props) {
          <div className="TitleAndButtons">
             <h2>Top Prophets</h2>
             <div className="TitleButtons">
-               <Button variant="outlined">
-                  ALL
-               </Button>
                <Button onClick={CarouselPrev} variant="outlined">
                   <GoChevronLeft color="white" size="1.8em" />
                </Button>
                <Button onClick={CarouselNext} variant="outlined">
                   <GoChevronRight color="white" size="1.8em" />
                </Button>
+               <Button variant="outlined">ALL</Button>
             </div>
          </div>
+
          <div className="ProphetsList">
             <Carousel ref={carouselRef} {...settings}>
                {props.data.map((data) => {
                   return (
                      <div className="Card">
-                        <Prophet data={data} />
+                        <ProphetCard data={data} />
                      </div>
                   )
                })}

@@ -1,9 +1,9 @@
 import React from "react"
-import "./Prophet.css"
+import "./ProphetCard.css"
 import Rating from "@material-ui/lab/Rating"
 import WB from "../../../lib/image/WarrenBuffett.jpg"
 
-function Prophet(props) {
+function ProphetCard(props) {
    return (
       <div className="ProphetCard">
          <img src={WB} alt="profile" />
@@ -33,4 +33,4 @@ function Prophet(props) {
    )
 }
 
-export default Prophet
+export default ProphetCard

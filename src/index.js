@@ -4,6 +4,7 @@ import "./index.css"
 import Navbar from "./components/Navbar/Navbar"
 import Cover from "./components/Cover/Cover"
 import TopProphets from "./components/TopProphets/TopProphets"
+import TopPredictions from "./components/TopPredictions/TopPredictions"
 
 function App() {
    let mockData = {
@@ -24,6 +25,7 @@ function App() {
             <Navbar />
             <Cover />
             <TopProphets data={mockDataList} />
+            <TopPredictions />
       </div>
    )
 }

@@ -1,0 +1,25 @@
+.TopPredictions {
+   width: 85vw;
+   display: flex;
+   flex-wrap: wrap;
+   font-family: "Roboto Slab", serif;
+   margin: 6vh 0;
+}
+
+.PredictionCards {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.PredictionCards:after {
+   content: "";
+   flex: auto;
+}
+
+.PredictionCards:nth-child(3) {
+   margin: 10vh 10vw;
+   height: 20vh;
+   color: white;
+}
