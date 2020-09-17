@@ -1,6 +1,127 @@
 .PredictionCard {
-   width: 25vw;
-   height: 28vw;
+   width: 46%;
+   margin: 3vh 1.5vw;
+   margin-top: 5vh;
+   background-color: white;
+   border-radius: 1%;
+
+   box-shadow: 0px 0px 3px black;
+   filter: brightness(85%);
+   transition: box-shadow 0.5s ease-out, filter 0.5s;
+
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+}
+
+.PredictionCard:hover {
+   box-shadow: 0px 0px 10px black;
+   filter: brightness(100%);
+   transition: box-shadow 0.3s ease-in, filter 0.5s;
+}
+
+.PredictionCard img {
+   height: 100%;
+   width: 50%;
+   object-fit: cover;
+
+   border-top-left-radius: 1%;
+   border-bottom-left-radius: 1%;
+}
+
+.PredictionCard .TitleAndRatings {
+   width: 50%;
+   word-wrap: break-word;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.TitleAndRatings .Title {
+   width: 90%;
+   word-wrap: break-word;
+   margin-top: 5%;
+   margin-left: 5%;
+}
+
+.PredictionInfoContainer {
+   width: 100%;
+   height: 30%;
+   display: flex;
+   justify-content: center;
+   margin-top: 5%;
+   margin-bottom: 10%;
+}
+
+.PredictionInfo {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+}
+
+.PredictionInfo p {
+   margin: 0 0;
+}
+
+.PredictionScore {
+    margin-left: 5%;
+    margin-right: 10%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.PredictionScoreNumber {
+   color: #ffb400;
+   font-family: "Special Elite", cursive;
+   line-height: 1rem;
+}
+
+.PredictionScoreNumber span {
+   font-size: 2rem;
+}
+
+.PredictionInfo .ScoreNumber p {
+   margin: 0 0;
+   background-color: red;
+}
+
+.PredictionInfo hr {
+   height: 4rem;
+   width: 1px;
+   background-color: black;
+}
+
+.NumReviews {
+    margin-left: 10%;
+    margin-right: 5%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+.NumReviews .Number {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.NumReviews span {
+   color: #ffb400;
+   font-family: "Special Elite", cursive;
+   font-size: 3rem;
+   line-height: 2.8rem;
+}
+
+.NumReviews p {
+   margin: 0 0;
+}
+
+/* .PredictionCard {
+   width: 40%;
+   height: 50vh;
    min-width: 350px;
    min-height: 470px;
    margin: 0 1.66vw;
@@ -26,7 +147,7 @@
 }
 
 .PredictionCard img {
-   height: 65%;
+   height: 50%;
    width: 100%;
    object-fit: cover;
 
@@ -49,74 +170,69 @@
 }
 
 .PredictionInfoContainer {
-    width: 40%;
-    display: flex;
-    justify-content: space-around;
+   width: 40%;
+   display: flex;
+   justify-content: space-around;
 }
 
 .PredictionInfo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
 }
 
 .PredictionInfo p {
-    margin: 0 0;
+   margin: 0 0;
 }
 
 .NumReviews {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: flex-start;
-    line-height: 1.6rem;
-    margin-top: 20%;
-    margin-bottom: 5%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   align-content: flex-start;
+   line-height: 1.6rem;
+   margin-top: 20%;
+   margin-bottom: 5%;
 }
 
-.NumReviews span{
-    color: #ffb400;
-    font-family: 'Special Elite', cursive;
-    margin: 0 0;
-    font-size:2.5rem;
+.NumReviews span {
+   color: #ffb400;
+   font-family: "Special Elite", cursive;
+   margin: 0 0;
+   font-size: 2.5rem;
 }
 
-.NumReviews p{
-    margin: 0 0;
+.NumReviews p {
+   margin: 0 0;
 }
 
-.PredictionInfo hr{
-    height: 1px;
-    width: 65%;
-    background-color: black;
-    align-self: center;
+.PredictionInfo hr {
+   height: 1px;
+   width: 65%;
+   background-color: black;
+   align-self: center;
 }
 
 .PredictionScore {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15%;
-    margin-bottom: 10%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 15%;
+   margin-bottom: 10%;
 }
 
-.PredictionScoreNumber{
-    color: #ffb400;
-    font-family: 'Special Elite', cursive;
-    line-height: 1rem;
+.PredictionScoreNumber {
+   color: #ffb400;
+   font-family: "Special Elite", cursive;
+   line-height: 1rem;
 }
 
-/* Big Numbers */
 .PredictionScoreNumber span {
-    font-size:2rem;
+   font-size: 2rem;
 }
 
 .PredictionInfo .ScoreNumber p {
-    margin: 0 0;
-    background-color: red;
-}
-
-
-
-
+   margin: 0 0;
+   background-color: red;
+} */

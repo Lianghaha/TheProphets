@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import "./Navbar.css"
+import { Link } from "react-router-dom"
 
 function Navbar() {
    const [scroll, setScroll] = useState(false)
@@ -18,23 +19,23 @@ function Navbar() {
    return (
       <div className={scroll ? "Navbar active" : "Navbar"}>
          <ul className="NavLeft">
-            <li>
-               <a href="google.com">The Prohets</a>
-            </li>
-            <li>
-               <a href="google.com">Prohets</a>
-            </li>
-            <li>
-               <a href="google.com">Predictions</a>
-            </li>
+            <Link to="/">
+               <li>The Prohets</li>
+            </Link>
+            <Link to="/Prophets">
+               <li>Prohets</li>
+            </Link>
+            <Link to="">
+            <li>Predictions</li>
+            </Link>
          </ul>
          <ul className="NavRight">
-            <li>
-               <a href="google.com">Sign In</a>
-            </li>
-            <li>
-               <a href="google.com">Login</a>
-            </li>
+            <Link to="">
+            <li>Sign In</li>
+            </Link>
+            <Link to="">
+            <li>Login</li>
+            </Link>
          </ul>
       </div>
    )

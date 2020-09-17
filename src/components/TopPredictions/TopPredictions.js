@@ -11,7 +11,7 @@ function TopPredictions(props) {
          <div className="TitleAndButtons">
             <h2>Top Predictions</h2>
             <div className="TitleButtons">
-               <Button variant="outlined">ALL</Button>
+               <Button variant="outlined">SHOW ALL</Button>
             </div>
          </div>
          <div className="PredictionCards">

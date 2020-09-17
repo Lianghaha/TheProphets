@@ -44,18 +44,12 @@
    list-style: none;
    display: inline-block;
    display: flex;
-   align-items: center;
+   align-items: stretch;
    /* border: 3px solid green; */
 }
 
 .Navbar li {
    /* border: 3px solid red; */
-   height: 100%;
-}
-
-
-/*NavbarItem Hover Background无法占满整个Navbar的高 */
-.Navbar li a {
    height: 100%;
    display: flex;
    align-items: center;
@@ -63,10 +57,9 @@
    color: white;
    padding: 0 2vw;
    transition: 0.5s;
-   /* border: 3px solid yellow; */
 }
 
-.Navbar li a:hover {
+.Navbar li:hover {
    background-color: white;
    color: black;
 }

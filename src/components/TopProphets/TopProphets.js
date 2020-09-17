@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button"
 const settings = {
    arrows: false,
    dots: {className: "ProphetsDots"},
-   infinite: false,
+   infinite: true,
    speed: 600,
    slidesToShow: 6,
    slidesToScroll: 6,
@@ -20,35 +20,35 @@ const settings = {
    draggable: true,
    responsive: [
       {
-         breakpoint: 2200,
+         breakpoint: 2380,
          settings: {
             slidesToShow: 5,
             slidesToScroll: 5,
          },
       },
       {
-         breakpoint: 1750,
+         breakpoint: 1955,
          settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
          },
       },
       {
-         breakpoint: 1350,
+         breakpoint: 1550,
          settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
          },
       },
       {
-         breakpoint: 1000,
+         breakpoint: 1150,
          settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
          },
       },
       {
-         breakpoint: 700,
+         breakpoint: 750,
          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -78,7 +78,7 @@ function TopProphets(props) {
                <Button onClick={CarouselNext} variant="outlined">
                   <GoChevronRight color="white" size="1.8em" />
                </Button>
-               <Button variant="outlined">ALL</Button>
+               <Button variant="outlined">SHOW ALL</Button>
             </div>
          </div>
 

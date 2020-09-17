@@ -29,7 +29,7 @@ let mockProphetsData = [
    {
       image:
          "https://image.cnbcfm.com/api/v1/image/104225995-_95A5004.jpg?v=1540458420",
-      name: "Bill Gates",
+      name: "Jack Ma",
       score: 8.6,
       num_predictions: 66,
       description:

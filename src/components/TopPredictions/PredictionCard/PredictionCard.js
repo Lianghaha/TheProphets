@@ -9,17 +9,14 @@ function PredictionCard(props) {
          <img src={WB} alt="PredictionImg" />
          <div className="TitleAndRatings">
             <p className="Title">
-               one hundred fifty characters one hundred fifty characters one
-               hundred fifty characters one hundred fifty characters one hundred
-               fifty characters one h
+               three hundred characters three hundred characters three hundred
+               characters three hundred characters three hundred characters
+               three hundred characters three hundred characters three hundred
+               characters three hundred characters three hundred characters
+               three hundred characters three hundred characters
             </p>
             <div className="PredictionInfoContainer">
                <div className="PredictionInfo">
-                  <div className="NumReviews">
-                     <span>3</span>
-                     <p>Reviews</p>
-                  </div>
-                  <hr />
                   <div className="PredictionScore">
                      <p className="PredictionScoreNumber">
                         <span>8.0</span>/10
@@ -32,6 +29,13 @@ function PredictionCard(props) {
                         readOnly
                      />
                      <p>Prediction Score</p>
+                  </div>
+                  <hr />
+                  <div className="NumReviews">
+                     <div className="Number">
+                        <span>3</span>
+                     </div>
+                     <p>Reviews</p>
                   </div>
                </div>
             </div>
