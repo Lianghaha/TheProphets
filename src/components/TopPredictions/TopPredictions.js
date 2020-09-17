@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button"
 
 function TopPredictions(props) {
    
-
    return (
       <div className="TopPredictions">
          <div className="TitleAndButtons">
@@ -22,8 +21,9 @@ function TopPredictions(props) {
             <PredictionCard />
             <PredictionCard />
             <PredictionCard />
-            <PredictionCard />
-            <PredictionCard />
+         </div>
+         <div className="TitleButtons">
+            <Button variant="outlined">SHOW MORE</Button>
          </div>
       </div>
    )

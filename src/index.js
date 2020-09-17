@@ -5,27 +5,23 @@ import Navbar from "./components/Navbar/Navbar"
 import Cover from "./components/Cover/Cover"
 import TopProphets from "./components/TopProphets/TopProphets"
 import TopPredictions from "./components/TopPredictions/TopPredictions"
+import mockData from "./lib/mockData"
 
 function App() {
-   let mockData = {
-      image:
-         "https://smallcaps.com.au/wp-content/uploads/2020/05/Warren-Buffett-teaching-valuable-lessons-COVID-19-airline-stocks-sell-business-investment.jpg",
-      name: "Warren Buffett",
-      score: 9.3,
-      num_predictions: 3,
-      description:
-         "American investor, business tycoon, philanthropist, the world's seventh-wealthiest person.",
-   }
 
    let mockDataList = []
-   for (let i = 0; i < 20; i++) mockDataList.push(mockData)
+   for (let i = 0; i < 3; i++) {
+      mockDataList.push(mockData[0])
+      mockDataList.push(mockData[1])
+      mockDataList.push(mockData[2])
+   }
 
    return (
       <div className="App">
-            <Navbar />
-            <Cover />
-            <TopProphets data={mockDataList} />
-            <TopPredictions />
+         <Navbar />
+         <Cover />
+         <TopProphets data={mockDataList} />
+         <TopPredictions />
       </div>
    )
 }

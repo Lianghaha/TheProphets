@@ -9,7 +9,8 @@
 
 .TitleAndButtons {
    width: 100%;
-   margin: 2vh 1.5vw;
+   margin: 0 1.5vw;
+   margin-top: 10vh;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -47,5 +48,6 @@
 
 .ProphetsList {
    width: 100%;
+   margin-top: 2vh;
    /* background-color: blue; */
 }

@@ -1,12 +1,11 @@
 import React from "react"
 import "./ProphetCard.css"
 import Rating from "@material-ui/lab/Rating"
-import WB from "../../../lib/image/WarrenBuffett.jpg"
 
 function ProphetCard(props) {
    return (
       <div className="ProphetCard">
-         <img src={WB} alt="profile" />
+         <img src={props.data.image} alt="profile" />
          <h4 id="name">{props.data.name}</h4>
          <p id="description">{props.data.description}</p>
          <div className="NumberSection">
@@ -16,7 +15,7 @@ function ProphetCard(props) {
                </p>
                <Rating
                   name="half-rating-read"
-                  defaultValue={4.5}
+                  defaultValue={props.data.score/2}
                   precision={0.1}
                   size="small"
                   readOnly

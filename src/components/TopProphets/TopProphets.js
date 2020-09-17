@@ -11,8 +11,8 @@ import Button from "@material-ui/core/Button"
 //Antd Carousel Settings
 const settings = {
    arrows: false,
-   dots: false,
-   infinite: true,
+   dots: {className: "ProphetsDots"},
+   infinite: false,
    speed: 1200,
    slidesToShow: 6,
    slidesToScroll: 6,

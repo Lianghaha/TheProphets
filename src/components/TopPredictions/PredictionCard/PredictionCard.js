@@ -9,7 +9,9 @@ function PredictionCard(props) {
          <img src={WB} alt="PredictionImg" />
          <div className="TitleAndRatings">
             <p className="Title">
-               asdasdasdalsdjlaksjdklajsldkajslkdjalksjdlkajsdklajskldajskldjaskldaklsjdklasjdklasjdlkajskldjaskldjaklsjd
+               one hundred fifty characters one hundred fifty characters one
+               hundred fifty characters one hundred fifty characters one hundred
+               fifty characters one h
             </p>
             <div className="PredictionInfoContainer">
                <div className="PredictionInfo">
