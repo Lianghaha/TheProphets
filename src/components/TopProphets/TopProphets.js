@@ -13,7 +13,7 @@ const settings = {
    arrows: false,
    dots: {className: "ProphetsDots"},
    infinite: false,
-   speed: 1200,
+   speed: 600,
    slidesToShow: 6,
    slidesToScroll: 6,
    initialSlide: 0,
@@ -45,7 +45,6 @@ const settings = {
          settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            speed: 700,
          },
       },
       {
@@ -53,7 +52,6 @@ const settings = {
          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            speed: 500,
          },
       },
    ],

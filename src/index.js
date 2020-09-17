@@ -5,15 +5,16 @@ import Navbar from "./components/Navbar/Navbar"
 import Cover from "./components/Cover/Cover"
 import TopProphets from "./components/TopProphets/TopProphets"
 import TopPredictions from "./components/TopPredictions/TopPredictions"
-import mockData from "./lib/mockData"
+import mockProphetsData from "./lib/mockData"
 
 function App() {
 
    let mockDataList = []
    for (let i = 0; i < 3; i++) {
-      mockDataList.push(mockData[0])
-      mockDataList.push(mockData[1])
-      mockDataList.push(mockData[2])
+      mockDataList.push(mockProphetsData[0])
+      mockDataList.push(mockProphetsData[1])
+      mockDataList.push(mockProphetsData[2])
+      mockDataList.push(mockProphetsData[3])
    }
 
    return (

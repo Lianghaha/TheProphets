@@ -1,4 +1,13 @@
-let mockData = [
+let mockProphetsData = [
+   {
+      image:
+         "https://img.ltn.com.tw/Upload/partner/page/2019/08/23/190823-4626-01-geReG.jpg",
+      name: "Corgi",
+      score: 9.9,
+      num_predictions: 99,
+      description:
+         "one hundred fifty characters one hundred fifty characters one hundred fifty characters one hundred fifty characters one hundred fifty characters one h",
+   },
    {
       image:
          "https://smallcaps.com.au/wp-content/uploads/2020/05/Warren-Buffett-teaching-valuable-lessons-COVID-19-airline-stocks-sell-business-investment.jpg",
@@ -28,4 +37,4 @@ let mockData = [
    },
 ]
 
-export default mockData
+export default mockProphetsData
