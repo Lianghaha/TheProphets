@@ -17,8 +17,7 @@ function TopPredictions(props) {
    const createData = () => {
       let predictionData = []
       for (let i = 0; i < 1; i++) {
-         predictionData.push(mockPredictionsData[0])
-         predictionData.push(mockPredictionsData[1])
+         predictionData = predictionData.concat(mockPredictionsData)
          console.log("In for loop")
       }
       console.log("predictionData")
@@ -27,10 +26,7 @@ function TopPredictions(props) {
    }
    
    const showMore = () => {
-      let temp = mockPredictionList.concat([
-         mockPredictionsData[0],
-         mockPredictionsData[1],
-      ])
+      let temp = mockPredictionList.concat(mockPredictionsData)
       setMockPredictionList(temp)
    }
 
@@ -44,8 +40,8 @@ function TopPredictions(props) {
             </div>
          </div>
          <div className="PredictionCards">
-            {mockPredictionList.map((data) => {
-               return <PredictionCard key={data.predictionId} data={data} />
+            {mockPredictionList.map((data, index) => {
+               return <PredictionCard key={index} data={data} />
             })}
          </div>
          <div className="TitleButtons">

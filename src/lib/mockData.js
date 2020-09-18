@@ -54,7 +54,7 @@ const mockPredictionsData = [
       num_reviews: 66,
       anncounced_date: "2007",
       result_reveal_date: "2017-12-30",
-      status: "result revealed",
+      status: "Result Revealed",
    },
    {
       predictionId: 2,
@@ -68,7 +68,21 @@ const mockPredictionsData = [
       num_reviews: 888,
       anncounced_date: "2015-03-19",
       result_reveal_date: "2020-01-24",
-      status: "result revealed",
+      status: "Result Revealed",
+   },
+   {
+      predictionId: 3,
+      prophetId: 4,
+      image: "https://images.indianexpress.com/2018/09/jack-ma.jpg",
+      title:
+         "Jack Ma, once proponent of 12-hour workdays, now foresees 12-hour workweeks",
+      description:
+         "In the next 20 to 30 years, human beings will live much longer. Life science technology is going to make people live probably 100 or 120 years,” he said. The world wouldn’t need a lot of jobs.",
+      score: "-",
+      num_reviews: 0,
+      anncounced_date: "2019-08-29",
+      result_reveal_date: "2039-08-29",
+      status: "Ongoing",
    },
 ]
 

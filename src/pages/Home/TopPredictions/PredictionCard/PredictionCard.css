@@ -52,6 +52,14 @@
    margin-right: 0;
 }
 
+.TextAndRatings .Status {
+   width: 90%;
+   word-wrap: break-word;
+   margin-bottom: 0;
+   font-size: 0.5rem;
+   color: #ffb400;
+}
+
 .TextAndRatings .Title {
    width: 90%;
    word-wrap: break-word;
