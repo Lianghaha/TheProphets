@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import "./TopProphets.css"
 import ProphetCard from "./ProphetCard/ProphetCard"
 //Antd
@@ -7,6 +7,7 @@ import { Carousel } from "antd"
 import { GoChevronRight, GoChevronLeft } from "react-icons/go"
 //Button
 import Button from "@material-ui/core/Button"
+import { mockProphetsData } from "../../../lib/mockData"
 
 //Antd Carousel Settings
 const settings = {
@@ -67,6 +68,26 @@ function TopProphets(props) {
       carouselRef.current.prev()
    }
 
+   const [mockProphetList, setMockProphetList] = useState([])
+
+   useEffect(() => {
+      createData()
+   }, [])
+
+   const createData = () => {
+      let prophetData = []
+      for (let i = 0; i < 3; i++) {
+         prophetData.push(mockProphetsData[0])
+         prophetData.push(mockProphetsData[1])
+         prophetData.push(mockProphetsData[2])
+         prophetData.push(mockProphetsData[3])
+         console.log("In for loop")
+      }
+      console.log("prophetData")
+      console.log(prophetData)
+      setMockProphetList(prophetData)
+   }
+
    return (
       <div className="TopProphets">
          <div className="TitleAndButtons">
@@ -84,7 +105,7 @@ function TopProphets(props) {
 
          <div className="ProphetsList">
             <Carousel ref={carouselRef} {...settings}>
-               {props.data.map((data) => {
+               {mockProphetList.map((data) => {
                   return (
                      <div key={data.prophetId} className="Card">
                         <ProphetCard data={data} />

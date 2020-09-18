@@ -4,8 +4,9 @@
 } */
 .PredictionCard {
    width: 46%;
-   margin: 3vh 1.5vw;
-   margin-top: 5vh;
+   margin: 0vh 1.5vw;
+   margin-bottom: 5vh;
+   margin-top: 3vh;
    background-color: white;
    border-radius: 1%;
 
