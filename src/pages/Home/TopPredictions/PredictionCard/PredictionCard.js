@@ -1,7 +1,7 @@
 import React from "react"
 import "./PredictionCard.css"
 import Rating from "@material-ui/lab/Rating"
-import WB from "../../../lib/image/WarrenBuffett.jpg"
+import WB from "../../../../media/image/WarrenBuffett.jpg"
 
 function PredictionCard(props) {
    return (

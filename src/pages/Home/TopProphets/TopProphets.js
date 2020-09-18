@@ -86,7 +86,7 @@ function TopProphets(props) {
             <Carousel ref={carouselRef} {...settings}>
                {props.data.map((data) => {
                   return (
-                     <div className="Card">
+                     <div key={data.name} className="Card">
                         <ProphetCard data={data} />
                      </div>
                   )

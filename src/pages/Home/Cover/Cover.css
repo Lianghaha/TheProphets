@@ -9,7 +9,7 @@
    justify-content: space-around;
 
    background: linear-gradient(rgba(0, 0, 0, 0), #252525),
-      url("../../lib/image/WarrenBuffett.jpg");
+      url("../../../media/image/WarrenBuffett.jpg");
    background-repeat: no-repeat;
    background-size: cover;
    background-position: center center;

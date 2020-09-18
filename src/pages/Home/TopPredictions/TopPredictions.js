@@ -15,12 +15,12 @@ function TopPredictions(props) {
             </div>
          </div>
          <div className="PredictionCards">
-            <PredictionCard />
-            <PredictionCard />
-            <PredictionCard />
-            <PredictionCard />
-            <PredictionCard />
-            <PredictionCard />
+            <PredictionCard key={"a"}/>
+            <PredictionCard key={"b"}/>
+            <PredictionCard key={"c"}/>
+            <PredictionCard key={"d"}/>
+            <PredictionCard key={"e"}/>
+            <PredictionCard key={"f"}/>
          </div>
          <div className="TitleButtons">
             <Button variant="outlined">SHOW MORE</Button>

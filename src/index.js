@@ -2,12 +2,10 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Navbar from "./components/Navbar/Navbar"
+import Navbar from "./lib/components/Navbar/Navbar"
+import { Home } from "./pages/Home/Home"
 
-import Cover from "./components/Cover/Cover"
-import TopProphets from "./components/TopProphets/TopProphets"
-import TopPredictions from "./components/TopPredictions/TopPredictions"
-import mockProphetsData from "./lib/mockData"
+
 
 function App() {
    return (
@@ -15,8 +13,8 @@ function App() {
          <div className="App">
             <Navbar />
             <Switch>
-               <Route path="/" exact component={Home} />
                <Route path="/Prophets" exact component={Prophets} />
+               <Route path="/" component={Home} />
             </Switch>
          </div>
       </Router>
@@ -29,21 +27,6 @@ const Prophets = () => {
    )
 }
 
-const Home = () => {
-   let mockDataList = []
-   for (let i = 0; i < 3; i++) {
-      mockDataList.push(mockProphetsData[0])
-      mockDataList.push(mockProphetsData[1])
-      mockDataList.push(mockProphetsData[2])
-      mockDataList.push(mockProphetsData[3])
-   }
-   return (
-      <div className="Home">
-         <Cover />
-         <TopProphets data={mockDataList} />
-         <TopPredictions />
-      </div>
-   )
-}
+
 
 ReactDOM.render(<App />, document.getElementById("root"))
