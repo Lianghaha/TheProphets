@@ -31,12 +31,8 @@
    width: 100%;
    background-color: #252525;
    font-family: "Playfair Display", serif;
-}
-
-.Home {
-   width: 100%;
    display: flex;
    flex-wrap: wrap;
-   justify-content: center;
-   align-content: flex-start;
 }
+
+

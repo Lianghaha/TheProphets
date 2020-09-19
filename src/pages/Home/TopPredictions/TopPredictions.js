@@ -18,10 +18,7 @@ function TopPredictions(props) {
       let predictionData = []
       for (let i = 0; i < 1; i++) {
          predictionData = predictionData.concat(mockPredictionsData)
-         console.log("In for loop")
       }
-      console.log("predictionData")
-      console.log(predictionData)
       setMockPredictionList(predictionData)
    }
    

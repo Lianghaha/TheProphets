@@ -77,12 +77,8 @@ function TopProphets(props) {
    const createData = () => {
       let prophetData = []
       for (let i = 0; i < 3; i++) {
-         console.log(mockProphetsData);
          prophetData = prophetData.concat(mockProphetsData)
-         console.log("In for loop")
       }
-      console.log("prophetData")
-      console.log(prophetData)
       setMockProphetList(prophetData)
    }
 

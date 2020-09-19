@@ -1,0 +1,59 @@
+.Search {
+   border: 3px solid green;
+   background-color: pink;
+   height: 200vh;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.Search .ResultsAndTools {
+   border: 3px solid purple;
+   margin-top: 8vh;
+   height: 100%;
+   width: 60%;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.ResultsAndTools .Results {
+   border: 3px solid orange;
+   width: 70%;
+}
+
+.Results .SearchText {
+   background-color: white;
+   border: 3px solid green;
+   height: 10vh;
+   display: flex;
+   align-items: stretch;
+   border-top-left-radius: 10px;
+}
+
+.SearchText .Icon {
+   width: 10%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0 3%;
+   border: 3px solid purple;
+   transition: transform 0.2s;
+}
+
+.SearchText .Icon:hover {
+   transform: scale(1.2);
+}
+
+.SearchText p {
+   border: 3px solid orange;
+   margin: 0 0;
+   display: flex;
+   align-items: center;
+   font-size: 2rem;
+}
+
+.Search .Tools {
+   border: 3px solid blue;
+   width: 28%;
+   margin-left: 2%;
+}

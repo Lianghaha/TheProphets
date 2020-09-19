@@ -30,11 +30,11 @@
    margin-bottom: 1.5vh;
 }
 
-.Icon {
+.Cover .Icon {
    margin-bottom: 10vh;
    transition: transform 0.2s;
 }
 
-.Icon:hover {
+.Cover .Icon:hover {
    transform: scale(1.2);
 }
