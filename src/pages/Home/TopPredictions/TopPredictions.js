@@ -4,6 +4,8 @@ import PredictionCard from "../../../lib/components/PredictionCard/PredictionCar
 //Button
 import Button from "@material-ui/core/Button"
 import { mockPredictionsData } from "../../../lib/mockData"
+import { Link } from "react-router-dom"
+
 
 function TopPredictions(props) {
 
@@ -33,7 +35,9 @@ function TopPredictions(props) {
          <div className="TitleAndButtons">
             <h2>Top Predictions</h2>
             <div className="TitleButtons">
-               <Button variant="outlined">SHOW ALL</Button>
+               <Link to="/Predictions">
+                  <Button variant="outlined">SHOW ALL</Button>
+               </Link>
             </div>
          </div>
          <div className="PredictionsList">
@@ -42,7 +46,9 @@ function TopPredictions(props) {
             })}
          </div>
          <div className="TitleButtons">
-            <Button onClick={showMore} variant="outlined">SHOW MORE</Button>
+            <Button onClick={showMore} variant="outlined">
+               SHOW MORE
+            </Button>
          </div>
       </div>
    )

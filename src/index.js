@@ -19,6 +19,13 @@ function App() {
                      <Search showProphets={true} showPredictions={false} />
                   )}
                />
+               <Route
+                  path="/Predictions"
+                  exact
+                  render={() => (
+                     <Search showProphets={false} showPredictions={true} />
+                  )}
+               />
                <Route path="/" component={Home} />
             </Switch>
          </div>

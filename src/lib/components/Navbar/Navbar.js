@@ -25,7 +25,7 @@ function Navbar() {
             <Link to="/Prophets">
                <li>Prohets</li>
             </Link>
-            <Link to="">
+            <Link to="/Predictions">
             <li>Predictions</li>
             </Link>
          </ul>

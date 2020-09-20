@@ -8,6 +8,8 @@ import { GoChevronRight, GoChevronLeft } from "react-icons/go"
 //Button
 import Button from "@material-ui/core/Button"
 import { mockProphetsData } from "../../../lib/mockData"
+import { Link } from "react-router-dom"
+
 
 //Antd Carousel Settings
 const settings = {
@@ -21,35 +23,35 @@ const settings = {
    draggable: true,
    responsive: [
       {
-         breakpoint: 2380,
+         breakpoint: 2160,
          settings: {
             slidesToShow: 5,
             slidesToScroll: 5,
          },
       },
       {
-         breakpoint: 1955,
+         breakpoint: 1800,
          settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
          },
       },
       {
-         breakpoint: 1550,
+         breakpoint: 1430,
          settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
          },
       },
       {
-         breakpoint: 1150,
+         breakpoint: 1100,
          settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
          },
       },
       {
-         breakpoint: 750,
+         breakpoint: 715,
          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -93,7 +95,9 @@ function TopProphets(props) {
                <Button onClick={CarouselNext} variant="outlined">
                   <GoChevronRight color="white" size="1.8em" />
                </Button>
-               <Button variant="outlined">SHOW ALL</Button>
+               <Link to="/Prophets">
+                  <Button variant="outlined">SHOW ALL</Button>
+               </Link>
             </div>
          </div>
 

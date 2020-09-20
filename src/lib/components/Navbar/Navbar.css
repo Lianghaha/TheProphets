@@ -2,7 +2,7 @@
    width: 100%;
    height: 6vh;
    background: transparent;
-   transition:  background .3s;
+   transition:  background .3s ease-out;
    z-index: 1000;
 
    display: flex;
@@ -28,7 +28,7 @@
 
 .NavbarActive{
    background: #303030c5;
-   transition:  background .3s;
+   transition:  background .3s ease-in;
 }
 
 .NavLeft {
@@ -56,10 +56,11 @@
    text-decoration: none;
    color: white;
    padding: 0 2vw;
-   transition: 0.5s;
+   transition: background-color .5s ease-out, color .5s ease-out;
 }
 
 .Navbar li:hover {
    background-color: white;
    color: black;
+   transition: background-color .5s ease-in, color .5s ease-in;
 }

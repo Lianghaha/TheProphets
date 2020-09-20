@@ -1,16 +1,16 @@
 .Search {
    --border-radius: 8px;
    background-color: var(--main-color);
-   height: 200vh;
+   height: 260vh;
    width: 100%;
    display: flex;
    justify-content: center;
+   color: white;
 }
 
 .Search .ResultsAndTools {
    /* border: 3px solid green; */
    margin-top: 8vh;
-   height: 100%;
    width: 70%;
    display: flex;
    flex-wrap: wrap;
@@ -20,16 +20,24 @@
    background-color: #353535;
    /* border: 3px solid orange; */
    width: 75%;
+   min-width: 300px;
+   box-shadow: 0px 0px 2px black;
+   transition: box-shadow 0.5s ease-out, background-color 0.5s ease-out;
    border-top-left-radius: var(--border-radius);
    border-top-right-radius: var(--border-radius);
-   color: white;
+}
 
+.ResultsAndTools .Results:hover {
+   box-shadow: 0px 0px 6px black;
+   background-color: #404040;
+   transition: box-shadow 0.5s ease-in, background-color 0.5s ease-in;
 }
 
 .Results .SearchText {
    height: 12vh;
    display: flex;
    align-items: stretch;
+   margin-right: 2%;
 }
 
 .SearchText .Icon {
@@ -53,24 +61,37 @@
 }
 
 .Results .SearchButtonContainer {
+   width: 100%;
    display: flex;
    /* border: 3px solid red; */
    height: 5vh;
+   justify-content: center;
 }
 
-.SearchButtonContainer .SearchButton{
+.SearchButtonContainer .SearchButton {
    /* border: 3px solid blue; */
-   width: 50%;
+   width: 46%;
    display: flex;
    justify-content: center;
-   transition: background-color 1s ease, border-color 2s ease;
+   transition: background-color .5s ease-out, border-color 1s ease-out;
    border: 3px solid grey;
 }
+
+.SearchButtonContainer .SearchButton:first-child {
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+}
+
+.SearchButtonContainer .SearchButton:last-child {
+      border-top-right-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+}
+
 
 .SearchButtonContainer .SearchButton:hover {
    background-color: darkgray;
    border-color: darkgray;
-   transition: background-color 1s ease, border-color 2s ease;
+   transition: background-color .5s ease-in, border-color 1s ease-in;
 }
 
 .SearchButtonActive {
@@ -111,8 +132,62 @@
   left: 0; 
 } */
 
+.SearchProphetCards {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+   justify-content: center;
+   grid-row-gap: 5%;
+   margin-top: 5%;
+}
+
+/* .SearchProphetCards::after {
+   width: 280px;
+   margin: 3vh 1.2vw;
+   content: "";
+} */
+
+.SearchProphetCards .ProphetCard {
+   justify-self: center;
+   /* min-width: 280px;
+   max-width: 280px; */
+   color: black;
+}
+
 .Search .Tools {
-   border: 3px solid blue;
    width: 23%;
    margin-left: 2%;
+}
+
+.Tools .Sort {
+   width: 100%;
+   height: 260px;
+   background-color: #353535;
+   border-radius: var(--border-radius);
+}
+
+.Tools .Filter {
+   margin-top: 3vh;
+   width: 100%;
+   height: 300px;
+   background-color: #353535;
+   border-radius: var(--border-radius);
+}
+
+.Tools .Title {
+   font-size: 1.2rem;
+   width: 100%;
+   margin: 0 0;
+   padding: 6% 10%;
+}
+
+.BoxShadow {
+   box-shadow: 0px 0px 2px black;
+   filter: brightness(90%);
+   transition: box-shadow .5s ease-out, filter .5s ease-out;
+}
+
+.BoxShadow:hover {
+   box-shadow: 0px 0px 6px black;
+   filter: brightness(110%);
+   transition: box-shadow .5s ease-in, filter .5s ease-in;
 }
