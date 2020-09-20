@@ -7,7 +7,7 @@ function PredictionCard(props) {
    return (
       <div className="PredictionCard">
          <img src={props.data.image} alt="PredictionImg" />
-         <div className="TextAndRatings">
+         <div className="NotImg">
             <div className="Text">
                <p className="Status">Status: {props.data.status}</p>
                <p className="Title">{props.data.title}</p>

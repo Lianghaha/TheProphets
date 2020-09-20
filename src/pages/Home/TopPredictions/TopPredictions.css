@@ -7,7 +7,7 @@
    margin: 5vh 0;
 }
 
-.PredictionCards {
+.PredictionsList {
    width: 100%;
    display: flex;
    flex-wrap: wrap;

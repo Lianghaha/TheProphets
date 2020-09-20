@@ -1,17 +1,11 @@
-.Card {
-   background-color: #252525;
-   height: 50vh;
-   min-height: 555px;
-
-}
-
 .ProphetCard {
+   --border-radius: 3px;
    height: 45vh;
    margin: 1vh 1.5vw;
-   background-color: white;
+   background-color: var(--main-color);
    min-width: 300px;
    min-height: 450px;
-   border-radius: 3px;
+   border-radius: var(--border-radius);
 
    box-shadow: 0px 0px 3px black;
    filter: brightness(90%);
@@ -20,6 +14,11 @@
    display: flex;
    flex-wrap: wrap;
 }
+
+.ProphetCard p{
+   margin: 0 0;
+}
+
 
 .ProphetCard:hover {
    box-shadow: 0px 0px 10px black;
@@ -31,31 +30,49 @@
    width: 100%;
    height: 45%;
    object-fit: cover;
-   border-top-left-radius: 3px;
-   border-top-right-radius: 3px;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
 }
 
-.ProphetCard #name {
+.ProphetCard .NotImg {
+   height: 55%;
+   border: 3px soild red;
+   background-color: white;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: space-between;
+   padding-top: 3%;
+
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.NotImg .TextSection {
    width: 100%;
-   margin: 1vh 0;
+}
+
+
+.ProphetCard #name {
    text-align: center;
 }
 
 .ProphetCard #description {
    text-align: start;
-   margin: 0 6%;
+   word-wrap: break-word;
+   margin: 0 5%;
 }
 
 .ProphetCard .NumberSection {
    text-align: center;
-   width: 100%;
-   margin: 0 0.8vw;
-   margin-top: 5%;
-   align-self: flex-end;
+   width: 94%;
+   margin: 0 3%;
+   margin-top: 2%;
+   margin-bottom: 7%;
+
    display: flex;
    justify-content: space-around;
    align-items: flex-end;
-   height: 20%;
 }
 
 .NumberSection .Score {
@@ -71,7 +88,7 @@
    line-height: 0.8rem;
 }
 
-/* Big Numbers */
+/* Prophet Score Big number */
 .ScoreNumber span {
    font-size: 2rem;
 }
@@ -80,7 +97,7 @@
    background-color: rgb(53, 53, 53);
    width: 2px;
    align-self: center;
-   height: 60%;
+   height: 80%;
 }
 
 .NumberSection .Predictions {
@@ -89,6 +106,7 @@
    justify-content: space-between;
 }
 
+/* Predictions Big number */
 .Predictions span {
    color: #ffb400;
    font-family: "Special Elite", cursive;

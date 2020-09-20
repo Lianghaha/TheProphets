@@ -26,7 +26,7 @@
    }
 }
 
-.active{
+.NavbarActive{
    background: #303030c5;
    transition:  background .3s;
 }

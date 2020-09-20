@@ -6,9 +6,8 @@
    display: flex;
    align-items: center;
    flex-direction: column;
-   justify-content: space-around;
 
-   background: linear-gradient(rgba(0, 0, 0, 0), #252525),
+   background: linear-gradient(rgba(0, 0, 0, 0), var(--main-color)),
       url("../../../media/image/WarrenBuffett.jpg");
    background-repeat: no-repeat;
    background-size: cover;
@@ -17,9 +16,8 @@
 
 .CoverText {
    color: #fff;
-   width: 30vw;
+   width: 30%;
    min-width: 300px;
-   height: 30vh;
    margin-top: 62vh;
    text-align: center;
    word-wrap: break-word;
@@ -32,6 +30,7 @@
 
 .Cover .Icon {
    margin-bottom: 10vh;
+   margin-top: 5vh;
    transition: transform 0.2s;
 }
 

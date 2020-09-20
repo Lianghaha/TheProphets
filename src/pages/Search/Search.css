@@ -1,6 +1,6 @@
 .Search {
-   border: 3px solid green;
-   background-color: pink;
+   --border-radius: 8px;
+   background-color: var(--main-color);
    height: 200vh;
    width: 100%;
    display: flex;
@@ -8,26 +8,28 @@
 }
 
 .Search .ResultsAndTools {
-   border: 3px solid purple;
+   /* border: 3px solid green; */
    margin-top: 8vh;
    height: 100%;
-   width: 60%;
+   width: 70%;
    display: flex;
    flex-wrap: wrap;
 }
 
 .ResultsAndTools .Results {
-   border: 3px solid orange;
-   width: 70%;
+   background-color: #353535;
+   /* border: 3px solid orange; */
+   width: 75%;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+   color: white;
+
 }
 
 .Results .SearchText {
-   background-color: white;
-   border: 3px solid green;
-   height: 10vh;
+   height: 12vh;
    display: flex;
    align-items: stretch;
-   border-top-left-radius: 10px;
 }
 
 .SearchText .Icon {
@@ -36,7 +38,6 @@
    justify-content: center;
    align-items: center;
    margin: 0 3%;
-   border: 3px solid purple;
    transition: transform 0.2s;
 }
 
@@ -45,15 +46,73 @@
 }
 
 .SearchText p {
-   border: 3px solid orange;
    margin: 0 0;
    display: flex;
    align-items: center;
    font-size: 2rem;
 }
 
+.Results .SearchButtonContainer {
+   display: flex;
+   /* border: 3px solid red; */
+   height: 5vh;
+}
+
+.SearchButtonContainer .SearchButton{
+   /* border: 3px solid blue; */
+   width: 50%;
+   display: flex;
+   justify-content: center;
+   transition: background-color 1s ease, border-color 2s ease;
+   border: 3px solid grey;
+}
+
+.SearchButtonContainer .SearchButton:hover {
+   background-color: darkgray;
+   border-color: darkgray;
+   transition: background-color 1s ease, border-color 2s ease;
+}
+
+.SearchButtonActive {
+   background-color: grey;
+   /* border-bottom: 3px solid white;
+   transition: border-bottom .3s; */
+}
+
+.SearchButton .MuiButtonBase-root {
+   height: 100%;
+   width: 100%;
+   border-radius: 0;
+}
+
+.SearchButton .MuiButtonBase-root:hover {
+   background-color: transparent !important;
+}
+
+.SearchButton .MuiButton-label {
+   font-family: "Playfair Display", serif;
+   text-transform: none;
+}
+
+/* .SearchButton .MuiButton-root:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  background: black;
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+}
+.SearchButton .MuiButton-root:hover:after { 
+  width: 100%; 
+  left: 0; 
+} */
+
 .Search .Tools {
    border: 3px solid blue;
-   width: 28%;
+   width: 23%;
    margin-left: 2%;
 }

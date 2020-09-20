@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import "./TopPredictions.css"
-import PredictionCard from "./PredictionCard/PredictionCard"
+import PredictionCard from "../../../lib/components/PredictionCard/PredictionCard"
 //Button
 import Button from "@material-ui/core/Button"
 import { mockPredictionsData } from "../../../lib/mockData"
@@ -36,7 +36,7 @@ function TopPredictions(props) {
                <Button variant="outlined">SHOW ALL</Button>
             </div>
          </div>
-         <div className="PredictionCards">
+         <div className="PredictionsList">
             {mockPredictionList.map((data, index) => {
                return <PredictionCard key={index} data={data} />
             })}

@@ -17,7 +17,7 @@ function Navbar() {
    window.addEventListener("scroll", changeBackground)
 
    return (
-      <div className={scroll ? "Navbar active" : "Navbar"}>
+      <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
          <ul className="NavLeft">
             <Link to="/">
                <li>The Prohets</li>

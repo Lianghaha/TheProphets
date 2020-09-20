@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react"
 import "./TopProphets.css"
-import ProphetCard from "./ProphetCard/ProphetCard"
+import ProphetCard from "../../../lib/components/ProphetCard/ProphetCard"
 //Antd
 import { Carousel } from "antd"
 //Icons
@@ -101,7 +101,7 @@ function TopProphets(props) {
             <Carousel ref={carouselRef} {...settings}>
                {mockProphetList.map((data) => {
                   return (
-                     <div key={data.prophetId} className="Card">
+                     <div key={data.prophetId} className="ProphetCardContainer">
                         <ProphetCard data={data} />
                      </div>
                   )

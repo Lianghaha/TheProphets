@@ -9,7 +9,7 @@ function Cover() {
          <div className="CoverText">
             <h1>Find The Prohets</h1>
             <p>
-               asdasdajsldkajskldjaskldjaklsjdlaksjdaklsjdlaksjdklajsdlkajsdklajsdklajsdklajskldajsldkjaskldjalskdjalksdjalksjdlaksjdlaksjdklajsdlslkjalksjdklasjdklajsdklajsdklajsdlkajskldajskldjaklsjdaklsjdlkajsdlkajsdlkajskladadadadaddddeoirunckamsndckmnaskdhfjklasdhjfklasdlaksjdklajsdlslkjalksjdklasjdklajsdklajsdklajsdlkajskldajskldjaklsjdaklsjdlkajsdlkajsdlkajskladadadadaddddeoirunckamsndckmnaskdhfjklasdhjfklaslaksjdklajsdlslkj
+               asdasdajsldkajskldjaskldjaklsjdlaksjdaklsjdlaksjdklajsdlkajsdklajsdklajsdklajskldajsldkjaskldjalskdjalksdjalksjdlaksjdlaksjdklajsdlslkjalksjdklasjdklajsdklajsdklajsdlkajskldajskldjaklsjdaklsjdlkajsdlkajsdlkajskladadadadaddddeoirunckamsndckmnaskdhfjklasdhjfklasdlaksjdklaj
             </p>
          </div>
          <div className="Icon">

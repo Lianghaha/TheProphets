@@ -6,8 +6,6 @@ import Navbar from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"
 import { Search } from "./pages/Search/Search"
 
-
-
 function App() {
    return (
       <Router>
@@ -17,7 +15,9 @@ function App() {
                <Route
                   path="/Prophets"
                   exact
-                  render={() => <Search showProphets={true} />}
+                  render={() => (
+                     <Search showProphets={true} showPredictions={false} />
+                  )}
                />
                <Route path="/" component={Home} />
             </Switch>

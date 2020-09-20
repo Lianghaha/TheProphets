@@ -50,3 +50,9 @@
    margin-top: 2vh;
    /* background-color: blue; */
 }
+
+.ProphetCardContainer {
+   background-color: var(--main-color);
+   height: 50vh;
+   min-height: 555px;
+}
