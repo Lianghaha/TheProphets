@@ -8,21 +8,21 @@
 
    box-shadow: 0px 0px 3px black;
    filter: brightness(90%);
-   transition: box-shadow 0.5s ease-out, filter 0.5s ease-out;
+   transition: box-shadow 0.5s ease-out, filter 0.5s ease-out, transform 0.3s ease-out;
 
    display: flex;
    flex-wrap: wrap;
 }
 
-.ProphetCard p{
-   margin: 0 0;
-}
-
-
 .ProphetCard:hover {
    box-shadow: 0px 0px 10px black;
-   filter: brightness(100%);
-   transition: box-shadow 0.3s ease-in, filter 0.5s ease-in;
+   filter: brightness(110%);
+   transition: box-shadow 0.3s ease-in, filter 0.5s ease-in, transform 0.3s ease-in;
+   transform: scale(1.05);
+}
+
+.ProphetCard p{
+   margin: 0 0;
 }
 
 .ProphetCard img {
