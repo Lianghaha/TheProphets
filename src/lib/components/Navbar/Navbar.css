@@ -56,11 +56,11 @@
    text-decoration: none;
    color: white;
    padding: 0 2vw;
-   transition: background-color .5s ease-out, color .5s ease-out;
+   transition: background-color .5s ease-out, color .3s ease-out;
 }
 
 .Navbar li:hover {
    background-color: white;
    color: black;
-   transition: background-color .5s ease-in, color .5s ease-in;
+   transition: background-color .5s ease-in, color .3s ease-in;
 }

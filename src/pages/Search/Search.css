@@ -1,7 +1,6 @@
 .Search {
    --border-radius: 8px;
    background-color: var(--main-color);
-   height: 260vh;
    width: 100%;
    display: flex;
    justify-content: center;
@@ -20,7 +19,7 @@
    background-color: #353535;
    /* border: 3px solid orange; */
    width: 75%;
-   min-width: 300px;
+   min-width: 320px;
    box-shadow: 0px 0px 2px black;
    transition: box-shadow 0.5s ease-out, background-color 0.5s ease-out;
    border-top-left-radius: var(--border-radius);
@@ -135,10 +134,8 @@
 
 .SearchProphetCards {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+   grid-template-columns: repeat(auto-fit, minmax(260px, 350px));
    justify-content: center;
-   grid-row-gap: 5%;
-   margin-top: 5%;
 }
 
 /* .SearchProphetCards::after {
@@ -149,9 +146,9 @@
 
 .SearchProphetCards .ProphetCard {
    justify-self: center;
-   /* min-width: 280px;
-   max-width: 280px; */
+   max-width: 300px; 
    color: black;
+   margin-top: 15%;
 }
 
 .Search .Tools {
@@ -161,6 +158,7 @@
 
 .Tools .Sort {
    width: 100%;
+   min-width: 180px;
    height: 260px;
    background-color: #353535;
    border-radius: var(--border-radius);
@@ -169,6 +167,7 @@
 .Tools .Filter {
    margin-top: 3vh;
    width: 100%;
+   min-width: 180px;
    height: 300px;
    background-color: #353535;
    border-radius: var(--border-radius);

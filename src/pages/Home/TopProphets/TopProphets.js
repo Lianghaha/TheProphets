@@ -103,9 +103,9 @@ function TopProphets(props) {
 
          <div className="ProphetsList">
             <Carousel ref={carouselRef} {...settings}>
-               {mockProphetList.map((data) => {
+               {mockProphetList.map((data, index) => {
                   return (
-                     <div key={data.prophetId} className="ProphetCardContainer">
+                     <div key={index} className="ProphetCardContainer">
                         <ProphetCard data={data} />
                      </div>
                   )

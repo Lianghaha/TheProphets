@@ -16,7 +16,7 @@
 
 .CoverText {
    color: #fff;
-   width: 30%;
+   width: 45%;
    min-width: 300px;
    margin-top: 62vh;
    text-align: center;
@@ -26,14 +26,25 @@
 .CoverText h1 {
    color: #fff;
    margin-bottom: 1.5vh;
+   transition: transform 0.2s ease-out;
+}
+
+.CoverText p {
+   transition: transform 0.2s ease-out;
 }
 
 .Cover .Icon {
    margin-bottom: 10vh;
    margin-top: 5vh;
-   transition: transform 0.2s;
+   transition: transform 0.2s ease-out;
 }
 
 .Cover .Icon:hover {
    transform: scale(1.2);
+   transition: transform 0.2s ease-in;
+}
+
+.Cover .TextHover:hover {
+   transform: scale(1.05);
+   transition: transform 0.2s ease-in;
 }

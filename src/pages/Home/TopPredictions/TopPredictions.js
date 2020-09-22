@@ -3,6 +3,7 @@ import "./TopPredictions.css"
 import PredictionCard from "../../../lib/components/PredictionCard/PredictionCard"
 //Button
 import Button from "@material-ui/core/Button"
+import { Spin } from "antd"
 import { mockPredictionsData } from "../../../lib/mockData"
 import { Link } from "react-router-dom"
 
@@ -11,6 +12,8 @@ function TopPredictions(props) {
 
    
    const [mockPredictionList, setMockPredictionList] = useState([])
+
+   const [showLoading, setshowLoading] = useState(false)
 
    useEffect(() => {
       createData()
@@ -25,10 +28,27 @@ function TopPredictions(props) {
    }
    
    const showMore = () => {
+      setshowLoading(true)
       let temp = mockPredictionList.concat(mockPredictionsData)
-      setMockPredictionList(temp)
+      setTimeout(() => setMockPredictionList(temp), 2000)
+      setTimeout(() => setshowLoading(false), 2000)
+      
    }
 
+   const showLoadingOrButton = () => {
+      if (showLoading) {
+         return (
+            <Spin size="large"/>
+         )
+      }
+      else {
+         return (
+            <Button onClick={showMore} variant="outlined">
+               SHOW MORE
+            </Button>
+         )
+      }
+   }
 
    return (
       <div className="TopPredictions">
@@ -46,9 +66,7 @@ function TopPredictions(props) {
             })}
          </div>
          <div className="TitleButtons">
-            <Button onClick={showMore} variant="outlined">
-               SHOW MORE
-            </Button>
+            {showLoadingOrButton()}
          </div>
       </div>
    )

@@ -19,13 +19,10 @@ export const Search = (props) => {
    //Fetch Prophets
    const createProphetData = () => {
       let prophetData = []
-      for (let i = 0; i < 1; i++) {
+      for (let i = 0; i < 2; i++) {
          prophetData = prophetData.concat(mockProphetsData)
-         console.log("in for loop")
-         console.log(prophetData)
       }
       setMockProphetList(prophetData)
-      console.log(mockProphetList)
    }
 
    //Fetch Predictions
@@ -37,66 +34,37 @@ export const Search = (props) => {
       setMockPredictionList(predictionData)
    }
 
+   useEffect(() => {}, [mockProphetList])
+
    useEffect(() => {
       window.scrollTo(0, 0)
    }, [])
 
    useEffect(() => {
+      setShowProphets(props.showProphets)
+      setShowPredictions(props.showPredictions)
+      createProphetData()
+      createPredictionData()
+   }, [props.showProphets, props.showPredictions])
+
+   const whatToShow = () => {
       if (showProphets) {
-         console.log("showProphets")
-         console.log(mockProphetsData)
-         console.log(mockProphetList)
-         createProphetData()
-         console.log(mockProphetList)
-      }
-      if (showPredictions) {
-         console.log("showPredictions")
-         createPredictionData()
-      }
-   }, [showProphets, showPredictions])
-
-   function whatToShow() {
-      if (showProphets) {
-         const data = {
-            prophetId: 1,
-            image:
-               "https://img.ltn.com.tw/Upload/partner/page/2019/08/23/190823-4626-01-geReG.jpg",
-            name: "Corgi",
-            score: 9.9,
-            num_predictions: 99,
-            description:
-               "one hundred fifty characters one hundred fifty characters one hundred fifty characters one hundred fifty characters one hundred fifty characters one h",
-         }
-
-         const data2 = mockProphetList[0]
-
-         console.log("in whatToShow")
-         console.log(mockProphetList[0])
-         console.log(data)
-         console.log(data2)
          return (
             <div className="SearchProphetCards">
-               <ProphetCard data={data} />
-               <ProphetCard data={data} />
-               <ProphetCard data={data} />
-               <ProphetCard data={data} />
-               <ProphetCard data={data} />
-               {/* <ProphetCard data={data2} /> */}
+               {mockProphetList.map((data, index) => {
+                  return <ProphetCard key={index} data={data} />
+               })}
             </div>
          )
-         // mockProphetList.map((data) => {
-         //    return (
-         //       <div key={data.prophetId} className="ProphetCardContainer">
-         //          <ProphetCard data={data} />
-         //       </div>
-         //    )
-         // })
       }
       if (showPredictions) {
-         console.log(mockPredictionList)
-         // mockPredictionList.map((data, index) => {
-         //    return <PredictionCard key={index} data={data} />
-         // })
+         return (
+            <div className="SearchPredictionsCards">
+               {mockPredictionList.map((data, index) => {
+                  return <PredictionCard key={index} data={data} />
+               })}
+            </div>
+         )
       }
    }
 
@@ -138,7 +106,6 @@ export const Search = (props) => {
                      <Button>Predictions</Button>
                   </div>
                </div>
-               {/* {createProphetData()} */}
                {whatToShow()}
             </div>
 

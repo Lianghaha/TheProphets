@@ -18,7 +18,7 @@
    display: flex;
    flex-wrap: wrap;
    align-content: flex-start;
-   animation: fade 1s 100ms;
+   animation: fade 1s;
 }
 
 
