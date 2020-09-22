@@ -93,8 +93,7 @@
 }
 
 .NumberSection hr {
-   background-color: rgb(53, 53, 53);
-   width: 2px;
+   border: .5px solid black;
    align-self: center;
    height: 80%;
 }

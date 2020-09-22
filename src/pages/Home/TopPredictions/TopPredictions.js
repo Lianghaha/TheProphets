@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import "./TopPredictions.css"
 import PredictionCard from "../../../lib/components/PredictionCard/PredictionCard"
 //Button
@@ -7,10 +7,7 @@ import { Spin } from "antd"
 import { mockPredictionsData } from "../../../lib/mockData"
 import { Link } from "react-router-dom"
 
-
 function TopPredictions(props) {
-
-   
    const [mockPredictionList, setMockPredictionList] = useState([])
 
    const [showLoading, setshowLoading] = useState(false)
@@ -26,22 +23,20 @@ function TopPredictions(props) {
       }
       setMockPredictionList(predictionData)
    }
-   
+
    const showMore = () => {
       setshowLoading(true)
       let temp = mockPredictionList.concat(mockPredictionsData)
-      setTimeout(() => setMockPredictionList(temp), 2000)
-      setTimeout(() => setshowLoading(false), 2000)
-      
+      setTimeout(() => {
+         setMockPredictionList(temp)
+         setshowLoading(false)
+      }, 2000)
    }
 
    const showLoadingOrButton = () => {
       if (showLoading) {
-         return (
-            <Spin size="large"/>
-         )
-      }
-      else {
+         return <Spin size="large" />
+      } else {
          return (
             <Button onClick={showMore} variant="outlined">
                SHOW MORE
@@ -65,9 +60,7 @@ function TopPredictions(props) {
                return <PredictionCard key={index} data={data} />
             })}
          </div>
-         <div className="TitleButtons">
-            {showLoadingOrButton()}
-         </div>
+         <div className="TitleButtons">{showLoadingOrButton()}</div>
       </div>
    )
 }

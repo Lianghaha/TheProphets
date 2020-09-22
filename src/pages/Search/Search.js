@@ -59,7 +59,7 @@ export const Search = (props) => {
       }
       if (showPredictions) {
          return (
-            <div className="SearchPredictionsCards">
+            <div className="SearchPredictionCards">
                {mockPredictionList.map((data, index) => {
                   return <PredictionCard key={index} data={data} />
                })}

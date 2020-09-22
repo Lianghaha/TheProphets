@@ -19,3 +19,31 @@
    flex: auto;
 } */
 
+@media screen and (max-width: 1550px) {
+   .PredictionsList .PredictionCard {
+      width: 100%;
+   }
+}
+
+
+
+@media screen and (max-width: 760px) {
+   
+   .PredictionsList .PredictionCard img {
+      width: 100%;
+      height: 50%;
+      border-radius: 0;
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+   }
+   .PredictionsList .PredictionCard .NotImg {
+      width: 100%;
+      border-radius: 0;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+   }
+
+   .PredictionsList .PredictionCard:last-child {
+      margin-bottom: 12vh;
+   }
+}
