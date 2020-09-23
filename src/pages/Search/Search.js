@@ -6,6 +6,7 @@ import { mockProphetsData } from "../../lib/mockData"
 import { mockPredictionsData } from "../../lib/mockData"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
+import { useHistory } from "react-router-dom"
 
 export const Search = (props) => {
    const [showProphets, setShowProphets] = useState(props.showProphets)
@@ -47,6 +48,8 @@ export const Search = (props) => {
       createPredictionData()
    }, [props.showProphets, props.showPredictions])
 
+   const history = useHistory()
+
    const whatToShow = () => {
       if (showProphets) {
          return (
@@ -73,7 +76,7 @@ export const Search = (props) => {
          <div className="ResultsAndTools">
             <div className="Results">
                <div className="SearchText">
-                  <div className="Icon">
+                  <div className="Icon" onClick={()=>{history.goBack()}}>
                      <IoMdArrowRoundBack size="3em" />
                   </div>
                   <p>Search: {showProphets ? "Prophets" : "Predictions"}</p>
@@ -107,6 +110,7 @@ export const Search = (props) => {
                   </div>
                </div>
                {whatToShow()}
+               <div className="Empty"></div>
             </div>
 
             <div className="Tools">

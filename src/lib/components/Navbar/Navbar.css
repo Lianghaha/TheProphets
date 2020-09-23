@@ -2,7 +2,7 @@
    width: 100%;
    height: 6vh;
    background: transparent;
-   transition:  background .3s ease-out;
+   transition: background 0.3s ease-out;
    z-index: 1000;
 
    display: flex;
@@ -14,29 +14,69 @@
    /* background-color: blue; */
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
    .Navbar {
       font-size: 2.5vw;
    }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
    .Navbar {
       font-size: 3.5vw;
    }
 }
 
-.NavbarActive{
+.NavbarActive {
    background: #303030c5;
-   transition:  background .3s ease-in;
+   transition: background 0.3s ease-in;
 }
 
 .NavLeft {
    /* border: 3px solid red; */
 }
 
-.NavRight {
+.SearchBar {
+   width: 20vw;
+   height: 60%;
+   align-self: center;
+   border: 1px solid white;
+   transition: background 0.5s ease-out;
    /* border: 3px solid red; */
+   margin-right: 12.5vw;
+   display: flex;
+   align-items: center;
+}
+
+.SearchBar #SearchInput {
+   /* border: 3px solid green !important; */
+   width: 85%;
+   height: 60%;
+   background-color: transparent;
+   color: white;
+   border: none;
+   transition: box-shadow 0.6s linear;
+}
+
+.SearchBar #SearchInput:focus {
+   box-shadow: 0 2px 2px -2px white;
+   transition: box-shadow 0.2s linear;
+}
+
+.SearchBar .Icon {
+   width: 15%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   transition: transform 0.2s ease-out;
+}
+.SearchBar .Icon:hover {
+   transform: scale(1.2);
+   transition: transform 0.2s ease-in;
+}
+
+.NavRight {
 }
 
 .Navbar ul {
@@ -56,11 +96,11 @@
    text-decoration: none;
    color: white;
    padding: 0 2vw;
-   transition: background-color .5s ease-out, color .3s ease-out;
+   transition: background-color 0.5s ease-out, color 0.3s ease-out;
 }
 
 .Navbar li:hover {
    background-color: white;
    color: black;
-   transition: background-color .5s ease-in, color .3s ease-in;
+   transition: background-color 0.5s ease-in, color 0.3s ease-in;
 }

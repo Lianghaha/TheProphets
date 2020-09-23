@@ -5,6 +5,8 @@
 .PredictionCard {
    --border-radius: 3px;
    width: 46%;
+   min-width: 280px;
+   height: 260px;
    margin: 0vh 1.5vw;
    margin-bottom: 5vh;
    margin-top: 3vh;
@@ -140,7 +142,6 @@
 .PredictionInfo hr {
    height: 100%;
    border: .5px solid black;
-   background-color: black;
 }
 
 .PredictionInfo .NumReviews {

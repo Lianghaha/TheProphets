@@ -19,15 +19,18 @@
    flex: auto;
 } */
 
-@media screen and (max-width: 1550px) {
+@media screen and (max-width: 1200px) {
    .PredictionsList .PredictionCard {
       width: 100%;
    }
 }
 
-
-
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 860px) {
+   
+   .PredictionsList .PredictionCard {
+      height: 480px;
+      width: 300px;
+   }
    
    .PredictionsList .PredictionCard img {
       width: 100%;
@@ -38,6 +41,7 @@
    }
    .PredictionsList .PredictionCard .NotImg {
       width: 100%;
+      height: 50%;
       border-radius: 0;
       border-bottom-left-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
@@ -45,5 +49,11 @@
 
    .PredictionsList .PredictionCard:last-child {
       margin-bottom: 12vh;
+   }
+}
+
+@media screen and (max-width: 750px) { 
+   .PredictionsList {
+      justify-content: center;
    }
 }

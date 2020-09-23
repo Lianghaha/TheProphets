@@ -90,7 +90,20 @@ const mockPredictionsData = [
       image: "https://i.insider.com/5f3fd15f89aff80028ab7167?format=jpeg",
       title: "Warren Buffett to invest $5 billion in Bank of America",
       description:
-         '"I am impressed with the profit-generating abilities of this franchise, and that they are acting aggressively to put their challenges behind them. Bank of America is focused on their customers and on serving them well. That is what customers want, and that\'s the company\'s strategy." Warren Buffett said in a press release.' ,
+         "\"I am impressed with the profit-generating abilities of this franchise, and that they are acting aggressively to put their challenges behind them. Bank of America is focused on their customers and on serving them well. That is what customers want, and that's the company's strategy.\" Warren Buffett said in a press release.",
+      score: 7.8,
+      num_reviews: 1,
+      anncounced_date: "2011-08-25",
+      result_reveal_date: "Unknown",
+      status: "Ongoing",
+   },
+   {
+      predictionId: 4,
+      prophetId: 2,
+      image: "https://i.insider.com/5f3fd15f89aff80028ab7167?format=jpeg",
+      title: "Warren Buffett to invest $5 billion in Bank of America",
+      description:
+         "\"I am impressed with the profit-generating abilities of this franchise, and that they are acting aggressively to put their challenges behind them. Bank of America is focused on their customers and on serving them well. That is what customers want, and that's the company's strategy.\" Warren Buffett said in a press release.",
       score: 7.8,
       num_reviews: 1,
       anncounced_date: "2011-08-25",
