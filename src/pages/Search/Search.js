@@ -22,7 +22,7 @@ export const Search = (props) => {
    //Fetch Prophets
    const createProphetData = () => {
       let prophetData = []
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 1; i++) {
          prophetData = prophetData.concat(mockProphetsData)
       }
       setMockProphetList(prophetData)

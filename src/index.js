@@ -22,21 +22,21 @@ function App() {
                   render={(match) => <Search match={match} />}
                />
                <Route
-                  path="/Prophets"
+                  path="/prophets"
                   exact
                   render={() => (
                      <Search showProphets={true} showPredictions={false} />
                   )}
                />
                <Route
-                  path="/Predictions"
+                  path="/predictions"
                   exact
                   render={() => (
                      <Search showProphets={false} showPredictions={true} />
                   )}
                />
                <Route
-                  path="/Search/:input"
+                  path="/search/:input"
                   render={(match) => (
                      <Search
                         showProphets={true}

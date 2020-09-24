@@ -30,7 +30,7 @@ function TopPredictions(props) {
       setTimeout(() => {
          setMockPredictionList(temp)
          setshowLoading(false)
-      }, 2000)
+      }, 1000)
    }
 
    const showLoadingOrButton = () => {
@@ -50,7 +50,7 @@ function TopPredictions(props) {
          <div className="TitleAndButtons">
             <h2>Top Predictions</h2>
             <div className="TitleButtons">
-               <Link to="/Predictions">
+               <Link to="/predictions">
                   <Button variant="outlined">SHOW ALL</Button>
                </Link>
             </div>

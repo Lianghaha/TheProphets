@@ -95,7 +95,7 @@ function TopProphets(props) {
                <Button onClick={CarouselNext} variant="outlined">
                   <GoChevronRight color="white" size="1.8em" />
                </Button>
-               <Link to="/Prophets">
+               <Link to="/prophets">
                   <Button variant="outlined">SHOW ALL</Button>
                </Link>
             </div>

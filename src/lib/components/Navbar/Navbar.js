@@ -21,6 +21,7 @@ function Navbar() {
 
    //Hamburger Responsive
    const [showBurger, setShowBurger] = useState(false)
+   const [openBurger, setOpenBurger] = useState(false)
 
    useLayoutEffect(() => {
       const updateSize = () => {
@@ -47,15 +48,15 @@ function Navbar() {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
             <div className="Burger">
-               <Menu>
+               <Menu isOpen={openBurger}>
                   <ul>
-                     <Link to="/">
+                     <Link to="/" >
                         <li>The Prohets</li>
                      </Link>
-                     <Link to="/Prophets">
+                     <Link to="/prophets">
                         <li>Prohets</li>
                      </Link>
-                     <Link to="/Predictions">
+                     <Link to="/predictions">
                         <li>Predictions</li>
                      </Link>
                      <Link to="">
@@ -87,10 +88,10 @@ function Navbar() {
                <Link to="/">
                   <li>The Prohets</li>
                </Link>
-               <Link to="/Prophets">
+               <Link to="/prophets">
                   <li>Prohets</li>
                </Link>
-               <Link to="/Predictions">
+               <Link to="/predictions">
                   <li>Predictions</li>
                </Link>
             </ul>
