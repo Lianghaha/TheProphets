@@ -20,9 +20,13 @@ function Navbar() {
    window.addEventListener("scroll", changeBackground)
 
    //Hamburger Responsive
+   const [showBurger, setShowBurger] = useState(false)
+
    useLayoutEffect(() => {
       const updateSize = () => {
-         console.log([window.innerWidth, window.innerHeight])
+         // console.log([window.innerWidth, window.innerHeight])
+         if (window.innerWidth <= 768) setShowBurger(true)
+         else setShowBurger(false)
       }
       window.addEventListener("resize", updateSize)
       updateSize()
@@ -39,64 +43,79 @@ function Navbar() {
       }
    }
 
-   return (
-      <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-         <div className="Burger">
-            <Menu>
-               <ul>
-                  <Link to="/">
-                     <li>The Prohets</li>
-                  </Link>
-                  <Link to="/Prophets">
-                     <li>Prohets</li>
-                  </Link>
-                  <Link to="/Predictions">
-                     <li>Predictions</li>
-                  </Link>
-                  <Link to="">
-                     <li>Sign In</li>
-                  </Link>
-                  <Link to="">
-                     <li>Login</li>
-                  </Link>
-               </ul>
-            </Menu>
+   if (showBurger) {
+      return (
+         <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
+            <div className="Burger">
+               <Menu>
+                  <ul>
+                     <Link to="/">
+                        <li>The Prohets</li>
+                     </Link>
+                     <Link to="/Prophets">
+                        <li>Prohets</li>
+                     </Link>
+                     <Link to="/Predictions">
+                        <li>Predictions</li>
+                     </Link>
+                     <Link to="">
+                        <li>Sign In</li>
+                     </Link>
+                     <Link to="">
+                        <li>Login</li>
+                     </Link>
+                  </ul>
+               </Menu>
+            </div>
+            <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
+               <Input
+                  id="SearchInput"
+                  placeholder="Search..."
+                  onChange={(e) => setInputText(e.target.value)}
+                  onKeyDown={(e) => handleKeydown(e)}
+               />
+               <Link className="Icon" to={`/search/${inputText}`}>
+                  <GoSearch size="1.2rem" />
+               </Link>
+            </div>
          </div>
-      </div>
-
-      // <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-      //    <ul className="NavLeft">
-      //       <Link to="/">
-      //          <li>The Prohets</li>
-      //       </Link>
-      //       <Link to="/Prophets">
-      //          <li>Prohets</li>
-      //       </Link>
-      //       <Link to="/Predictions">
-      //          <li>Predictions</li>
-      //       </Link>
-      //    </ul>
-      //    <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
-      //       <Input
-      //          id="SearchInput"
-      //          placeholder="Search..."
-      //          onChange={(e) => setInputText(e.target.value)}
-      //          onKeyDown={(e) => handleKeydown(e)}
-      //       />
-      //       <Link className="Icon" to={`/search/${inputText}`}>
-      //          <GoSearch size="1.2rem" />
-      //       </Link>
-      //    </div>
-      //    <ul className="NavRight">
-      //       <Link to="">
-      //          <li>Sign In</li>
-      //       </Link>
-      //       <Link to="">
-      //          <li>Login</li>
-      //       </Link>
-      //    </ul>
-      // </div>
-   )
+      )
+   } else {
+      return (
+         <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
+            <ul className="NavLeft">
+               <Link to="/">
+                  <li>The Prohets</li>
+               </Link>
+               <Link to="/Prophets">
+                  <li>Prohets</li>
+               </Link>
+               <Link to="/Predictions">
+                  <li>Predictions</li>
+               </Link>
+            </ul>
+            <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
+               <Input
+                  id="SearchInput"
+                  placeholder="Search..."
+                  onChange={(e) => setInputText(e.target.value)}
+                  onKeyDown={(e) => handleKeydown(e)}
+               />
+               <Link className="Icon" to={`/search/${inputText}`}>
+                  <GoSearch size="1.2rem" />
+               </Link>
+            </div>
+            <ul className="NavRight">
+               <Link to="">
+                  <li>Sign In</li>
+               </Link>
+               <Link to="">
+                  <li>Login</li>
+               </Link>
+            </ul>
+         </div>
+      )
+   }
 }
 
 export default Navbar
