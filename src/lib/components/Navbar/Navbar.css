@@ -19,6 +19,32 @@
    transition: background 0.3s ease-in;
 }
 
+.Navbar ul {
+   height: 100%;
+   list-style: none;
+   display: inline-block;
+   display: flex;
+   align-items: stretch;
+   /* border: 3px solid green; */
+}
+
+.Navbar li {
+   /* border: 3px solid red; */
+   height: 100%;
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+   color: white;
+   padding: 0 2vw;
+   transition: background-color 0.5s ease-out, color 0.3s ease-out;
+}
+
+.Navbar li:hover {
+   background-color: white;
+   color: black;
+   transition: background-color 0.5s ease-in, color 0.3s ease-in;
+}
+
 .NavLeft {
    /* border: 3px solid red; */
 }
@@ -64,41 +90,13 @@
    transition: transform 0.2s ease-in;
 }
 
-.NavLeft {
-}
-
 .NavRight {
 }
 
-.Navbar ul {
-   height: 100%;
-   list-style: none;
-   display: inline-block;
-   display: flex;
-   align-items: stretch;
-   /* border: 3px solid green; */
-}
-
-.Navbar li {
-   /* border: 3px solid red; */
-   height: 100%;
-   display: flex;
-   align-items: center;
-   text-decoration: none;
-   color: white;
-   padding: 0 2vw;
-   transition: background-color 0.5s ease-out, color 0.3s ease-out;
-}
-
-.Navbar li:hover {
-   background-color: white;
-   color: black;
-   transition: background-color 0.5s ease-in, color 0.3s ease-in;
-}
 
 
-/* Responsive Burger */
 
+/* Responsive NavBar Burger */
 @media screen and (max-width: 768px) {
    .SearchBar {
       width: 50%;
@@ -113,7 +111,8 @@
    .Navbar li {
       font-size: 1rem;
       width: 100%;
-      box-shadow: 0 3px 2px -2px white;
+      border: 2px solid white;
+      border-radius: 1px;
       margin-bottom: 2vh;
    }
 }
@@ -139,18 +138,20 @@
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-   background:white;
+   background: white;
 }
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-   height: 24px;
-   width: 24px;
+   height: 32px !important;
+   width: 25px !important;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-   background: #bdc3c7;
+   background: white;
+   height: 20px !important;
+   width: 3px !important;
 }
 
 /*
@@ -164,7 +165,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-   background: #373a47;
+   background: var(--main-color-light);
    padding: 2.5em 1.5em 0;
    font-size: 1.15em;
 }
@@ -183,6 +184,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-item {
    display: inline-block;
    height: 10px;
+   outline: none;
 }
 
 /* Styling of overlay */

@@ -7,6 +7,7 @@
 
 * {
    --main-color: #252525;
+   --main-color-light:#353535;
    margin: 0;
    padding: 0;
    -webkit-touch-callout: none; /* iOS Safari */
