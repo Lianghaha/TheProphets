@@ -22,6 +22,7 @@
    flex-wrap: wrap;
    align-content: flex-start;
    animation: fade 1s;
+   color: black;
 }
 
 @-webkit-keyframes fade {
@@ -48,6 +49,7 @@
    transition: box-shadow 0.3s ease-in, filter 0.5s ease-in,
       transform 0.3s ease-in;
    transform: scale(1.02);
+   color: black;
 }
 
 .PredictionCard p {

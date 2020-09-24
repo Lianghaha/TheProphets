@@ -2,6 +2,7 @@
    --border-radius: 8px;
    background-color: var(--main-color);
    width: 100%;
+   min-height: 100vh;
    display: flex;
    justify-content: center;
    color: white;
@@ -19,11 +20,11 @@
    background-color: #353535;
    /* border: 3px solid orange; */
    width: 75%;
+   height: 98%;
    min-width: 320px;
    box-shadow: 0px 0px 2px black;
    transition: box-shadow 0.5s ease-out, background-color 0.5s ease-out;
-   border-top-left-radius: var(--border-radius);
-   border-top-right-radius: var(--border-radius);
+   border-radius: var(--border-radius);
 }
 
 .ResultsAndTools .Results:hover {
@@ -134,11 +135,13 @@
 .SearchProphetCards {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
-   justify-content: space-evenly;
+   justify-content: center;
+   justify-items: center;
+   margin: 0 1vw;
+   column-gap: 1vw;
 }
 
 .SearchProphetCards .ProphetCard {
-   justify-self: center;
    max-width: 300px;
    color: black;
    margin: 0 0.5vw;

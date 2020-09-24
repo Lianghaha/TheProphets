@@ -1,11 +1,14 @@
 import React from "react"
 import "./PredictionCard.css"
 import Rating from "@material-ui/lab/Rating"
-
+import { Link } from "react-router-dom"
 
 function PredictionCard(props) {
    return (
-      <div className="PredictionCard">
+      <Link
+         className="PredictionCard"
+         to={`/predictionDetail/${props.data.predictionId}`}
+      >
          <img src={props.data.image} alt="PredictionImg" />
          <div className="NotImg">
             <div className="Text">
@@ -38,7 +41,7 @@ function PredictionCard(props) {
                </div>
             </div>
          </div>
-      </div>
+      </Link>
    )
 }
 

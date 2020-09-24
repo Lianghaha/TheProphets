@@ -1,11 +1,15 @@
 import React from "react"
 import "./ProphetCard.css"
 import Rating from "@material-ui/lab/Rating"
+import { Link } from "react-router-dom"
 
 function ProphetCard(props) {
    if (props.data) {
       return (
-         <div className="ProphetCard">
+         <Link
+            className="ProphetCard"
+            to={`/prophetDetail/${props.data.prophetId}`}
+         >
             <img src={props.data.image} alt="profile" />
             <div className="NotImg">
                <div className="TextSection">
@@ -33,11 +37,10 @@ function ProphetCard(props) {
                   </div>
                </div>
             </div>
-         </div>
+         </Link>
       )
-   }
-   else {
-      return ("")
+   } else {
+      return ""
    }
 }
 

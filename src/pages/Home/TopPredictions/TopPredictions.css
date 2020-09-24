@@ -57,3 +57,8 @@
       justify-content: center;
    }
 }
+
+.TopPredictions .ant-spin-dot-item {
+   background-color: white;
+
+}

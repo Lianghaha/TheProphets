@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import "./Navbar.css"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
+import { slide as Menu } from "react-burger-menu"
 
 function Navbar() {
+   const history = useHistory()
+
+   //Chaneg NavBar Background
    const [scroll, setScroll] = useState(false)
    const changeBackground = () => {
       if (window.scrollY >= 100) {
@@ -15,51 +19,83 @@ function Navbar() {
    }
    window.addEventListener("scroll", changeBackground)
 
+   //Hamburger Responsive
+   useLayoutEffect(() => {
+      const updateSize = () => {
+         console.log([window.innerWidth, window.innerHeight])
+      }
+      window.addEventListener("resize", updateSize)
+      updateSize()
+      return () => window.removeEventListener("resize", updateSize)
+   }, [])
+
+   //Search Input
    const [inputText, setInputText] = useState("")
-   const [searchText, setSearchText] = useState("")
 
-
-   // useEffect(() => {
-   //    console.log(inputText);
-   // }, [inputText])
-
-   useEffect(() => {
-      console.log("111111111111111111111111")
-      console.log(searchText)
-   }, [searchText])
-
-   function handleSearchClick() {
-      setSearchText(inputText)
+   const handleKeydown = (e) => {
+      if (e.key === "Enter") {
+         console.log("enter press here! ")
+         history.push(`/search/${inputText}`)
+      }
    }
 
    return (
       <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-         <ul className="NavLeft">
-            <Link to="/">
-               <li>The Prohets</li>
-            </Link>
-            <Link to="/Prophets">
-               <li>Prohets</li>
-            </Link>
-            <Link to="/Predictions">
-               <li>Predictions</li>
-            </Link>
-         </ul>
-         <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
-            <Input id="SearchInput" placeholder="Search..." onChange={e => setInputText(e.target.value)}/>
-            <div className="Icon" onClick={handleSearchClick}>
-               <GoSearch size="1.2rem" />
-            </div>
+         <div className="Burger">
+            <Menu>
+               <ul>
+                  <Link to="/">
+                     <li>The Prohets</li>
+                  </Link>
+                  <Link to="/Prophets">
+                     <li>Prohets</li>
+                  </Link>
+                  <Link to="/Predictions">
+                     <li>Predictions</li>
+                  </Link>
+                  <Link to="">
+                     <li>Sign In</li>
+                  </Link>
+                  <Link to="">
+                     <li>Login</li>
+                  </Link>
+               </ul>
+            </Menu>
          </div>
-         <ul className="NavRight">
-            <Link to="">
-               <li>Sign In</li>
-            </Link>
-            <Link to="">
-               <li>Login</li>
-            </Link>
-         </ul>
       </div>
+
+      // <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
+      //    <ul className="NavLeft">
+      //       <Link to="/">
+      //          <li>The Prohets</li>
+      //       </Link>
+      //       <Link to="/Prophets">
+      //          <li>Prohets</li>
+      //       </Link>
+      //       <Link to="/Predictions">
+      //          <li>Predictions</li>
+      //       </Link>
+      //    </ul>
+      //    <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
+      //       <Input
+      //          id="SearchInput"
+      //          placeholder="Search..."
+      //          onChange={(e) => setInputText(e.target.value)}
+      //          onKeyDown={(e) => handleKeydown(e)}
+      //       />
+      //       <Link className="Icon" to={`/search/${inputText}`}>
+      //          <GoSearch size="1.2rem" />
+      //       </Link>
+      //    </div>
+      //    <ul className="NavRight">
+      //       <Link to="">
+      //          <li>Sign In</li>
+      //       </Link>
+      //       <Link to="">
+      //          <li>Login</li>
+      //       </Link>
+      //    </ul>
+      // </div>
    )
 }
 

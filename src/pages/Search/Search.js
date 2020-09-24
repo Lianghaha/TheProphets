@@ -17,6 +17,8 @@ export const Search = (props) => {
 
    const [mockPredictionList, setMockPredictionList] = useState([])
 
+   const [inputText, setInputText] = useState(false)
+
    //Fetch Prophets
    const createProphetData = () => {
       let prophetData = []
@@ -35,8 +37,27 @@ export const Search = (props) => {
       setMockPredictionList(predictionData)
    }
 
-   useEffect(() => {}, [mockProphetList])
+   const createSearchProphetData = (input) => {
+      let prophetData = []
+      mockProphetsData.forEach((data) => {
+         if (data.name && data.name.toLocaleLowerCase().includes(input.toLocaleLowerCase())) {
+            prophetData.push(data)
+         }
+      })
+      setMockProphetList(prophetData)
+   }
 
+   const createSearchPredictionData = (input) => {
+      let predictionData = []
+      mockPredictionsData.forEach((data) => {
+         if (data.title && data.title.toLocaleLowerCase().includes(input.toLocaleLowerCase())) {
+            predictionData.push(data)
+         }
+      })
+      setMockPredictionList(predictionData)
+   }
+
+   //Scroll to top when jump
    useEffect(() => {
       window.scrollTo(0, 0)
    }, [])
@@ -44,23 +65,45 @@ export const Search = (props) => {
    useEffect(() => {
       setShowProphets(props.showProphets)
       setShowPredictions(props.showPredictions)
-      createProphetData()
-      createPredictionData()
-   }, [props.showProphets, props.showPredictions])
+      if (props.match.match.params.input) {
+         const input = props.match.match.params.input
+         createSearchProphetData(input)
+         createSearchPredictionData(input)
+      } else {
+         createProphetData()
+         createPredictionData()
+      }
+      setInputText(props.match.match.params.input)
+   }, [
+      props.showProphets,
+      props.showPredictions,
+      props.match.match.params.input,
+   ])
 
+   //BackButton
    const history = useHistory()
 
+
+   //Prophets or Predictions
    const whatToShow = () => {
       if (showProphets) {
-         return (
-            <div className="SearchProphetCards">
-               {mockProphetList.map((data, index) => {
-                  return <ProphetCard key={index} data={data} />
-               })}
-            </div>
-         )
+         if (Object.keys(mockProphetList).length === 0) {
+            return (
+               <div className="Empty">No Result Found</div>
+            )
+         }
+            return (
+               <div className="SearchProphetCards">
+                  {mockProphetList.map((data, index) => {
+                     return <ProphetCard key={index} data={data} />
+                  })}
+               </div>
+            )
       }
       if (showPredictions) {
+         if (Object.keys(mockPredictionList).length === 0) {
+            return <div className="Empty">No Result Found</div>
+         }
          return (
             <div className="SearchPredictionCards">
                {mockPredictionList.map((data, index) => {
@@ -71,15 +114,31 @@ export const Search = (props) => {
       }
    }
 
+   const searchTextDisplay = () => {
+      if (inputText) {
+         return inputText
+      }
+      if (showProphets) {
+         return "All Prophets"
+      } else {
+         return "All Predictions"
+      }
+   }
+
    return (
       <div className="Search">
          <div className="ResultsAndTools">
             <div className="Results">
                <div className="SearchText">
-                  <div className="Icon" onClick={()=>{history.goBack()}}>
+                  <div
+                     className="Icon"
+                     onClick={() => {
+                        history.goBack()
+                     }}
+                  >
                      <IoMdArrowRoundBack size="3em" />
                   </div>
-                  <p>Search: {showProphets ? "Prophets" : "Predictions"}</p>
+                  <p>Search: {searchTextDisplay()}</p>
                </div>
                <div className="SearchButtonContainer">
                   <div
@@ -124,4 +183,8 @@ export const Search = (props) => {
          </div>
       </div>
    )
+}
+
+Search.defaultProps = {
+   match: { match: { params: { input: false } } },
 }
