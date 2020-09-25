@@ -7,7 +7,7 @@
    border-radius: var(--border-radius);
 
    box-shadow: 0px 0px 3px black;
-   filter: brightness(90%);
+   filter: brightness(85%);
    transition: box-shadow 0.5s ease-out, filter 0.5s ease-out, transform 0.3s ease-out;
 
    display: flex;
@@ -101,14 +101,14 @@
    height: 80%;
 }
 
-.NumberSection .Predictions {
+.NumberSection .NumPredictions {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
 }
 
 /* Predictions Big number */
-.Predictions span {
+.ProphetCard .NumPredictions span {
    color: #ffb400;
    font-family: "Special Elite", cursive;
    font-size: 2.5rem;

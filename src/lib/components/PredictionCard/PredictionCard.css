@@ -14,7 +14,7 @@
    border-radius: var(--border-radius);
 
    box-shadow: 0px 0px 3px black;
-   filter: brightness(90%);
+   filter: brightness(85%);
    transition: box-shadow 0.5s ease-out, filter 0.5s ease-out,
       transform 0.3s ease-out;
 
@@ -86,7 +86,7 @@
 
 .NotImg .Text .Status {
    width: 90%;
-   font-size: 0.5rem;
+   font-size: 0.8rem;
    color: #ffb400;
 }
 
@@ -99,7 +99,7 @@
 
 .NotImg .Text .Description {
    width: 95%;
-   font-size: 0.6rem;
+   font-size: 0.7rem;
    color: rgb(120, 120, 120);
    margin-top: 0;
 }

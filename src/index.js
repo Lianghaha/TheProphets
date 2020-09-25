@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import Navbar from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"
 import { Search } from "./pages/Search/Search"
-import ProphetDetail from "./pages/ProphetDetail/ProphetDetail"
+import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
 
 function App() {
    return (

@@ -1,0 +1,76 @@
+.PredictionStrip {
+   background-color: white;
+   min-height: 80px;
+   width: 91%;
+   margin-bottom: 2vh;
+   box-shadow: 0px 0px 3px black;
+   filter: brightness(85%);
+   transition: box-shadow 0.5s ease-out, filter 0.5s ease-out,
+      transform 0.3s ease-out;
+
+   display: flex;
+   justify-content: space-between;
+   font-family: "Roboto Slab", serif;
+   color: black;
+   border-radius: 2px;
+}
+
+.PredictionStrip:hover {
+   box-shadow: 0px 0px 10px black;
+   filter: brightness(100%);
+   transition: box-shadow 0.3s ease-in, filter 0.5s ease-in,
+      transform 0.3s ease-in;
+   transform: scale(1.02);
+   color: black;
+}
+
+.PredictionStrip p {
+   margin: 0 0;
+}
+
+.PredictionStrip .Text {
+   margin: 1vh 0.5vw;
+   width: 70%;
+   word-wrap: break-word;
+}
+
+.PredictionStrip .Status {
+   width: 90%;
+   font-size: 0.8rem;
+   color: #ffb400;
+}
+
+.PredictionStrip .Title {
+   width: 95%;
+   font-size: 1rem;
+   line-height: 1.3rem;
+   margin: 0 0;
+   margin-bottom: 0.5vh;
+}
+
+.PredictionStrip .Description {
+   width: 95%;
+   font-size: 0.7rem;
+   color: rgb(120, 120, 120);
+   margin: 0 0;
+   margin-bottom: 0.5vh;
+}
+
+.PredictionStrip .Rating {
+   width: 30%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.PredictionStrip .Rating .Number {
+   margin-top: 10%;
+   color: #ffb400;
+   font-family: "Special Elite", cursive;
+   line-height: 1.5rem;
+}
+
+.PredictionStrip .Rating span {
+   font-size: 2rem;
+}
