@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react"
-import "./TopProphets.css"
+import "./TopProphet.css"
 import ProphetCard from "../../../lib/components/ProphetCard/ProphetCard"
 //Antd
 import { Carousel } from "antd"

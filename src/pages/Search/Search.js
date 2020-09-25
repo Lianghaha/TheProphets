@@ -128,7 +128,7 @@ export const Search = (props) => {
    return (
       <div className="Search">
          <div className="ResultsAndTools">
-            <div className="Results">
+            <div className="Results HoverEffect">
                <div className="SearchText">
                   <div
                      className="Icon"
@@ -173,10 +173,10 @@ export const Search = (props) => {
             </div>
 
             <div className="Tools">
-               <div className="Sort BoxShadow">
+               <div className="Sort HoverEffect">
                   <p className="Title">Sort</p>
                </div>
-               <div className="Filter BoxShadow">
+               <div className="Filter HoverEffect">
                   <p className="Title">Filter</p>
                </div>
             </div>

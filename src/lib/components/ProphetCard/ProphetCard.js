@@ -32,7 +32,7 @@ function ProphetCard(props) {
                   </div>
                   <hr />
                   <div className="Predictions">
-                     <span>{props.data.num_predictions}</span>
+                     <span>{props.data.numPrediction}</span>
                      <p>Predictions</p>
                   </div>
                </div>

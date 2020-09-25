@@ -3,7 +3,6 @@
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   font-family: "Roboto Slab", serif;
    margin: 5vh 0;
 }
 
@@ -25,6 +24,7 @@
 
 .TitleAndButtons h2 {
    color: white;
+   margin: 0 0;
 }
 
 .TitleButtons {
@@ -52,7 +52,7 @@
 }
 
 .ProphetCardContainer {
-   background-color: var(--main-color);
+   background-color: #252525;
    height: 50vh;
    min-height: 555px;
 }

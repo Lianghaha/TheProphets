@@ -34,7 +34,7 @@ function PredictionCard(props) {
                   <hr />
                   <div className="NumReviews">
                      <div className="Number">
-                        <span>{props.data.num_reviews}</span>
+                        <span>{props.data.numReviews}</span>
                      </div>
                      <p className="TextReviews">Reviews</p>
                   </div>

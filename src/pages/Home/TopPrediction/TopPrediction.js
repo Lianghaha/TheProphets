@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import "./TopPredictions.css"
+import "./TopPrediction.css"
 import PredictionCard from "../../../lib/components/PredictionCard/PredictionCard"
 //Button
 import Button from "@material-ui/core/Button"
