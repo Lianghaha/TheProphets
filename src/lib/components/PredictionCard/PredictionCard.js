@@ -3,28 +3,28 @@ import "./PredictionCard.css"
 import Rating from "@material-ui/lab/Rating"
 import { Link } from "react-router-dom"
 
-function PredictionCard(props) {
+function PredictionCard({data}) {
    return (
       <Link
          className="PredictionCard"
-         to={`/predictionDetail/${props.data.predictionId}`}
+         to={`/predictionDetail/${data.predictionId}`}
       >
-         <img src={props.data.image} alt="PredictionImg" />
+         <img src={data.image} alt="PredictionImg" />
          <div className="NotImg">
             <div className="Text">
-               <p className="Status">Status: {props.data.status}</p>
-               <p className="Title">{props.data.title}</p>
-               <p className="Description">{props.data.description}</p>
+               <p className="Status">Status: {data.status}</p>
+               <p className="Title">{data.title}</p>
+               <p className="Description">{data.description}</p>
             </div>
             <div className="Ratings">
                <div className="PredictionInfo">
                   <div className="PredictionScore">
                      <p className="PredictionScoreNumber">
-                        <span>{props.data.score}</span>/10
+                        <span>{data.score}</span>/10
                      </p>
                      <Rating
                         name="half-rating-read"
-                        defaultValue={props.data.score / 2}
+                        defaultValue={data.score / 2}
                         precision={0.1}
                         size="small"
                         readOnly
@@ -34,7 +34,7 @@ function PredictionCard(props) {
                   <hr />
                   <div className="NumReviews">
                      <div className="Number">
-                        <span>{props.data.numReviews}</span>
+                        <span>{data.numReviews}</span>
                      </div>
                      <p className="TextReviews">Reviews</p>
                   </div>

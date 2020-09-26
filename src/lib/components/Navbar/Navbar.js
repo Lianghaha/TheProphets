@@ -5,7 +5,7 @@ import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
 import { slide as Menu } from "react-burger-menu"
 
-function Navbar() {
+export const Navbar = () => {
    const history = useHistory()
 
    //Chaneg NavBar Background
@@ -21,7 +21,6 @@ function Navbar() {
 
    //Hamburger Responsive
    const [showBurger, setShowBurger] = useState(false)
-   const [openBurger, setOpenBurger] = useState(false)
 
    useLayoutEffect(() => {
       const updateSize = () => {
@@ -33,6 +32,19 @@ function Navbar() {
       updateSize()
       return () => window.removeEventListener("resize", updateSize)
    }, [])
+
+   //Close Nav Burger
+   const handleBurgerClick = () => {
+      let crossButton = document.getElementsByClassName("bm-cross-button")[0]
+      crossButton.lastChild.click()
+
+      // console.log(crossButton);
+      // while (crossButton) {
+      //    console.log("2222222222222222222222222")
+      //    crossButton.lastChild.click()
+      //    return
+      // }
+   }
 
    //Search Input
    const [inputText, setInputText] = useState("")
@@ -58,22 +70,10 @@ function Navbar() {
       )
    }
 
-   const handleBurgerClick = () => {
-      let crossButton = document.getElementsByClassName("bm-cross-button")[0]
-      crossButton.lastChild.click()
-
-      // console.log(crossButton);
-      // while (crossButton) {
-      //    console.log("2222222222222222222222222")
-      //    crossButton.lastChild.click()
-      //    return
-      // }
-   }
-
    const Burger = () => {
       return (
          <div className="Burger">
-            <Menu isOpen={openBurger}>
+            <Menu>
                <ul>
                   <Link
                      to="/"
@@ -167,5 +167,3 @@ function Navbar() {
       )
    }
 }
-
-export default Navbar

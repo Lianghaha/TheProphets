@@ -2,12 +2,11 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Navbar from "./lib/components/Navbar/Navbar"
+import { Navbar } from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"
 import { Search } from "./pages/Search/Search"
 import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
 import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
-
 
 function App() {
    return (

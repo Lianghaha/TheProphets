@@ -3,28 +3,28 @@ import "./ProphetCard.css"
 import Rating from "@material-ui/lab/Rating"
 import { Link } from "react-router-dom"
 
-function ProphetCard(props) {
-   if (props.data) {
+function ProphetCard({data}) {
+   if (data) {
       return (
          <Link
             className="ProphetCard"
-            to={`/prophetDetail/${props.data.prophetId}`}
+            to={`/prophetDetail/${data.prophetId}`}
          >
-            <img src={props.data.image} alt="profile" />
+            <img src={data.image} alt="profile" />
             <div className="NotImg">
                <div className="TextSection">
-                  <h4 id="name">{props.data.name}</h4>
-                  <p id="description">{props.data.description}</p>
+                  <h4 id="name">{data.name}</h4>
+                  <p id="description">{data.description}</p>
                </div>
                <div className="NumberSection">
                   <div className="Score">
                      <p className="ScoreNumber">
-                        <span>{props.data.score}</span>/10
+                        <span>{data.score}</span>/10
                      </p>
                      <Rating
                         name="half-rating-read"
                         defaultValue={
-                           props.data.score ? props.data.score / 2 : 0
+                           data.score ? data.score / 2 : 0
                         }
                         precision={0.1}
                         size="small"
@@ -34,7 +34,7 @@ function ProphetCard(props) {
                   </div>
                   <hr />
                   <div className="NumPredictions">
-                     <span>{props.data.numPrediction}</span>
+                     <span>{data.numPrediction}</span>
                      <p>Predictions</p>
                   </div>
                </div>
