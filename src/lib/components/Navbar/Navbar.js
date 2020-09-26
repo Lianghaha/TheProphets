@@ -36,14 +36,9 @@ export const Navbar = () => {
    //Close Nav Burger
    const handleBurgerClick = () => {
       let crossButton = document.getElementsByClassName("bm-cross-button")[0]
-      crossButton.lastChild.click()
-
-      // console.log(crossButton);
-      // while (crossButton) {
-      //    console.log("2222222222222222222222222")
-      //    crossButton.lastChild.click()
-      //    return
-      // }
+      if (crossButton) crossButton.lastChild.click()
+      else console.log("Cannot find CrossButton");
+      
    }
 
    //Search Input
@@ -75,44 +70,19 @@ export const Navbar = () => {
          <div className="Burger">
             <Menu>
                <ul>
-                  <Link
-                     to="/"
-                     onClick={() => {
-                        handleBurgerClick()
-                     }}
-                  >
+                  <Link to="/" onClick={handleBurgerClick}>
                      <li>The Prohets</li>
                   </Link>
-                  <Link
-                     to="/prophets"
-                     onClick={() => {
-                        handleBurgerClick()
-                     }}
-                  >
+                  <Link to="/prophets" onClick={handleBurgerClick}>
                      <li>Prohets</li>
                   </Link>
-                  <Link
-                     to="/predictions"
-                     onClick={() => {
-                        handleBurgerClick()
-                     }}
-                  >
+                  <Link to="/predictions" onClick={handleBurgerClick}>
                      <li>Predictions</li>
                   </Link>
-                  <Link
-                     to=""
-                     onClick={() => {
-                        handleBurgerClick()
-                     }}
-                  >
+                  <Link to="" onClick={handleBurgerClick}>
                      <li>Sign In</li>
                   </Link>
-                  <Link
-                     to=""
-                     onClick={() => {
-                        handleBurgerClick()
-                     }}
-                  >
+                  <Link to="" onClick={handleBurgerClick}>
                      <li>Login</li>
                   </Link>
                </ul>
