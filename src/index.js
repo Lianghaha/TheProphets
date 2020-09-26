@@ -6,6 +6,8 @@ import Navbar from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"
 import { Search } from "./pages/Search/Search"
 import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
+import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
+
 
 function App() {
    return (
@@ -19,7 +21,7 @@ function App() {
                />
                <Route
                   path="/predictionDetail/:id"
-                  render={(match) => <Search match={match} />}
+                  render={(match) => <PredictionDetail match={match} />}
                />
                <Route
                   path="/prophets"

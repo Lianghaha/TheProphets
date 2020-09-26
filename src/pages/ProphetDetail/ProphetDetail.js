@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import "./ProphetDetail.css"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
-import { Link } from "react-router-dom"
 import Button from "@material-ui/core/Button"
 import { PredictionStrip } from "./PredictionStrip/PredictionStrip"
 
@@ -39,17 +38,21 @@ export const ProphetDetail = (props) => {
       window.scrollTo(0, 0)
    }, [])
    return (
-      <div className="ProphetDetail">
+      <div className="Detail">
          <div className="Content">
             <div className="Section">
-               <h2 className="SectionTitle">Prophet Information</h2>
+               <div className="SectionTitleAndButton">
+                  <h2>Prophet Information</h2>
+               </div>
                <ProphetCard data={prophetData[0]} />
                <a href={`https://en.wikipedia.org/wiki/${prophetData[0].name}`}>
                   <Button variant="outlined">More Info</Button>
                </a>
             </div>
             <div className="Section">
-               <h2 className="SectionTitle">Predictions</h2>
+               <div className="SectionTitleAndButton">
+                  <h2>Predictions</h2>
+               </div>
                <div className="PredictionList">
                   <PredictionStrip data={predictionData} />
                   <PredictionStrip data={predictionData} />
@@ -58,7 +61,13 @@ export const ProphetDetail = (props) => {
                <Button variant="outlined">SHOW MORE</Button>
             </div>
             <div className="Section">
-               <h2 className="SectionTitle">User Comments</h2>
+               <div className="SectionTitleAndButton">
+                  <h2>Comments</h2>
+                  <a href={`/`}>
+                     <Button variant="outlined">Comment</Button>
+                  </a>
+               </div>
+               <Button variant="outlined">SHOW MORE</Button>
             </div>
          </div>
          {props.match.match.params.id}

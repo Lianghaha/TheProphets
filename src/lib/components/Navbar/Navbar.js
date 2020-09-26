@@ -37,83 +37,132 @@ function Navbar() {
    //Search Input
    const [inputText, setInputText] = useState("")
 
-   const handleKeydown = (e) => {
-      if (e.key === "Enter") {
-         console.log("enter press here! ")
-         history.push(`/search/${inputText}`)
-      }
+   const handleSearch = () => {
+      history.push(`/search/${inputText}`)
+      document.getElementById("SearchInput").value = ""
+   }
+
+   const SearchBar = () => {
+      return (
+         <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
+            <Input
+               id="SearchInput"
+               placeholder="Search..."
+               onChange={(e) => setInputText(e.target.value)}
+               onPressEnter={() => handleSearch()}
+            />
+            <div className="Icon" onClick={() => handleSearch()}>
+               <GoSearch size="1.2rem" />
+            </div>
+         </div>
+      )
+   }
+
+   const handleBurgerClick = () => {
+      let crossButton = document.getElementsByClassName("bm-cross-button")[0]
+      crossButton.lastChild.click()
+
+      // console.log(crossButton);
+      // while (crossButton) {
+      //    console.log("2222222222222222222222222")
+      //    crossButton.lastChild.click()
+      //    return
+      // }
+   }
+
+   const Burger = () => {
+      return (
+         <div className="Burger">
+            <Menu isOpen={openBurger}>
+               <ul>
+                  <Link
+                     to="/"
+                     onClick={() => {
+                        handleBurgerClick()
+                     }}
+                  >
+                     <li>The Prohets</li>
+                  </Link>
+                  <Link
+                     to="/prophets"
+                     onClick={() => {
+                        handleBurgerClick()
+                     }}
+                  >
+                     <li>Prohets</li>
+                  </Link>
+                  <Link
+                     to="/predictions"
+                     onClick={() => {
+                        handleBurgerClick()
+                     }}
+                  >
+                     <li>Predictions</li>
+                  </Link>
+                  <Link
+                     to=""
+                     onClick={() => {
+                        handleBurgerClick()
+                     }}
+                  >
+                     <li>Sign In</li>
+                  </Link>
+                  <Link
+                     to=""
+                     onClick={() => {
+                        handleBurgerClick()
+                     }}
+                  >
+                     <li>Login</li>
+                  </Link>
+               </ul>
+            </Menu>
+         </div>
+      )
+   }
+
+   const NavLeft = () => {
+      return (
+         <ul className="NavLeft">
+            <Link to="/">
+               <li>The Prohets</li>
+            </Link>
+            <Link to="/prophets">
+               <li>Prohets</li>
+            </Link>
+            <Link to="/predictions">
+               <li>Predictions</li>
+            </Link>
+         </ul>
+      )
+   }
+
+   const NavRight = () => {
+      return (
+         <ul className="NavRight">
+            <Link to="">
+               <li>Sign In</li>
+            </Link>
+            <Link to="">
+               <li>Login</li>
+            </Link>
+         </ul>
+      )
    }
 
    if (showBurger) {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-            <div className="Burger">
-               <Menu isOpen={openBurger}>
-                  <ul>
-                     <Link to="/" >
-                        <li>The Prohets</li>
-                     </Link>
-                     <Link to="/prophets">
-                        <li>Prohets</li>
-                     </Link>
-                     <Link to="/predictions">
-                        <li>Predictions</li>
-                     </Link>
-                     <Link to="">
-                        <li>Sign In</li>
-                     </Link>
-                     <Link to="">
-                        <li>Login</li>
-                     </Link>
-                  </ul>
-               </Menu>
-            </div>
-            <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
-               <Input
-                  id="SearchInput"
-                  placeholder="Search..."
-                  onChange={(e) => setInputText(e.target.value)}
-                  onKeyDown={(e) => handleKeydown(e)}
-               />
-               <Link className="Icon" to={`/search/${inputText}`}>
-                  <GoSearch size="1.2rem" />
-               </Link>
-            </div>
+            {Burger()}
+            {SearchBar()}
          </div>
       )
    } else {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-            <ul className="NavLeft">
-               <Link to="/">
-                  <li>The Prohets</li>
-               </Link>
-               <Link to="/prophets">
-                  <li>Prohets</li>
-               </Link>
-               <Link to="/predictions">
-                  <li>Predictions</li>
-               </Link>
-            </ul>
-            <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
-               <Input
-                  id="SearchInput"
-                  placeholder="Search..."
-                  onChange={(e) => setInputText(e.target.value)}
-                  onKeyDown={(e) => handleKeydown(e)}
-               />
-               <Link className="Icon" to={`/search/${inputText}`}>
-                  <GoSearch size="1.2rem" />
-               </Link>
-            </div>
-            <ul className="NavRight">
-               <Link to="">
-                  <li>Sign In</li>
-               </Link>
-               <Link to="">
-                  <li>Login</li>
-               </Link>
-            </ul>
+            {NavLeft()}
+            {SearchBar()}
+            {NavRight()}
          </div>
       )
    }

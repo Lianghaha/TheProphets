@@ -26,8 +26,13 @@
 
 @media screen and (max-width: 860px) {
    
+   .PredictionsList {
+      justify-content: center;
+   }
+
+
    .PredictionsList .PredictionCard {
-      height: 480px;
+      height: 580px;
       width: 300px;
    }
    
@@ -48,12 +53,6 @@
 
    .PredictionsList .PredictionCard:last-child {
       margin-bottom: 12vh;
-   }
-}
-
-@media screen and (max-width: 750px) { 
-   .PredictionsList {
-      justify-content: center;
    }
 }
 

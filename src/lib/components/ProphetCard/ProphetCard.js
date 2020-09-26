@@ -23,7 +23,9 @@ function ProphetCard(props) {
                      </p>
                      <Rating
                         name="half-rating-read"
-                        defaultValue={props.data.score / 2}
+                        defaultValue={
+                           props.data.score ? props.data.score / 2 : 0
+                        }
                         precision={0.1}
                         size="small"
                         readOnly
