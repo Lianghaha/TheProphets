@@ -1,0 +1,85 @@
+/* Home Page TopProphet/TopPrediction Common CSS */
+.TitleAndButtons {
+   width: 100%;
+   margin: 0 1.5vw;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: white;
+}
+
+@media screen and (max-width: 520px) {
+   .TitleAndButtons {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+
+   .TitleButtons {
+   margin-top: 1vh;
+}
+}
+
+.TitleAndButtons h2 {
+   color: white;
+   margin: 0 0;
+}
+
+.TitleButtons {
+}
+
+
+/* ProphetDetail/PredictionDetail Page Common CSS */
+.Detail {
+   background-color: var(--main-color);
+   width: 100%;
+   height: 200vh;
+   display: flex;
+   justify-content: center;
+}
+
+.Detail .Content {
+   background-color: var(--main-color-light);
+   width: 60%;
+   height: 90%;
+   margin-top: 8vh;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-content: flex-start;
+   border-radius: 8px;
+}
+
+.Detail .Section {
+   /* background-color: green; */
+   width: 90%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   margin-top: 3vh;
+   margin-bottom: 1vh;
+}
+
+.Detail .SectionTitleAndButton {
+   color: white;
+   width: 93%;
+   margin-bottom: 3vh;
+   padding-bottom: 1vh;
+   padding-right: 1%;
+   box-shadow: 0 4px 2px -2px white;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+}
+
+.Detail .SectionTitleAndButton h2 {
+   color: white;
+   margin: 0 0;
+}
+
+@media screen and (max-width: 1000px) {
+   .Detail .Content {
+      width: 90%;
+   }
+}
+
+

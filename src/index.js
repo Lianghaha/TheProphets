@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
+import "./lib/common.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Navbar } from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"

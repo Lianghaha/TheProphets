@@ -6,34 +6,6 @@
    margin: 5vh 0;
 }
 
-.TitleAndButtons {
-   width: 100%;
-   margin: 0 1.5vw;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   color: white;
-}
-
-@media screen and (max-width: 520px) {
-   .TitleAndButtons {
-      flex-direction: column;
-      align-items: flex-start;
-   }
-
-   .TitleButtons {
-   margin-top: 1vh;
-}
-}
-
-.TitleAndButtons h2 {
-   color: white;
-   margin: 0 0;
-}
-
-.TitleButtons {
-}
-
 .ProphetsList {
    width: 100%;
    margin-top: 2vh;
