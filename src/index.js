@@ -13,20 +13,25 @@ import { Spin } from "antd"
 function App() {
    const [showLoading, setShowLoading] = useState(false)
 
-   const loadingToogle = () => {
-      setShowLoading(!showLoading)
+   const loadingTrue = () => {
+      setShowLoading(true)
+   }
+
+   const loadingFalse = () => {
+      setTimeout(() => {
+         setShowLoading(false)
+      }, 3000)
    }
 
    return (
       <Router>
          <div className="App">
-            <Navbar test={loadingToogle}/>
+            <Navbar loadingTrue={loadingTrue} loadingFalse={loadingFalse} />
             <Spin size="large" spinning={showLoading}>
                <Switch>
                   <Route
                      path="/prophetDetail/:id"
-                     render={(match) => <ProphetDetail match={match} 
-                     />}
+                     render={(match) => <ProphetDetail match={match} />}
                   />
                   <Route
                      path="/predictionDetail/:id"

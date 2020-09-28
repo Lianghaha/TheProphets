@@ -39,6 +39,9 @@
 }
 
 
+.ant-spin-nested-loading {
+   width: 100%;
+}
 
 .ant-spin-blur {
    opacity: 0 !important;

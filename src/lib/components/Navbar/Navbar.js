@@ -5,7 +5,7 @@ import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
 import { slide as Menu } from "react-burger-menu"
 
-export const Navbar = ({test}) => {
+export const Navbar = ({loadingTrue, loadingFalse}) => {
    const history = useHistory()
 
    //Chaneg NavBar Background
@@ -94,10 +94,10 @@ export const Navbar = ({test}) => {
    const NavLeft = () => {
       return (
          <ul className="NavLeft">
-            <Link to="/" onClick={test}>
+            <Link to="/" onClick={loadingTrue}>
                <li>The Prohets</li>
             </Link>
-            <Link to="/prophets">
+            <Link to="/prophets" onClick={loadingFalse}>
                <li>Prohets</li>
             </Link>
             <Link to="/predictions">
