@@ -7,7 +7,7 @@ import { Spin } from "antd"
 import { mockPredictionsData } from "../../../lib/mockData"
 import { Link } from "react-router-dom"
 
-function TopPredictions(props) {
+export const TopPredictions = (props) => {
    const [mockPredictionList, setMockPredictionList] = useState([])
 
    const [showLoading, setshowLoading] = useState(false)
@@ -65,4 +65,3 @@ function TopPredictions(props) {
    )
 }
 
-export default TopPredictions

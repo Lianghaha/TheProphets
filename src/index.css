@@ -6,6 +6,7 @@
 @import "~antd/dist/antd.css";
 
 * {
+   
    --main-color: #252525;
    --main-color-light:#353535;
    margin: 0;
@@ -37,4 +38,18 @@
    flex-wrap: wrap;
 }
 
+
+
+
+.ant-spin-nested-loading{
+   margin: 0 0;
+   width: 20px;
+}
+
+.ant-spin-blur {
+   opacity: 0 !important;
+}
+ .ant-spin {
+   transform: scale(1.6);
+}
 
