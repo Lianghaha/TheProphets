@@ -6,7 +6,6 @@
    z-index: 1000;
 
    display: flex;
-   justify-content: space-between;
 
    list-style: none;
    position: fixed;
@@ -47,16 +46,25 @@
 
 .NavLeft {
    /* border: 3px solid red; */
+   width: 33%;
+}
+
+.SearchBarContainer {
+   width: 34%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .SearchBar {
-   width: 20vw;
+   margin-left: 5%;
+   width: 80%;
+   max-width: 500px;
    height: 60%;
    align-self: center;
    border: 1px solid white;
    transition: background 0.5s ease-out;
    /* border: 3px solid red; */
-   margin-right: 12.5vw;
    display: flex;
    align-items: center;
 }
@@ -91,6 +99,9 @@
 }
 
 .NavRight {
+   width: 33%;
+   display: flex;
+   justify-content: flex-end;
 }
 
 
@@ -98,10 +109,12 @@
 
 /* Responsive NavBar Burger */
 @media screen and (max-width: 768px) {
-   .SearchBar {
-      width: 50%;
-      height: 70%;
-      margin-right: 2%;
+   .Navbar {
+      justify-content: space-between;
+   }
+
+   .SearchBarContainer {
+      width: 60%;
    }
 
    .Navbar ul {

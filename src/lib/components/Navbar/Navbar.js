@@ -5,7 +5,7 @@ import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
 import { slide as Menu } from "react-burger-menu"
 
-export const Navbar = ({loadingTrue, loadingFalse}) => {
+export const Navbar = ({ loadingTrue, loadingFalse }) => {
    const history = useHistory()
 
    //Chaneg NavBar Background
@@ -37,8 +37,7 @@ export const Navbar = ({loadingTrue, loadingFalse}) => {
    const handleBurgerClick = () => {
       let crossButton = document.getElementsByClassName("bm-cross-button")[0]
       if (crossButton) crossButton.lastChild.click()
-      else console.log("Cannot find CrossButton");
-      
+      else console.log("Cannot find CrossButton")
    }
 
    //Search Input
@@ -51,15 +50,17 @@ export const Navbar = ({loadingTrue, loadingFalse}) => {
 
    const SearchBar = () => {
       return (
-         <div className={scroll ? "SearchBar SearchBarActive" : "SearchBar"}>
-            <Input
-               id="SearchInput"
-               placeholder="Search..."
-               onChange={(e) => setInputText(e.target.value)}
-               onPressEnter={() => handleSearch()}
-            />
-            <div className="Icon" onClick={() => handleSearch()}>
-               <GoSearch size="1.2rem" />
+         <div className="SearchBarContainer">
+            <div className="SearchBar">
+               <Input
+                  id="SearchInput"
+                  placeholder="Search..."
+                  onChange={(e) => setInputText(e.target.value)}
+                  onPressEnter={() => handleSearch()}
+               />
+               <div className="Icon" onClick={() => handleSearch()}>
+                  <GoSearch size="1.2rem" />
+               </div>
             </div>
          </div>
       )
@@ -91,13 +92,18 @@ export const Navbar = ({loadingTrue, loadingFalse}) => {
       )
    }
 
+   const mockLoading = () => {
+      loadingTrue()
+      loadingFalse()
+   }
+
    const NavLeft = () => {
       return (
          <ul className="NavLeft">
-            <Link to="/" onClick={loadingTrue}>
-               <li>The Prohets</li>
+            <Link to="/" onClick={mockLoading}>
+               <li>Home</li>
             </Link>
-            <Link to="/prophets" onClick={loadingFalse}>
+            <Link to="/prophets" onClick={mockLoading}>
                <li>Prohets</li>
             </Link>
             <Link to="/predictions">

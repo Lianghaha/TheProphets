@@ -20,7 +20,7 @@ function App() {
    const loadingFalse = () => {
       setTimeout(() => {
          setShowLoading(false)
-      }, 3000)
+      }, 1000)
    }
 
    return (
