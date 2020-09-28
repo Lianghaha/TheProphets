@@ -11,22 +11,22 @@ import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
 import { Spin } from "antd"
 
 function App() {
-   const [showLoading, setshowLoading] = useState(true)
+   const [showLoading, setShowLoading] = useState(false)
 
-   const loadAWhile = () => {
-      setTimeout(() => {
-         setshowLoading(false)
-      }, 1000)
+   const loadingToogle = () => {
+      setShowLoading(!showLoading)
    }
 
    return (
       <Router>
          <div className="App">
-            <Navbar />
+            <Navbar test={loadingToogle}/>
+            <Spin size="large" spinning={showLoading}>
                <Switch>
                   <Route
                      path="/prophetDetail/:id"
-                     render={(match) => <ProphetDetail match={match} />}
+                     render={(match) => <ProphetDetail match={match} 
+                     />}
                   />
                   <Route
                      path="/predictionDetail/:id"
@@ -58,6 +58,7 @@ function App() {
                   />
                   <Route path="/" component={Home} />
                </Switch>
+            </Spin>
          </div>
       </Router>
    )

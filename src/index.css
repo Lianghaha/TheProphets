@@ -6,9 +6,8 @@
 @import "~antd/dist/antd.css";
 
 * {
-   
    --main-color: #252525;
-   --main-color-light:#353535;
+   --main-color-light: #353535;
    margin: 0;
    padding: 0;
    -webkit-touch-callout: none; /* iOS Safari */
@@ -36,20 +35,21 @@
    font-family: "Playfair Display", serif;
    display: flex;
    flex-wrap: wrap;
+   justify-content: center;
 }
 
 
-
-
-.ant-spin-nested-loading{
-   margin: 0 0;
-   width: 20px;
-}
 
 .ant-spin-blur {
    opacity: 0 !important;
 }
- .ant-spin {
-   transform: scale(1.6);
+
+.ant-spin-lg .ant-spin-dot {
+   margin-top: 15vh !important;
+   font-size: 60px !important;
 }
 
+.ant-spin-lg .ant-spin-dot i {
+   width: 30px !important;
+   height: 30px !important;
+}

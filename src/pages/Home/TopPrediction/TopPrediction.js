@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 export const TopPredictions = (props) => {
    const [mockPredictionList, setMockPredictionList] = useState([])
 
-   const [showLoading, setshowLoading] = useState(false)
+   const [showLoading, setShowLoading] = useState(false)
 
    useEffect(() => {
       createData()
@@ -25,11 +25,11 @@ export const TopPredictions = (props) => {
    }
 
    const showMore = () => {
-      setshowLoading(true)
+      setShowLoading(true)
       let temp = mockPredictionList.concat(mockPredictionsData)
       setTimeout(() => {
          setMockPredictionList(temp)
-         setshowLoading(false)
+         setShowLoading(false)
       }, 1000)
    }
 
