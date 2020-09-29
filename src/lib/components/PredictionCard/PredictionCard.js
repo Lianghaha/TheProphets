@@ -7,7 +7,7 @@ function PredictionCard({data}) {
    return (
       <Link
          className="PredictionCard"
-         to={`/predictionDetail/${data.predictionId}`}
+         to={`/predictionDetail/${data.prediction_id}`}
       >
          <img src={data.image} alt="PredictionImg" />
          <div className="NotImg">
@@ -34,7 +34,7 @@ function PredictionCard({data}) {
                   <hr />
                   <div className="NumReviews">
                      <div className="Number">
-                        <span>{data.numReviews}</span>
+                        <span>{data.num_review}</span>
                      </div>
                      <p className="TextReviews">Reviews</p>
                   </div>

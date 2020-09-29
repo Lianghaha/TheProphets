@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import "./lib/common.css"
@@ -9,9 +9,11 @@ import { Search } from "./pages/Search/Search"
 import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
 import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
 import { Spin } from "antd"
+import axios from "axios"
 
 function App() {
    const [showLoading, setShowLoading] = useState(false)
+   const [testImg, setTestImg] = useState("")
 
    const loadingTrue = () => {
       setShowLoading(true)
@@ -22,6 +24,17 @@ function App() {
          setShowLoading(false)
       }, 1000)
    }
+
+   useEffect(() => {
+      axios
+         .get("/test")
+         .then((response) => {
+            console.log("Test Image:")
+            console.log(response.data[0].img)
+            setTestImg(response.data[0].img)
+         })
+         .catch(err => console.log(err))
+   }, [])
 
    return (
       <Router>
@@ -59,6 +72,14 @@ function App() {
                            showPredictions={false}
                            match={match}
                         />
+                     )}
+                  />
+                  <Route
+                     path="/testImg"
+                     render={() => (
+                        <div>
+                           <img src={testImg} alt="testImg" />
+                        </div>
                      )}
                   />
                   <Route path="/" component={Home} />

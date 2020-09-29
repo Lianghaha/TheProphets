@@ -8,7 +8,7 @@ function ProphetCard({data}) {
       return (
          <Link
             className="ProphetCard"
-            to={`/prophetDetail/${data.prophetId}`}
+            to={`/prophetDetail/${data.prophet_id}`}
          >
             <img src={data.image} alt="profile" />
             <div className="NotImg">
@@ -34,7 +34,7 @@ function ProphetCard({data}) {
                   </div>
                   <hr />
                   <div className="NumPredictions">
-                     <span>{data.numPrediction}</span>
+                     <span>{data.num_prediction}</span>
                      <p>Predictions</p>
                   </div>
                </div>

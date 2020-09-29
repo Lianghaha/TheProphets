@@ -4,6 +4,7 @@
    flex-wrap: wrap;
    justify-content: center;
    margin: 5vh 0;
+   margin-bottom: 15vh;
 }
 
 .PredictionsList {
@@ -49,5 +50,10 @@
    .PredictionsList .PredictionCard:last-child {
       margin-bottom: 12vh;
    }
+}
+
+.TopPredictions .TitleButtons .ant-spin-lg .ant-spin-dot {
+   margin-top: 0vh !important;
+   font-size: 60px !important;
 }
 

@@ -116,7 +116,7 @@ export const Navbar = ({ loadingTrue, loadingFalse }) => {
    const NavRight = () => {
       return (
          <ul className="NavRight">
-            <Link to="">
+            <Link to="/testImg">
                <li>Sign In</li>
             </Link>
             <Link to="">

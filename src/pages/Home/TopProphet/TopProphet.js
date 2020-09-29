@@ -7,8 +7,8 @@ import { Carousel } from "antd"
 import { GoChevronRight, GoChevronLeft } from "react-icons/go"
 //Button
 import Button from "@material-ui/core/Button"
-import { mockProphetsData } from "../../../lib/mockData"
 import { Link } from "react-router-dom"
+import axios from "axios"
 
 
 //Antd Carousel Settings
@@ -60,7 +60,8 @@ const settings = {
    ],
 }
 
-function TopProphets(props) {
+
+export const TopProphets = () => {
    const carouselRef = useRef()
 
    function CarouselNext() {
@@ -70,18 +71,28 @@ function TopProphets(props) {
       carouselRef.current.prev()
    }
 
-   const [mockProphetList, setMockProphetList] = useState([])
+   const [prophetList, setProphetList] = useState([])
 
    useEffect(() => {
-      createData()
+      getData()
    }, [])
 
-   const createData = () => {
+   const getData = async () => {
       let prophetData = []
-      for (let i = 0; i < 3; i++) {
-         prophetData = prophetData.concat(mockProphetsData)
+      await axios
+         .get("/search/prophets/all?sort=DESC&scoreAbove=0")
+         .then((response) => {
+            console.log("Prophets")
+            console.log(response.data)
+            prophetData = response.data
+         })
+         .catch((err) => console.log(err))
+      
+      for (let i = 0; i < 2; i++) {
+         prophetData = prophetData.concat(prophetData)
       }
-      setMockProphetList(prophetData)
+      console.log(prophetData)
+      setProphetList(prophetData)
    }
 
    return (
@@ -103,7 +114,7 @@ function TopProphets(props) {
 
          <div className="ProphetsList">
             <Carousel ref={carouselRef} {...settings}>
-               {mockProphetList.map((data, index) => {
+               {prophetList.map((data, index) => {
                   return (
                      <div key={index} className="ProphetCardContainer">
                         <ProphetCard data={data} />
@@ -116,4 +127,3 @@ function TopProphets(props) {
    )
 }
 
-export default TopProphets

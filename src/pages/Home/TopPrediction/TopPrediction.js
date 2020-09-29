@@ -6,29 +6,41 @@ import Button from "@material-ui/core/Button"
 import { Spin } from "antd"
 import { mockPredictionsData } from "../../../lib/mockData"
 import { Link } from "react-router-dom"
+import axios from "axios"
+
 
 export const TopPredictions = (props) => {
-   const [mockPredictionList, setMockPredictionList] = useState([])
+   const [predictionList, setPredictionList] = useState([])
 
    const [showLoading, setShowLoading] = useState(false)
 
    useEffect(() => {
-      createData()
+      getData()
    }, [])
 
-   const createData = () => {
+   const getData = async () => {
       let predictionData = []
-      for (let i = 0; i < 1; i++) {
-         predictionData = predictionData.concat(mockPredictionsData)
+      await axios
+         .get("/search/predictions/all")
+         .then((response) => {
+            console.log("Predictions: ")
+            console.log(response.data)
+            predictionData = response.data
+         })
+         .catch((err) => console.log(err))
+
+      for (let i = 0; i < 2; i++) {
+         predictionData = predictionData.concat(predictionData)
       }
-      setMockPredictionList(predictionData)
+      console.log(predictionData)
+      setPredictionList(predictionData)
    }
 
    const showMore = () => {
       setShowLoading(true)
-      let temp = mockPredictionList.concat(mockPredictionsData)
+      let temp = predictionList.concat(predictionList)
       setTimeout(() => {
-         setMockPredictionList(temp)
+         setPredictionList(temp)
          setShowLoading(false)
       }, 1000)
    }
@@ -56,7 +68,7 @@ export const TopPredictions = (props) => {
             </div>
          </div>
          <div className="PredictionsList">
-            {mockPredictionList.map((data, index) => {
+            {predictionList.map((data, index) => {
                return <PredictionCard key={index} data={data} />
             })}
          </div>
