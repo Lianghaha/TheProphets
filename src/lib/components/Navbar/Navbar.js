@@ -5,7 +5,7 @@ import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
 import { slide as Menu } from "react-burger-menu"
 
-export const Navbar = ({ loadingTrue, loadingFalse }) => {
+export const Navbar = ({ setShowLoading }) => {
    const history = useHistory()
 
    //Chaneg NavBar Background
@@ -45,7 +45,7 @@ export const Navbar = ({ loadingTrue, loadingFalse }) => {
 
    const handleSearch = () => {
       history.push(`/search/${inputText}`)
-      document.getElementById("SearchInput").value = ""
+      setInputText("")
    }
 
    const SearchBar = () => {
@@ -57,6 +57,7 @@ export const Navbar = ({ loadingTrue, loadingFalse }) => {
                   placeholder="Search..."
                   onChange={(e) => setInputText(e.target.value)}
                   onPressEnter={() => handleSearch()}
+                  value={inputText}
                />
                <div className="Icon" onClick={() => handleSearch()}>
                   <GoSearch size="1.2rem" />
@@ -93,8 +94,10 @@ export const Navbar = ({ loadingTrue, loadingFalse }) => {
    }
 
    const mockLoading = () => {
-      loadingTrue()
-      loadingFalse()
+      setShowLoading(true)
+      setTimeout(() => {
+         setShowLoading(false)
+      }, 1000)
    }
 
    const NavLeft = () => {
@@ -116,7 +119,7 @@ export const Navbar = ({ loadingTrue, loadingFalse }) => {
    const NavRight = () => {
       return (
          <ul className="NavRight">
-            <Link to="/testImg">
+            <Link to="/test">
                <li>Sign In</li>
             </Link>
             <Link to="">

@@ -4,10 +4,8 @@ import PredictionCard from "../../../lib/components/PredictionCard/PredictionCar
 //Button
 import Button from "@material-ui/core/Button"
 import { Spin } from "antd"
-import { mockPredictionsData } from "../../../lib/mockData"
 import { Link } from "react-router-dom"
 import axios from "axios"
-
 
 export const TopPredictions = (props) => {
    const [predictionList, setPredictionList] = useState([])
@@ -21,19 +19,22 @@ export const TopPredictions = (props) => {
    const getData = async () => {
       let predictionData = []
       await axios
-         .get("/search/predictions/all")
+         .get("api/search/predictions")
          .then((response) => {
-            console.log("Predictions: ")
-            console.log(response.data)
-            predictionData = response.data
+            // console.log("Predictions: ")
+            // console.log(response.data)
+            if (response.data.status === "success") {
+               predictionData = response.data.result
+               for (let i = 0; i < 2; i++) {
+                  predictionData = predictionData.concat(predictionData)
+               }
+               // console.log(predictionData)
+               setPredictionList(predictionData)
+            } else {
+               // console.log(response.data.err)
+            }
          })
          .catch((err) => console.log(err))
-
-      for (let i = 0; i < 2; i++) {
-         predictionData = predictionData.concat(predictionData)
-      }
-      console.log(predictionData)
-      setPredictionList(predictionData)
    }
 
    const showMore = () => {
@@ -76,4 +77,3 @@ export const TopPredictions = (props) => {
       </div>
    )
 }
-

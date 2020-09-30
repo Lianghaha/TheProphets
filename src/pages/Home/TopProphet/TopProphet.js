@@ -10,11 +10,10 @@ import Button from "@material-ui/core/Button"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
-
 //Antd Carousel Settings
 const settings = {
    arrows: false,
-   dots: {className: "ProphetsDots"},
+   dots: { className: "ProphetsDots" },
    infinite: true,
    speed: 600,
    slidesToShow: 6,
@@ -60,7 +59,6 @@ const settings = {
    ],
 }
 
-
 export const TopProphets = () => {
    const carouselRef = useRef()
 
@@ -80,19 +78,22 @@ export const TopProphets = () => {
    const getData = async () => {
       let prophetData = []
       await axios
-         .get("/search/prophets/all?sort=DESC&scoreAbove=0")
+         .get("api/search/prophets")
          .then((response) => {
-            console.log("Prophets")
-            console.log(response.data)
-            prophetData = response.data
+            // console.log("Prophets: ")
+            // console.log(response.data)
+            if (response.data.status === "success") {
+               prophetData = response.data.result
+               for (let i = 0; i < 2; i++) {
+                  prophetData = prophetData.concat(prophetData)
+               }
+               // console.log(prophetData)
+               setProphetList(prophetData)
+            } else {
+               // console.log(response.data.err)
+            }
          })
          .catch((err) => console.log(err))
-      
-      for (let i = 0; i < 2; i++) {
-         prophetData = prophetData.concat(prophetData)
-      }
-      console.log(prophetData)
-      setProphetList(prophetData)
    }
 
    return (
@@ -126,4 +127,3 @@ export const TopProphets = () => {
       </div>
    )
 }
-

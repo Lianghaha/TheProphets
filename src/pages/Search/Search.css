@@ -63,7 +63,7 @@
    font-size: 2rem;
 }
 
-.Results .SearchButtonContainer {
+.Results .SwitchButtonContainer {
    width: 100%;
    display: flex;
    /* border: 3px solid red; */
@@ -72,7 +72,7 @@
    justify-content: center;
 }
 
-.SearchButtonContainer .SearchButton {
+.SwitchButtonContainer .SwitchButton {
    /* border: 3px solid blue; */
    width: 46%;
    display: flex;
@@ -81,59 +81,27 @@
    border: 3px solid grey;
 }
 
-.SearchButtonContainer .SearchButton:first-child {
+.SwitchButtonContainer .SwitchButton:first-child {
    border-top-left-radius: var(--border-radius);
    border-bottom-left-radius: var(--border-radius);
 }
 
-.SearchButtonContainer .SearchButton:last-child {
+.SwitchButtonContainer .SwitchButton:last-child {
    border-top-right-radius: var(--border-radius);
    border-bottom-right-radius: var(--border-radius);
 }
 
-.SearchButtonContainer .SearchButton:hover {
+.SwitchButtonContainer .SwitchButton:hover {
    background-color: darkgray;
    border-color: darkgray;
    transition: background-color 0.5s ease-in, border-color 1s ease-in;
 }
 
-.SearchButtonActive {
+.SwitchButtonActive {
    background-color: grey;
    /* border-bottom: 3px solid white;
    transition: border-bottom .3s; */
 }
-
-.SearchButton .MuiButtonBase-root {
-   height: 100%;
-   width: 100%;
-   border-radius: 0;
-}
-
-.SearchButton .MuiButtonBase-root:hover {
-   background-color: transparent !important;
-}
-
-.SearchButton .MuiButton-label {
-   font-family: "Playfair Display", serif;
-   text-transform: none;
-}
-
-/* .SearchButton .MuiButton-root:after {    
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 3px;
-  left: 50%;
-  position: absolute;
-  background: black;
-  transition: width 0.5s ease 0s, left 0.5s ease 0s;
-  width: 0;
-}
-.SearchButton .MuiButton-root:hover:after { 
-  width: 100%; 
-  left: 0; 
-} */
 
 .SearchProphetCards {
    display: grid;
@@ -220,4 +188,18 @@
    padding: 6% 10%;
 }
 
+/* Modified Material Ui Button  */
+.SwitchButton .MuiButtonBase-root {
+   height: 100%;
+   width: 100%;
+   border-radius: 0;
+}
 
+.SwitchButton .MuiButtonBase-root:hover {
+   background-color: transparent !important;
+}
+
+.SwitchButton .MuiButton-label {
+   font-family: "Playfair Display", serif;
+   text-transform: none;
+}

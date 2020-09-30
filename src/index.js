@@ -5,6 +5,7 @@ import "./lib/common.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Navbar } from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"
+import { NotFound } from "./pages/NotFound/NotFound"
 import { Search } from "./pages/Search/Search"
 import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
 import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
@@ -15,23 +16,13 @@ function App() {
    const [showLoading, setShowLoading] = useState(false)
    const [testImg, setTestImg] = useState("")
 
-   const loadingTrue = () => {
-      setShowLoading(true)
-   }
-
-   const loadingFalse = () => {
-      setTimeout(() => {
-         setShowLoading(false)
-      }, 1000)
-   }
-
    useEffect(() => {
       axios
-         .get("/test")
+         .get("/api/test")
          .then((response) => {
-            console.log("Test Image:")
-            console.log(response.data[0].img)
-            setTestImg(response.data[0].img)
+            // console.log("Test Image: 111111111111111111111")
+            // console.log(response)
+            setTestImg(response.data.result[0].img)
          })
          .catch(err => console.log(err))
    }, [])
@@ -39,51 +30,71 @@ function App() {
    return (
       <Router>
          <div className="App">
-            <Navbar loadingTrue={loadingTrue} loadingFalse={loadingFalse} />
+            <Navbar setShowLoading={setShowLoading} />
             <Spin size="large" spinning={showLoading}>
-               <Switch>
-                  <Route
-                     path="/prophetDetail/:id"
-                     render={(match) => <ProphetDetail match={match} />}
-                  />
-                  <Route
-                     path="/predictionDetail/:id"
-                     render={(match) => <PredictionDetail match={match} />}
-                  />
-                  <Route
-                     path="/prophets"
-                     exact
-                     render={() => (
-                        <Search showProphets={true} showPredictions={false} />
-                     )}
-                  />
-                  <Route
-                     path="/predictions"
-                     exact
-                     render={() => (
-                        <Search showProphets={false} showPredictions={true} />
-                     )}
-                  />
-                  <Route
-                     path="/search/:input"
-                     render={(match) => (
-                        <Search
-                           showProphets={true}
-                           showPredictions={false}
-                           match={match}
-                        />
-                     )}
-                  />
-                  <Route
-                     path="/testImg"
-                     render={() => (
-                        <div>
-                           <img src={testImg} alt="testImg" />
-                        </div>
-                     )}
-                  />
-                  <Route path="/" component={Home} />
-               </Switch>
+               {showLoading ? (
+                  <div className="LoadingBG"></div>
+               ) : (
+                  <Switch>
+                     <Route
+                        path="/prophetDetail/:id"
+                        render={(match) => <ProphetDetail match={match} />}
+                     />
+                     <Route
+                        path="/predictionDetail/:id"
+                        render={(match) => <PredictionDetail match={match} />}
+                     />
+                     <Route
+                        path="/prophets"
+                        exact
+                        render={() => (
+                           <Search
+                              showProphets={true}
+                              showPredictions={false}
+                           />
+                        )}
+                     />
+                     <Route
+                        path="/predictions"
+                        exact
+                        render={() => (
+                           <Search
+                              showProphets={false}
+                              showPredictions={true}
+                           />
+                        )}
+                     />
+                     <Route
+                        path="/search/:input"
+                        render={(match) => (
+                           <Search
+                              showProphets={true}
+                              showPredictions={false}
+                              match={match}
+                           />
+                        )}
+                     />
+                     <Route
+                        path="/search/"
+                        render={(match) => (
+                           <Search
+                              showProphets={true}
+                              showPredictions={false}
+                           />
+                        )}
+                     />
+                     <Route
+                        path="/test"
+                        render={() => (
+                           <div>
+                              <img src={testImg} alt="testImg" />
+                           </div>
+                        )}
+                     />
+                     <Route path="/" exact component={Home} />
+                     <Route path="/" component={NotFound} />
+                  </Switch>
+               )}
             </Spin>
          </div>
       </Router>
