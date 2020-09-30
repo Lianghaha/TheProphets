@@ -24,7 +24,7 @@ function App() {
             // console.log(response)
             setTestImg(response.data.result[0].img)
          })
-         .catch(err => console.log(err))
+         .catch((err) => console.log(err))
    }, [])
 
    return (
@@ -47,41 +47,22 @@ function App() {
                      <Route
                         path="/prophets"
                         exact
-                        render={() => (
-                           <Search
-                              showProphets={true}
-                              showPredictions={false}
-                           />
-                        )}
+                        render={() => <Search showProphets={true} />}
                      />
                      <Route
                         path="/predictions"
                         exact
-                        render={() => (
-                           <Search
-                              showProphets={false}
-                              showPredictions={true}
-                           />
-                        )}
+                        render={() => <Search showProphets={false} />}
                      />
                      <Route
                         path="/search/:input"
                         render={(match) => (
-                           <Search
-                              showProphets={true}
-                              showPredictions={false}
-                              match={match}
-                           />
+                           <Search input={match.match.params.input} />
                         )}
                      />
                      <Route
                         path="/search/"
-                        render={(match) => (
-                           <Search
-                              showProphets={true}
-                              showPredictions={false}
-                           />
-                        )}
+                        render={(match) => <Search showProphets={true} />}
                      />
                      <Route
                         path="/test"

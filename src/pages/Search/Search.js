@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react"
 import "./Search.css"
 import { IoMdArrowRoundBack } from "react-icons/io"
 import Button from "@material-ui/core/Button"
-// import { mockProphetsData } from "../../lib/mockData"
-// import { mockPredictionsData } from "../../lib/mockData"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
 import { useHistory } from "react-router-dom"
@@ -12,23 +10,18 @@ import { Spin } from "antd"
 
 export const Search = (props) => {
    //Display Prophets or Predictions
-   const [showProphets, setShowProphets] = useState(props.showProphets)
-   const [showPredictions, setShowPredictions] = useState(props.showPredictions)
+   const [showProphets, setShowProphets] = useState(true)
 
    //All Prophet/Prediction Data From Server
    const [prophetData, setProphetData] = useState([])
    const [predictionData, setPredictionData] = useState([])
-
-   // //Displayed Prophet/Prediction
-   // const [prophetData, setprophetData] = useState([])
-   // const [predictionData, setpredictionData] = useState([])
 
    const [inputText, setInputText] = useState("")
 
    const [showLoading, setShowLoading] = useState(false)
 
    //Get Prophet Data From Server
-   const getProphetData = async (keyWord) => {
+   const getProphetData = async (keyWord = "") => {
       let prophetData = []
       // console.log(keyWord)
       await axios
@@ -51,7 +44,7 @@ export const Search = (props) => {
    }
 
    //Get Prediction Data From Server
-   const getPredictionData = async (keyWord) => {
+   const getPredictionData = async (keyWord = "") => {
       let predictionData = []
       await axios
          .get(`/api/search/predictions?keyWord=${keyWord}`)
@@ -60,7 +53,7 @@ export const Search = (props) => {
             // console.log(response.data)
             if (response.data.status === "success") {
                predictionData = response.data.result
-               for (let i = 0; i < 0; i++) {
+               for (let i = 0; i < 5; i++) {
                   predictionData = predictionData.concat(predictionData)
                }
                // console.log(predictionData)
@@ -72,81 +65,26 @@ export const Search = (props) => {
          .catch((err) => console.log(err))
    }
 
-   // //Locally Search Prophets/Predictions By Input keyword
-   // const searchProphetData = useCallback(
-   //    (input) => {
-   //       let prophetData = []
-   //       prophetData.forEach((data) => {
-   //          if (
-   //             data.name &&
-   //             data.name.toLocaleLowerCase().includes(input.toLocaleLowerCase())
-   //          ) {
-   //             prophetData.push(data)
-   //          }
-   //       })
-   //       setprophetData(prophetData)
-   //    },
-   //    [prophetData, setprophetData]
-   // )
-
-   // const searchPredictionData = useCallback(
-   //    (input) => {
-   //       let predictionData = []
-   //       predictionData.forEach((data) => {
-   //          if (
-   //             data.title &&
-   //             data.title
-   //                .toLocaleLowerCase()
-   //                .includes(input.toLocaleLowerCase())
-   //          ) {
-   //             predictionData.push(data)
-   //          }
-   //       })
-   //       setpredictionData(predictionData)
-   //    },
-   //    [predictionData, setpredictionData]
-   // )
-
    useEffect(() => {
       window.scrollTo(0, 0)
-   }, [])
+      if (typeof props.showProphets !== "undefined")
+         setShowProphets(props.showProphets)
+      setInputText("")
 
-   useEffect(() => {
-      setShowProphets(props.showProphets)
-      setShowPredictions(props.showPredictions)
-
-      if (props.match.match.params.input) {
-         // console.log("222222222222222222222222222222")
-         const keyWord = props.match.match.params.input
+      if (props.input) {
+         const keyWord = props.input
          setInputText(keyWord)
          getProphetData(keyWord)
          getPredictionData(keyWord)
-         // const keyWord = props.match.match.params.input
-         // getProphetData(keyWord)
-         // getPredictionData(keyWord)
-         // searchProphetData(input)
-         // searchPredictionData(input)
       } else {
-         // console.log("111111111111111111111111111111111")
-         // setprophetData(prophetData)
-         // setpredictionData(predictionData)
-         getProphetData("")
-         getPredictionData("")
+         getProphetData()
+         getPredictionData()
       }
    }, [
       props.showProphets,
       props.showPredictions,
-      props.match.match.params.input,
-      // prophetData,
-      // predictionData,
-      // searchProphetData,
-      // searchPredictionData,
+      props.input,
    ])
-
-   // useEffect(() => {
-   //    getProphetData(inputText)
-   //    getPredictionData(inputText)
-   // }, [inputText])
 
    //BackButton
    const history = useHistory()
@@ -164,8 +102,7 @@ export const Search = (props) => {
                })}
             </div>
          )
-      }
-      if (showPredictions) {
+      } else {
          if (Object.keys(predictionData).length === 0) {
             return <div className="Empty">No Result Found</div>
          }
@@ -221,7 +158,6 @@ export const Search = (props) => {
                      }
                      onClick={() => {
                         setShowProphets(true)
-                        setShowPredictions(false)
                         mockLoading()
                      }}
                   >
@@ -229,13 +165,12 @@ export const Search = (props) => {
                   </div>
                   <div
                      className={
-                        showPredictions
-                           ? "SwitchButton SwitchButtonActive"
-                           : "SwitchButton"
+                        showProphets
+                           ? "SwitchButton"
+                           : "SwitchButton SwitchButtonActive"
                      }
                      onClick={() => {
                         setShowProphets(false)
-                        setShowPredictions(true)
                         mockLoading()
                      }}
                   >
@@ -261,5 +196,5 @@ export const Search = (props) => {
 }
 
 Search.defaultProps = {
-   match: { match: { params: { input: "" } } },
+   input: "" ,
 }

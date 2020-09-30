@@ -24,7 +24,7 @@ function ProphetCard({data}) {
                      <Rating
                         name="half-rating-read"
                         defaultValue={
-                           data.score ? data.score / 2 : 0
+                           data.score/2
                         }
                         precision={0.1}
                         size="small"
