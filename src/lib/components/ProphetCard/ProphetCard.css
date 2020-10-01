@@ -50,22 +50,25 @@
    border-bottom-right-radius: var(--border-radius);
 }
 
-.NotImg .TextSection {
+.ProphetCard .TextSection {
    width: 100%;
 }
 
 
 .ProphetCard #name {
    text-align: center;
+   font-size: 1rem;
 }
 
 .ProphetCard #description {
    text-align: start;
    word-wrap: break-word;
    margin: 0 5%;
+   font-size: .8rem;
+   
 }
 
-.ProphetCard .NumberSection {
+.ProphetCard .NumberSectionContainer {
    text-align: center;
    width: 94%;
    margin: 0 3%;
@@ -77,44 +80,26 @@
    align-items: flex-end;
 }
 
-.NumberSection .Score {
+.ProphetCard .NumberSection{
+   width: 93px;
    display: flex;
    flex-direction: column;
    align-items: center;
 }
 
-.Score .ScoreNumber {
+.ProphetCard .LargeNumber {
    color: #ffb400;
    font-family: "Special Elite", cursive;
    margin: 0 0;
-   line-height: 0.8rem;
+   margin-bottom: -15px;
+   font-size: 2.6rem;
 }
 
-/* Prophet Score Big number */
-.ScoreNumber span {
-   font-size: 2rem;
-}
-
-.NumberSection hr {
+.ProphetCard hr {
    border: .5px solid black;
    align-self: center;
    height: 80%;
 }
 
-.NumberSection .NumPredictions {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-}
 
-/* Predictions Big number */
-.ProphetCard .NumPredictions span {
-   color: #ffb400;
-   font-family: "Special Elite", cursive;
-   font-size: 2.5rem;
-   line-height: 3.1rem;
-}
 
-.ProphetsDots button{
-    height: 6px !important;
-}

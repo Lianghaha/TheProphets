@@ -3,7 +3,7 @@ import "./PredictionCard.css"
 import Rating from "@material-ui/lab/Rating"
 import { Link } from "react-router-dom"
 
-function PredictionCard({data}) {
+function PredictionCard({ data }) {
    return (
       <Link
          className="PredictionCard"
@@ -17,27 +17,21 @@ function PredictionCard({data}) {
                <p className="Description">{data.description}</p>
             </div>
             <div className="Ratings">
-               <div className="PredictionInfo">
-                  <div className="PredictionScore">
-                     <p className="PredictionScoreNumber">
-                        <span>{data.score}</span>/10
-                     </p>
-                     <Rating
+               <div className="NumberSection">
+                  <p className="LargeNumber">{data.score}</p>
+                  {/* <Rating
                         name="half-rating-read"
                         defaultValue={data.score / 2}
                         precision={0.1}
                         size="small"
                         readOnly
-                     />
-                     <p className="TextPredictionScore">Prediction Score</p>
-                  </div>
-                  <hr />
-                  <div className="NumReviews">
-                     <div className="Number">
-                        <span>{data.num_review}</span>
-                     </div>
-                     <p className="TextReviews">Reviews</p>
-                  </div>
+                     /> */}
+                  <p className="RatingText">Prediction Score</p>
+               </div>
+               <hr />
+               <div className="NumberSection">
+                  <p className="LargeNumber">{data.num_review}</p>
+                  <p className="RatingText">Reviews</p>
                </div>
             </div>
          </div>

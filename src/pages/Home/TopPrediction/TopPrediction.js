@@ -31,7 +31,7 @@ export const TopPredictions = (props) => {
                // console.log(predictionData)
                setPredictionList(predictionData)
             } else {
-               // console.log(response.data.err)
+               console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))

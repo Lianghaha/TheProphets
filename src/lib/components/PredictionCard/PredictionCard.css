@@ -76,98 +76,63 @@
    border-bottom-right-radius: var(--border-radius);
 }
 
-.PredictionCard .NotImg .Text {
+.PredictionCard .Text {
    display: flex;
    flex-wrap: wrap;
    margin-left: 5%;
    margin-top: 3%;
 }
 
-.NotImg .Text .Status {
+.PredictionCard .Status {
    width: 90%;
    font-size: 0.8rem;
    color: #ffb400;
 }
 
-.NotImg .Text .Title {
+.PredictionCard .Title {
    width: 95%;
    font-size: 1rem;
    line-height: 1.3rem;
    margin: 0.3vh 0;
 }
 
-.NotImg .Text .Description {
+.PredictionCard .Description {
    width: 95%;
    font-size: 0.7rem;
    color: rgb(120, 120, 120);
    margin-top: 0;
 }
 
-.NotImg .Ratings {
+.PredictionCard .Ratings {
    width: 100%;
    display: flex;
-   justify-content: center;
+   justify-content: space-around;
    margin-top: 6%;
    margin-bottom: 6%;
 }
 
-.Ratings .PredictionInfo {
-   width: 100%;
-   height: 100%;
-   display: flex;
-   justify-content: space-evenly;
-   align-items: flex-end;
-}
-
-.PredictionInfo .PredictionScore {
-   margin-left: 5%;
-   margin-right: 10%;
+.PredictionCard .NumberSection {
+   width: 88px;
    display: flex;
    flex-direction: column;
    align-items: center;
 }
 
-.PredictionScoreNumber {
+.PredictionCard .LargeNumber {
    color: #ffb400;
    font-family: "Special Elite", cursive;
-   line-height: 1rem;
+   font-size: 2.6rem;
+   line-height: 2.5rem;
 }
 
-.PredictionScoreNumber span {
-   font-size: 2rem;
-}
 
-.PredictionScore .TextPredictionScore {
-   font-size: 0.6rem;
-}
-
-.PredictionInfo hr {
+.PredictionCard hr {
    height: 100%;
    border: .5px solid black;
+   margin: 0 -15%;
 }
 
-.PredictionInfo .NumReviews {
-   width: 80px;
-   margin-left: 10%;
-   margin-right: 5%;
-   display: flex;
-   justify-content: center;
-   flex-wrap: wrap;
+.PredictionCard .RatingText {
+   font-size: 0.7rem;
 }
 
-.NumReviews .Number {
-   width: 60%;
-   display: flex;
-   justify-content: center;
-}
-
-.NumReviews .Number span {
-   color: #ffb400;
-   font-family: "Special Elite", cursive;
-   font-size: 3rem;
-   line-height: 2.8rem;
-}
-
-.NumReviews .TextReviews {
-   font-size: 0.6rem;
-}

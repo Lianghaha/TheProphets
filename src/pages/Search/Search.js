@@ -37,7 +37,7 @@ export const Search = (props) => {
                // console.log(prophetData)
                setProphetData(prophetData)
             } else {
-               // console.log(response.data.err)
+               console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))
@@ -59,7 +59,7 @@ export const Search = (props) => {
                // console.log(predictionData)
                setPredictionData(predictionData)
             } else {
-               // console.log(response.data.err)
+               console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))

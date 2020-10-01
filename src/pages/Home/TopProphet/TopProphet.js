@@ -13,7 +13,7 @@ import axios from "axios"
 //Antd Carousel Settings
 const settings = {
    arrows: false,
-   dots: { className: "ProphetsDots" },
+   dots: { className: "AntDCarouselDots" },
    infinite: true,
    speed: 600,
    slidesToShow: 6,
@@ -90,7 +90,7 @@ export const TopProphets = () => {
                // console.log(prophetData)
                setProphetList(prophetData)
             } else {
-               // console.log(response.data.err)
+               console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))

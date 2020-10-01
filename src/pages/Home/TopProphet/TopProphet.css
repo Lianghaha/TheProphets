@@ -14,8 +14,7 @@
 
 .ProphetCardContainer {
    background-color: #252525;
-   height: 50vh;
-   min-height: 555px;
+   min-height: 525px;
 }
 
 /* Material UI Button */
@@ -32,4 +31,8 @@
 /* Text */
 .MuiButton-label {
    color: white;
+}
+
+.AntDCarouselDots button{
+    height: 6px !important;
 }
