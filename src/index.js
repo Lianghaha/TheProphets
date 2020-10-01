@@ -38,11 +38,17 @@ function App() {
                   <Switch>
                      <Route
                         path="/prophetDetail/:id"
-                        render={(match) => <ProphetDetail match={match} />}
+                        render={(match) => (
+                           <ProphetDetail prophetID={match.match.params.id} />
+                        )}
                      />
                      <Route
                         path="/predictionDetail/:id"
-                        render={(match) => <PredictionDetail match={match} />}
+                        render={(match) => (
+                           <PredictionDetail
+                              predictionID={match.match.params.id}
+                           />
+                        )}
                      />
                      <Route
                         path="/prophets"

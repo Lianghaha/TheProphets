@@ -2,20 +2,20 @@ import React from "react"
 import "./PredictionStrip.css"
 import { Link } from "react-router-dom"
 
-export const PredictionStrip = (props) => {
+export const PredictionStrip = ({data}) => {
    return (
       <Link
          className="PredictionStrip"
-         to={`/predictionDetail/${props.data.predictionId}`}
+         to={`/predictionDetail/${data.prediction_id}`}
       >
          <div className="Text">
-            <p className="Status">Status:{props.data.status}</p>
-            <p className="Title">{props.data.title}</p>
-            <p className="Description">{props.data.description}</p>
+            <p className="Status">Status:{data.status}</p>
+            <p className="Title">{data.title}</p>
+            <p className="Description">{data.description}</p>
          </div>
          <div className="Rating">
             <p className="Number">
-               <span>{props.data.score}</span>/10
+               <span>{data.score}</span>/10
             </p>
             <p>Prediction Score</p>
          </div>

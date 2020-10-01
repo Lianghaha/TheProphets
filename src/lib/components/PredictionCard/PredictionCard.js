@@ -1,6 +1,6 @@
 import React from "react"
 import "./PredictionCard.css"
-import Rating from "@material-ui/lab/Rating"
+// import Rating from "@material-ui/lab/Rating"
 import { Link } from "react-router-dom"
 
 function PredictionCard({ data }) {
