@@ -58,6 +58,7 @@ export const Navbar = ({ setShowLoading }) => {
                   onChange={(e) => setInputText(e.target.value)}
                   onPressEnter={() => handleSearch()}
                   value={inputText}
+                  autoComplete="off"
                />
                <div className="Icon" onClick={() => handleSearch()}>
                   <GoSearch size="1.2rem" />
@@ -119,10 +120,10 @@ export const Navbar = ({ setShowLoading }) => {
    const NavRight = () => {
       return (
          <ul className="NavRight">
-            <Link to="/test">
-               <li>Sign In</li>
+            <Link to="/signup">
+               <li>Sign Up</li>
             </Link>
-            <Link to="">
+            <Link to="/test">
                <li>Login</li>
             </Link>
          </ul>

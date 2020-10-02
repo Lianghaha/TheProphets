@@ -9,6 +9,7 @@ import { NotFound } from "./pages/NotFound/NotFound"
 import { Search } from "./pages/Search/Search"
 import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
 import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
+import {SignUp} from "./pages/SignUp/SignUp"
 import { Spin } from "antd"
 import axios from "axios"
 
@@ -68,7 +69,11 @@ function App() {
                      />
                      <Route
                         path="/search/"
-                        render={(match) => <Search showProphets={true} />}
+                        render={() => <Search showProphets={true} />}
+                     />
+                     <Route
+                        path="/signup"
+                        render={() => <SignUp />}
                      />
                      <Route
                         path="/test"

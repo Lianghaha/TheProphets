@@ -18,7 +18,10 @@ function PredictionCard({ data }) {
             </div>
             <div className="Ratings">
                <div className="NumberSection">
-                  <p className="LargeNumber">{data.score}</p>
+                  <p className="LargeNumber">
+                     <p>{data.score}</p>
+                     <p>/10</p>
+                  </p>
                   {/* <Rating
                         name="half-rating-read"
                         defaultValue={data.score / 2}

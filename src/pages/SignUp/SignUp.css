@@ -1,0 +1,52 @@
+.SignUp {
+    height: 100vh;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SignUp form {
+    width: 35%;
+    height: 50vh;
+    background-color: white;
+    margin-bottom: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+
+
+.SignUp input[type=text], select {
+  border: none;
+  border-bottom: 2px solid darkgrey;
+  background-color: inherit;
+  display: block;
+  width: 100%;
+  margin: none;
+}
+
+.SignUp input[type=text]:focus, select:focus {
+  outline: none;
+}
+
+.FormGroup {
+  text-align: center;
+}
+
+.FormGroup .line {
+  height: 2px;
+  width: 0px;
+  position: absolute;
+  background-color: darkgrey;
+  display: inline-block;
+  transition: .3s width ease-in-out;
+  position: relative;
+  top: -14px;
+}
+
+.SignUp input[type=text]:focus+.line, select:focus+.line {
+  width: 100%;
+  background-color: #02add7;
+}

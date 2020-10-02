@@ -25,7 +25,7 @@ export const TopPredictions = (props) => {
             // console.log(response.data)
             if (response.data.status === "success") {
                predictionData = response.data.result
-               for (let i = 0; i < 2; i++) {
+               for (let i = 0; i < 0; i++) {
                   predictionData = predictionData.concat(predictionData)
                }
                // console.log(predictionData)

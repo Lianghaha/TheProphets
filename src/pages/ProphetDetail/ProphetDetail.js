@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import "./ProphetDetail.css"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import Button from "@material-ui/core/Button"
@@ -9,7 +9,7 @@ export const ProphetDetail = ({ prophetID }) => {
    const [prophet, setProphet] = useState()
    const [predictions, setPredictions] = useState([])
 
-   const getProphet = async () => {
+   const getProphet = useCallback(async () => {
       await axios
          .get(`/api/search/prophets?prophetID=${prophetID}`)
          .then((response) => {
@@ -22,11 +22,11 @@ export const ProphetDetail = ({ prophetID }) => {
             }
          })
          .catch((err) => console.log(err))
-   }
+   }, [prophetID])
 
-   const getPredictions = async () => {
+   const getPredictions = useCallback(async () => {
       await axios
-         .get(`/api/search/predictions?prophetID=${prophetID}`)
+         .get(`/api/search/predictions111?prophetID=${prophetID}`)
          .then((response) => {
             console.log("Prophet Detail Predictions: ")
             console.log(response.data)
@@ -37,13 +37,14 @@ export const ProphetDetail = ({ prophetID }) => {
             }
          })
          .catch((err) => console.log(err))
-   }
+   }, [prophetID])
 
    useEffect(() => {
       window.scrollTo(0, 0)
       getProphet()
       getPredictions()
-   }, [])
+   }, [getProphet,
+      getPredictions])
 
    
 
@@ -68,8 +69,8 @@ export const ProphetDetail = ({ prophetID }) => {
                   <h2>Predictions</h2>
                </div>
                <div className="PredictionList">
-                  {predictions.map((prediction) => {
-                     return <PredictionStrip data={prediction} />
+                  {predictions.map((prediction, index) => {
+                     return <PredictionStrip data={prediction} key={index} />
                   })}
                </div>
                <Button variant="outlined">SHOW MORE</Button>

@@ -81,10 +81,13 @@
 }
 
 .ProphetCard .NumberSection{
-   width: 93px;
    display: flex;
    flex-direction: column;
    align-items: center;
+}
+
+.PredictionCard .NumberSection:last-child {
+   width: 65px;
 }
 
 .ProphetCard .LargeNumber {
@@ -93,6 +96,12 @@
    margin: 0 0;
    margin-bottom: -15px;
    font-size: 2.6rem;
+   display: flex;
+}
+
+.ProphetCard .LargeNumber p:last-child {
+   font-size: 1rem;
+   margin-top: 28%;
 }
 
 .ProphetCard hr {

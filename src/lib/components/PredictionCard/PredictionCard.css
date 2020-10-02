@@ -107,15 +107,19 @@
    width: 100%;
    display: flex;
    justify-content: space-around;
-   margin-top: 6%;
+   margin-top: 8%;
    margin-bottom: 6%;
 }
 
 .PredictionCard .NumberSection {
-   width: 88px;
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: flex-end;
+}
+
+.PredictionCard .NumberSection:last-child {
+   width: 65px;
 }
 
 .PredictionCard .LargeNumber {
@@ -123,16 +127,28 @@
    font-family: "Special Elite", cursive;
    font-size: 2.6rem;
    line-height: 2.5rem;
+   display: flex;
 }
 
+.PredictionCard .LargeNumber {
+   margin-bottom: -5%;
+}
+
+.PredictionCard .LargeNumber p {
+   margin-bottom: -8%;
+}
+
+.PredictionCard .LargeNumber p:last-child {
+   font-size: 1rem;
+   margin-top: 8%;
+}
 
 .PredictionCard hr {
    height: 100%;
-   border: .5px solid black;
+   border: 0.5px solid black;
    margin: 0 -15%;
 }
 
 .PredictionCard .RatingText {
    font-size: 0.7rem;
 }
-

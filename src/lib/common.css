@@ -82,9 +82,30 @@
    }
 }
 
-/* Spin Color */
+/* Home and Search Spin */
 .ant-spin-dot-item {
    background-color: white;
+}
 
+.ant-spin-nested-loading {
+   width: 100%;
+}
+
+.ant-spin-blur {
+   opacity: 0 !important;
+}
+
+.ant-spin-lg .ant-spin-dot {
+   margin-top: 15vh !important;
+   font-size: 60px !important;
+}
+
+.ant-spin-lg .ant-spin-dot i {
+   width: 30px !important;
+   height: 30px !important;
+}
+
+.ant-spin-container::after {
+   background: transparent !important;
 }
 

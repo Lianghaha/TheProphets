@@ -15,7 +15,10 @@ function ProphetCard({ data }) {
                </div>
                <div className="NumberSectionContainer">
                   <div className="NumberSection">
-                     <div className="LargeNumber">{data.score}</div>
+                     <div className="LargeNumber">
+                        <p>{data.score}</p>
+                        <p>/10</p>
+                     </div>
 
                      {/* <Rating
                         name="half-rating-read"

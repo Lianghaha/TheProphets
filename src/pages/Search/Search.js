@@ -53,7 +53,7 @@ export const Search = (props) => {
             // console.log(response.data)
             if (response.data.status === "success") {
                predictionData = response.data.result
-               for (let i = 0; i < 5; i++) {
+               for (let i = 0; i < 0; i++) {
                   predictionData = predictionData.concat(predictionData)
                }
                // console.log(predictionData)
@@ -80,11 +80,7 @@ export const Search = (props) => {
          getProphetData()
          getPredictionData()
       }
-   }, [
-      props.showProphets,
-      props.showPredictions,
-      props.input,
-   ])
+   }, [props.showProphets, props.showPredictions, props.input])
 
    //BackButton
    const history = useHistory()
@@ -177,8 +173,9 @@ export const Search = (props) => {
                      <Button>Predictions</Button>
                   </div>
                </div>
+               {/* {whatToShow()} */}
                <Spin size="large" spinning={showLoading}>
-                  {showLoading ? <div></div> : whatToShow()}
+                  {showLoading ? <div className="Bug"></div> : whatToShow()}
                </Spin>
             </div>
 
@@ -196,5 +193,5 @@ export const Search = (props) => {
 }
 
 Search.defaultProps = {
-   input: "" ,
+   input: "",
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import "./PredictionDetail.css"
 import Button from "@material-ui/core/Button"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
@@ -7,7 +7,7 @@ import axios from "axios"
 export const PredictionDetail = ({ predictionID }) => {
    const [prediction, setPrediction] = useState()
 
-   const getPrediction = async () => {
+   const getPrediction = useCallback(async () => {
       await axios
          .get(`/api/search/predictions?predictionID=${predictionID}`)
          .then((response) => {
@@ -20,7 +20,7 @@ export const PredictionDetail = ({ predictionID }) => {
             }
          })
          .catch((err) => console.log(err))
-   }
+   }, [predictionID])
 
    const PredictionCardSection = () => {
       return (
@@ -44,7 +44,7 @@ export const PredictionDetail = ({ predictionID }) => {
    useEffect(() => {
       window.scrollTo(0, 0)
       getPrediction()
-   }, [])
+   }, [getPrediction])
    return (
       <div className="Detail">
          <div className="Content">

@@ -38,27 +38,13 @@
    justify-content: center;
 }
 
+body {
+   background-color: red !important;
+}
+
 .LoadingBG {
    background-color: var(--main-color);
    width: 100%;
    height: 100vh;
 }
 
-.ant-spin-nested-loading {
-   width: 100%;
-}
-
-.ant-spin-blur {
-   opacity: 0 !important;
-   background-color: var(--main-color) !important;
-}
-
-.ant-spin-lg .ant-spin-dot {
-   margin-top: 15vh !important;
-   font-size: 60px !important;
-}
-
-.ant-spin-lg .ant-spin-dot i {
-   width: 30px !important;
-   height: 30px !important;
-}
