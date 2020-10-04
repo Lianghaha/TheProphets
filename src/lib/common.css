@@ -15,8 +15,8 @@
    }
 
    .TitleButtons {
-   margin-top: 1vh;
-}
+      margin-top: 1vh;
+   }
 }
 
 .TitleAndButtons h2 {
@@ -26,7 +26,6 @@
 
 .TitleButtons {
 }
-
 
 /* ProphetDetail/PredictionDetail Page Common CSS */
 .Detail {
@@ -108,4 +107,3 @@
 .ant-spin-container::after {
    background: transparent !important;
 }
-

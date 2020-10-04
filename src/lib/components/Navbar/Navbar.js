@@ -54,7 +54,7 @@ export const Navbar = ({ setShowLoading }) => {
             <div className="SearchBar">
                <Input
                   id="SearchInput"
-                  placeholder="Search..."
+                  placeholder={"Search..."}
                   onChange={(e) => setInputText(e.target.value)}
                   onPressEnter={() => handleSearch()}
                   value={inputText}
@@ -82,7 +82,7 @@ export const Navbar = ({ setShowLoading }) => {
                   <Link to="/predictions" onClick={handleBurgerClick}>
                      <li>Predictions</li>
                   </Link>
-                  <Link to="" onClick={handleBurgerClick}>
+                  <Link to="/signup" onClick={handleBurgerClick}>
                      <li>Sign In</li>
                   </Link>
                   <Link to="" onClick={handleBurgerClick}>

@@ -6,33 +6,33 @@
    margin: 5vh 0;
 }
 
-.ProphetsList {
+.TopProphets .ProphetsList {
    width: 100%;
    margin-top: 2vh;
    /* background-color: blue; */
 }
 
-.ProphetCardContainer {
+.TopProphets .ProphetCardContainer {
    background-color: #252525;
    min-height: 525px;
 }
 
 /* Material UI Button */
-.MuiButton-outlined {
+.TopProphets .MuiButton-outlined {
    border: 1.5px solid rgb(71, 71, 71) !important;
    margin: 0 5px !important;
    border-radius: 0% !important;
 }
 
-.MuiButton-root:hover {
+.TopProphets .MuiButton-root:hover {
    background: rgb(71, 71, 71) !important;
 }
 
 /* Text */
-.MuiButton-label {
+.TopProphets .MuiButton-label {
    color: white;
 }
 
-.AntDCarouselDots button{
+.TopProphets .AntDCarouselDots button{
     height: 6px !important;
 }

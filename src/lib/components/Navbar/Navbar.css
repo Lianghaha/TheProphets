@@ -76,12 +76,13 @@
    background-color: transparent;
    color: white;
    border: none;
-   transition: box-shadow 0.6s linear;
+   /* transition: box-shadow 0.6s linear; */
 }
 
 .SearchBar #SearchInput:focus {
-   box-shadow: 0 2px 2px -2px white;
-   transition: box-shadow 0.2s linear;
+   /* box-shadow: 0 2px 2px -2px white;
+   transition: box-shadow 0.2s linear; */
+   box-shadow: none;
 }
 
 .SearchBar .Icon {

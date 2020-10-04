@@ -1,52 +1,210 @@
 .SignUp {
-    height: 100vh;
-    background-color: var(--main-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: var(--bg-dark);
+   background-size: cover;
+}
+
+.SignUp .Content {
+   /* border: 3px solid yellow; */
+   width: 30%;
+   min-width: 350px;
+   max-width: 450px;
+   min-height: 580px;
+   /* background-color: white; */
+   border-radius: 5px;
+   background-color: rgba(20, 20, 20, 0.8);
+   box-shadow: 0px 0px 5px black;
 }
 
 .SignUp form {
-    width: 35%;
-    height: 50vh;
-    background-color: white;
-    margin-bottom: 10vh;
-    display: flex;
-    flex-wrap: wrap;
-    
+   /* background-color: white; */
+   display: flex;
+   flex-wrap: wrap;
+   align-content: flex-start;
+   justify-content: center;
+   padding-bottom: 15px;
+}
+
+.SignUp h1{
+   margin-top: 10%;
+   margin-bottom: 2%;
+   color: white;
+}
+
+.SignUp .TextFieldContainer {
+   /* border: 3px solid green; */
+   height: 80px;
+   width: 100%;
+   display: flex;
+   align-items: flex-start;
+}
+
+.SignUp .ShowPasswordButton {
+   margin-top: 18px;
+   width: 30px;
+   height: 40px;
+   /* background-color: red; */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.SignUp .ButtonContainer {
+   /* background-color: red; */
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-content: flex-start;
+}
+
+.SignUp .Login {
+   height: 150px;
+   padding-bottom: 30px;
+   /* background-color: white; */
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   /* background-color: rgba(0, 0, 0, 0.8); */
+   align-content: flex-start;
+}
+
+.SignUp .Login h3 {
+   margin: 0 0;
+   color: white;
+   margin-top: 30px;
+}
+
+/* Material UI Textfield */
+.MuiFormControl-root {
+   margin-left: 10% !important;
+   width: 80%;
+}
+
+.SignUp input {
+   padding-left: 15px;
+   height: 30PX;
+   background-color: black;
+   width: 100%;
+   color: white;
+   border-radius: 5px;
+}
+
+.MuiTextField-root {
+   /* border: 2px solid green !important; */
+}
+
+/* Border */
+/* Focused Animated border bottom */
+.SignUp .MuiInput-underline:after {
+   border-bottom: 3px solid white;
+}
+/* Static Border Bottom */
+.SignUp .MuiInput-underline:before {
+   /* Get rid of the hover effect */
+   border: none !important;
+}
+
+
+/* Label */
+/* Focused Top Text */
+.SignUp .Mui-focused {
+   color: white !important;
+}
+/* Material UI Input PlcaceHolder */
+.MuiFormLabel-root {
+   margin-left: 10px;
+   margin-top: 6px;
+   color: grey !important;
+   z-index: 1;
+   font-size: 1rem !important;
+   font-family: 'Assistant', sans-serif !important;
+}
+/* Place Holder Move Animation */
+.MuiInputLabel-shrink {
+transform: translate(-10px, -10px) scale(.9) !important;
+}
+
+
+/* Button */
+/* Material UI Button */
+.SignUp .MuiButton-root {
+   width: 80%;
+   height: 40px;
+   margin-top: 2vh;
+   border-radius: 1px;
+   border: 1px solid grey;
+}
+
+/* Button Ripple Effect */
+.SignUp .MuiButton-outlined {
+   color: white;
+}
+
+.SignUp .MuiButton-root:hover {
+   background: rgb(71, 71, 71) !important;
+}
+
+
+.MuiInputLabel-root {
+
+}
+
+.MuiInputLabel-formControl {
+
+}
+
+.MuiInputBase-root {
 }
 
 
 
-.SignUp input[type=text], select {
-  border: none;
-  border-bottom: 2px solid darkgrey;
-  background-color: inherit;
-  display: block;
-  width: 100%;
-  margin: none;
+
+/* 
+
+
+
+.MuiInput-root {
+   border: none !important;
+}
+.MuiInput-underline {
+   border: none !important;
+}
+.MuiInputBase-formControl {
+   border: none !important;
+} */
+/* .MuiInput-formControl {
+   border: none !important;
+} */
+
+/* .MuiInput-underline:after {
+   border: none !important;
+} */
+/* 
+.MuiFormLabel-root {
+   color: white;
+   z-index: 1000;
+} 
+
+.MuiInputLabel-root {
+   color: white;
+   z-index: 1000;
+} 
+.MuiInputLabel-formControl{
+   color: white;
+   z-index: 1000;
+} 
+.MuiInputLabel-animated{
+   color: white;
+   z-index: 1000;
+} */
+
+
+
+
+.SignUp .MuiButtonBase-root {
 }
 
-.SignUp input[type=text]:focus, select:focus {
-  outline: none;
-}
-
-.FormGroup {
-  text-align: center;
-}
-
-.FormGroup .line {
-  height: 2px;
-  width: 0px;
-  position: absolute;
-  background-color: darkgrey;
-  display: inline-block;
-  transition: .3s width ease-in-out;
-  position: relative;
-  top: -14px;
-}
-
-.SignUp input[type=text]:focus+.line, select:focus+.line {
-  width: 100%;
-  background-color: #02add7;
-}
