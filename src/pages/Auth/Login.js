@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-import "./SignUp.css"
+import "./Auth.css"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 // import GoogleLogin from "react-google-login"
 
-export const SignUp = () => {
+export const Login = () => {
    const [showPassword, setShowPassword] = useState(false)
 
 
@@ -52,19 +52,19 @@ export const SignUp = () => {
    
 
    return (
-      <div className="SignUp">
-         <div className="Content">
+      <div className="Login">
+         <div className="AuthForm">
             <form autoComplete="off">
-               <h1>Sign Up</h1>
+               <h1>Login</h1>
                <div className="TextFieldContainer">
-                  <TextField id="signUpEmail" label="Email" />
+                  <TextField id="loginEmail" label="Email" />
                </div>
                <div className="TextFieldContainer">
-                  <TextField id="signUpUsername" label="Username" />
+                  <TextField id="loginUsername" label="Username" />
                </div>
                <div className="TextFieldContainer">
                   <TextField
-                     id="signUpPassword"
+                     id="loginPassword"
                      label="Password"
                      inputProps={inputProps()}
                   />
@@ -73,7 +73,7 @@ export const SignUp = () => {
 
                <div className="TextFieldContainer">
                   <TextField
-                     id="signUpPasswordConfirmation"
+                     id="loginPasswordConfirmation"
                      label="Password Confirmation"
                      inputProps={inputProps()}
                   />
@@ -84,7 +84,7 @@ export const SignUp = () => {
                   <Button variant="outlined">CANCEL</Button>
                </div>
             </form>
-            <div className="Login">
+            <div className="NotThisPage">
                <h3>Already a member?</h3>
                <div className="ButtonContainer">
                   <Button variant="outlined">LOGIN</Button>

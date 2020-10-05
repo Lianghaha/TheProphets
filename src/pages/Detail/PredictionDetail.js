@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react"
-import "./PredictionDetail.css"
+import "./Detail.css"
 import Button from "@material-ui/core/Button"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
 import axios from "axios"

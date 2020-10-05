@@ -55,18 +55,3 @@
    font-size: 60px !important;
 }
 
-/* Material UI Button */
-.TopPredictions .MuiButton-outlined {
-   border: 1.5px solid rgb(71, 71, 71) !important;
-   margin: 0 5px !important;
-   border-radius: 0% !important;
-}
-
-.TopPredictions .MuiButton-root:hover {
-   background: rgb(71, 71, 71) !important;
-}
-
-/* Text */
-.TopPredictions .MuiButton-label {
-   color: white;
-}

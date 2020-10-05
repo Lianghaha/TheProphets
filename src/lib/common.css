@@ -24,62 +24,19 @@
    margin: 0 0;
 }
 
-.TitleButtons {
+/* Material UI Button */
+.MuiButton-outlined {
+   border: 1.5px solid rgb(71, 71, 71) !important;
+   margin: 0 5px !important;
+   border-radius: 0% !important;
+   color: white !important;
 }
 
-/* ProphetDetail/PredictionDetail Page Common CSS */
-.Detail {
-   background-color: var(--main-color);
-   width: 100%;
-   height: 200vh;
-   display: flex;
-   justify-content: center;
+.MuiButton-root:hover {
+   background: rgb(71, 71, 71) !important;
 }
 
-.Detail .Content {
-   background-color: var(--main-color-light);
-   width: 60%;
-   height: 90%;
-   margin-top: 8vh;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-content: flex-start;
-   border-radius: 8px;
-}
 
-.Detail .Section {
-   /* background-color: green; */
-   width: 90%;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   margin-top: 3vh;
-   margin-bottom: 1vh;
-}
-
-.Detail .SectionTitleAndButton {
-   color: white;
-   width: 93%;
-   margin-bottom: 3vh;
-   padding-bottom: 1vh;
-   padding-right: 1%;
-   box-shadow: 0 4px 2px -2px white;
-   display: flex;
-   justify-content: space-between;
-   align-items: flex-end;
-}
-
-.Detail .SectionTitleAndButton h2 {
-   color: white;
-   margin: 0 0;
-}
-
-@media screen and (max-width: 1000px) {
-   .Detail .Content {
-      width: 90%;
-   }
-}
 
 /* Home and Search Spin */
 .ant-spin-dot-item {

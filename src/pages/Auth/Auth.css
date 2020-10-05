@@ -7,7 +7,16 @@
    background-size: cover;
 }
 
-.SignUp .Content {
+.Login {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: var(--bg-dark);
+   background-size: cover;
+}
+
+.AuthForm {
    /* border: 3px solid yellow; */
    width: 30%;
    min-width: 350px;
@@ -19,7 +28,7 @@
    box-shadow: 0px 0px 5px black;
 }
 
-.SignUp form {
+.AuthForm form {
    /* background-color: white; */
    display: flex;
    flex-wrap: wrap;
@@ -28,21 +37,21 @@
    padding-bottom: 15px;
 }
 
-.SignUp h1{
+.AuthForm h1{
    margin-top: 10%;
    margin-bottom: 2%;
    color: white;
 }
 
-.SignUp .TextFieldContainer {
+.AuthForm .TextFieldContainer {
    /* border: 3px solid green; */
-   height: 80px;
+   height: 85px;
    width: 100%;
    display: flex;
    align-items: flex-start;
 }
 
-.SignUp .ShowPasswordButton {
+.AuthForm .ShowPasswordButton {
    margin-top: 18px;
    width: 30px;
    height: 40px;
@@ -52,7 +61,7 @@
    align-items: center;
 }
 
-.SignUp .ButtonContainer {
+.AuthForm .ButtonContainer {
    /* background-color: red; */
    width: 100%;
    display: flex;
@@ -61,7 +70,7 @@
    align-content: flex-start;
 }
 
-.SignUp .Login {
+.AuthForm .NotThisPage {
    height: 150px;
    padding-bottom: 30px;
    /* background-color: white; */
@@ -72,7 +81,7 @@
    align-content: flex-start;
 }
 
-.SignUp .Login h3 {
+.AuthForm .NotThisPage h3 {
    margin: 0 0;
    color: white;
    margin-top: 30px;
@@ -84,7 +93,7 @@
    width: 80%;
 }
 
-.SignUp input {
+.AuthForm input {
    padding-left: 15px;
    height: 30PX;
    background-color: black;
@@ -99,11 +108,11 @@
 
 /* Border */
 /* Focused Animated border bottom */
-.SignUp .MuiInput-underline:after {
+.AuthForm .MuiInput-underline:after {
    border-bottom: 3px solid white;
 }
 /* Static Border Bottom */
-.SignUp .MuiInput-underline:before {
+.AuthForm .MuiInput-underline:before {
    /* Get rid of the hover effect */
    border: none !important;
 }
@@ -111,7 +120,7 @@
 
 /* Label */
 /* Focused Top Text */
-.SignUp .Mui-focused {
+.AuthForm .Mui-focused {
    color: white !important;
 }
 /* Material UI Input PlcaceHolder */
@@ -128,83 +137,39 @@
 transform: translate(-10px, -10px) scale(.9) !important;
 }
 
+/* Helper Text */
+.AuthForm .MuiFormHelperText-root {
+   color:rgb(255, 81, 0)!important;
+   font-family: 'Assistant', sans-serif !important;
+   font-weight: 400;
+   font-size: 10PX;
+}
 
-/* Button */
+
+
 /* Material UI Button */
-.SignUp .MuiButton-root {
+.AuthForm .MuiButton-outlined {
    width: 80%;
    height: 40px;
-   margin-top: 2vh;
-   border-radius: 1px;
-   border: 1px solid grey;
+   margin: 0 0;
+   margin-top: 2vh !important;
+   border-radius: 2px !important;
 }
 
 /* Button Ripple Effect */
-.SignUp .MuiButton-outlined {
+.AuthForm .MuiButton-outlined {
    color: white;
 }
 
-.SignUp .MuiButton-root:hover {
-   background: rgb(71, 71, 71) !important;
-}
-
-
-.MuiInputLabel-root {
-
-}
-
-.MuiInputLabel-formControl {
-
-}
-
-.MuiInputBase-root {
+/* Disabled Button */
+.AuthForm .Mui-disabled {
+   background-color: rgba(169, 169, 169, 0.3) !important;
+   color: grey !important;
+   border: 1px solid rgba(169, 169, 169, 0.3) !important;
 }
 
 
 
 
-/* 
 
-
-
-.MuiInput-root {
-   border: none !important;
-}
-.MuiInput-underline {
-   border: none !important;
-}
-.MuiInputBase-formControl {
-   border: none !important;
-} */
-/* .MuiInput-formControl {
-   border: none !important;
-} */
-
-/* .MuiInput-underline:after {
-   border: none !important;
-} */
-/* 
-.MuiFormLabel-root {
-   color: white;
-   z-index: 1000;
-} 
-
-.MuiInputLabel-root {
-   color: white;
-   z-index: 1000;
-} 
-.MuiInputLabel-formControl{
-   color: white;
-   z-index: 1000;
-} 
-.MuiInputLabel-animated{
-   color: white;
-   z-index: 1000;
-} */
-
-
-
-
-.SignUp .MuiButtonBase-root {
-}
 

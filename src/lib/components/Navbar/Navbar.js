@@ -85,7 +85,7 @@ export const Navbar = ({ setShowLoading }) => {
                   <Link to="/signup" onClick={handleBurgerClick}>
                      <li>Sign In</li>
                   </Link>
-                  <Link to="" onClick={handleBurgerClick}>
+                  <Link to="/login" onClick={handleBurgerClick}>
                      <li>Login</li>
                   </Link>
                </ul>
@@ -123,7 +123,7 @@ export const Navbar = ({ setShowLoading }) => {
             <Link to="/signup">
                <li>Sign Up</li>
             </Link>
-            <Link to="/test">
+            <Link to="/login">
                <li>Login</li>
             </Link>
          </ul>

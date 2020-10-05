@@ -17,22 +17,9 @@
    min-height: 525px;
 }
 
-/* Material UI Button */
-.TopProphets .MuiButton-outlined {
-   border: 1.5px solid rgb(71, 71, 71) !important;
-   margin: 0 5px !important;
-   border-radius: 0% !important;
-}
 
-.TopProphets .MuiButton-root:hover {
-   background: rgb(71, 71, 71) !important;
-}
-
-/* Text */
-.TopProphets .MuiButton-label {
-   color: white;
-}
-
+/* AntD Carousel Dots */
 .TopProphets .AntDCarouselDots button{
     height: 6px !important;
 }
+

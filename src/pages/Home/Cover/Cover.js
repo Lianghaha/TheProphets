@@ -17,7 +17,15 @@ function Cover() {
             </p>
          </div>
          <div className="Icon">
-            <VscFoldDown color="white" size="1.8em" />
+            <VscFoldDown
+               color="white"
+               size="1.8em"
+               onClick={() => {window.scroll({
+                  top: window.innerHeight - 50,
+                  left: 0,
+                  behavior: "smooth",
+               })}}
+            />
          </div>
       </div>
    )

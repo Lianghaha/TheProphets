@@ -7,9 +7,10 @@ import { Navbar } from "./lib/components/Navbar/Navbar"
 import { Home } from "./pages/Home/Home"
 import { NotFound } from "./pages/NotFound/NotFound"
 import { Search } from "./pages/Search/Search"
-import { ProphetDetail } from "./pages/ProphetDetail/ProphetDetail"
-import { PredictionDetail } from "./pages/PredictionDetail/PredictionDetail"
-import {SignUp} from "./pages/SignUp/SignUp"
+import { ProphetDetail } from "./pages/Detail/ProphetDetail"
+import { PredictionDetail } from "./pages/Detail/PredictionDetail"
+import { SignUp } from "./pages/Auth/SignUp"
+import { Login } from "./pages/Auth/Login"
 import { Spin } from "antd"
 import axios from "axios"
 
@@ -71,10 +72,8 @@ function App() {
                         path="/search/"
                         render={() => <Search showProphets={true} />}
                      />
-                     <Route
-                        path="/signup"
-                        render={() => <SignUp />}
-                     />
+                     <Route path="/signup" render={() => <SignUp />} />
+                     <Route path="/login" render={() => <Login />} />
                      <Route
                         path="/test"
                         render={() => (

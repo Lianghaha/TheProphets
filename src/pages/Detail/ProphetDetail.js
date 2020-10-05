@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react"
-import "./ProphetDetail.css"
+import "./Detail.css"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import Button from "@material-ui/core/Button"
 import { PredictionStrip } from "./PredictionStrip/PredictionStrip"
@@ -26,7 +26,7 @@ export const ProphetDetail = ({ prophetID }) => {
 
    const getPredictions = useCallback(async () => {
       await axios
-         .get(`/api/search/predictions111?prophetID=${prophetID}`)
+         .get(`/api/search/predictions?prophetID=${prophetID}`)
          .then((response) => {
             console.log("Prophet Detail Predictions: ")
             console.log(response.data)
