@@ -3,7 +3,8 @@
    margin: 1vh 1vw;
    background-color: var(--main-color);
    min-width: 280px;
-   height: 450px;
+   max-width: 360px;
+   height: 420px;
    border-radius: var(--border-radius);
 
    box-shadow: 0px 0px 3px black;
@@ -94,14 +95,21 @@
    color: #ffb400;
    font-family: "Special Elite", cursive;
    margin: 0 0;
-   margin-bottom: -15px;
-   font-size: 2.6rem;
+   font-size: 2.3rem;
    display: flex;
+   font-weight: 400;
+   margin-bottom: -18%;
 }
 
-.ProphetCard .LargeNumber p:last-child {
+/* /10 */
+.ProphetCard .LargeNumber span {
    font-size: 1rem;
-   margin-top: 28%;
+   margin-top: 24%;
+}
+
+/* Number of Predictions */
+.ProphetCard .NumberSection:last-child .LargeNumber{
+   margin-bottom: -22%;
 }
 
 .ProphetCard hr {

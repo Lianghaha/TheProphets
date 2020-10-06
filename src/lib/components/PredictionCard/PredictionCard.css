@@ -100,7 +100,7 @@
    width: 95%;
    font-size: 0.7rem;
    color: rgb(120, 120, 120);
-   margin-top: 0;
+   margin-top: .3vh;
 }
 
 .PredictionCard .Ratings {
@@ -125,22 +125,22 @@
 .PredictionCard .LargeNumber {
    color: #ffb400;
    font-family: "Special Elite", cursive;
-   font-size: 2.6rem;
+   font-size: 2rem;
    line-height: 2.5rem;
    display: flex;
+   font-weight: 400;
+   margin-bottom: -12%;
 }
 
-.PredictionCard .LargeNumber {
-   margin-bottom: -5%;
-}
-
-.PredictionCard .LargeNumber p {
-   margin-bottom: -8%;
-}
-
-.PredictionCard .LargeNumber p:last-child {
+/* /10 */
+.PredictionCard .LargeNumber span{
    font-size: 1rem;
-   margin-top: 8%;
+   margin-top: 4%;
+}
+
+/* Number of Reviews */
+.PredictionCard .NumberSection:last-child .LargeNumber{
+   margin-bottom: -14%;
 }
 
 .PredictionCard hr {

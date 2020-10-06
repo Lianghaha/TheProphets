@@ -20,7 +20,7 @@ function PredictionCard({ data }) {
                <div className="NumberSection">
                   <div className="LargeNumber">
                      <p>{data.score}</p>
-                     <p>/10</p>
+                     <span>/10</span>
                   </div>
                   {/* <Rating
                         name="half-rating-read"

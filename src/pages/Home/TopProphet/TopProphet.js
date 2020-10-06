@@ -78,7 +78,7 @@ export const TopProphets = () => {
    const getData = async () => {
       let prophetData = []
       await axios
-         .get("api/search/prophets")
+         .get("/api/search/prophets")
          .then((response) => {
             // console.log("Prophets: ")
             // console.log(response.data)

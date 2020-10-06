@@ -13,6 +13,7 @@ import { SignUp } from "./pages/Auth/SignUp"
 import { Login } from "./pages/Auth/Login"
 import { Spin } from "antd"
 import axios from "axios"
+require("dotenv").config()
 
 function App() {
    const [showLoading, setShowLoading] = useState(false)

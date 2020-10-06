@@ -197,20 +197,22 @@
    .Search .Tools {
       order: 1;
       display: flex;
+      width: 100%;
+      margin: 0 0;
    }
 
    .Search .Filter {
       margin: 0 0;
       height: 260px;
       margin-bottom: 2vh;
-      margin-left: 2vh;
+      margin-left: 1.3vh;
    }
 }
 
 /* PreditionCard Responsive */
 @media screen and (max-width: 960px) {
    .SearchPredictionCards .PredictionCard {
-      height: 480px;
+      height: 580px;
       width: 300px;
    }
 

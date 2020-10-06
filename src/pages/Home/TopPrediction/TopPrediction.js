@@ -19,10 +19,10 @@ export const TopPredictions = (props) => {
    const getData = async () => {
       let predictionData = []
       await axios
-         .get("api/search/predictions")
+         .get("/api/search/predictions")
          .then((response) => {
-            // console.log("Predictions: ")
-            // console.log(response.data)
+            console.log("Predictions: ")
+            console.log(response.data)
             if (response.data.status === "success") {
                predictionData = response.data.result
                for (let i = 0; i < 0; i++) {

@@ -9,6 +9,8 @@ import axios from "axios"
 import { Spin } from "antd"
 
 export const Search = (props) => {
+   //BackButton
+   const history = useHistory()
    //Display Prophets or Predictions
    const [showProphets, setShowProphets] = useState(true)
 
@@ -82,9 +84,6 @@ export const Search = (props) => {
       }
    }, [props.showProphets, props.showPredictions, props.input])
 
-   //BackButton
-   const history = useHistory()
-
    //Prophets or Predictions
    const whatToShow = () => {
       if (showProphets) {
@@ -135,12 +134,7 @@ export const Search = (props) => {
          <div className="ResultsAndTools">
             <div className="Results HoverEffect">
                <div className="SearchText">
-                  <div
-                     className="Icon"
-                     onClick={() => {
-                        history.goBack()
-                     }}
-                  >
+                  <div className="Icon" onClick={history.goBack}>
                      <IoMdArrowRoundBack size="3em" />
                   </div>
                   <p>Search: {searchTextDisplay()}</p>
