@@ -8,11 +8,10 @@ import axios from "axios"
 import { useHistory } from "react-router-dom"
 import { utils } from "../../lib/utils"
 
-
 import GoogleLogin from "react-google-login"
 
 export const Login = () => {
-   //Cancel Button
+   //Redirect
    const history = useHistory()
 
    //Display Password
@@ -66,16 +65,12 @@ export const Login = () => {
       }
    }
 
-
-
    const handleSubmit = async () => {
       const AESpassword = utils.encrypt(password)
       await axios
-         .post(
-            `/api/login?email=${email}&&AESpassword=${AESpassword}`
-         )
+         .post(`/api/login?email=${email}&&AESpassword=${AESpassword}`)
          .then((response) => {
-            console.log("Register Post Response: ")
+            console.log("Login Post Response: ")
             console.log(response.data)
             const data = response.data
             if (data.status === "success") {
@@ -107,7 +102,7 @@ export const Login = () => {
                      }
                   />
                </div>
-               
+
                <div className="TextFieldContainer">
                   <TextField
                      id="loginPassword"
@@ -150,7 +145,7 @@ export const Login = () => {
                </div>
             </form>
             <div className="NotThisPage">
-               <h3>Not a member yet?</h3>
+               <h3>Not yet a member?</h3>
                <div className="ButtonContainer">
                   <Button
                      variant="outlined"

@@ -69,6 +69,7 @@
    color: #ffb400;
    font-family: "Special Elite", cursive;
    line-height: 1.5rem;
+   font-weight: 400;
 }
 
 .PredictionStrip .Rating span {

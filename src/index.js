@@ -17,7 +17,6 @@ require("dotenv").config()
 
 function App() {
    const [showLoading, setShowLoading] = useState(false)
-   // const [testImg, setTestImg] = useState("")
 
    useEffect(() => {
       axios
@@ -25,7 +24,6 @@ function App() {
          .then((response) => {
             console.log("Test Api:")
             console.log(response)
-            // setTestImg(response.data.result[0].img)
          })
          .catch((err) => console.log(err))
    }, [])

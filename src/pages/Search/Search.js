@@ -167,9 +167,8 @@ export const Search = (props) => {
                      <Button>Predictions</Button>
                   </div>
                </div>
-               {/* {whatToShow()} */}
                <Spin size="large" spinning={showLoading}>
-                  {showLoading ? <div className="Bug"></div> : whatToShow()}
+                  {showLoading ? <div></div> : whatToShow()}
                </Spin>
             </div>
 

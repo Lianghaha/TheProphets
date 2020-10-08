@@ -11,7 +11,7 @@ import { utils } from "../../lib/utils"
 import GoogleLogin from "react-google-login"
 
 export const SignUp = () => {
-   //Cancel Button
+   //Redirect
    const history = useHistory()
 
    //Display Password
