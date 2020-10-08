@@ -60,13 +60,13 @@
    height: 100%;
    width: 50%;
    object-fit: cover;
-
    border-top-left-radius: var(--border-radius);
    border-bottom-left-radius: var(--border-radius);
 }
 
 .PredictionCard .NotImg {
    background-color: white;
+   height: 100%;
    width: 50%;
    word-wrap: break-word;
    display: flex;

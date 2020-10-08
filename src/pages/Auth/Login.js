@@ -4,17 +4,19 @@ import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
 import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
-// import GoogleLogin from "react-google-login"
+import axios from "axios"
+import { useHistory } from "react-router-dom"
+import { utils } from "../../lib/utils"
+
+
+import GoogleLogin from "react-google-login"
 
 export const Login = () => {
+   //Cancel Button
+   const history = useHistory()
+
+   //Display Password
    const [showPassword, setShowPassword] = useState(false)
-
-
-
-   // const responseGoogle = (response) => {
-   //    console.log(response)
-   // }
-
    const inputProps = () => {
       let result = {}
       if (showPassword) {
@@ -49,7 +51,44 @@ export const Login = () => {
       )
    }
 
-   
+   //Store Input and Check
+   const [email, setEmail] = useState("")
+   const [emailValid, setEmailValid] = useState(false)
+   const [password, setPassword] = useState("")
+
+   const checkEmail = (input) => {
+      setEmail(input)
+      const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+      if (regex.test(input)) {
+         setEmailValid(true)
+      } else {
+         setEmailValid(false)
+      }
+   }
+
+
+
+   const handleSubmit = async () => {
+      const AESpassword = utils.encrypt(password)
+      await axios
+         .post(
+            `/api/login?email=${email}&&AESpassword=${AESpassword}`
+         )
+         .then((response) => {
+            console.log("Register Post Response: ")
+            console.log(response.data)
+            const data = response.data
+            if (data.status === "success") {
+            } else {
+               alert(data.message)
+            }
+         })
+         .catch((err) => console.log(err))
+   }
+
+   const responseGoogle = (response) => {
+      console.log(response)
+   }
 
    return (
       <div className="Login">
@@ -57,49 +96,74 @@ export const Login = () => {
             <form autoComplete="off">
                <h1>Login</h1>
                <div className="TextFieldContainer">
-                  <TextField id="loginEmail" label="Email" />
+                  <TextField
+                     id="loginEmail"
+                     label="Email"
+                     onChange={(e) => checkEmail(e.target.value)}
+                     helperText={
+                        email !== "" && !emailValid
+                           ? "Invalid Email Address"
+                           : false
+                     }
+                  />
                </div>
-               <div className="TextFieldContainer">
-                  <TextField id="loginUsername" label="Username" />
-               </div>
+               
                <div className="TextFieldContainer">
                   <TextField
                      id="loginPassword"
                      label="Password"
                      inputProps={inputProps()}
+                     onChange={(e) => setPassword(e.target.value)}
+                     helperText={
+                        password !== "" && password.length < 6
+                           ? "At least 6 characters"
+                           : false
+                     }
                   />
                   {showPasswordButton()}
                </div>
 
-               <div className="TextFieldContainer">
-                  <TextField
-                     id="loginPasswordConfirmation"
-                     label="Password Confirmation"
-                     inputProps={inputProps()}
-                  />
-                  {showPasswordButton()}
-               </div>
                <div className="ButtonContainer">
-                  <Button variant="outlined">CREAT ACCOUNT</Button>
-                  <Button variant="outlined">CANCEL</Button>
+                  <Button
+                     variant="outlined"
+                     // disabled={
+                     //    emailValid &&
+                     //    password.length >= 6
+                     //       ? false
+                     //       : true
+                     // }
+                     onClick={handleSubmit}
+                  >
+                     LOGIN
+                  </Button>
+                  <GoogleLogin
+                     className="GoogleButton"
+                     clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
+                     buttonText="Login With Google"
+                     onSuccess={responseGoogle}
+                     onFailure={responseGoogle}
+                     cookiePolicy={"single_host_origin"}
+                  />
+                  <Button variant="outlined" onClick={history.goBack}>
+                     CANCEL
+                  </Button>
                </div>
             </form>
             <div className="NotThisPage">
-               <h3>Already a member?</h3>
+               <h3>Not a member yet?</h3>
                <div className="ButtonContainer">
-                  <Button variant="outlined">LOGIN</Button>
+                  <Button
+                     variant="outlined"
+                     onClick={() => {
+                        history.push("/signup")
+                     }}
+                  >
+                     SIGN UP
+                  </Button>
                </div>
             </div>
          </div>
-         <div>
-            {/* <GoogleLogin
-               clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
-               buttonText="Login"
-               onSuccess={responseGoogle}
-               onFailure={responseGoogle}
-               cookiePolicy={"single_host_origin"}
-            /> */}
-         </div>
+         <div></div>
       </div>
    )
 }

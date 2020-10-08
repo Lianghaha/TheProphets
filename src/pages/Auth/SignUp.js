@@ -5,8 +5,8 @@ import TextField from "@material-ui/core/TextField"
 import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
-import CryptoJS from "crypto-js"
 import { useHistory } from "react-router-dom"
+import { utils } from "../../lib/utils"
 
 import GoogleLogin from "react-google-login"
 
@@ -52,7 +52,7 @@ export const SignUp = () => {
 
    //Store Input and Check
    const [email, setEmail] = useState("")
-   const [emailCorrectness, setEmailCorrectness] = useState(false)
+   const [emailValid, setEmailValid] = useState(false)
    const [username, setUsername] = useState("")
    const [usernameCorrectness, setUsernameCorrectness] = useState(false)
    const [password, setPassword] = useState("")
@@ -62,9 +62,9 @@ export const SignUp = () => {
       setEmail(input)
       const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
       if (regex.test(input)) {
-         setEmailCorrectness(true)
+         setEmailValid(true)
       } else {
-         setEmailCorrectness(false)
+         setEmailValid(false)
       }
    }
 
@@ -78,33 +78,18 @@ export const SignUp = () => {
       }
    }
 
-   //Can encrypt both String and Object
-   const encrypt = (data) => {
-      // let JSONData = JSON.stringify(data)
-      let encryptedData = CryptoJS.AES.encrypt(
-         data,
-         process.env.REACT_APP_SECRET
-      ).toString()
-      //Base64 processing is required to clear "malformed utf-8 data" error
-      let Base64Data = CryptoJS.enc.Base64.stringify(
-         CryptoJS.enc.Utf8.parse(encryptedData)
-      )
-      return Base64Data
-   }
-
    const handleSubmit = async () => {
-      const AESpassword = encrypt(password)
+      const AESpassword = utils.encrypt(password)
       await axios
          .post(
-            `/api/register?email=${email}&&username=${username}&&AESpassword=${AESpassword}`
+            `/api/signup?email=${email}&&username=${username}&&AESpassword=${AESpassword}`
          )
          .then((response) => {
             console.log("Register Post Response: ")
-            console.log(response)
+            console.log(response.data)
             const data = response.data
             if (data.status === "success") {
             } else {
-               console.log(data)
                if (data.err.code === "ER_DUP_ENTRY") {
                   if (data.err.sqlMessage.includes("email")) {
                      alert("Email already exist")
@@ -132,8 +117,8 @@ export const SignUp = () => {
                      label="Email"
                      onChange={(e) => checkEmail(e.target.value)}
                      helperText={
-                        email !== "" && !emailCorrectness
-                           ? "Invalid Email"
+                        email !== "" && !emailValid
+                           ? "Invalid Email Address"
                            : false
                      }
                   />
@@ -183,14 +168,14 @@ export const SignUp = () => {
                <div className="ButtonContainer">
                   <Button
                      variant="outlined"
-                     disabled={
-                        emailCorrectness &&
-                        usernameCorrectness &&
-                        password.length >= 6 &&
-                        password === passwordConfirmation
-                           ? false
-                           : true
-                     }
+                     // disabled={
+                     //    emailValid &&
+                     //    usernameCorrectness &&
+                     //    password.length >= 6 &&
+                     //    password === passwordConfirmation
+                     //       ? false
+                     //       : true
+                     // }
                      onClick={handleSubmit}
                   >
                      CREAT ACCOUNT

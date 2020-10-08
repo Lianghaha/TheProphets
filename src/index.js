@@ -17,15 +17,15 @@ require("dotenv").config()
 
 function App() {
    const [showLoading, setShowLoading] = useState(false)
-   const [testImg, setTestImg] = useState("")
+   // const [testImg, setTestImg] = useState("")
 
    useEffect(() => {
       axios
          .get("/api/test")
          .then((response) => {
-            // console.log("Test Image: 111111111111111111111")
-            // console.log(response)
-            setTestImg(response.data.result[0].img)
+            console.log("Test Api:")
+            console.log(response)
+            // setTestImg(response.data.result[0].img)
          })
          .catch((err) => console.log(err))
    }, [])
@@ -75,14 +75,14 @@ function App() {
                      />
                      <Route path="/signup" render={() => <SignUp />} />
                      <Route path="/login" render={() => <Login />} />
-                     <Route
+                     {/* <Route
                         path="/test"
                         render={() => (
                            <div>
                               <img src={testImg} alt="testImg" />
                            </div>
                         )}
-                     />
+                     /> */}
                      <Route path="/" exact component={Home} />
                      <Route path="/" component={NotFound} />
                   </Switch>

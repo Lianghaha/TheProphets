@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect, useEffect } from "react"
 import "./Navbar.css"
 import { Link, useHistory } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
@@ -32,6 +32,10 @@ export const Navbar = ({ setShowLoading }) => {
       updateSize()
       return () => window.removeEventListener("resize", updateSize)
    }, [])
+
+   useEffect(() => {
+   }, [])
+
 
    //Close Nav Burger
    const handleBurgerClick = () => {
