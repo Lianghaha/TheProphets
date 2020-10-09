@@ -30,15 +30,14 @@ export const Search = (props) => {
    const [scoreAboveFilter, setScoreAboveFilter] = useState(0)
 
    //Get Prophet Data From Server
-   const getProphetData = async (
-      keyWord = "",
-      sort = "DESC",
-      scoreAbove = 0
-   ) => {
+   const getProphetData = async (keyWord, sort, scoreAbove) => {
       let prophetData = []
+      console.log("111111111111111111111111111")
       console.log(keyWord, sort, scoreAbove)
       await axios
-         .get(`/api/search/prophets?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`)
+         .get(
+            `/api/search/prophets?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`
+         )
          .then((response) => {
             console.log("Search Prophets: ")
             console.log(response.data)
@@ -57,14 +56,12 @@ export const Search = (props) => {
    }
 
    //Get Prediction Data From Server
-   const getPredictionData = async (
-      keyWord = "",
-      sort = "DESC",
-      scoreAbove = 0
-   ) => {
+   const getPredictionData = async (keyWord, sort, scoreAbove) => {
       let predictionData = []
       await axios
-         .get(`/api/search/predictions?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`)
+         .get(
+            `/api/search/predictions?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`
+         )
          .then((response) => {
             // console.log("Search Predictions: ")
             // console.log(response.data)
@@ -83,6 +80,7 @@ export const Search = (props) => {
    }
 
    useEffect(() => {
+      console.log("2222222222222222222222222")
       window.scrollTo(0, 0)
       mockLoading()
       if (typeof props.showProphets !== "undefined")
@@ -92,19 +90,27 @@ export const Search = (props) => {
       if (props.input) {
          const keyWord = props.input
          setInputText(keyWord)
-         getProphetData(keyWord)
-         getPredictionData(keyWord)
+         getProphetData(keyWord, scoreSort, scoreAboveFilter)
+         getPredictionData(keyWord, scoreSort, scoreAboveFilter)
       } else {
-         getProphetData()
-         getPredictionData()
+         getProphetData(inputText, scoreSort, scoreAboveFilter)
+         getPredictionData(inputText, scoreSort, scoreAboveFilter)
       }
-   }, [props.showProphets, props.showPredictions, props.input])
+   }, [
+      props.showProphets,
+      props.showPredictions,
+      props.input,
+      scoreSort,
+      scoreAboveFilter,
+      inputText,
+   ])
 
-   useEffect(() => {
-      mockLoading()
-      getProphetData("", scoreSort, scoreAboveFilter)
-      getPredictionData("", scoreSort, scoreAboveFilter)
-   }, [scoreSort, scoreAboveFilter])
+   // useEffect(() => {
+   //    console.log("333333333333333333333333333333")
+   //    mockLoading()
+   //    getProphetData(inputText, scoreSort, scoreAboveFilter)
+   //    getPredictionData(inputText, scoreSort, scoreAboveFilter)
+   // }, [scoreSort, scoreAboveFilter])
 
    //Prophets or Predictions
    const whatToShow = () => {
@@ -217,7 +223,7 @@ export const Search = (props) => {
                   </RadioGroup>
                </div>
                <div className="Filter HoverEffect">
-                  <p className="Title">Filter:</p>
+                  <p className="Title">Filter: </p>
                   <div className="ScoreAbove">
                      <p>Score:</p>
                      <div
@@ -232,7 +238,15 @@ export const Search = (props) => {
                            precision={0.5}
                            readOnly
                         />
-                        <p style={scoreAboveFilter === 9 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                        <p
+                           style={
+                              scoreAboveFilter === 9
+                                 ? { fontWeight: "600" }
+                                 : { fontWeight: "200" }
+                           }
+                        >
+                           & UP
+                        </p>
                      </div>
                      <div
                         className="RatingContainer"
@@ -246,7 +260,15 @@ export const Search = (props) => {
                            precision={0.5}
                            readOnly
                         />
-                        <p style={scoreAboveFilter === 8 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                        <p
+                           style={
+                              scoreAboveFilter === 8
+                                 ? { fontWeight: "600" }
+                                 : { fontWeight: "200" }
+                           }
+                        >
+                           & UP
+                        </p>
                      </div>
                      <div
                         className="RatingContainer"
@@ -260,7 +282,15 @@ export const Search = (props) => {
                            precision={0.5}
                            readOnly
                         />
-                        <p style={scoreAboveFilter === 7 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                        <p
+                           style={
+                              scoreAboveFilter === 7
+                                 ? { fontWeight: "600" }
+                                 : { fontWeight: "200" }
+                           }
+                        >
+                           & UP
+                        </p>
                      </div>
                      <div
                         className="RatingContainer"
@@ -274,7 +304,15 @@ export const Search = (props) => {
                            precision={0.5}
                            readOnly
                         />
-                        <p style={scoreAboveFilter === 6 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                        <p
+                           style={
+                              scoreAboveFilter === 6
+                                 ? { fontWeight: "600" }
+                                 : { fontWeight: "200" }
+                           }
+                        >
+                           & UP
+                        </p>
                      </div>
                      <div
                         className="RatingContainer"
@@ -288,9 +326,18 @@ export const Search = (props) => {
                            precision={0.5}
                            readOnly
                         />
-                        <p style={scoreAboveFilter === 5 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                        <p
+                           style={
+                              scoreAboveFilter === 5
+                                 ? { fontWeight: "600" }
+                                 : { fontWeight: "200" }
+                           }
+                        >
+                           & UP
+                        </p>
                      </div>
                   </div>
+                  <div className="Clear" onClick={() => {setScoreAboveFilter(0)}}>Reset</div>
                </div>
             </div>
          </div>

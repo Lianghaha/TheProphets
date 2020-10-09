@@ -175,6 +175,15 @@
    padding-bottom: 3vh;
 }
 
+.Search .Filter .Clear {
+   height: 20px;
+   font-weight: 400;
+   margin-left: 1.9vw;
+   width: fit-content;
+   border-bottom: 1px solid white;
+   cursor: pointer;
+}
+
 .Search .Filter .ScoreAbove {
    margin-left: 1.8vw;
    display: flex;
