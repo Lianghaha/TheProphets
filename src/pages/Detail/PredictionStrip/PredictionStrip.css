@@ -10,7 +10,7 @@
 
    display: flex;
    justify-content: space-between;
-   font-family: "Roboto Slab", serif;
+   font-family: var(--text-font);
    color: black;
    border-radius: 2px;
 }
@@ -67,7 +67,7 @@
 .PredictionStrip .Rating .Number {
    margin-top: 10%;
    color: #ffb400;
-   font-family: "Special Elite", cursive;
+   font-family: var(--number-font);
    line-height: 1.5rem;
    font-weight: 400;
 }

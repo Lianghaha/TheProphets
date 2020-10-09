@@ -7,6 +7,10 @@ import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
 import { useHistory } from "react-router-dom"
 import axios from "axios"
 import { Spin } from "antd"
+import Radio from "@material-ui/core/Radio"
+import RadioGroup from "@material-ui/core/RadioGroup"
+import FormControlLabel from "@material-ui/core/FormControlLabel"
+import Rating from "@material-ui/lab/Rating"
 
 export const Search = (props) => {
    //BackButton
@@ -22,15 +26,22 @@ export const Search = (props) => {
 
    const [showLoading, setShowLoading] = useState(false)
 
+   const [scoreSort, setScoreSort] = useState("DESC")
+   const [scoreAboveFilter, setScoreAboveFilter] = useState(0)
+
    //Get Prophet Data From Server
-   const getProphetData = async (keyWord = "") => {
+   const getProphetData = async (
+      keyWord = "",
+      sort = "DESC",
+      scoreAbove = 0
+   ) => {
       let prophetData = []
-      // console.log(keyWord)
+      console.log(keyWord, sort, scoreAbove)
       await axios
-         .get(`/api/search/prophets?keyWord=${keyWord}`)
+         .get(`/api/search/prophets?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`)
          .then((response) => {
-            // console.log("Search Prophets: ")
-            // console.log(response.data)
+            console.log("Search Prophets: ")
+            console.log(response.data)
             if (response.data.status === "success") {
                prophetData = response.data.result
                for (let i = 0; i < 0; i++) {
@@ -46,10 +57,14 @@ export const Search = (props) => {
    }
 
    //Get Prediction Data From Server
-   const getPredictionData = async (keyWord = "") => {
+   const getPredictionData = async (
+      keyWord = "",
+      sort = "DESC",
+      scoreAbove = 0
+   ) => {
       let predictionData = []
       await axios
-         .get(`/api/search/predictions?keyWord=${keyWord}`)
+         .get(`/api/search/predictions?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`)
          .then((response) => {
             // console.log("Search Predictions: ")
             // console.log(response.data)
@@ -69,6 +84,7 @@ export const Search = (props) => {
 
    useEffect(() => {
       window.scrollTo(0, 0)
+      mockLoading()
       if (typeof props.showProphets !== "undefined")
          setShowProphets(props.showProphets)
       setInputText("")
@@ -83,6 +99,12 @@ export const Search = (props) => {
          getPredictionData()
       }
    }, [props.showProphets, props.showPredictions, props.input])
+
+   useEffect(() => {
+      mockLoading()
+      getProphetData("", scoreSort, scoreAboveFilter)
+      getPredictionData("", scoreSort, scoreAboveFilter)
+   }, [scoreSort, scoreAboveFilter])
 
    //Prophets or Predictions
    const whatToShow = () => {
@@ -174,10 +196,101 @@ export const Search = (props) => {
 
             <div className="Tools">
                <div className="Sort HoverEffect">
-                  <p className="Title">Sort</p>
+                  <p className="Title">Sort by:</p>
+                  <RadioGroup
+                     name="sort"
+                     value={scoreSort}
+                     onChange={(e) => {
+                        setScoreSort(e.target.value)
+                     }}
+                  >
+                     <FormControlLabel
+                        value="DESC"
+                        control={<Radio />}
+                        label="Score: High to Low"
+                     />
+                     <FormControlLabel
+                        value="ASC"
+                        control={<Radio />}
+                        label="Score: Low to High"
+                     />
+                  </RadioGroup>
                </div>
                <div className="Filter HoverEffect">
-                  <p className="Title">Filter</p>
+                  <p className="Title">Filter:</p>
+                  <div className="ScoreAbove">
+                     <p>Score:</p>
+                     <div
+                        className="RatingContainer"
+                        onClick={() => {
+                           setScoreAboveFilter(9)
+                        }}
+                     >
+                        <Rating
+                           name="half-rating-read"
+                           defaultValue={4.5}
+                           precision={0.5}
+                           readOnly
+                        />
+                        <p style={scoreAboveFilter === 9 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                     </div>
+                     <div
+                        className="RatingContainer"
+                        onClick={() => {
+                           setScoreAboveFilter(8)
+                        }}
+                     >
+                        <Rating
+                           name="half-rating-read"
+                           defaultValue={4}
+                           precision={0.5}
+                           readOnly
+                        />
+                        <p style={scoreAboveFilter === 8 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                     </div>
+                     <div
+                        className="RatingContainer"
+                        onClick={() => {
+                           setScoreAboveFilter(7)
+                        }}
+                     >
+                        <Rating
+                           name="half-rating-read"
+                           defaultValue={3.5}
+                           precision={0.5}
+                           readOnly
+                        />
+                        <p style={scoreAboveFilter === 7 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                     </div>
+                     <div
+                        className="RatingContainer"
+                        onClick={() => {
+                           setScoreAboveFilter(6)
+                        }}
+                     >
+                        <Rating
+                           name="half-rating-read"
+                           defaultValue={3}
+                           precision={0.5}
+                           readOnly
+                        />
+                        <p style={scoreAboveFilter === 6 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                     </div>
+                     <div
+                        className="RatingContainer"
+                        onClick={() => {
+                           setScoreAboveFilter(5)
+                        }}
+                     >
+                        <Rating
+                           name="half-rating-read"
+                           defaultValue={2.5}
+                           precision={0.5}
+                           readOnly
+                        />
+                        <p style={scoreAboveFilter === 5 ? {fontWeight:"600"} : {fontWeight:"200"}}>& UP</p>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>

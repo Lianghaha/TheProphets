@@ -2,7 +2,7 @@
    --border-radius: 8px;
    background-color: var(--main-color);
    width: 100%;
-   min-height: 300vh;
+   min-height: 100vh;
    display: flex;
    justify-content: center;
    color: white;
@@ -23,27 +23,28 @@
 .Search .ResultsAndTools {
    /* border: 3px solid green; */
    margin-top: 8vh;
-   width: 70%;
+   width: 80%;
    display: flex;
    flex-wrap: wrap;
+   justify-content: center;
 }
 
-.ResultsAndTools .Results {
+.Search .Results {
    /* border: 3px solid orange; */
-   width: 75%;
+   width: 70%;
    height: 98%;
    min-width: 320px;
    border-radius: var(--border-radius);
 }
 
-.Results .SearchText {
+.Search .SearchText {
    height: 12vh;
    display: flex;
    align-items: stretch;
    margin-right: 2%;
 }
 
-.SearchText .Icon {
+.Search .Icon {
    width: 10%;
    display: flex;
    justify-content: center;
@@ -52,18 +53,18 @@
    transition: transform 0.2s;
 }
 
-.SearchText .Icon:hover {
+.Search .Icon:hover {
    transform: scale(1.2);
 }
 
-.SearchText p {
+.Search .SearchText p {
    margin: 0 0;
    display: flex;
    align-items: center;
    font-size: 2rem;
 }
 
-.Results .SwitchButtonContainer {
+.Search .SwitchButtonContainer {
    width: 100%;
    display: flex;
    /* border: 3px solid red; */
@@ -72,7 +73,7 @@
    justify-content: center;
 }
 
-.SwitchButtonContainer .SwitchButton {
+.Search .SwitchButton {
    /* border: 3px solid blue; */
    width: 46%;
    display: flex;
@@ -81,51 +82,53 @@
    border: 3px solid grey;
 }
 
-.SwitchButtonContainer .SwitchButton:first-child {
+.Search .SwitchButton:first-child {
    border-top-left-radius: var(--border-radius);
    border-bottom-left-radius: var(--border-radius);
 }
 
-.SwitchButtonContainer .SwitchButton:last-child {
+.Search .SwitchButton:last-child {
    border-top-right-radius: var(--border-radius);
    border-bottom-right-radius: var(--border-radius);
 }
 
-.SwitchButtonContainer .SwitchButton:hover {
+.Search .SwitchButton:hover {
    background-color: darkgray;
    border-color: darkgray;
    transition: background-color 0.5s ease-in, border-color 1s ease-in;
 }
 
-.SwitchButtonActive {
+.Search .SwitchButtonActive {
    background-color: grey;
    /* border-bottom: 3px solid white;
    transition: border-bottom .3s; */
 }
 
-.SearchProphetCards {
+.Search .SearchProphetCards {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
    justify-content: center;
    justify-items: center;
    margin: 0 1vw;
    column-gap: 1vw;
+   margin-bottom: 8vh;
 }
 
-.SearchProphetCards .ProphetCard {
+.Search .ProphetCard {
    max-width: 300px;
    color: black;
    margin: 0 0.5vw;
    margin-top: 5vh;
 }
 
-.SearchPredictionCards {
+.Search .SearchPredictionCards {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
+   margin-bottom: 10vh;
 }
 
-.SearchPredictionCards .PredictionCard {
+.Search .PredictionCard {
    color: black;
    width: 91%;
    height: 240px;
@@ -133,39 +136,142 @@
    margin-top: 5vh;
 }
 
-.Empty {
+.Search .Empty {
    width: 100%;
    height: 20vh;
+   display: flex;
+   justify-content: center;
+   margin-top: 10vh;
+   font-size: 1.6rem;
 }
 
 .Search .Tools {
    width: 23%;
+   max-width: 260px;
+   min-width: 160px;
    margin-left: 2%;
 }
 
-.Tools .Sort {
+.Search .Tools .Title {
+   font-size: 1.3rem;
    width: 100%;
-   min-width: 150px;
-   height: 260px;
-   border-radius: var(--border-radius);
+   margin: 0 0;
+   padding: 0 1.5vw;
+   padding-top: 1vh;
 }
 
-.Tools .Filter {
+.Search .Sort {
+   width: 100%;
+   min-width: 150px;
+   border-radius: var(--border-radius);
+   padding-bottom: 3vh;
+}
+
+.Search .Filter {
    margin-top: 3vh;
    width: 100%;
    min-width: 150px;
-   height: 300px;
    border-radius: var(--border-radius);
+   padding-bottom: 3vh;
 }
 
-.Tools .Title {
-   font-size: 1.2rem;
-   width: 100%;
+.Search .Filter .ScoreAbove {
+   margin-left: 1.8vw;
+   display: flex;
+   flex-direction: column;
+}
+
+.Search .Filter .ScoreAbove p {
+   font-weight: 400;
    margin: 0 0;
-   padding: 6% 10%;
 }
 
-/* Modified Material Ui Button  */
+.Search .Filter .RatingContainer {
+   display: flex;
+   margin: 2px 0;
+   cursor: pointer;
+}
+
+.Search .Filter .RatingContainer p{
+   font-size: .8rem;
+   margin-left: 3%;
+   margin-top: -1%;
+}
+
+@media screen and (max-width: 1000px) {
+   .Search .ResultsAndTools {
+      width: 90%;
+      height: 90%;
+      justify-content: flex-start;
+   }
+   .Search .Results {
+      width: 100%;
+      order: 2;
+      margin-bottom: 5%;
+   }
+
+   .Search .Tools {
+      order: 1;
+      display: flex;
+      min-width: 100%;
+      margin: 0 0;
+   }
+
+   .Search .Sort {
+      margin: 0 0;
+      width: 50%;
+      min-width: 160px;
+      max-width: 220px;
+      margin-bottom: 2vh;
+   }
+
+   .Search .Filter {
+      margin: 0 0;
+      width: 50%;
+      min-width: 160px;
+      max-width: 220px;
+      margin-bottom: 2vh;
+      margin-left: 1.3vh;
+   }
+}
+
+/* PreditionCard Responsive */
+@media screen and (max-width: 1550px) {
+   .Search .PredictionCard {
+      height: 270px;
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .Search .PredictionCard {
+      height: 290px;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .Search .PredictionCard {
+      height: 580px;
+      width: 300px;
+   }
+
+   .Search .PredictionCard img {
+      width: 100%;
+      height: 50%;
+      border-radius: 0;
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
+   }
+   .Search .PredictionCard .NotImg {
+      width: 100%;
+      height: 50%;
+      border-radius: 0;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+   }
+}
+
+/* Prophets/Predictions Switch Button
+Modified Material Ui Button  */
 .SwitchButton .MuiButtonBase-root {
    height: 100%;
    width: 100%;
@@ -177,70 +283,59 @@
 }
 
 .SwitchButton .MuiButton-label {
-   font-family: "Playfair Display", serif;
    text-transform: none;
    color: white;
 }
 
-
-
-@media screen and (max-width: 700px) {
-   .Search .ResultsAndTools {
-      width: 90%;
-      flex-direction: column;
-   }
-   .Search .Results {
-      width: 100%;
-      height: 70%;
-      order: 2;
-   }
-
-   .Search .Tools {
-      order: 1;
-      display: flex;
-      width: 100%;
-      margin: 0 0;
-   }
-
-   .Search .Filter {
-      margin: 0 0;
-      height: 260px;
-      margin-bottom: 2vh;
-      margin-left: 1.3vh;
-   }
+/* Radio */
+/* Sort Text Margin Adjustment */
+.Search .Sort .MuiFormControlLabel-root {
+   margin: -3% 0;
+}
+/* Sort/Filter Radio Select Buttons  */
+.Search .MuiFormGroup-root {
+   padding-left: 1.5vw;
 }
 
-/* PreditionCard Responsive */
-@media screen and (max-width: 1500px) {
-   .SearchPredictionCards .PredictionCard {
-      height: 270px;
-   }
+/* Radio Button Size */
+.Search .MuiSvgIcon-root {
+   font-size: 1rem;
+}
+.Search .MuiButtonBase-root {
+   margin-right: 1.5%;
 }
 
-@media screen and (max-width: 1200px) {
-   .SearchPredictionCards .PredictionCard {
-      height: 290px;
-   }
+/* Ripple Effect Size */
+.Search .MuiIconButton-root {
+   padding: 6px;
 }
 
-@media screen and (max-width: 960px) {
-   .SearchPredictionCards .PredictionCard {
-      height: 580px;
-      width: 300px;
-   }
+/* Ripple Effect Color and Checked Button Color */
+.Search .Mui-checked {
+   color: rgb(0, 175, 255) !important;
+}
 
-   .SearchPredictionCards .PredictionCard img {
-      width: 100%;
-      height: 50%;
-      border-radius: 0;
-      border-top-left-radius: var(--border-radius);
-      border-top-right-radius: var(--border-radius);
-   }
-   .SearchPredictionCards .PredictionCard .NotImg {
-      width: 100%;
-      height: 50%;
-      border-radius: 0;
-      border-bottom-left-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
-   }
+/* Static Button Color */
+.Search .MuiRadio-root {
+   color: rgba(255, 255, 255, 0.7);
+}
+.Search .MuiRadio-root:hover {
+}
+
+/* Radio Text  */
+.Search .MuiTypography-body1 {
+   font-size: 0.8rem;
+   font-family: var(--main-font);
+   font-weight: 400;
+}
+
+/* Radio Button Hover Effect */
+.MuiIconButton-colorSecondary:hover {
+   background-color: rgba(0, 175, 255, 0.08) !important;
+}
+
+
+/* Rating Icon */
+.Search .MuiRating-iconEmpty {
+   color: rgba(255, 255, 255, 0.3);
 }

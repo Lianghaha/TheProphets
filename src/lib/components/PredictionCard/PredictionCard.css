@@ -22,7 +22,7 @@
    align-content: flex-start;
    animation: fade 1s;
    color: black;
-   font-family: "Roboto Slab", serif;
+   font-family: var(--text-font);
 }
 
 @-webkit-keyframes fade {
@@ -124,7 +124,7 @@
 
 .PredictionCard .LargeNumber {
    color: #ffb400;
-   font-family: "Special Elite", cursive;
+   font-family: var(--number-font);
    font-size: 2rem;
    line-height: 2.5rem;
    display: flex;
