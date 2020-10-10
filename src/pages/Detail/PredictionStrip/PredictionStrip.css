@@ -5,21 +5,19 @@
    margin-bottom: 2vh;
    box-shadow: 0px 0px 3px black;
    filter: brightness(85%);
-   transition: box-shadow 0.5s ease-out, filter 0.5s ease-out,
-      transform 0.3s ease-out;
+   transition: box-shadow .5s ease-in-out, filter .5s ease-in-out,
+      transform .5s ease-in-out;
 
    display: flex;
    justify-content: space-between;
    font-family: var(--text-font);
    color: black;
-   border-radius: 2px;
+   border-radius: 3px;
 }
 
 .PredictionStrip:hover {
    box-shadow: 0px 0px 10px black;
    filter: brightness(100%);
-   transition: box-shadow 0.3s ease-in, filter 0.5s ease-in,
-      transform 0.3s ease-in;
    transform: scale(1.02);
    color: black;
 }

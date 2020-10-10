@@ -2,7 +2,7 @@
    width: 100%;
    height: 6vh;
    background: transparent;
-   transition: background 0.3s ease-out;
+   transition: background .5s ease-in-out;
    z-index: 1000;
 
    display: flex;
@@ -10,12 +10,10 @@
    list-style: none;
    position: fixed;
    font-size: 1.1rem;
-   /* background-color: blue; */
 }
 
 .NavbarActive {
    background: #303030c5;
-   transition: background 0.3s ease-in;
 }
 
 .Navbar ul {
@@ -24,28 +22,24 @@
    display: inline-block;
    display: flex;
    align-items: stretch;
-   /* border: 3px solid green; */
 }
 
 .Navbar li {
-   /* border: 3px solid red; */
    height: 100%;
    display: flex;
    align-items: center;
    text-decoration: none;
    color: white;
    padding: 0 2vw;
-   transition: background-color 0.5s ease-out, color 0.3s ease-out;
+   transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
 }
 
 .Navbar li:hover {
    background-color: white;
    color: black;
-   transition: background-color 0.5s ease-in, color 0.3s ease-in;
 }
 
 .NavLeft {
-   /* border: 3px solid red; */
    width: 33%;
 }
 
@@ -63,25 +57,19 @@
    height: 60%;
    align-self: center;
    border: 1px solid white;
-   transition: background 0.5s ease-out;
-   /* border: 3px solid red; */
    display: flex;
    align-items: center;
 }
 
 .SearchBar #SearchInput {
-   /* border: 3px solid green !important; */
    width: 85%;
    height: 60%;
    background-color: transparent;
    color: white;
    border: none;
-   /* transition: box-shadow 0.6s linear; */
 }
 
 .SearchBar #SearchInput:focus {
-   /* box-shadow: 0 2px 2px -2px white;
-   transition: box-shadow 0.2s linear; */
    box-shadow: none;
 }
 
@@ -92,11 +80,10 @@
    justify-content: center;
    align-items: center;
    color: white;
-   transition: transform 0.2s ease-out;
+   transition: transform 0.2s ease-in-out;
 }
 .SearchBar .Icon:hover {
    transform: scale(1.2);
-   transition: transform 0.2s ease-in;
 }
 
 .NavRight {

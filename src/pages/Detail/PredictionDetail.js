@@ -51,9 +51,9 @@ export const PredictionDetail = ({ predictionID }) => {
             {prediction ? PredictionCardSection() : ""}
             <div className="Section">
                <div className="SectionTitleAndButton">
-                  <h2>Ratings</h2>
+                  <h2>Reviews</h2>
                   <a href={`/`}>
-                     <Button variant="outlined">Rate This Prediction</Button>
+                     <Button variant="outlined">Add Review</Button>
                   </a>
                </div>
                <Button variant="outlined">SHOW MORE</Button>

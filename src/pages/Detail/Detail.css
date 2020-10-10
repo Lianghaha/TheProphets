@@ -1,8 +1,8 @@
 /* Prophet/Prediction Detail Common CSS */
 .Detail {
    background-color: var(--main-color);
+   min-height: 100vh;
    width: 100%;
-   height: 200vh;
    display: flex;
    justify-content: center;
 }
@@ -12,6 +12,7 @@
    width: 60%;
    height: 90%;
    margin-top: 8vh;
+   margin-bottom: 5vh;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
@@ -82,7 +83,7 @@
    border-bottom-right-radius: var(--border-radius);
 }
 
-.Detail .PredictionList {
+.Detail .List {
    width: 100%;
    display: flex;
    flex-direction: column;

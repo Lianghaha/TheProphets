@@ -3,6 +3,7 @@ import "./Detail.css"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import Button from "@material-ui/core/Button"
 import { PredictionStrip } from "./PredictionStrip/PredictionStrip"
+import {CommentStrip} from "./CommentStrip/CommentStrip"
 import axios from "axios"
 
 export const ProphetDetail = ({ prophetID }) => {
@@ -28,8 +29,8 @@ export const ProphetDetail = ({ prophetID }) => {
       await axios
          .get(`/api/search/predictions?prophetID=${prophetID}`)
          .then((response) => {
-            console.log("Prophet Detail Predictions: ")
-            console.log(response.data)
+            // console.log("Prophet Detail Predictions: ")
+            // console.log(response.data)
             if (response.data.status === "success") {
                setPredictions(response.data.result)
             } else {
@@ -68,7 +69,7 @@ export const ProphetDetail = ({ prophetID }) => {
                <div className="SectionTitleAndButton">
                   <h2>Predictions</h2>
                </div>
-               <div className="PredictionList">
+               <div className="List">
                   {predictions.map((prediction, index) => {
                      return <PredictionStrip data={prediction} key={index} />
                   })}
@@ -79,8 +80,11 @@ export const ProphetDetail = ({ prophetID }) => {
                <div className="SectionTitleAndButton">
                   <h2>Comments</h2>
                   <a href={`/`}>
-                     <Button variant="outlined">Comment</Button>
+                     <Button variant="outlined">Add Comment</Button>
                   </a>
+               </div>
+               <div className="List">
+                  <CommentStrip />
                </div>
                <Button variant="outlined">SHOW MORE</Button>
             </div>

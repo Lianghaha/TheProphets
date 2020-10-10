@@ -8,6 +8,8 @@
    background-size: cover;
 }
 
+
+
 .AuthForm {
    /* border: 3px solid yellow; */
    margin: 6vh 0;
@@ -18,6 +20,25 @@
    border-radius: 5px;
    background-color: rgba(20, 20, 20, 0.8);
    box-shadow: 0px 0px 5px black;
+   animation: fade 1s;
+}
+
+@-webkit-keyframes fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
 }
 
 .AuthForm form {

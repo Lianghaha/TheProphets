@@ -1,5 +1,5 @@
 .Search {
-   --border-radius: 8px;
+   --border-radius: 5px;
    background-color: var(--main-color);
    width: 100%;
    min-height: 100vh;
@@ -11,13 +11,12 @@
 .Search .HoverEffect {
    background-color: var(--main-color-light);
    box-shadow: 0px 0px 2px black;
-   transition: box-shadow 0.5s ease-out, background-color 0.5s ease-out;
+   transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .Search .HoverEffect:hover {
    box-shadow: 0px 0px 6px black;
    background-color: #404040;
-   transition: box-shadow 0.5s ease-in, background-color 0.5s ease-in;
 }
 
 .Search .ResultsAndTools {
@@ -50,7 +49,7 @@
    justify-content: center;
    align-items: center;
    margin: 0 3%;
-   transition: transform 0.2s;
+   transition: transform .3s ease-in-out;
 }
 
 .Search .Icon:hover {
@@ -78,7 +77,7 @@
    width: 46%;
    display: flex;
    justify-content: center;
-   transition: background-color 0.5s ease-out, border-color 1s ease-out;
+   transition: background-color 0.3s ease-in-out, border-color .6s ease-in-out;
    border: 3px solid grey;
 }
 
@@ -95,13 +94,10 @@
 .Search .SwitchButton:hover {
    background-color: darkgray;
    border-color: darkgray;
-   transition: background-color 0.5s ease-in, border-color 1s ease-in;
 }
 
 .Search .SwitchButtonActive {
    background-color: grey;
-   /* border-bottom: 3px solid white;
-   transition: border-bottom .3s; */
 }
 
 .Search .SearchProphetCards {
@@ -201,8 +197,8 @@
    cursor: pointer;
 }
 
-.Search .Filter .RatingContainer p{
-   font-size: .8rem;
+.Search .Filter .RatingContainer p {
+   font-size: 0.8rem;
    margin-left: 3%;
    margin-top: -1%;
 }
@@ -310,7 +306,7 @@ Modified Material Ui Button  */
 .Search .MuiSvgIcon-root {
    font-size: 1rem;
 }
-.Search .MuiButtonBase-root {
+.Search .Tools .MuiButtonBase-root {
    margin-right: 1.5%;
 }
 
@@ -319,16 +315,21 @@ Modified Material Ui Button  */
    padding: 6px;
 }
 
-/* Ripple Effect Color and Checked Button Color */
+/* Checked Button Color and Ripple Effect Color */
 .Search .Mui-checked {
-   color: rgb(0, 175, 255) !important;
+   /* color: rgb(0, 175, 255) !important; */
+   color: rgba(255, 180, 0, 1) !important;
+}
+
+/* Radio Button Hover Effect */
+.MuiIconButton-colorSecondary:hover {
+   /* background-color: rgba(0, 175, 255, 0.08) !important; */
+   background-color: rgba(255, 180, 0, 0.1) !important;
 }
 
 /* Static Button Color */
 .Search .MuiRadio-root {
-   color: rgba(255, 255, 255, 0.7);
-}
-.Search .MuiRadio-root:hover {
+   color: rgba(255, 255, 255, 0.8);
 }
 
 /* Radio Text  */
@@ -338,13 +339,10 @@ Modified Material Ui Button  */
    font-weight: 400;
 }
 
-/* Radio Button Hover Effect */
-.MuiIconButton-colorSecondary:hover {
-   background-color: rgba(0, 175, 255, 0.08) !important;
-}
-
-
 /* Rating Icon */
 .Search .MuiRating-iconEmpty {
    color: rgba(255, 255, 255, 0.3);
+}
+
+.Search .MuiRating-root {
 }
