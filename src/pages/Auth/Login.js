@@ -68,12 +68,15 @@ export const Login = () => {
    const handleSubmit = async () => {
       const AESpassword = utils.encrypt(password)
       await axios
-         .post(`/api/login?email=${email}&&AESpassword=${AESpassword}`)
+         .post(`/api/login`, {
+            email: email,
+            AESpassword: AESpassword,
+         })
          .then((response) => {
             console.log("Login Post Response: ")
             console.log(response.data)
             const data = response.data
-            if (data.status === "success") {
+            if (data.status === 0) {
             } else {
                alert(data.message)
             }

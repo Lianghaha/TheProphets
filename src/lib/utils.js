@@ -14,4 +14,14 @@ export const utils = {
       )
       return Base64Data
    },
+   logout() {
+      const str = document.cookie.split(";")
+      // console.log(str)
+      for (var i = 0; i < str.length; i++) {
+         var cur = str[i].split("=")
+         document.cookie = cur[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      }
+      localStorage.clear()
+      window.location.reload()
+   },
 }

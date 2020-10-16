@@ -1,5 +1,5 @@
 import React from "react"
-import "./CommentStrip.css"
+import "./CommentAndReviewStrip.css"
 import defaultImg from "../../../media/image/default-profile.png"
 
 export const CommentStrip = () => {
@@ -13,12 +13,12 @@ export const CommentStrip = () => {
    }
 
    return (
-      <div className="CommentStrip">
+      <div className="Strip CommentStrip">
          <div className="ImgContainer">
             <img src={data.profile_img} alt="Default" />
          </div>
          <div className="ContentContainer">
-            <div className="CommentUserInfo">
+            <div className="UserInfo">
                <div className="Name">
                   <p>{data.username}</p>
                </div>
@@ -29,8 +29,8 @@ export const CommentStrip = () => {
                   </p>
                </div>
             </div>
-            <div className="CommentText">
-               <p>{data.content}</p>
+            <div>
+               <p className="Text">{data.content}</p>
             </div>
          </div>
       </div>

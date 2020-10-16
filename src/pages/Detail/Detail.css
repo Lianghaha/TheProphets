@@ -53,8 +53,6 @@
    }
 }
 
-
-
 /* Prophet Detail */
 .Detail .ProphetCard {
    --border-radius: 5px;
@@ -91,7 +89,7 @@
    justify-content: space-between;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
    .Detail .ProphetCard {
       height: 500px;
    }
@@ -100,16 +98,16 @@
       width: 100%;
       height: 50%;
       border-radius: 0;
-   border-top-left-radius: var(--border-radius);
-   border-top-right-radius: var(--border-radius);
+      border-top-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
    }
 
    .Detail .ProphetCard .NotImg {
       width: 100%;
       height: 50%;
       border-radius: 0;
-   border-bottom-left-radius: var(--border-radius);
-   border-bottom-right-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
    }
 
    .Detail .PredictionStrip {
@@ -124,13 +122,13 @@
    }
 
    .Detail .PredictionStrip .Rating {
+      margin: 0 0;
       margin-top: -5%;
       margin-bottom: 3%;
       width: 100%;
       justify-content: center;
    }
 }
-
 
 /* Prediction Detail CSS */
 .Detail .PredictionCard {
@@ -141,9 +139,9 @@
 }
 
 .Detail .Section .Buttons {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+   width: 100%;
+   display: flex;
+   justify-content: center;
 }
 
 @media screen and (max-width: 600px) {
@@ -166,4 +164,47 @@
       border-bottom-left-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
    }
+}
+
+/* AntD Modal */
+.ant-modal {
+   margin-top: 20vh !important;
+}
+
+.ant-modal-content {
+}
+
+/* Modal Buttons */
+/* Cancel Button */
+.ant-modal-root .MuiButton-outlined:first-child {
+   color: var(--main-color-light) !important;
+   transition: background 0.3s ease-in-out, color 0.3s ease-in-out !important;
+}
+
+.ant-modal-root .MuiButton-outlined:first-child:hover {
+   color: white !important;
+}
+
+/* Submit Button */
+.ant-modal-root .MuiButton-outlined:last-child {
+   background: var(--main-color-light);
+}
+
+.ant-modal-root .MuiButton-outlined:last-child:hover {
+   background: rgb(80, 80, 80) !important;
+}
+
+/* TextArea border static/hover */
+.ant-modal-root .ant-input {
+   border-color: rgb(150, 150, 150);
+}
+.ant-modal-root .ant-input:focus, .ant-input-focused {
+   box-shadow: 0 0 0 .8px rgb(150, 150, 150);
+}
+
+
+#wordCount {
+   margin: 0 0;
+   text-align: end;
+   color: rgb(160, 160, 160);
 }

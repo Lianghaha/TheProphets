@@ -3,7 +3,10 @@ import "./Navbar.css"
 import { Link, useHistory } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
-import { slide as Menu } from "react-burger-menu"
+import { Burger } from "./Burger/Burger"
+import defaultImg from "../../../media/image/default-profile.png"
+import {utils} from "../../utils"
+
 
 export const Navbar = ({ setShowLoading }) => {
    const history = useHistory()
@@ -21,6 +24,7 @@ export const Navbar = ({ setShowLoading }) => {
 
    //Hamburger Responsive
    const [showBurger, setShowBurger] = useState(false)
+   const [loggedIn, setLoggedIn] = useState(false)
 
    useLayoutEffect(() => {
       const updateSize = () => {
@@ -34,15 +38,12 @@ export const Navbar = ({ setShowLoading }) => {
    }, [])
 
    useEffect(() => {
+      if (localStorage.getItem("username")) {
+         setLoggedIn(true)
+      }
    }, [])
 
 
-   //Close Nav Burger
-   const handleBurgerClick = () => {
-      let crossButton = document.getElementsByClassName("bm-cross-button")[0]
-      if (crossButton) crossButton.lastChild.click()
-      else console.log("Cannot find CrossButton")
-   }
 
    //Search Input
    const [inputText, setInputText] = useState("")
@@ -50,6 +51,13 @@ export const Navbar = ({ setShowLoading }) => {
    const handleSearch = () => {
       history.push(`/search/${inputText}`)
       setInputText("")
+   }
+
+   const mockLoading = () => {
+      setShowLoading(true)
+      setTimeout(() => {
+         setShowLoading(false)
+      }, 1000)
    }
 
    const SearchBar = () => {
@@ -72,38 +80,7 @@ export const Navbar = ({ setShowLoading }) => {
       )
    }
 
-   const Burger = () => {
-      return (
-         <div className="Burger">
-            <Menu>
-               <ul>
-                  <Link to="/" onClick={handleBurgerClick}>
-                     <li>The Prohets</li>
-                  </Link>
-                  <Link to="/prophets" onClick={handleBurgerClick}>
-                     <li>Prohets</li>
-                  </Link>
-                  <Link to="/predictions" onClick={handleBurgerClick}>
-                     <li>Predictions</li>
-                  </Link>
-                  <Link to="/signup" onClick={handleBurgerClick}>
-                     <li>Sign In</li>
-                  </Link>
-                  <Link to="/login" onClick={handleBurgerClick}>
-                     <li>Login</li>
-                  </Link>
-               </ul>
-            </Menu>
-         </div>
-      )
-   }
-
-   const mockLoading = () => {
-      setShowLoading(true)
-      setTimeout(() => {
-         setShowLoading(false)
-      }, 1000)
-   }
+   
 
    const NavLeft = () => {
       return (
@@ -122,6 +99,21 @@ export const Navbar = ({ setShowLoading }) => {
    }
 
    const NavRight = () => {
+      if (loggedIn) {
+         return (
+            <ul className="NavRight">
+               <li className="UserInfo">
+                  <div className="ProfileImgContainer">
+                     <img src={defaultImg} alt="Default" />
+                  </div>
+                  <div className="Username">
+                     {localStorage.getItem("username")}
+                  </div>
+               </li>
+               <li onClick={utils.logout}>Logout</li>
+            </ul>
+         )
+      }
       return (
          <ul className="NavRight">
             <Link to="/signup">
@@ -137,7 +129,7 @@ export const Navbar = ({ setShowLoading }) => {
    if (showBurger) {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-            {Burger()}
+            <Burger loggedIn={loggedIn}/>
             {SearchBar()}
          </div>
       )

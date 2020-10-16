@@ -13,6 +13,9 @@
    font-family: var(--text-font);
    color: black;
    border-radius: 3px;
+   padding: 15px 0;
+   padding-left: 15px;
+
 }
 
 .PredictionStrip:hover {
@@ -27,8 +30,7 @@
 }
 
 .PredictionStrip .Text {
-   margin: 1vh 2%;
-   width: 70%;
+   width: 75%;
    word-wrap: break-word;
 }
 
@@ -42,7 +44,6 @@
    width: 95%;
    font-size: 1rem;
    line-height: 1.3rem;
-   margin: 0 0;
    margin-bottom: 0.5vh;
 }
 
@@ -50,12 +51,11 @@
    width: 95%;
    font-size: 0.7rem;
    color: rgb(120, 120, 120);
-   margin: 0 0;
-   margin-bottom: 0.5vh;
 }
 
 .PredictionStrip .Rating {
-   width: 30%;
+   width: 25%;
+   margin-right: 2%;
    display: flex;
    flex-direction: column;
    justify-content: center;

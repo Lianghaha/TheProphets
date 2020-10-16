@@ -100,6 +100,15 @@
    background-color: grey;
 }
 
+.Search .Empty {
+   width: 100%;
+   height: 20vh;
+   display: flex;
+   justify-content: center;
+   margin-top: 10vh;
+   font-size: 1.6rem;
+}
+
 .Search .SearchProphetCards {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
@@ -132,14 +141,7 @@
    margin-top: 5vh;
 }
 
-.Search .Empty {
-   width: 100%;
-   height: 20vh;
-   display: flex;
-   justify-content: center;
-   margin-top: 10vh;
-   font-size: 1.6rem;
-}
+
 
 .Search .Tools {
    width: 23%;
@@ -203,6 +205,21 @@
    margin-top: -1%;
 }
 
+
+
+/* Responsive */
+@media screen and (max-width: 1680px) {
+   .Search .PredictionCard {
+      height: 270px;
+   }
+}
+
+@media screen and (max-width: 1200px) {
+   .Search .PredictionCard {
+      height: 290px;
+   }
+}
+
 @media screen and (max-width: 1000px) {
    .Search .ResultsAndTools {
       width: 90%;
@@ -240,20 +257,7 @@
    }
 }
 
-/* PreditionCard Responsive */
-@media screen and (max-width: 1550px) {
-   .Search .PredictionCard {
-      height: 270px;
-   }
-}
-
-@media screen and (max-width: 1200px) {
-   .Search .PredictionCard {
-      height: 290px;
-   }
-}
-
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 660px) {
    .Search .PredictionCard {
       height: 580px;
       width: 300px;
@@ -274,6 +278,8 @@
       border-bottom-right-radius: var(--border-radius);
    }
 }
+
+
 
 /* Prophets/Predictions Switch Button
 Modified Material Ui Button  */

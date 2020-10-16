@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Auth.css"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
@@ -7,7 +7,6 @@ import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
 import { utils } from "../../lib/utils"
-
 import GoogleLogin from "react-google-login"
 
 export const SignUp = () => {
@@ -61,42 +60,61 @@ export const SignUp = () => {
    const checkEmail = (input) => {
       setEmail(input)
       const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
-      if (regex.test(input)) {
-         setEmailValid(true)
-      } else {
-         setEmailValid(false)
-      }
+      setEmailValid(regex.test(input))
    }
 
    const checkUsername = (input) => {
       setUsername(input)
       let regex = /^[a-zA-Z0-9]+$/
-      if (regex.test(input) && input.length >= 6) {
-         setUsernameCorrectness(true)
-      } else {
-         setUsernameCorrectness(false)
+      setUsernameCorrectness(regex.test(input) && input.length >= 6)
+   }
+
+   useEffect(() => {
+   }, [])
+
+   const parseCookie = () => {
+      // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      // document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+      // console.log(document.cookie)
+      if (document.cookie) {
+         const str = document.cookie.split(";")
+         // console.log(str)
+         var result = {}
+         for (var i = 0; i < str.length; i++) {
+            var cur = str[i].split("=")
+            result[cur[0]] = cur[1]
+         }
+         return result
       }
+      return false
    }
 
    const handleSubmit = async () => {
       const AESpassword = utils.encrypt(password)
+      
       await axios
-         .post(
-            `/api/signup?email=${email}&&username=${username}&&AESpassword=${AESpassword}`
-         )
+         .post("/api/signup", {
+            email: email,
+            username: username,
+            AESpassword: AESpassword,
+         })
          .then((response) => {
             console.log("Register Post Response: ")
             console.log(response.data)
             const data = response.data
-            if (data.status === "success") {
+            if (data.status === 0) {
+               document.cookie = `email=${email}`
+               document.cookie = `username=${username}` 
+               document.cookie = `token=${data.tokenRequest.token}`
+               localStorage.setItem("email", email)
+               localStorage.setItem("username", username)
+               localStorage.setItem("token", data.tokenRequest.token)
+               console.log(document.cookie)
+               console.log(parseCookie())
+               history.push("/")
+               window.location.reload()
             } else {
-               if (data.err.code === "ER_DUP_ENTRY") {
-                  if (data.err.sqlMessage.includes("email")) {
-                     alert("Email already exist")
-                  } else if (data.err.sqlMessage.includes("username")) {
-                     alert("Username already exist")
-                  }
-               }
+               alert(data.message)
             }
          })
          .catch((err) => console.log(err))

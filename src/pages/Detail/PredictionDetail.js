@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import "./Detail.css"
 import Button from "@material-ui/core/Button"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
+import { ReviewStrip } from "./CommentAndCommentStrip/ReviewStrip"
 import axios from "axios"
 
 export const PredictionDetail = ({ predictionID }) => {
@@ -11,9 +12,9 @@ export const PredictionDetail = ({ predictionID }) => {
       await axios
          .get(`/api/search/predictions?predictionID=${predictionID}`)
          .then((response) => {
-            console.log("Prediction Detail: ")
-            console.log(response.data)
-            if (response.data.status === "success") {
+            // console.log("Prediction Detail: ")
+            // console.log(response.data)
+            if (response.data.status === 0) {
                setPrediction(response.data.result[0])
             } else {
                console.log(response.data.err)
@@ -55,6 +56,9 @@ export const PredictionDetail = ({ predictionID }) => {
                   <a href={`/`}>
                      <Button variant="outlined">Add Review</Button>
                   </a>
+               </div>
+               <div className="List">
+                  <ReviewStrip />
                </div>
                <Button variant="outlined">SHOW MORE</Button>
             </div>

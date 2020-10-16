@@ -7,7 +7,7 @@ import { Spin } from "antd"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
-export const TopPredictions = (props) => {
+export const TopPredictions = () => {
    const [predictionList, setPredictionList] = useState([])
 
    const [showLoading, setShowLoading] = useState(false)
@@ -23,7 +23,7 @@ export const TopPredictions = (props) => {
          .then((response) => {
             // console.log("Predictions: ")
             // console.log(response.data)
-            if (response.data.status === "success") {
+            if (response.data.status === 0) {
                predictionData = response.data.result
                for (let i = 0; i < 0; i++) {
                   predictionData = predictionData.concat(predictionData)
@@ -69,7 +69,7 @@ export const TopPredictions = (props) => {
             </div>
          </div>
          <div className="PredictionsList">
-            {predictionList.map((data, index) => {
+            {predictionList && predictionList.map((data, index) => {
                return <PredictionCard key={index} data={data} />
             })}
          </div>

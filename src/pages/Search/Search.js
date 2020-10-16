@@ -30,18 +30,20 @@ export const Search = (props) => {
    const [scoreAboveFilter, setScoreAboveFilter] = useState(0)
 
    //Get Prophet Data From Server
-   const getProphetData = async (keyWord, sort, scoreAbove) => {
+   const getProphetData = async (
+      keyWord = "",
+      sort = "DESC",
+      scoreAbove = 0
+   ) => {
       let prophetData = []
-      console.log("111111111111111111111111111")
-      console.log(keyWord, sort, scoreAbove)
       await axios
          .get(
             `/api/search/prophets?keyWord=${keyWord}&&sort=${sort}&&scoreAbove=${scoreAbove}`
          )
          .then((response) => {
-            console.log("Search Prophets: ")
-            console.log(response.data)
-            if (response.data.status === "success") {
+            // console.log("Search Prophets: ")
+            // console.log(response.data)
+            if (response.data.status === 0) {
                prophetData = response.data.result
                for (let i = 0; i < 0; i++) {
                   prophetData = prophetData.concat(prophetData)
@@ -56,7 +58,11 @@ export const Search = (props) => {
    }
 
    //Get Prediction Data From Server
-   const getPredictionData = async (keyWord, sort, scoreAbove) => {
+   const getPredictionData = async (
+      keyWord = "",
+      sort = "DESC",
+      scoreAbove = 0
+   ) => {
       let predictionData = []
       await axios
          .get(
@@ -65,7 +71,7 @@ export const Search = (props) => {
          .then((response) => {
             // console.log("Search Predictions: ")
             // console.log(response.data)
-            if (response.data.status === "success") {
+            if (response.data.status === 0) {
                predictionData = response.data.result
                for (let i = 0; i < 0; i++) {
                   predictionData = predictionData.concat(predictionData)
@@ -80,37 +86,24 @@ export const Search = (props) => {
    }
 
    useEffect(() => {
-      console.log("2222222222222222222222222")
       window.scrollTo(0, 0)
-      mockLoading()
+   }, [])
+
+   useEffect(() => {
+      // mockLoading()
       if (typeof props.showProphets !== "undefined")
          setShowProphets(props.showProphets)
-      setInputText("")
+   }, [props.showProphets])
 
-      if (props.input) {
-         const keyWord = props.input
-         setInputText(keyWord)
-         getProphetData(keyWord, scoreSort, scoreAboveFilter)
-         getPredictionData(keyWord, scoreSort, scoreAboveFilter)
-      } else {
-         getProphetData(inputText, scoreSort, scoreAboveFilter)
-         getPredictionData(inputText, scoreSort, scoreAboveFilter)
-      }
-   }, [
-      props.showProphets,
-      props.showPredictions,
-      props.input,
-      scoreSort,
-      scoreAboveFilter,
-      inputText,
-   ])
+   useEffect(() => {
+      setInputText(props.input)
+   }, [props.input])
 
-   // useEffect(() => {
-   //    console.log("333333333333333333333333333333")
-   //    mockLoading()
-   //    getProphetData(inputText, scoreSort, scoreAboveFilter)
-   //    getPredictionData(inputText, scoreSort, scoreAboveFilter)
-   // }, [scoreSort, scoreAboveFilter])
+   useEffect(() => {
+      // mockLoading()
+      getProphetData(inputText, scoreSort, scoreAboveFilter)
+      getPredictionData(inputText, scoreSort, scoreAboveFilter)
+   }, [scoreSort, scoreAboveFilter, inputText, showProphets])
 
    //Prophets or Predictions
    const whatToShow = () => {
@@ -120,9 +113,10 @@ export const Search = (props) => {
          }
          return (
             <div className="SearchProphetCards">
-               {prophetData.map((data, index) => {
-                  return <ProphetCard key={index} data={data} />
-               })}
+               {prophetData &&
+                  prophetData.map((data, index) => {
+                     return <ProphetCard key={index} data={data} />
+                  })}
             </div>
          )
       } else {
@@ -131,9 +125,10 @@ export const Search = (props) => {
          }
          return (
             <div className="SearchPredictionCards">
-               {predictionData.map((data, index) => {
-                  return <PredictionCard key={index} data={data} />
-               })}
+               {predictionData &&
+                  predictionData.map((data, index) => {
+                     return <PredictionCard key={index} data={data} />
+                  })}
             </div>
          )
       }
@@ -337,7 +332,14 @@ export const Search = (props) => {
                         </p>
                      </div>
                   </div>
-                  <div className="Clear" onClick={() => {setScoreAboveFilter(0)}}>Reset</div>
+                  <div
+                     className="Clear"
+                     onClick={() => {
+                        setScoreAboveFilter(0)
+                     }}
+                  >
+                     Reset
+                  </div>
                </div>
             </div>
          </div>

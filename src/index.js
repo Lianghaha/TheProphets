@@ -12,20 +12,20 @@ import { PredictionDetail } from "./pages/Detail/PredictionDetail"
 import { SignUp } from "./pages/Auth/SignUp"
 import { Login } from "./pages/Auth/Login"
 import { Spin } from "antd"
-import axios from "axios"
+// import axios from "axios"
 require("dotenv").config()
 
 function App() {
    const [showLoading, setShowLoading] = useState(false)
 
    useEffect(() => {
-      axios
-         .get("/api/test")
-         .then((response) => {
-            console.log("Test Api:")
-            console.log(response)
-         })
-         .catch((err) => console.log(err))
+      // axios
+      //    .get("/api/test")
+      //    .then((response) => {
+      //       console.log("Test Api:")
+      //       console.log(response)
+      //    })
+      //    .catch((err) => console.log(err))
    }, [])
 
    return (
