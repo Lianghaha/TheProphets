@@ -6,7 +6,7 @@ import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { utils } from "../../lib/utils"
+import { encrypt, setCookieLocalStorage } from "../../lib/utils"
 
 import GoogleLogin from "react-google-login"
 
@@ -66,7 +66,7 @@ export const Login = () => {
    }
 
    const handleSubmit = async () => {
-      const AESpassword = utils.encrypt(password)
+      const AESpassword = encrypt(password)
       await axios
          .post(`/api/login`, {
             email: email,
@@ -77,6 +77,14 @@ export const Login = () => {
             console.log(response.data)
             const data = response.data
             if (data.status === 0) {
+               setCookieLocalStorage(
+                  data.userInfo.identity,
+                  data.userInfo.username,
+                  data.tokenRequest.token
+               )
+               console.log(document.cookie)
+               history.push("/")
+               window.location.reload()
             } else {
                alert(data.message)
             }

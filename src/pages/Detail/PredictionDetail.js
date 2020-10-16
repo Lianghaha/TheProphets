@@ -2,11 +2,21 @@ import React, { useEffect, useState, useCallback } from "react"
 import "./Detail.css"
 import Button from "@material-ui/core/Button"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
-import { ReviewStrip } from "./CommentAndCommentStrip/ReviewStrip"
+import { ReviewStrip } from "./CommentAndReviewStrip/ReviewStrip"
+import { useHistory } from "react-router-dom"
 import axios from "axios"
+import { Modal, Input } from "antd"
+import { checkLogin } from "../../lib/utils"
+
+const { TextArea } = Input
 
 export const PredictionDetail = ({ predictionID }) => {
+   const history = useHistory()
+
    const [prediction, setPrediction] = useState()
+   const [showModal, setShowModal] = useState(false)
+   const [review, setReview] = useState("")
+   const reviewMaxLength = 200
 
    const getPrediction = useCallback(async () => {
       await axios
@@ -46,6 +56,19 @@ export const PredictionDetail = ({ predictionID }) => {
       window.scrollTo(0, 0)
       getPrediction()
    }, [getPrediction])
+
+   const handleReviewSubmit = () => {
+      console.log(review)
+   }
+
+   const handleModal = () => {
+      if (checkLogin()) {
+         setShowModal(true)
+      } else {
+         history.push("/login")
+      }
+   }
+
    return (
       <div className="Detail">
          <div className="Content">
@@ -53,9 +76,44 @@ export const PredictionDetail = ({ predictionID }) => {
             <div className="Section">
                <div className="SectionTitleAndButton">
                   <h2>Reviews</h2>
-                  <a href={`/`}>
-                     <Button variant="outlined">Add Review</Button>
-                  </a>
+                  <Button variant="outlined" onClick={handleModal}>
+                     Add Review
+                  </Button>
+                  <Modal
+                     title="review"
+                     visible={showModal}
+                     onOk={() => {
+                        setShowModal(false)
+                     }}
+                     onCancel={() => {
+                        setShowModal(false)
+                     }}
+                     footer={[
+                        <Button
+                           key="back"
+                           variant="outlined"
+                           onClick={() => setShowModal(false)}
+                        >
+                           Cancel
+                        </Button>,
+                        <Button
+                           key="submit"
+                           variant="outlined"
+                           onClick={handleReviewSubmit}
+                        >
+                           Submit
+                        </Button>,
+                     ]}
+                  >
+                     <TextArea
+                        maxLength={reviewMaxLength}
+                        rows={6}
+                        onChange={(e) => setReview(e.target.value)}
+                     />
+                     <p id="wordCount">
+                        {review.length} / {reviewMaxLength}
+                     </p>
+                  </Modal>
                </div>
                <div className="List">
                   <ReviewStrip />

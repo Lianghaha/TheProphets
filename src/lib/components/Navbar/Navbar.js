@@ -5,8 +5,7 @@ import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
 import { Burger } from "./Burger/Burger"
 import defaultImg from "../../../media/image/default-profile.png"
-import {utils} from "../../utils"
-
+import { clearCookieLocalStorage, checkLogin } from "../../utils"
 
 export const Navbar = ({ setShowLoading }) => {
    const history = useHistory()
@@ -38,12 +37,8 @@ export const Navbar = ({ setShowLoading }) => {
    }, [])
 
    useEffect(() => {
-      if (localStorage.getItem("username")) {
-         setLoggedIn(true)
-      }
+      setLoggedIn(checkLogin())
    }, [])
-
-
 
    //Search Input
    const [inputText, setInputText] = useState("")
@@ -53,12 +48,18 @@ export const Navbar = ({ setShowLoading }) => {
       setInputText("")
    }
 
-   const mockLoading = () => {
-      setShowLoading(true)
-      setTimeout(() => {
-         setShowLoading(false)
-      }, 1000)
+   const handleLogout = () => {
+      clearCookieLocalStorage()
+      history.push("/")
+      window.location.reload()
    }
+
+   // const mockLoading = () => {
+   //    setShowLoading(true)
+   //    setTimeout(() => {
+   //       setShowLoading(false)
+   //    }, 1000)
+   // }
 
    const SearchBar = () => {
       return (
@@ -80,15 +81,13 @@ export const Navbar = ({ setShowLoading }) => {
       )
    }
 
-   
-
    const NavLeft = () => {
       return (
          <ul className="NavLeft">
-            <Link to="/" onClick={mockLoading}>
+            <Link to="/">
                <li>Home</li>
             </Link>
-            <Link to="/prophets" onClick={mockLoading}>
+            <Link to="/prophets">
                <li>Prohets</li>
             </Link>
             <Link to="/predictions">
@@ -110,7 +109,7 @@ export const Navbar = ({ setShowLoading }) => {
                      {localStorage.getItem("username")}
                   </div>
                </li>
-               <li onClick={utils.logout}>Logout</li>
+               <li onClick={handleLogout}>Logout</li>
             </ul>
          )
       }
@@ -129,7 +128,7 @@ export const Navbar = ({ setShowLoading }) => {
    if (showBurger) {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-            <Burger loggedIn={loggedIn}/>
+            <Burger loggedIn={loggedIn} />
             {SearchBar()}
          </div>
       )

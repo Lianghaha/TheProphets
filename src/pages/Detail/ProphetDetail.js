@@ -3,16 +3,20 @@ import "./Detail.css"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import Button from "@material-ui/core/Button"
 import { PredictionStrip } from "./PredictionStrip/PredictionStrip"
-import { CommentStrip } from "./CommentAndCommentStrip/CommentStrip"
+import { CommentStrip } from "./CommentAndReviewStrip/CommentStrip"
+import { useHistory } from "react-router-dom"
 import axios from "axios"
 import { Modal, Input } from "antd"
+import { checkLogin } from "../../lib/utils"
 
 const { TextArea } = Input
 
 export const ProphetDetail = ({ prophetID }) => {
+   const history = useHistory()
+
    const [prophet, setProphet] = useState()
    const [predictions, setPredictions] = useState([])
-   const [showModal, setShowModal] = useState(true)
+   const [showModal, setShowModal] = useState(false)
    const [comment, setComment] = useState("")
    const commentMaxLength = 200
 
@@ -46,15 +50,23 @@ export const ProphetDetail = ({ prophetID }) => {
          .catch((err) => console.log(err))
    }, [prophetID])
 
-   const handleCommentSubmit = () => {
-      console.log(comment)
-   }
-
    useEffect(() => {
       window.scrollTo(0, 0)
       getProphet()
       getPredictions()
    }, [getProphet, getPredictions])
+
+   const handleCommentSubmit = () => {
+      console.log(comment)
+   }
+
+   const handleModal = () => {
+      if (checkLogin()) {
+         setShowModal(true)
+      } else {
+         history.push("/login")
+      }
+   }
 
    return (
       <div className="Detail">
@@ -86,12 +98,7 @@ export const ProphetDetail = ({ prophetID }) => {
             <div className="Section">
                <div className="SectionTitleAndButton">
                   <h2>Comments</h2>
-                  <Button
-                     variant="outlined"
-                     onClick={() => {
-                        setShowModal(true)
-                     }}
-                  >
+                  <Button variant="outlined" onClick={handleModal}>
                      Add Comment
                   </Button>
                   <Modal
@@ -104,8 +111,20 @@ export const ProphetDetail = ({ prophetID }) => {
                         setShowModal(false)
                      }}
                      footer={[
-                        <Button key="back" variant="outlined" onClick={() => setShowModal(false)}>Cancel</Button>,
-                        <Button key="submit" variant="outlined" onClick={handleCommentSubmit}>Submit</Button>,
+                        <Button
+                           key="back"
+                           variant="outlined"
+                           onClick={() => setShowModal(false)}
+                        >
+                           Cancel
+                        </Button>,
+                        <Button
+                           key="submit"
+                           variant="outlined"
+                           onClick={handleCommentSubmit}
+                        >
+                           Submit
+                        </Button>,
                      ]}
                   >
                      <TextArea

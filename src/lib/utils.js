@@ -1,8 +1,7 @@
 import CryptoJS from "crypto-js"
 
-export const utils = {
    //Can encrypt both String and Object
-   encrypt(data) {
+   export const encrypt = (data) => {
       let JSONData = JSON.stringify(data)
       let encryptedData = CryptoJS.AES.encrypt(
          JSONData,
@@ -13,8 +12,9 @@ export const utils = {
          CryptoJS.enc.Utf8.parse(encryptedData)
       )
       return Base64Data
-   },
-   logout() {
+   }
+
+   export const clearCookieLocalStorage = () => {
       const str = document.cookie.split(";")
       // console.log(str)
       for (var i = 0; i < str.length; i++) {
@@ -22,6 +22,29 @@ export const utils = {
          document.cookie = cur[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
       }
       localStorage.clear()
-      window.location.reload()
-   },
-}
+   }
+
+   export const setCookieLocalStorage = (email, username, token) => {
+      document.cookie = `identity=${email}`
+      document.cookie = `username=${username}`
+      document.cookie = `token=${token}`
+      localStorage.setItem("identity", email)
+      localStorage.setItem("username", username)
+      localStorage.setItem("token", token)
+   }
+
+   export const checkLogin = () => {
+      //TODO 发送请求确认token有没过期，if没过期 return true
+      return localStorage.getItem("token")
+   }
+
+   export const getCurrentTime = () => {
+      let d = new Date()
+      let timeNumeric = d.getTime()
+      let timeReadable = `${d.getFullYear()}/${
+         d.getMonth() + 1
+      }/${d.getDate()} @ ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+      return { timeNumeric, timeReadable }
+   }
+
+

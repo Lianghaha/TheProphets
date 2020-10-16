@@ -91,8 +91,11 @@ export const Search = (props) => {
 
    useEffect(() => {
       // mockLoading()
-      if (typeof props.showProphets !== "undefined")
+      if (typeof props.showProphets !== "undefined") {
          setShowProphets(props.showProphets)
+         setScoreSort("DESC")
+         setScoreAboveFilter(0)
+      }
    }, [props.showProphets])
 
    useEffect(() => {
@@ -101,8 +104,8 @@ export const Search = (props) => {
 
    useEffect(() => {
       // mockLoading()
-      getProphetData(inputText, scoreSort, scoreAboveFilter)
-      getPredictionData(inputText, scoreSort, scoreAboveFilter)
+      if (showProphets) getProphetData(inputText, scoreSort, scoreAboveFilter)
+      else getPredictionData(inputText, scoreSort, scoreAboveFilter)
    }, [scoreSort, scoreAboveFilter, inputText, showProphets])
 
    //Prophets or Predictions
@@ -110,27 +113,29 @@ export const Search = (props) => {
       if (showProphets) {
          if (Object.keys(prophetData).length === 0) {
             return <div className="Empty">No Result Found</div>
+         } else {
+            return (
+               <div className="SearchProphetCards">
+                  {prophetData &&
+                     prophetData.map((data, index) => {
+                        return <ProphetCard key={index} data={data} />
+                     })}
+               </div>
+            )
          }
-         return (
-            <div className="SearchProphetCards">
-               {prophetData &&
-                  prophetData.map((data, index) => {
-                     return <ProphetCard key={index} data={data} />
-                  })}
-            </div>
-         )
       } else {
          if (Object.keys(predictionData).length === 0) {
             return <div className="Empty">No Result Found</div>
+         } else {
+            return (
+               <div className="SearchPredictionCards">
+                  {predictionData &&
+                     predictionData.map((data, index) => {
+                        return <PredictionCard key={index} data={data} />
+                     })}
+               </div>
+            )
          }
-         return (
-            <div className="SearchPredictionCards">
-               {predictionData &&
-                  predictionData.map((data, index) => {
-                     return <PredictionCard key={index} data={data} />
-                  })}
-            </div>
-         )
       }
    }
 
@@ -145,11 +150,39 @@ export const Search = (props) => {
       }
    }
 
-   const mockLoading = () => {
-      setShowLoading(true)
-      setTimeout(() => {
-         setShowLoading(false)
-      }, 1000)
+   // const mockLoading = () => {
+   //    setShowLoading(true)
+   //    setTimeout(() => {
+   //       setShowLoading(false)
+   //    }, 1000)
+   // }
+
+   const scoreAboveRating = (score) => {
+      return (
+         <div
+            className="RatingContainer"
+            onClick={() => {
+               setScoreAboveFilter(score)
+            }}
+         >
+            <Rating
+               name="half-rating-read"
+               defaultValue={4.5}
+               value={score / 2}
+               precision={0.5}
+               readOnly
+            />
+            <p
+               style={
+                  scoreAboveFilter === score
+                     ? { fontWeight: "600" }
+                     : { fontWeight: "200" }
+               }
+            >
+               & UP
+            </p>
+         </div>
+      )
    }
 
    return (
@@ -171,7 +204,6 @@ export const Search = (props) => {
                      }
                      onClick={() => {
                         setShowProphets(true)
-                        mockLoading()
                      }}
                   >
                      <Button>Prophets</Button>
@@ -184,7 +216,6 @@ export const Search = (props) => {
                      }
                      onClick={() => {
                         setShowProphets(false)
-                        mockLoading()
                      }}
                   >
                      <Button>Predictions</Button>
@@ -221,116 +252,11 @@ export const Search = (props) => {
                   <p className="Title">Filter: </p>
                   <div className="ScoreAbove">
                      <p>Score:</p>
-                     <div
-                        className="RatingContainer"
-                        onClick={() => {
-                           setScoreAboveFilter(9)
-                        }}
-                     >
-                        <Rating
-                           name="half-rating-read"
-                           defaultValue={4.5}
-                           precision={0.5}
-                           readOnly
-                        />
-                        <p
-                           style={
-                              scoreAboveFilter === 9
-                                 ? { fontWeight: "600" }
-                                 : { fontWeight: "200" }
-                           }
-                        >
-                           & UP
-                        </p>
-                     </div>
-                     <div
-                        className="RatingContainer"
-                        onClick={() => {
-                           setScoreAboveFilter(8)
-                        }}
-                     >
-                        <Rating
-                           name="half-rating-read"
-                           defaultValue={4}
-                           precision={0.5}
-                           readOnly
-                        />
-                        <p
-                           style={
-                              scoreAboveFilter === 8
-                                 ? { fontWeight: "600" }
-                                 : { fontWeight: "200" }
-                           }
-                        >
-                           & UP
-                        </p>
-                     </div>
-                     <div
-                        className="RatingContainer"
-                        onClick={() => {
-                           setScoreAboveFilter(7)
-                        }}
-                     >
-                        <Rating
-                           name="half-rating-read"
-                           defaultValue={3.5}
-                           precision={0.5}
-                           readOnly
-                        />
-                        <p
-                           style={
-                              scoreAboveFilter === 7
-                                 ? { fontWeight: "600" }
-                                 : { fontWeight: "200" }
-                           }
-                        >
-                           & UP
-                        </p>
-                     </div>
-                     <div
-                        className="RatingContainer"
-                        onClick={() => {
-                           setScoreAboveFilter(6)
-                        }}
-                     >
-                        <Rating
-                           name="half-rating-read"
-                           defaultValue={3}
-                           precision={0.5}
-                           readOnly
-                        />
-                        <p
-                           style={
-                              scoreAboveFilter === 6
-                                 ? { fontWeight: "600" }
-                                 : { fontWeight: "200" }
-                           }
-                        >
-                           & UP
-                        </p>
-                     </div>
-                     <div
-                        className="RatingContainer"
-                        onClick={() => {
-                           setScoreAboveFilter(5)
-                        }}
-                     >
-                        <Rating
-                           name="half-rating-read"
-                           defaultValue={2.5}
-                           precision={0.5}
-                           readOnly
-                        />
-                        <p
-                           style={
-                              scoreAboveFilter === 5
-                                 ? { fontWeight: "600" }
-                                 : { fontWeight: "200" }
-                           }
-                        >
-                           & UP
-                        </p>
-                     </div>
+                     {scoreAboveRating(9)}
+                     {scoreAboveRating(8)}
+                     {scoreAboveRating(7)}
+                     {scoreAboveRating(6)}
+                     {scoreAboveRating(5)}
                   </div>
                   <div
                      className="Clear"

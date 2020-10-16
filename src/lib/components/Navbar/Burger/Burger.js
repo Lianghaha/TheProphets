@@ -1,12 +1,14 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "./Burger.css"
 import { slide as Menu } from "react-burger-menu"
 import defaultImg from "../../../../media/image/default-profile.png"
-import { utils } from "../../../utils"
+import { clearCookieLocalStorage } from "../../../utils"
 
 
 export const Burger = ({ loggedIn }) => {
+   const history = useHistory()
+
    //Close Nav Burger
    const handleBurgerClick = () => {
       let crossButton = document.getElementsByClassName("bm-cross-button")[0]
@@ -27,9 +29,16 @@ export const Burger = ({ loggedIn }) => {
       }
    }
 
+   const handleLogout = () => {
+      clearCookieLocalStorage()
+      history.push("/")
+      window.location.reload()
+   }
+
+
    const loginOrOut = () => {
       if (loggedIn) {
-         return <li onClick={utils.logout}>Logout</li>
+         return <li onClick={handleLogout}>Logout</li>
       }
       return (
          <div>

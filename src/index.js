@@ -12,11 +12,23 @@ import { PredictionDetail } from "./pages/Detail/PredictionDetail"
 import { SignUp } from "./pages/Auth/SignUp"
 import { Login } from "./pages/Auth/Login"
 import { Spin } from "antd"
+import { checkLogin } from "./lib/utils"
 // import axios from "axios"
 require("dotenv").config()
 
 function App() {
    const [showLoading, setShowLoading] = useState(false)
+
+   const notLoggedInRoutes = () => {
+      if (!checkLogin()) {
+         return (
+            <div>
+               <Route path="/signup" render={() => <SignUp />} />
+               <Route path="/login" render={() => <Login />} />
+            </div>
+         )
+      }
+   }
 
    useEffect(() => {
       // axios
@@ -71,8 +83,7 @@ function App() {
                         path="/search/"
                         render={() => <Search showProphets={true} />}
                      />
-                     <Route path="/signup" render={() => <SignUp />} />
-                     <Route path="/login" render={() => <Login />} />
+
                      {/* <Route
                         path="/test"
                         render={() => (
@@ -81,7 +92,9 @@ function App() {
                            </div>
                         )}
                      /> */}
+
                      <Route path="/" exact component={Home} />
+                     {notLoggedInRoutes()}
                      <Route path="/" component={NotFound} />
                   </Switch>
                )}
