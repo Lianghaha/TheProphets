@@ -3,6 +3,7 @@ import "./CommentAndReviewStrip.css"
 import defaultImg from "../../../media/image/default-profile.png"
 import Rating from "@material-ui/lab/Rating"
 
+
 export const ReviewStrip = () => {
    const data = {
       profile_img: defaultImg,
@@ -14,6 +15,19 @@ export const ReviewStrip = () => {
       overall_score: 7.9,
       content:
          "1000 characters The computer wouldn't start. She banged on the side and tried again. Nothing. She lifted it up and dropped it to the table. Still nothing. She banged her closed fist against the top. It was at this moment she saw the irony of trying to fix the machine with violence. What have you noticed today? I noticed that if you outline the eyes, nose, and mouth on your face with your finger, you make an I which makes perfect sense, but is something I never noticed before. What have you noticed today? The computer wouldn't start. She banged on the side and tried again. Nothing. She lifted it up and dropped it to the table. Still nothing. She banged her closed fist against the top. It was at this moment she saw the irony of trying to fix the machine with violence. What",
+   }
+
+   const RatingComponent = (value) => {
+      return (
+         <Rating
+            name="half-rating-read"
+            defaultValue={4.5}
+            value={value / 2}
+            precision={0.5}
+            readOnly
+            size="small"
+         />
+      )
    }
 
    return (
@@ -36,25 +50,16 @@ export const ReviewStrip = () => {
             <div className="ScoreContainer">
                <div className="Score">
                   <p>Accuracy:</p>
-                  <Rating
-                     name="half-rating-read"
-                     defaultValue={4.5}
-                     value={data.accuracy / 2}
-                     precision={0.5}
-                     readOnly
-                     size="small"
-                  />
+                  {RatingComponent(data.accuracy)}
+                  {/* {RatingComponent(
+                     newCommentAccuracy,
+                     false,
+                     setnewCommentAccuracy
+                  )} */}
                </div>
                <div className="Score">
                   <p>Difficulty:</p>
-                  <Rating
-                     name="half-rating-read"
-                     defaultValue={4.5}
-                     value={data.difficulty / 2}
-                     precision={0.5}
-                     readOnly
-                     size="small"
-                  />
+                  {RatingComponent(data.difficulty)}
                </div>
                <div className="Score">
                   <p className="OverallScore">

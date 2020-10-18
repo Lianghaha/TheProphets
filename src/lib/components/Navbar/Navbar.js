@@ -1,13 +1,13 @@
-import React, { useState, useLayoutEffect, useEffect } from "react"
+import React, { useState, useLayoutEffect } from "react"
 import "./Navbar.css"
 import { Link, useHistory } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
 import { Input } from "antd"
 import { Burger } from "./Burger/Burger"
 import defaultImg from "../../../media/image/default-profile.png"
-import { clearCookieLocalStorage, checkLogin } from "../../utils"
+import { clearCookieLocalStorage } from "../../utils"
 
-export const Navbar = ({ setShowLoading }) => {
+export const Navbar = ({ setShowPageLoading, loggedIn, setLoggedIn }) => {
    const history = useHistory()
 
    //Chaneg NavBar Background
@@ -23,7 +23,6 @@ export const Navbar = ({ setShowLoading }) => {
 
    //Hamburger Responsive
    const [showBurger, setShowBurger] = useState(false)
-   const [loggedIn, setLoggedIn] = useState(false)
 
    useLayoutEffect(() => {
       const updateSize = () => {
@@ -36,10 +35,6 @@ export const Navbar = ({ setShowLoading }) => {
       return () => window.removeEventListener("resize", updateSize)
    }, [])
 
-   useEffect(() => {
-      setLoggedIn(checkLogin())
-   }, [])
-
    //Search Input
    const [inputText, setInputText] = useState("")
 
@@ -50,14 +45,14 @@ export const Navbar = ({ setShowLoading }) => {
 
    const handleLogout = () => {
       clearCookieLocalStorage()
+      setLoggedIn(false)
       history.push("/")
-      window.location.reload()
    }
 
    // const mockLoading = () => {
-   //    setShowLoading(true)
+   //    setShowPageLoading(true)
    //    setTimeout(() => {
-   //       setShowLoading(false)
+   //       setShowPageLoading(false)
    //    }, 1000)
    // }
 
@@ -128,7 +123,7 @@ export const Navbar = ({ setShowLoading }) => {
    if (showBurger) {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-            <Burger loggedIn={loggedIn} />
+            <Burger loggedIn={loggedIn} handleLogout={handleLogout}/>
             {SearchBar()}
          </div>
       )

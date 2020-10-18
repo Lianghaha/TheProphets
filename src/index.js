@@ -16,26 +16,25 @@ import { checkLogin } from "./lib/utils"
 // import axios from "axios"
 require("dotenv").config()
 
-function App() {
-   const [showLoading, setShowLoading] = useState(false)
 
-   const notLoggedInRoutes = () => {
-      if (!checkLogin()) {
-         return (
-            <div>
-               <Route path="/signup" render={() => <SignUp />} />
-               <Route path="/login" render={() => <Login />} />
-            </div>
-         )
-      }
+function App() {
+   const [showPageLoading, setShowPageLoading] = useState(false)
+   const [loggedIn, setLoggedIn] = useState(false)
+
+   const checkUserLogin = async () => {
+      setLoggedIn(await checkLogin())
    }
+
+   useEffect(() => {
+      checkUserLogin()
+   }, [])
 
    useEffect(() => {
       // axios
       //    .get("/api/test")
       //    .then((response) => {
       //       console.log("Test Api:")
-      //       console.log(response)
+      //       console.log(response.data.test)
       //    })
       //    .catch((err) => console.log(err))
    }, [])
@@ -43,16 +42,23 @@ function App() {
    return (
       <Router>
          <div className="App">
-            <Navbar setShowLoading={setShowLoading} />
-            <Spin size="large" spinning={showLoading}>
-               {showLoading ? (
+            <Navbar
+               setShowPageLoading={setShowPageLoading}
+               loggedIn={loggedIn}
+               setLoggedIn={setLoggedIn}
+            />
+            <Spin size="large" spinning={showPageLoading}>
+               {showPageLoading ? (
                   <div className="LoadingBG"></div>
                ) : (
                   <Switch>
                      <Route
                         path="/prophetDetail/:id"
                         render={(match) => (
-                           <ProphetDetail prophetID={match.match.params.id} />
+                           <ProphetDetail
+                              prophetID={match.match.params.id}
+                              setShowPageLoading={setShowPageLoading}
+                           />
                         )}
                      />
                      <Route
@@ -76,25 +82,25 @@ function App() {
                      <Route
                         path="/search/:input"
                         render={(match) => (
-                           <Search input={match.match.params.input} />
+                           <Search
+                              input={match.match.params.input}
+                              showProphets={true}
+                           />
                         )}
                      />
                      <Route
                         path="/search/"
                         render={() => <Search showProphets={true} />}
                      />
-
-                     {/* <Route
-                        path="/test"
-                        render={() => (
-                           <div>
-                              <img src={testImg} alt="testImg" />
-                           </div>
-                        )}
-                     /> */}
-
+                     <Route
+                        path="/signup"
+                        render={() => <SignUp setLoggedIn={setLoggedIn} />}
+                     />
+                     <Route
+                        path="/login"
+                        render={() => <Login setLoggedIn={setLoggedIn} />}
+                     />
                      <Route path="/" exact component={Home} />
-                     {notLoggedInRoutes()}
                      <Route path="/" component={NotFound} />
                   </Switch>
                )}

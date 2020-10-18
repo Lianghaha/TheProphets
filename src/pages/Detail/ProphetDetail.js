@@ -10,15 +10,17 @@ import { Modal, Input } from "antd"
 import { checkLogin } from "../../lib/utils"
 
 const { TextArea } = Input
+const commentMaxLength = 200
 
-export const ProphetDetail = ({ prophetID }) => {
+export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
    const history = useHistory()
 
    const [prophet, setProphet] = useState()
    const [predictions, setPredictions] = useState([])
    const [showModal, setShowModal] = useState(false)
    const [comment, setComment] = useState("")
-   const commentMaxLength = 200
+   const [prophetReady, setProphetReady] = useState(false)
+   const [predictionReady, setPredictionReady] = useState(false)
 
    const getProphet = useCallback(async () => {
       await axios
@@ -28,6 +30,8 @@ export const ProphetDetail = ({ prophetID }) => {
             // console.log(response.data)
             if (response.data.status === 0) {
                setProphet(response.data.result[0])
+               // setProphetReady(true)
+               // console.log("11111111111111111")
             } else {
                console.log(response.data.err)
             }
@@ -43,6 +47,8 @@ export const ProphetDetail = ({ prophetID }) => {
             // console.log(response.data)
             if (response.data.status === 0) {
                setPredictions(response.data.result)
+               // setPredictionReady(true)
+               // console.log("222222222222222222222")
             } else {
                console.log(response.data.err)
             }
@@ -52,16 +58,27 @@ export const ProphetDetail = ({ prophetID }) => {
 
    useEffect(() => {
       window.scrollTo(0, 0)
+      // setShowPageLoading(true)
       getProphet()
       getPredictions()
-   }, [getProphet, getPredictions])
+   }, [getProphet, getPredictions, setShowPageLoading])
+
+   // useEffect(() => {
+   //    console.log("33333333333333333333")
+   //    console.log("prophetReady" + prophetReady)
+   //    console.log("predictionReady" + predictionReady)
+   //    if (prophetReady && predictionReady) {
+   //       console.log("444444444444444444444")
+   //       setShowPageLoading(false)
+   //    } 
+   // }, [prophetReady, predictionReady, setShowPageLoading])
 
    const handleCommentSubmit = () => {
       console.log(comment)
    }
 
-   const handleModal = () => {
-      if (checkLogin()) {
+   const handleModal = async () => {
+      if (await checkLogin()) {
          setShowModal(true)
       } else {
          history.push("/login")
@@ -132,7 +149,7 @@ export const ProphetDetail = ({ prophetID }) => {
                         rows={6}
                         onChange={(e) => setComment(e.target.value)}
                      />
-                     <p id="wordCount">
+                     <p className="wordCount">
                         {comment.length} / {commentMaxLength}
                      </p>
                   </Modal>

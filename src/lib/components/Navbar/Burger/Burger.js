@@ -1,13 +1,11 @@
 import React from "react"
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "./Burger.css"
 import { slide as Menu } from "react-burger-menu"
 import defaultImg from "../../../../media/image/default-profile.png"
-import { clearCookieLocalStorage } from "../../../utils"
 
 
-export const Burger = ({ loggedIn }) => {
-   const history = useHistory()
+export const Burger = ({ loggedIn, handleLogout }) => {
 
    //Close Nav Burger
    const handleBurgerClick = () => {
@@ -28,13 +26,6 @@ export const Burger = ({ loggedIn }) => {
          )
       }
    }
-
-   const handleLogout = () => {
-      clearCookieLocalStorage()
-      history.push("/")
-      window.location.reload()
-   }
-
 
    const loginOrOut = () => {
       if (loggedIn) {

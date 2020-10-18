@@ -6,10 +6,10 @@ import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { encrypt, setCookieLocalStorage } from "../../lib/utils"
+import { encrypt, setCookieLocalStorage, clearCookieLocalStorage } from "../../lib/utils"
 import GoogleLogin from "react-google-login"
 
-export const SignUp = () => {
+export const SignUp = ({ setLoggedIn }) => {
    //Redirect
    const history = useHistory()
 
@@ -69,9 +69,6 @@ export const SignUp = () => {
       setUsernameCorrectness(regex.test(input) && input.length >= 6)
    }
 
-   useEffect(() => {
-   }, [])
-
    const parseCookie = () => {
       // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
       // document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
@@ -91,7 +88,7 @@ export const SignUp = () => {
 
    const handleSubmit = async () => {
       const AESpassword = encrypt(password)
-      
+
       await axios
          .post("/api/signup", {
             email: email,
@@ -103,15 +100,11 @@ export const SignUp = () => {
             console.log(response.data)
             const data = response.data
             if (data.status === 0) {
-               setCookieLocalStorage(
-                  email,
-                  username,
-                  data.tokenRequest.token
-               )
+               setCookieLocalStorage(email, username, data.tokenRequest.token)
                console.log(document.cookie)
                console.log(parseCookie())
+               setLoggedIn(true)
                history.push("/")
-               window.location.reload()
             } else {
                alert(data.message)
             }
@@ -122,6 +115,11 @@ export const SignUp = () => {
    const responseGoogle = (response) => {
       console.log(response)
    }
+
+   useEffect(() => {
+      clearCookieLocalStorage()
+      setLoggedIn(false)
+   }, [setLoggedIn])
 
    return (
       <div className="SignUp">

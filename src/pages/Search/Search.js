@@ -16,7 +16,7 @@ export const Search = (props) => {
    //BackButton
    const history = useHistory()
    //Display Prophets or Predictions
-   const [showProphets, setShowProphets] = useState(true)
+   const [showProphets, setShowProphets] = useState("initial")
 
    //All Prophet/Prediction Data From Server
    const [prophetData, setProphetData] = useState([])
@@ -24,7 +24,9 @@ export const Search = (props) => {
 
    const [inputText, setInputText] = useState("")
 
-   const [showLoading, setShowLoading] = useState(false)
+   const [showSearchContentLoading, setShowSearchContentLoading] = useState(
+      false
+   )
 
    const [scoreSort, setScoreSort] = useState("DESC")
    const [scoreAboveFilter, setScoreAboveFilter] = useState(0)
@@ -50,6 +52,7 @@ export const Search = (props) => {
                }
                // console.log(prophetData)
                setProphetData(prophetData)
+               setShowSearchContentLoading(false)
             } else {
                console.log(response.data.err)
             }
@@ -78,6 +81,7 @@ export const Search = (props) => {
                }
                // console.log(predictionData)
                setPredictionData(predictionData)
+               setShowSearchContentLoading(false)
             } else {
                console.log(response.data.err)
             }
@@ -90,11 +94,8 @@ export const Search = (props) => {
    }, [])
 
    useEffect(() => {
-      // mockLoading()
       if (typeof props.showProphets !== "undefined") {
          setShowProphets(props.showProphets)
-         setScoreSort("DESC")
-         setScoreAboveFilter(0)
       }
    }, [props.showProphets])
 
@@ -103,9 +104,12 @@ export const Search = (props) => {
    }, [props.input])
 
    useEffect(() => {
-      // mockLoading()
-      if (showProphets) getProphetData(inputText, scoreSort, scoreAboveFilter)
-      else getPredictionData(inputText, scoreSort, scoreAboveFilter)
+      setShowSearchContentLoading(true)
+      if (showProphets !== "initial") {
+         if (showProphets)
+            getProphetData(inputText, scoreSort, scoreAboveFilter)
+         else getPredictionData(inputText, scoreSort, scoreAboveFilter)
+      }
    }, [scoreSort, scoreAboveFilter, inputText, showProphets])
 
    //Prophets or Predictions
@@ -149,13 +153,6 @@ export const Search = (props) => {
          return "All Predictions"
       }
    }
-
-   // const mockLoading = () => {
-   //    setShowLoading(true)
-   //    setTimeout(() => {
-   //       setShowLoading(false)
-   //    }, 1000)
-   // }
 
    const scoreAboveRating = (score) => {
       return (
@@ -221,8 +218,12 @@ export const Search = (props) => {
                      <Button>Predictions</Button>
                   </div>
                </div>
-               <Spin size="large" spinning={showLoading}>
-                  {showLoading ? <div></div> : whatToShow()}
+               <Spin size="large" spinning={showSearchContentLoading}>
+                  {showSearchContentLoading ? (
+                     <div className="SearchContentLoading"></div>
+                  ) : (
+                     whatToShow()
+                  )}
                </Spin>
             </div>
 

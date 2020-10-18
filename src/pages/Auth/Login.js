@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./Auth.css"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
@@ -6,11 +6,11 @@ import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { encrypt, setCookieLocalStorage } from "../../lib/utils"
+import { clearCookieLocalStorage, encrypt, setCookieLocalStorage } from "../../lib/utils"
 
 import GoogleLogin from "react-google-login"
 
-export const Login = () => {
+export const Login = ({ setLoggedIn }) => {
    //Redirect
    const history = useHistory()
 
@@ -23,7 +23,7 @@ export const Login = () => {
       } else {
          result = { type: "password" }
       }
-      return result
+      return result 
    }
 
    const showPasswordButton = () => {
@@ -82,9 +82,8 @@ export const Login = () => {
                   data.userInfo.username,
                   data.tokenRequest.token
                )
-               console.log(document.cookie)
+               setLoggedIn(true)
                history.push("/")
-               window.location.reload()
             } else {
                alert(data.message)
             }
@@ -95,6 +94,11 @@ export const Login = () => {
    const responseGoogle = (response) => {
       console.log(response)
    }
+
+   useEffect(() => {
+      clearCookieLocalStorage()
+      setLoggedIn(false)
+   }, [setLoggedIn])
 
    return (
       <div className="Login">

@@ -67,7 +67,6 @@
    width: 100%;
    display: flex;
    /* border: 3px solid red; */
-   height: 5vh;
    margin-top: 2%;
    justify-content: center;
 }
@@ -75,6 +74,7 @@
 .Search .SwitchButton {
    /* border: 3px solid blue; */
    width: 46%;
+   height: 50px;
    display: flex;
    justify-content: center;
    transition: background-color 0.3s ease-in-out, border-color .6s ease-in-out;
@@ -205,6 +205,9 @@
    margin-top: -1%;
 }
 
+.Search .SearchContentLoading {
+   height: 60vh;
+}
 
 
 /* Responsive */

@@ -7,16 +7,19 @@ import { useHistory } from "react-router-dom"
 import axios from "axios"
 import { Modal, Input } from "antd"
 import { checkLogin } from "../../lib/utils"
+import Rating from "@material-ui/lab/Rating"
 
 const { TextArea } = Input
+const reviewMaxLength = 200
 
 export const PredictionDetail = ({ predictionID }) => {
    const history = useHistory()
 
    const [prediction, setPrediction] = useState()
-   const [showModal, setShowModal] = useState(false)
-   const [review, setReview] = useState("")
-   const reviewMaxLength = 200
+   const [showModal, setShowModal] = useState(true)
+   const [newReviewText, setNewReviewText] = useState("")
+   const [newReviewAccuracy, setNewReviewAccuracy] = useState(0)
+   const [newReviewDifficulty, setNewReviewDifficulty] = useState(0)
 
    const getPrediction = useCallback(async () => {
       await axios
@@ -52,17 +55,33 @@ export const PredictionDetail = ({ predictionID }) => {
       )
    }
 
+   const calculateOverallScore = () => {
+      const a = newReviewAccuracy,
+         b = newReviewDifficulty
+      const multiple = (a * b) / 10
+      console.log("multiple: " + multiple)
+      const average = (a + b) / 2
+      console.log("average: " + average)
+      const result = 0.2 * multiple + 0.8 * average
+      console.log("result: " + result)
+      return Math.round(result * 10) / 10
+   }
+
    useEffect(() => {
       window.scrollTo(0, 0)
       getPrediction()
    }, [getPrediction])
 
+   // useEffect(() => {
+   //    console.log(newReviewAccuracy)
+   // }, [newReviewAccuracy, newReviewDifficulty])
+
    const handleReviewSubmit = () => {
-      console.log(review)
+      console.log(newReviewText)
    }
 
-   const handleModal = () => {
-      if (checkLogin()) {
+   const handleModal = async () => {
+      if (await checkLogin()) {
          setShowModal(true)
       } else {
          history.push("/login")
@@ -80,7 +99,7 @@ export const PredictionDetail = ({ predictionID }) => {
                      Add Review
                   </Button>
                   <Modal
-                     title="review"
+                     title="Review"
                      visible={showModal}
                      onOk={() => {
                         setShowModal(false)
@@ -100,18 +119,55 @@ export const PredictionDetail = ({ predictionID }) => {
                            key="submit"
                            variant="outlined"
                            onClick={handleReviewSubmit}
+                           disabled={
+                              newReviewAccuracy === 0 ||
+                              newReviewDifficulty === 0 ||
+                              newReviewText.length === 0
+                           }
                         >
                            Submit
                         </Button>,
                      ]}
                   >
+                     <div className="ScoreContainer">
+                        <div className="Score">
+                           <p>Accuracy:</p>
+                           <Rating
+                              name="accuracy"
+                              defaultValue={4.5}
+                              value={newReviewAccuracy / 2}
+                              precision={0.5}
+                              onChange={(event, newValue1) => {
+                                 setNewReviewAccuracy(newValue1 * 2)
+                              }}
+                           />
+                        </div>
+                        <div className="Score">
+                           <p>Difficulty:</p>
+                           <Rating
+                              name="dfficulty"
+                              defaultValue={4.5}
+                              value={newReviewDifficulty / 2}
+                              precision={0.5}
+                              onChange={(event, newValue2) => {
+                                 setNewReviewDifficulty(newValue2 * 2)
+                              }}
+                           />
+                        </div>
+                        {/* <div className="Score">
+                           <p className="OverallScore">
+                              Overall Score:{" "}
+                              <span>{calculateOverallScore()}</span>
+                           </p>
+                        </div> */}
+                     </div>
                      <TextArea
                         maxLength={reviewMaxLength}
                         rows={6}
-                        onChange={(e) => setReview(e.target.value)}
+                        onChange={(e) => setNewReviewText(e.target.value)}
                      />
-                     <p id="wordCount">
-                        {review.length} / {reviewMaxLength}
+                     <p className="wordCount">
+                        {newReviewText.length} / {reviewMaxLength}
                      </p>
                   </Modal>
                </div>
