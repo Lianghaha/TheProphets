@@ -1,19 +1,37 @@
 import CryptoJS from "crypto-js"
 import axios from "axios"
 
-
 //Can encrypt both String and Object
-export const encrypt = (data) => {
-   let JSONData = JSON.stringify(data)
-   let encryptedData = CryptoJS.AES.encrypt(
-      JSONData,
-      process.env.REACT_APP_SECRET
-   ).toString()
-   //Base64 processing is required to clear "malformed utf-8 data" error
-   let Base64Data = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Utf8.parse(encryptedData)
-   )
-   return Base64Data
+export const encrypt = (str) => {
+   const result = CryptoJS.SHA256(str).toString()
+   console.log(result)
+   return result
+}
+
+export const getCurrentTime = () => {
+   let d = new Date()
+   let timeNumeric = d.getTime()
+   let timeReadable = `${d.getFullYear()}/${
+      d.getMonth() + 1
+   }/${d.getDate()} @ ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+   return { timeNumeric, timeReadable }
+}
+
+export const parseCookie = () => {
+   // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+   // document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+   // console.log(document.cookie)
+   if (document.cookie) {
+      const str = document.cookie.split(";")
+      // console.log(str)
+      var result = {}
+      for (var i = 0; i < str.length; i++) {
+         var cur = str[i].split("=")
+         result[cur[0]] = cur[1]
+      }
+      return result
+   }
+   return false
 }
 
 export const clearCookieLocalStorage = () => {
@@ -30,7 +48,7 @@ export const setCookieLocalStorage = (email, username, token) => {
    document.cookie = `identity=${email}`
    document.cookie = `username=${username}`
    document.cookie = `token=${token}`
-   console.log(token)
+   // console.log("setCookieLocalStorage Token:"token)
    localStorage.setItem("identity", email)
    localStorage.setItem("username", username)
    localStorage.setItem("token", token)
@@ -57,13 +75,3 @@ export const checkLogin = async () => {
    }
    return flag
 }
-
-export const getCurrentTime = () => {
-   let d = new Date()
-   let timeNumeric = d.getTime()
-   let timeReadable = `${d.getFullYear()}/${
-      d.getMonth() + 1
-   }/${d.getDate()} @ ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
-   return { timeNumeric, timeReadable }
-}
-

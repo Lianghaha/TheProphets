@@ -19,8 +19,8 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
    const [predictions, setPredictions] = useState([])
    const [showModal, setShowModal] = useState(false)
    const [comment, setComment] = useState("")
-   const [prophetReady, setProphetReady] = useState(false)
-   const [predictionReady, setPredictionReady] = useState(false)
+   // const [prophetReady, setProphetReady] = useState(false)
+   // const [predictionReady, setPredictionReady] = useState(false)
 
    const getProphet = useCallback(async () => {
       await axios

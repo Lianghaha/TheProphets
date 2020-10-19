@@ -55,17 +55,17 @@ export const PredictionDetail = ({ predictionID }) => {
       )
    }
 
-   const calculateOverallScore = () => {
-      const a = newReviewAccuracy,
-         b = newReviewDifficulty
-      const multiple = (a * b) / 10
-      console.log("multiple: " + multiple)
-      const average = (a + b) / 2
-      console.log("average: " + average)
-      const result = 0.2 * multiple + 0.8 * average
-      console.log("result: " + result)
-      return Math.round(result * 10) / 10
-   }
+   // const calculateOverallScore = () => {
+   //    const a = newReviewAccuracy,
+   //       b = newReviewDifficulty
+   //    const multiple = (a * b) / 10
+   //    console.log("multiple: " + multiple)
+   //    const average = (a + b) / 2
+   //    console.log("average: " + average)
+   //    const result = 0.2 * multiple + 0.8 * average
+   //    console.log("result: " + result)
+   //    return Math.round(result * 10) / 10
+   // }
 
    useEffect(() => {
       window.scrollTo(0, 0)

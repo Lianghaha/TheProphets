@@ -66,11 +66,11 @@ export const Login = ({ setLoggedIn }) => {
    }
 
    const handleSubmit = async () => {
-      const AESpassword = encrypt(password)
+      const encPassword = encrypt(password)
       await axios
          .post(`/api/login`, {
             email: email,
-            AESpassword: AESpassword,
+            encPassword: encPassword,
          })
          .then((response) => {
             console.log("Login Post Response: ")
@@ -92,7 +92,7 @@ export const Login = ({ setLoggedIn }) => {
    }
 
    const responseGoogle = (response) => {
-      console.log(response)
+      // console.log(response)
    }
 
    useEffect(() => {

@@ -69,31 +69,14 @@ export const SignUp = ({ setLoggedIn }) => {
       setUsernameCorrectness(regex.test(input) && input.length >= 6)
    }
 
-   const parseCookie = () => {
-      // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-      // document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-      // console.log(document.cookie)
-      if (document.cookie) {
-         const str = document.cookie.split(";")
-         // console.log(str)
-         var result = {}
-         for (var i = 0; i < str.length; i++) {
-            var cur = str[i].split("=")
-            result[cur[0]] = cur[1]
-         }
-         return result
-      }
-      return false
-   }
-
    const handleSubmit = async () => {
-      const AESpassword = encrypt(password)
+      const encPassword = encrypt(password)
 
       await axios
          .post("/api/signup", {
             email: email,
             username: username,
-            AESpassword: AESpassword,
+            encPassword: encPassword,
          })
          .then((response) => {
             console.log("Register Post Response: ")
@@ -101,8 +84,8 @@ export const SignUp = ({ setLoggedIn }) => {
             const data = response.data
             if (data.status === 0) {
                setCookieLocalStorage(email, username, data.tokenRequest.token)
-               console.log(document.cookie)
-               console.log(parseCookie())
+               // console.log(document.cookie)
+               // console.log(parseCookie())
                setLoggedIn(true)
                history.push("/")
             } else {
