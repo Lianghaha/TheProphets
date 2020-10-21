@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import "./Auth.css"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
@@ -12,6 +12,9 @@ import GoogleLogin from "react-google-login"
 export const SignUp = ({ setLoggedIn }) => {
    //Redirect
    const history = useHistory()
+   //Click Email
+   const emailRef = useRef()
+
 
    //Display Password
    const [showPassword, setShowPassword] = useState(false)
@@ -96,13 +99,22 @@ export const SignUp = ({ setLoggedIn }) => {
    }
 
    const responseGoogle = (response) => {
-      console.log(response)
+      // console.log(response)
    }
 
    useEffect(() => {
       clearCookieLocalStorage()
       setLoggedIn(false)
    }, [setLoggedIn])
+
+   useEffect(() => {
+      setTimeout(() => {
+         // console.log(document.getElementById("signUpEmail"))
+         document.getElementById("signUpEmail").click()
+         // console.log(emailRef.current)
+         emailRef.current.click()
+      }, 1000)
+   }, [])
 
    return (
       <div className="SignUp">
@@ -112,6 +124,8 @@ export const SignUp = ({ setLoggedIn }) => {
                <div className="TextFieldContainer">
                   <TextField
                      id="signUpEmail"
+                     inputRef={emailRef}
+                     // autoFocus={true}
                      label="Email"
                      onChange={(e) => checkEmail(e.target.value)}
                      helperText={

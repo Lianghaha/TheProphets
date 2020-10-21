@@ -3,9 +3,11 @@ import axios from "axios"
 
 //Can encrypt both String and Object
 export const encrypt = (str) => {
-   const result = CryptoJS.SHA256(str).toString()
-   console.log(result)
-   return result
+   const encrypted = CryptoJS.AES.encrypt(str, process.env.REACT_APP_SECRET).toString()
+   // const decrypt = CryptoJS.AES.decrypt(encrypted, process.env.REACT_APP_SECRET)
+   // console.log("Encrypted: " + encrypted)
+   // console.log("Decrypted: " + decrypt.toString(CryptoJS.enc.Utf8))
+   return encrypted
 }
 
 export const getCurrentTime = () => {
@@ -65,6 +67,7 @@ export const checkLogin = async () => {
             token: token,
          })
          .then((response) => {
+            console.log("checkLogin: ")
             console.log(response.data)
             if (response.data.status === 0) flag = true
             else {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import "./TopPrediction.css"
 import PredictionCard from "../../../lib/components/PredictionCard/PredictionCard"
 //Button
@@ -7,16 +7,11 @@ import { Spin } from "antd"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
-export const TopPredictions = () => {
+export const TopPredictions = ({ setTopPredictionsReady }) => {
    const [predictionList, setPredictionList] = useState([])
-
    const [showLoading, setShowLoading] = useState(false)
 
-   useEffect(() => {
-      getData()
-   }, [])
-
-   const getData = async () => {
+   const getData = useCallback(async () => {
       let predictionData = []
       await axios
          .get("/api/search/predictions")
@@ -30,12 +25,17 @@ export const TopPredictions = () => {
                }
                // console.log(predictionData)
                setPredictionList(predictionData)
+               setTopPredictionsReady(true)
             } else {
                console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))
-   }
+   }, [setTopPredictionsReady])
+
+   useEffect(() => {
+      getData()
+   }, [getData])
 
    const showMore = () => {
       setShowLoading(true)
@@ -69,9 +69,10 @@ export const TopPredictions = () => {
             </div>
          </div>
          <div className="PredictionsList">
-            {predictionList && predictionList.map((data, index) => {
-               return <PredictionCard key={index} data={data} />
-            })}
+            {predictionList &&
+               predictionList.map((data, index) => {
+                  return <PredictionCard key={index} data={data} />
+               })}
          </div>
          <div className="TitleButtons">{showLoadingOrButton()}</div>
       </div>

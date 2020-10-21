@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react"
+import React, { useRef, useEffect, useState, useCallback } from "react"
 import "./TopProphet.css"
 import ProphetCard from "../../../lib/components/ProphetCard/ProphetCard"
 //Antd
@@ -11,23 +11,17 @@ import { Link } from "react-router-dom"
 import { settings } from "./config"
 import axios from "axios"
 
-export const TopProphets = () => {
+export const TopProphets = ({ setTopProphetsReady }) => {
    const carouselRef = useRef()
-
    const CarouselNext = () => {
       carouselRef.current.next()
    }
    const CarouselPrev = () => {
       carouselRef.current.prev()
    }
-
    const [prophetList, setProphetList] = useState([])
-
-   useEffect(() => {
-      getData()
-   }, [])
-
-   const getData = async () => {
+   
+   const getData = useCallback(async () => {
       let prophetData = []
       await axios
          .get("/api/search/prophets")
@@ -41,12 +35,19 @@ export const TopProphets = () => {
                }
                // console.log(prophetData)
                setProphetList(prophetData)
+               setTopProphetsReady(true)
             } else {
                console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))
-   }
+   }, [setTopProphetsReady])
+
+   useEffect(() => {
+      getData()
+   }, [getData])
+
+   
 
    return (
       <div className="TopProphets">

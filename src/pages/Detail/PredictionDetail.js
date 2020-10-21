@@ -12,11 +12,11 @@ import Rating from "@material-ui/lab/Rating"
 const { TextArea } = Input
 const reviewMaxLength = 200
 
-export const PredictionDetail = ({ predictionID }) => {
+export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
    const history = useHistory()
 
    const [prediction, setPrediction] = useState()
-   const [showModal, setShowModal] = useState(true)
+   const [showModal, setShowModal] = useState(false)
    const [newReviewText, setNewReviewText] = useState("")
    const [newReviewAccuracy, setNewReviewAccuracy] = useState(0)
    const [newReviewDifficulty, setNewReviewDifficulty] = useState(0)
@@ -35,6 +35,51 @@ export const PredictionDetail = ({ predictionID }) => {
          })
          .catch((err) => console.log(err))
    }, [predictionID])
+
+   useEffect(() => {
+      window.scrollTo(0, 0)
+      setShowPageLoading(true)
+      Promise.all([getPrediction()]).then(() => {
+         setShowPageLoading(false)
+      })
+   }, [getPrediction, setShowPageLoading])
+
+   const calculateOverallScore = () => {
+      const a = newReviewAccuracy,
+         b = newReviewDifficulty
+      const multiple = (a * b) / 10
+      console.log("multiple: " + multiple)
+      const average = (a + b) / 2
+      console.log("average: " + average)
+      const result = 0.2 * multiple + 0.8 * average
+      console.log("result: " + result)
+      console.log(Math.round(result * 10) / 10)
+      return Math.round(result * 10) / 10
+   }
+
+   const handleReviewSubmit = async () => {
+      await axios
+         .post("/api/review", {
+            accuracy: newReviewAccuracy,
+            difficulty: newReviewDifficulty,
+            content: newReviewText,
+            overall_score: await calculateOverallScore(),
+         })
+         .then((response) => {
+            console.log(response.data)
+         })
+         .catch((err) => console.log(err))
+      setShowModal(false)
+      // reload comment
+   }
+
+   const handleModal = async () => {
+      if (await checkLogin()) {
+         setShowModal(true)
+      } else {
+         history.push("/login")
+      }
+   }
 
    const PredictionCardSection = () => {
       return (
@@ -55,39 +100,6 @@ export const PredictionDetail = ({ predictionID }) => {
       )
    }
 
-   // const calculateOverallScore = () => {
-   //    const a = newReviewAccuracy,
-   //       b = newReviewDifficulty
-   //    const multiple = (a * b) / 10
-   //    console.log("multiple: " + multiple)
-   //    const average = (a + b) / 2
-   //    console.log("average: " + average)
-   //    const result = 0.2 * multiple + 0.8 * average
-   //    console.log("result: " + result)
-   //    return Math.round(result * 10) / 10
-   // }
-
-   useEffect(() => {
-      window.scrollTo(0, 0)
-      getPrediction()
-   }, [getPrediction])
-
-   // useEffect(() => {
-   //    console.log(newReviewAccuracy)
-   // }, [newReviewAccuracy, newReviewDifficulty])
-
-   const handleReviewSubmit = () => {
-      console.log(newReviewText)
-   }
-
-   const handleModal = async () => {
-      if (await checkLogin()) {
-         setShowModal(true)
-      } else {
-         history.push("/login")
-      }
-   }
-
    return (
       <div className="Detail">
          <div className="Content">
@@ -101,9 +113,9 @@ export const PredictionDetail = ({ predictionID }) => {
                   <Modal
                      title="Review"
                      visible={showModal}
-                     onOk={() => {
-                        setShowModal(false)
-                     }}
+                     // onOk={() => {
+                     //    setShowModal(false)
+                     // }}
                      onCancel={() => {
                         setShowModal(false)
                      }}

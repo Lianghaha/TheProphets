@@ -7,7 +7,7 @@ import { Burger } from "./Burger/Burger"
 import defaultImg from "../../../media/image/default-profile.png"
 import { clearCookieLocalStorage } from "../../utils"
 
-export const Navbar = ({ setShowPageLoading, loggedIn, setLoggedIn }) => {
+export const Navbar = ({ loggedIn, setLoggedIn }) => {
    const history = useHistory()
 
    //Chaneg NavBar Background
@@ -48,13 +48,6 @@ export const Navbar = ({ setShowPageLoading, loggedIn, setLoggedIn }) => {
       setLoggedIn(false)
       history.push("/")
    }
-
-   // const mockLoading = () => {
-   //    setShowPageLoading(true)
-   //    setTimeout(() => {
-   //       setShowPageLoading(false)
-   //    }, 1000)
-   // }
 
    const SearchBar = () => {
       return (
@@ -123,7 +116,7 @@ export const Navbar = ({ setShowPageLoading, loggedIn, setLoggedIn }) => {
    if (showBurger) {
       return (
          <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
-            <Burger loggedIn={loggedIn} handleLogout={handleLogout}/>
+            <Burger loggedIn={loggedIn} handleLogout={handleLogout} />
             {SearchBar()}
          </div>
       )

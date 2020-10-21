@@ -30,8 +30,6 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
             // console.log(response.data)
             if (response.data.status === 0) {
                setProphet(response.data.result[0])
-               // setProphetReady(true)
-               // console.log("11111111111111111")
             } else {
                console.log(response.data.err)
             }
@@ -47,8 +45,6 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
             // console.log(response.data)
             if (response.data.status === 0) {
                setPredictions(response.data.result)
-               // setPredictionReady(true)
-               // console.log("222222222222222222222")
             } else {
                console.log(response.data.err)
             }
@@ -58,20 +54,11 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
 
    useEffect(() => {
       window.scrollTo(0, 0)
-      // setShowPageLoading(true)
-      getProphet()
-      getPredictions()
+      setShowPageLoading(true)
+      Promise.all([getProphet(), getPredictions()]).then(() => {
+         setShowPageLoading(false)
+      })
    }, [getProphet, getPredictions, setShowPageLoading])
-
-   // useEffect(() => {
-   //    console.log("33333333333333333333")
-   //    console.log("prophetReady" + prophetReady)
-   //    console.log("predictionReady" + predictionReady)
-   //    if (prophetReady && predictionReady) {
-   //       console.log("444444444444444444444")
-   //       setShowPageLoading(false)
-   //    } 
-   // }, [prophetReady, predictionReady, setShowPageLoading])
 
    const handleCommentSubmit = () => {
       console.log(comment)
@@ -163,3 +150,4 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
       </div>
    )
 }
+
