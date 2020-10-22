@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
-import "./Detail.css"
+import "./DetailCommon.css"
+import "./ProphetDetail.css"
 import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
 import Button from "@material-ui/core/Button"
 import { PredictionStrip } from "./PredictionStrip/PredictionStrip"
@@ -17,8 +18,9 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
 
    const [prophet, setProphet] = useState()
    const [predictions, setPredictions] = useState([])
+   const [comments, setComments] = useState([])
    const [showModal, setShowModal] = useState(false)
-   const [comment, setComment] = useState("")
+   const [newComment, setNewComment] = useState("")
    // const [prophetReady, setProphetReady] = useState(false)
    // const [predictionReady, setPredictionReady] = useState(false)
 
@@ -52,16 +54,46 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
          .catch((err) => console.log(err))
    }, [prophetID])
 
+   const getComments = useCallback(async () => {
+      await axios
+         .get(`/api/comment?prophetID=${prophetID}`)
+         .then((response) => {
+            console.log(
+               "=============== Prophet Detail Comments ==============="
+            )
+            // console.log(response.data)
+            console.log(response.data.result)
+
+            if (response.data.status === 0) {
+               setComments(response.data.result)
+            } else {
+               console.log(response.data.message)
+            }
+         })
+         .catch((err) => console.log(err))
+   }, [prophetID])
+
    useEffect(() => {
       window.scrollTo(0, 0)
       setShowPageLoading(true)
-      Promise.all([getProphet(), getPredictions()]).then(() => {
+      Promise.all([getProphet(), getPredictions(), getComments()]).then(() => {
          setShowPageLoading(false)
       })
-   }, [getProphet, getPredictions, setShowPageLoading])
+   }, [getProphet, getPredictions, getComments, setShowPageLoading])
 
-   const handleCommentSubmit = () => {
-      console.log(comment)
+   const handleCommentSubmit = async () => {
+      await axios
+         .post("/api/comment", {
+            content: newComment,
+            prophet_id: prophetID,
+         })
+         .then((response) => {
+            console.log(response.data)
+         })
+         .catch((err) => console.log(err))
+      setShowModal(false)
+      setNewComment("")
+      getComments()
    }
 
    const handleModal = async () => {
@@ -88,66 +120,77 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
                   <Button variant="outlined">More Info</Button>
                </a>
             </div>
-            <div className="Section">
-               <div className="SectionTitleAndButton">
-                  <h2>Predictions</h2>
+            {predictions.length === 0 ? (
+               ""
+            ) : (
+               <div className="Section">
+                  <div className="SectionTitleAndButton">
+                     <h2>Predictions</h2>
+                  </div>
+                  <div className="List">
+                     {predictions.map((prediction, index) => {
+                        return <PredictionStrip data={prediction} key={index} />
+                     })}
+                  </div>
+                  <Button variant="outlined">SHOW MORE</Button>
                </div>
-               <div className="List">
-                  {predictions.map((prediction, index) => {
-                     return <PredictionStrip data={prediction} key={index} />
-                  })}
+            )}
+            {comments.length === 0 ? (
+               ""
+            ) : (
+               <div className="Section">
+                  <div className="SectionTitleAndButton">
+                     <h2>Comments</h2>
+                     <Button variant="outlined" onClick={handleModal}>
+                        Add Comment
+                     </Button>
+                     <Modal
+                        title="Comment"
+                        visible={showModal}
+                        onOk={() => {
+                           setShowModal(false)
+                        }}
+                        onCancel={() => {
+                           setShowModal(false)
+                        }}
+                        footer={[
+                           <Button
+                              key="back"
+                              variant="outlined"
+                              onClick={() => setShowModal(false)}
+                           >
+                              Cancel
+                           </Button>,
+                           <Button
+                              key="submit"
+                              variant="outlined"
+                              onClick={handleCommentSubmit}
+                              disabled={newComment.length === 0}
+                           >
+                              Submit
+                           </Button>,
+                        ]}
+                     >
+                        <TextArea
+                           maxLength={commentMaxLength}
+                           rows={6}
+                           value={newComment}
+                           onChange={(e) => setNewComment(e.target.value)}
+                        />
+                        <p className="wordCount">
+                           {newComment.length} / {commentMaxLength}
+                        </p>
+                     </Modal>
+                  </div>
+                  <div className="List">
+                     {comments.map((comment, index) => {
+                        return <CommentStrip data={comment} key={index} />
+                     })}
+                  </div>
+                  <Button variant="outlined">SHOW MORE</Button>
                </div>
-               <Button variant="outlined">SHOW MORE</Button>
-            </div>
-            <div className="Section">
-               <div className="SectionTitleAndButton">
-                  <h2>Comments</h2>
-                  <Button variant="outlined" onClick={handleModal}>
-                     Add Comment
-                  </Button>
-                  <Modal
-                     title="Comment"
-                     visible={showModal}
-                     onOk={() => {
-                        setShowModal(false)
-                     }}
-                     onCancel={() => {
-                        setShowModal(false)
-                     }}
-                     footer={[
-                        <Button
-                           key="back"
-                           variant="outlined"
-                           onClick={() => setShowModal(false)}
-                        >
-                           Cancel
-                        </Button>,
-                        <Button
-                           key="submit"
-                           variant="outlined"
-                           onClick={handleCommentSubmit}
-                        >
-                           Submit
-                        </Button>,
-                     ]}
-                  >
-                     <TextArea
-                        maxLength={commentMaxLength}
-                        rows={6}
-                        onChange={(e) => setComment(e.target.value)}
-                     />
-                     <p className="wordCount">
-                        {comment.length} / {commentMaxLength}
-                     </p>
-                  </Modal>
-               </div>
-               <div className="List">
-                  <CommentStrip />
-               </div>
-               <Button variant="outlined">SHOW MORE</Button>
-            </div>
+            )}
          </div>
       </div>
    )
 }
-

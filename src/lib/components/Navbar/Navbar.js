@@ -76,7 +76,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
                <li>Home</li>
             </Link>
             <Link to="/prophets">
-               <li>Prohets</li>
+               <li>Prophets</li>
             </Link>
             <Link to="/predictions">
                <li>Predictions</li>

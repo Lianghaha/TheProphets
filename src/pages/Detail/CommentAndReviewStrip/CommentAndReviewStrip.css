@@ -1,20 +1,18 @@
-
 /* Prophet/Prediction Detail Comment/Review Common Css */
 .Strip {
-   background-color: white;
    width: 91%;
-   margin-bottom: 2vh;
-   box-shadow: 0px 0px 3px black;
+   /* box-shadow: 0px 0px 3px black; */
    filter: brightness(85%);
    transition: box-shadow 0.5s ease-in-out, filter 0.5s ease-in-out;
    display: flex;
-   padding: 15px 0;
    padding-right: 10px;
-   border-radius: 3px;
+   /* border-radius: 3px; */
+   padding: 30px 0;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .Strip:hover {
-   box-shadow: 0px 0px 10px black;
+   /* box-shadow: 0px 0px 10px black; */
    filter: brightness(100%);
 }
 
@@ -42,12 +40,15 @@
    width: 88%;
    display: flex;
    flex-wrap: wrap;
+   color: white;
 }
 
 .Strip .UserInfo {
    width: 100%;
    display: flex;
    flex-wrap: wrap;
+   /* padding-bottom: 5px; */
+   /* border-bottom: 1px solid grey; */
 }
 
 .Strip .Name {
@@ -87,9 +88,10 @@
 }
 
 .Strip .Text {
+   /* margin-top: 10px; */
    font-family: var(--text-font);
-   font-size: .8rem;
-   color: #707070;
+   font-size: 0.8rem;
+   width: 90%;
 }
 
 /* =========================
@@ -104,8 +106,7 @@ PredictionDetail Comment CSS
    padding-top: 2px;
    padding-bottom: 5px;
    margin-bottom: 5px;
-   border-bottom: 1px solid lightgray;
-
+   border-bottom: 1px solid rgba(255, 251, 251, 0.35);
 }
 
 .ReviewStrip .Score {
@@ -118,9 +119,9 @@ PredictionDetail Comment CSS
    margin-bottom: -5px;
 }
 
-.ReviewStrip .OverallScore span{
+.ReviewStrip .OverallScore span {
    margin-left: 5px;
    font-family: var(--number-font);
-   color:#ffb400;
+   color: #ffb400;
    font-size: 1.2rem;
 }

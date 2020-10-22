@@ -190,7 +190,7 @@ export const SignUp = ({ setLoggedIn }) => {
                      // }
                      onClick={handleSubmit}
                   >
-                     CREAT ACCOUNT
+                     CREATE ACCOUNT
                   </Button>
                   <GoogleLogin
                      className="GoogleButton"

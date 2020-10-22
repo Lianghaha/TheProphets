@@ -42,8 +42,11 @@ export const clearCookieLocalStorage = () => {
    for (var i = 0; i < str.length; i++) {
       var cur = str[i].split("=")
       document.cookie = cur[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      console.log(cur[0])
    }
    localStorage.clear()
+   console.log("=============== clearCookieLocalStorage ===============")
+   console.log(document.cookie)
 }
 
 export const setCookieLocalStorage = (email, username, token) => {
@@ -67,8 +70,8 @@ export const checkLogin = async () => {
             token: token,
          })
          .then((response) => {
-            console.log("checkLogin: ")
-            console.log(response.data)
+            console.log("=============== checkLogin ===============")
+            console.log(response)
             if (response.data.status === 0) flag = true
             else {
                clearCookieLocalStorage()

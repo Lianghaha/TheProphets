@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
-import "./Detail.css"
+import "./DetailCommon.css"
+import "./PredictionDetail.css"
 import Button from "@material-ui/core/Button"
 import PredictionCard from "../../lib/components/PredictionCard/PredictionCard"
 import { ReviewStrip } from "./CommentAndReviewStrip/ReviewStrip"
@@ -70,7 +71,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
          })
          .catch((err) => console.log(err))
       setShowModal(false)
-      // reload comment
+      // reload review
    }
 
    const handleModal = async () => {

@@ -48,10 +48,10 @@ export const Burger = ({ loggedIn, handleLogout }) => {
             {userInfo()}
             <ul>
                <Link to="/" onClick={handleBurgerClick}>
-                  <li>The Prohets</li>
+                  <li>Home</li>
                </Link>
                <Link to="/prophets" onClick={handleBurgerClick}>
-                  <li>Prohets</li>
+                  <li>Prophets</li>
                </Link>
                <Link to="/predictions" onClick={handleBurgerClick}>
                   <li>Predictions</li>

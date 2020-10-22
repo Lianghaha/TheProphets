@@ -61,7 +61,7 @@ export const TopProphets = ({ setTopProphetsReady }) => {
                   <GoChevronRight color="white" size="1.8em" />
                </Button>
                <Link to="/prophets">
-                  <Button variant="outlined">SHOW ALL</Button>
+                  <Button variant="outlined">SHOW MORE</Button>
                </Link>
             </div>
          </div>

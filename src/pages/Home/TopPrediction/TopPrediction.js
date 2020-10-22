@@ -64,7 +64,7 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
             <h2>Top Predictions</h2>
             <div className="TitleButtons">
                <Link to="/predictions">
-                  <Button variant="outlined">SHOW ALL</Button>
+                  <Button variant="outlined">SHOW MORE</Button>
                </Link>
             </div>
          </div>
