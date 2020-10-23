@@ -2,6 +2,7 @@
 /* Main */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
 /* Title&Description */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
 /* Ratings */
@@ -17,7 +18,8 @@
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
    --bg-dark: linear-gradient(rgba(0, 0, 0, 0.25), var(--main-color)),
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
-   --main-font: 'Assistant', sans-serif;
+   --main-font: 'Assistant', sans-serif;   
+   /* 'EB Garamond', serif; */
    --text-font: "Roboto Slab", serif;
    --number-font: "Special Elite", cursive;
    margin: 0;
@@ -44,7 +46,7 @@
 .App {
    width: 100%;
    background-color: var(--main-color);
-   font-family: var(--main-font);
+   font: var(--main-font);
    font-weight: 600;
    display: flex;
    flex-wrap: wrap;

@@ -18,7 +18,7 @@
 }
 
 .ProphetCard:hover {
-   box-shadow: 0px 0px 10px black;
+   box-shadow: 0px 0px 8px black;
    filter: brightness(100%);
    transform: scale(1.05);
    color: black;

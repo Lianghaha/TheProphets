@@ -40,23 +40,25 @@ export const clearCookieLocalStorage = () => {
    const str = document.cookie.split(";")
    // console.log(str)
    for (var i = 0; i < str.length; i++) {
-      var cur = str[i].split("=")
-      document.cookie = cur[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
-      console.log(cur[0])
+      const cur = str[i].split("=")
+      const key = cur[0].trim()
+      document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      console.log(key)
    }
    localStorage.clear()
    console.log("=============== clearCookieLocalStorage ===============")
-   console.log(document.cookie)
+   console.log("Cookie After: " + document.cookie)
 }
 
 export const setCookieLocalStorage = (email, username, token) => {
    document.cookie = `identity=${email}`
    document.cookie = `username=${username}`
    document.cookie = `token=${token}`
-   // console.log("setCookieLocalStorage Token:"token)
    localStorage.setItem("identity", email)
    localStorage.setItem("username", username)
    localStorage.setItem("token", token)
+   console.log("=============== setCookieLocalStorage ===============")
+   console.log("Cookie After: " + document.cookie)
 }
 
 export const checkLogin = async () => {

@@ -61,7 +61,6 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
             console.log(
                "=============== Prophet Detail Comments ==============="
             )
-            // console.log(response.data)
             console.log(response.data.result)
 
             if (response.data.status === 0) {
@@ -110,15 +109,15 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
             <div className="Section">
                <div className="SectionTitleAndButton">
                   <h2>Prophet Information</h2>
+                  <a
+                     href={`https://en.wikipedia.org/wiki/${
+                        prophet ? prophet.name : ""
+                     }`}
+                  >
+                     <Button variant="outlined">More Info</Button>
+                  </a>
                </div>
                <ProphetCard data={prophet} />
-               <a
-                  href={`https://en.wikipedia.org/wiki/${
-                     prophet ? prophet.name : ""
-                  }`}
-               >
-                  <Button variant="outlined">More Info</Button>
-               </a>
             </div>
             {predictions.length === 0 ? (
                ""

@@ -9,7 +9,7 @@ function Cover() {
          <div className="CoverText">
             <h1 className="TextHover">Find The Prophets</h1>
             <p className="TextHover">
-               Finding, Sorting and Rating the most reliable prophets have never been easier.
+               Finding, Rating and Sorting the most reliable prophets have never been easier.
             </p>
          </div>
          <div className="Icon">

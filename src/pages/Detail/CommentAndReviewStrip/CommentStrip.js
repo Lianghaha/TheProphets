@@ -2,7 +2,7 @@ import React from "react"
 import "./CommentAndReviewStrip.css"
 import defaultImg from "../../../media/image/default-profile.png"
 
-export const CommentStrip = ({data}) => {
+export const CommentStrip = ({ data }) => {
    // const data = {
    //    profile_img: defaultImg,
    //    username: "Haha Wowwowwow",
@@ -17,7 +17,10 @@ export const CommentStrip = ({data}) => {
    return (
       <div className="Strip CommentStrip">
          <div className="ImgContainer">
-            <img src={author.profile_img ? author.profile_img : defaultImg} alt="Default" />
+            <img
+               src={author.profile_img ? author.profile_img : defaultImg}
+               alt="Default"
+            />
          </div>
          <div className="ContentContainer">
             <div className="UserInfo">
@@ -27,13 +30,13 @@ export const CommentStrip = ({data}) => {
                <div className="Time">
                   <p>
                      {data.relative_date}{" "}
-                     <span className="ToolTip">{data.posted_date_readable}</span>
+                     <span className="ToolTip">
+                        {data.posted_date_readable}
+                     </span>
                   </p>
                </div>
             </div>
-            <div>
-               <p className="Text">{data.content}</p>
-            </div>
+            <p className="Text">{data.content}</p>
          </div>
       </div>
    )
