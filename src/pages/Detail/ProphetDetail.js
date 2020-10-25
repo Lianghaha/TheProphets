@@ -134,61 +134,64 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
                   <Button variant="outlined">SHOW MORE</Button>
                </div>
             )}
-            {comments.length === 0 ? (
-               ""
-            ) : (
-               <div className="Section">
-                  <div className="SectionTitleAndButton">
-                     <h2>Comments</h2>
-                     <Button variant="outlined" onClick={handleModal}>
-                        Add Comment
-                     </Button>
-                     <Modal
-                        title="Comment"
-                        visible={showModal}
-                        onOk={() => {
-                           setShowModal(false)
-                        }}
-                        onCancel={() => {
-                           setShowModal(false)
-                        }}
-                        footer={[
-                           <Button
-                              key="back"
-                              variant="outlined"
-                              onClick={() => setShowModal(false)}
-                           >
-                              Cancel
-                           </Button>,
-                           <Button
-                              key="submit"
-                              variant="outlined"
-                              onClick={handleCommentSubmit}
-                              disabled={newComment.length === 0}
-                           >
-                              Submit
-                           </Button>,
-                        ]}
-                     >
-                        <TextArea
-                           maxLength={commentMaxLength}
-                           rows={6}
-                           value={newComment}
-                           onChange={(e) => setNewComment(e.target.value)}
-                        />
-                        <p className="wordCount">
-                           {newComment.length} / {commentMaxLength}
-                        </p>
-                     </Modal>
-                  </div>
-                  <div className="List">
-                     {comments.map((comment, index) => {
-                        return <CommentStrip data={comment} key={index} />
-                     })}
-                  </div>
-                  <Button variant="outlined">SHOW MORE</Button>
+
+            <div className="Section">
+               <div className="SectionTitleAndButton">
+                  <h2>Comments</h2>
+                  <Button variant="outlined" onClick={handleModal}>
+                     Add Comment
+                  </Button>
+                  <Modal
+                     title="Comment"
+                     visible={showModal}
+                     onOk={() => {
+                        setShowModal(false)
+                     }}
+                     onCancel={() => {
+                        setShowModal(false)
+                     }}
+                     footer={[
+                        <Button
+                           key="back"
+                           variant="outlined"
+                           onClick={() => setShowModal(false)}
+                        >
+                           Cancel
+                        </Button>,
+                        <Button
+                           key="submit"
+                           variant="outlined"
+                           onClick={handleCommentSubmit}
+                           disabled={newComment.length === 0}
+                        >
+                           Submit
+                        </Button>,
+                     ]}
+                  >
+                     <TextArea
+                        maxLength={commentMaxLength}
+                        rows={6}
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                     />
+                     <p className="wordCount">
+                        {newComment.length} / {commentMaxLength}
+                     </p>
+                  </Modal>
                </div>
-            )}
+
+               <div className="List">
+                  {comments.length === 0 ? (
+                     <div className="NoCommentOrReview">No Comments</div>
+                  ) : (
+                     comments.map((comment, index) => {
+                        return <CommentStrip data={comment} key={index} />
+                     })
+                  )}
+               </div>
+
+               <Button variant="outlined">LOAD MORE</Button>
+            </div>
          </div>
       </div>
    )

@@ -37,16 +37,18 @@ export const parseCookie = () => {
 }
 
 export const clearCookieLocalStorage = () => {
+   console.log("=============== clearCookieLocalStorage ===============")
+   console.log("Cookie Before: " + document.cookie)
    const str = document.cookie.split(";")
    // console.log(str)
    for (var i = 0; i < str.length; i++) {
       const cur = str[i].split("=")
-      const key = cur[0].trim()
+      const key = cur[0]
       document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
-      console.log(key)
+      document.cookie = key.trim() + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      // console.log(key)
    }
    localStorage.clear()
-   console.log("=============== clearCookieLocalStorage ===============")
    console.log("Cookie After: " + document.cookie)
 }
 

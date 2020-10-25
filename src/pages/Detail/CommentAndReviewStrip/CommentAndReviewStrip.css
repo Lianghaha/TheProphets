@@ -45,8 +45,6 @@
    width: 100%;
    display: flex;
    flex-wrap: wrap;
-   /* padding-bottom: 5px; */
-   /* border-bottom: 1px solid grey; */
 }
 
 .Strip .Name {
@@ -101,10 +99,8 @@ PredictionDetail Comment CSS
    display: flex;
    align-items: flex-end;
    flex-wrap: wrap;
-   padding-top: 2px;
-   padding-bottom: 5px;
+   margin-top: -2px;
    margin-bottom: 5px;
-   border-bottom: 1px solid rgba(255, 251, 251, 0.35);
 }
 
 .ReviewStrip .Score {

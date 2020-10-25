@@ -10,52 +10,49 @@ import axios from "axios"
 export const TopPredictions = ({ setTopPredictionsReady }) => {
    const [predictionList, setPredictionList] = useState([])
    const [showLoading, setShowLoading] = useState(false)
+   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true)
+   const [page, setPage] = useState(1)
 
-   const getData = useCallback(async () => {
+   // Helper for getAndSetPredictionList
+   const getData = useCallback(async (page) => {
+      let result = false
       let predictionData = []
       await axios
-         .get("/api/search/predictions")
-         .then((response) => {
+         .get(`/api/search/predictions?page=${page}`)
+         .then(async (response) => {
             // console.log("Predictions: ")
             // console.log(response.data)
             if (response.data.status === 0) {
                predictionData = response.data.result
-               for (let i = 0; i < 0; i++) {
-                  predictionData = predictionData.concat(predictionData)
-               }
-               // console.log(predictionData)
-               setPredictionList(predictionData)
-               setTopPredictionsReady(true)
+               result = predictionData
+               setShowLoadMoreButton(response.data.showLoadMoreButton)
             } else {
                console.log(response.data.err)
             }
          })
          .catch((err) => console.log(err))
-   }, [setTopPredictionsReady])
+      return result
+   }, [])
+
+   const getAndSetPredictionList = useCallback(
+      async (currentList = [], page = 1) => {
+         const result = await getData(page)
+         console.log(result)
+         setPredictionList(currentList.concat(await getData(page)))
+         setTopPredictionsReady(true)
+      },
+      [getData, setTopPredictionsReady]
+   )
 
    useEffect(() => {
-      getData()
-   }, [getData])
+      getAndSetPredictionList()
+   }, [getAndSetPredictionList])
 
-   const showMore = () => {
+   const handleLoadMore = async () => {
+      setPage(page + 1)
       setShowLoading(true)
-      let temp = predictionList.concat(predictionList)
-      setTimeout(() => {
-         setPredictionList(temp)
-         setShowLoading(false)
-      }, 1000)
-   }
-
-   const showLoadingOrButton = () => {
-      if (showLoading) {
-         return <Spin size="large" />
-      } else {
-         return (
-            <Button onClick={showMore} variant="outlined">
-               SHOW MORE
-            </Button>
-         )
-      }
+      await getAndSetPredictionList(predictionList, page + 1)
+      setShowLoading(false)
    }
 
    return (
@@ -74,7 +71,18 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
                   return <PredictionCard key={index} data={data} />
                })}
          </div>
-         <div className="TitleButtons">{showLoadingOrButton()}</div>
+
+         <div className="TitleButtons">
+            {showLoading ? (
+               <Spin size="large" />
+            ) : showLoadMoreButton ? (
+               <Button onClick={handleLoadMore} variant="outlined">
+                  LOAD MORE
+               </Button>
+            ) : (
+               ""
+            )}
+         </div>
       </div>
    )
 }

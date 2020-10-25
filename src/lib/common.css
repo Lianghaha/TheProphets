@@ -30,13 +30,12 @@
    margin: 0 5px !important;
    border-radius: 0% !important;
    color: white !important;
-   transition: background .3s ease-in-out !important;
+   transition: background 0.3s ease-in-out !important;
 }
 
 .MuiButton-root:hover {
    background: rgb(71, 71, 71) !important;
 }
-
 
 /* Home and Search Spin */
 .ant-spin-dot-item {
@@ -45,6 +44,17 @@
 
 .ant-spin-nested-loading {
    width: 100%;
+}
+
+.ant-spin-container {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.ant-spin-container::after {
+   background: transparent !important;
 }
 
 .ant-spin-blur {
@@ -61,6 +71,27 @@
    height: 30px !important;
 }
 
-.ant-spin-container::after {
-   background: transparent !important;
+/* animations */
+.animation_fade {
+   -webkit-animation: animation_fade 1s;
+   animation: animation_fade 1s;
 }
+
+@-webkit-keyframes animation_fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes animation_fade {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+

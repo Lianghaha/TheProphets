@@ -29,7 +29,7 @@ export const Search = (props) => {
    )
 
    const [scoreSort, setScoreSort] = useState("DESC")
-   const [scoreAboveFilter, setScoreAboveFilter] = useState(0)
+   const [scoreAboveFilter, setScoreAboveFilter] = useState(-1)
 
    //Get Prophet Data From Server
    const getProphetData = async (
@@ -119,11 +119,13 @@ export const Search = (props) => {
             return <div className="Empty">No Result Found</div>
          } else {
             return (
-               <div className="SearchProphetCards">
-                  {prophetData &&
-                     prophetData.map((data, index) => {
-                        return <ProphetCard key={index} data={data} />
-                     })}
+               <div className="SearchProphetCardsContainer">
+                  <div className="SearchProphetCards">
+                     {prophetData &&
+                        prophetData.map((data, index) => {
+                           return <ProphetCard key={index} data={data} />
+                        })}
+                  </div>
                </div>
             )
          }

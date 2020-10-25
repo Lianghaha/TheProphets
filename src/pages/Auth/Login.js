@@ -109,6 +109,7 @@ export const Login = ({ setLoggedIn }) => {
                   <TextField
                      id="loginEmail"
                      label="Email"
+                     autoFocus={true}
                      onChange={(e) => checkEmail(e.target.value)}
                      helperText={
                         email !== "" && !emailValid

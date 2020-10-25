@@ -98,7 +98,7 @@ function App() {
                      path="/"
                      exact
                      render={() => (
-                        <Home setShowPageLoading={setShowPageLoading} />
+                        <Home />
                      )}
                   />
                   <Route path="/" component={NotFound} />

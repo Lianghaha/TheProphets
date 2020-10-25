@@ -51,7 +51,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    const SearchBar = () => {
       return (
-         <div className="SearchBarContainer">
+         <div className="SearchBarContainer animation_fade">
             <div className="SearchBar">
                <Input
                   id="SearchInput"
@@ -71,7 +71,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    const NavLeft = () => {
       return (
-         <ul className="NavLeft">
+         <ul className="NavLeft animation_fade">
             <Link to="/">
                <li>Home</li>
             </Link>
@@ -88,7 +88,9 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
    const NavRight = () => {
       if (loggedIn) {
          return (
-            <ul className="NavRight">
+            <ul
+               className="NavRight animation_fade"
+            >
                <li className="UserInfo">
                   <div className="ProfileImgContainer">
                      <img src={defaultImg} alt="Default" />
@@ -102,7 +104,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
          )
       }
       return (
-         <ul className="NavRight">
+         <ul className="NavRight animation_fade">
             <Link to="/signup">
                <li>Sign Up</li>
             </Link>
@@ -115,14 +117,18 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    if (showBurger) {
       return (
-         <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
+         <div
+            className={scroll ? "Navbar NavbarActive" : "Navbar"}
+         >
             <Burger loggedIn={loggedIn} handleLogout={handleLogout} />
             {SearchBar()}
          </div>
       )
    } else {
       return (
-         <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
+         <div
+            className={scroll ? "Navbar NavbarActive" : "Navbar"}
+         >
             {NavLeft()}
             {SearchBar()}
             {NavRight()}

@@ -17,6 +17,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
    const history = useHistory()
 
    const [prediction, setPrediction] = useState()
+   const [reviews, setReviews] = useState([])
    const [showModal, setShowModal] = useState(false)
    const [newReviewText, setNewReviewText] = useState("")
    const [newReviewAccuracy, setNewReviewAccuracy] = useState(0)
@@ -37,24 +38,42 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
          .catch((err) => console.log(err))
    }, [predictionID])
 
+   const getReviews = useCallback(async () => {
+      await axios
+         .get(`/api/review?predictionID=${predictionID}`)
+         .then((response) => {
+            console.log(
+               "=============== Prediction Detail Reviews ==============="
+            )
+            console.log(response.data.result)
+
+            if (response.data.status === 0) {
+               setReviews(response.data.result)
+            } else {
+               console.log(response.data.message)
+            }
+         })
+         .catch((err) => console.log(err))
+   }, [predictionID])
+
    useEffect(() => {
       window.scrollTo(0, 0)
       setShowPageLoading(true)
-      Promise.all([getPrediction()]).then(() => {
+      Promise.all([getPrediction(), getReviews()]).then(() => {
          setShowPageLoading(false)
       })
-   }, [getPrediction, setShowPageLoading])
+   }, [getPrediction, getReviews, setShowPageLoading])
 
    const calculateOverallScore = () => {
       const a = newReviewAccuracy,
          b = newReviewDifficulty
       const multiple = (a * b) / 10
-      console.log("multiple: " + multiple)
+      // console.log("multiple: " + multiple)
       const average = (a + b) / 2
-      console.log("average: " + average)
+      // console.log("average: " + average)
       const result = 0.2 * multiple + 0.8 * average
-      console.log("result: " + result)
-      console.log(Math.round(result * 10) / 10)
+      // console.log("result: " + result)
+      // console.log(Math.round(result * 10) / 10)
       return Math.round(result * 10) / 10
    }
 
@@ -65,13 +84,17 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
             difficulty: newReviewDifficulty,
             content: newReviewText,
             overall_score: await calculateOverallScore(),
+            prediction_id: predictionID,
          })
          .then((response) => {
             console.log(response.data)
          })
          .catch((err) => console.log(err))
       setShowModal(false)
-      // reload review
+      setNewReviewText("")
+      setNewReviewAccuracy(0)
+      setNewReviewDifficulty(0)
+      getReviews()
    }
 
    const handleModal = async () => {
@@ -105,6 +128,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
       <div className="Detail">
          <div className="Content">
             {prediction ? PredictionCardSection() : ""}
+
             <div className="Section">
                <div className="SectionTitleAndButton">
                   <h2>Reviews</h2>
@@ -177,6 +201,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
                      <TextArea
                         maxLength={reviewMaxLength}
                         rows={6}
+                        value={newReviewText}
                         onChange={(e) => setNewReviewText(e.target.value)}
                      />
                      <p className="wordCount">
@@ -185,9 +210,15 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
                   </Modal>
                </div>
                <div className="List">
-                  <ReviewStrip />
+                  {reviews.length === 0 ? (
+                     <div className="NoCommentOrReview">No Reviews</div>
+                  ) : (
+                     reviews.map((review, index) => {
+                        return <ReviewStrip data={review} key={index} />
+                     })
+                  )}
                </div>
-               <Button variant="outlined">SHOW MORE</Button>
+               <Button variant="outlined">LOAD MORE</Button>
             </div>
          </div>
       </div>

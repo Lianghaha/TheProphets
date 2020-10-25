@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import "./Auth.css"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
@@ -6,15 +6,16 @@ import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { encrypt, setCookieLocalStorage, clearCookieLocalStorage } from "../../lib/utils"
+import {
+   encrypt,
+   setCookieLocalStorage,
+   clearCookieLocalStorage,
+} from "../../lib/utils"
 import GoogleLogin from "react-google-login"
 
 export const SignUp = ({ setLoggedIn }) => {
    //Redirect
    const history = useHistory()
-   //Click Email
-   const emailRef = useRef()
-
 
    //Display Password
    const [showPassword, setShowPassword] = useState(false)
@@ -107,15 +108,6 @@ export const SignUp = ({ setLoggedIn }) => {
       setLoggedIn(false)
    }, [setLoggedIn])
 
-   useEffect(() => {
-      setTimeout(() => {
-         // console.log(document.getElementById("signUpEmail"))
-         document.getElementById("signUpEmail").click()
-         // console.log(emailRef.current)
-         emailRef.current.click()
-      }, 1000)
-   }, [])
-
    return (
       <div className="SignUp">
          <div className="AuthForm">
@@ -124,8 +116,7 @@ export const SignUp = ({ setLoggedIn }) => {
                <div className="TextFieldContainer">
                   <TextField
                      id="signUpEmail"
-                     inputRef={emailRef}
-                     // autoFocus={true}
+                     autoFocus={true}
                      label="Email"
                      onChange={(e) => checkEmail(e.target.value)}
                      helperText={

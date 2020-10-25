@@ -12,6 +12,11 @@
    font-size: 1.1rem;
 }
 
+.Navbar .animation_fade {
+   -webkit-animation: animation_fade 3s;
+   animation: animation_fade 3s;
+}
+
 .NavbarActive {
    background: #303030c5;
 }

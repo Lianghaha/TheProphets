@@ -18,7 +18,7 @@
    align-content: flex-start;
    color: black;
    font-family: var(--text-font);
-   animation: fade 1s;
+   animation: animation_fade 1s;
 }
 
 .PredictionCard:hover {
@@ -26,24 +26,6 @@
    filter: brightness(100%);
    transform: scale(1.02);
    color: black;
-}
-
-@-webkit-keyframes fade {
-   from {
-      opacity: 0;
-   }
-   to {
-      opacity: 1;
-   }
-}
-
-@keyframes fade {
-   from {
-      opacity: 0;
-   }
-   to {
-      opacity: 1;
-   }
 }
 
 .PredictionCard p {

@@ -56,6 +56,14 @@
    margin-bottom: 25px;
 }
 
+.Detail .NoCommentOrReview {
+   height: 50px;
+   color: white;
+   display: flex;
+   align-items: flex-end;
+   font-size: 1.2rem;
+}
+
 @media screen and (max-width: 1000px) {
    .Detail .Content {
       width: 90%;

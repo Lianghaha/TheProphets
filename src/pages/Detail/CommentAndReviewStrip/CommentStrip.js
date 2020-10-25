@@ -29,7 +29,7 @@ export const CommentStrip = ({ data }) => {
                </div>
                <div className="Time">
                   <p>
-                     {data.relative_date}{" "}
+                     {data.relative_date}
                      <span className="ToolTip">
                         {data.posted_date_readable}
                      </span>

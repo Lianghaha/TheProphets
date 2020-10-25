@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import Cover from "./Cover/Cover"
 import { TopProphets } from "./TopProphet/TopProphet"
 import { TopPredictions } from "./TopPrediction/TopPrediction"
+import { Spin } from "antd"
 import "./Home.css"
 // import Loadable from "react-loadable"
 
@@ -10,22 +11,26 @@ import "./Home.css"
 //    loading: 111,
 // })
 
-export const Home = ({ setShowPageLoading }) => {
+export const Home = () => {
    const [topProphetsReady, setTopProphetsReady] = useState(false)
    const [topPredictionsReady, setTopPredictionsReady] = useState(false)
+   const [showHomeLoading, setShowHomeLoading] = useState(false)
 
    useEffect(() => {
-      setShowPageLoading(true)
+      setShowHomeLoading(true)
       if (topProphetsReady && topPredictionsReady) {
-         setShowPageLoading(false)
+         setShowHomeLoading(false)
       }
-   }, [setShowPageLoading, topProphetsReady, topPredictionsReady])
+   }, [setShowHomeLoading, topProphetsReady, topPredictionsReady])
 
    return (
       <div className="Home">
          <Cover />
-         <TopProphets setTopProphetsReady={setTopProphetsReady} />
+         <Spin size="large" spinning={showHomeLoading}>
+            {showHomeLoading ? <div></div> : ""}
+            <TopProphets setTopProphetsReady={setTopProphetsReady} />
          <TopPredictions setTopPredictionsReady={setTopPredictionsReady} />
+         </Spin>
       </div>
    )
 }
