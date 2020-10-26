@@ -190,7 +190,7 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
                   )}
                </div>
 
-               <Button variant="outlined">LOAD MORE</Button>
+               {/* <Button variant="outlined">LOAD MORE</Button> */}
             </div>
          </div>
       </div>

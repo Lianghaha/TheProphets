@@ -9,6 +9,7 @@ import { clearCookieLocalStorage } from "../../utils"
 
 export const Navbar = ({ loggedIn, setLoggedIn }) => {
    const history = useHistory()
+   const {username, profile_img} = localStorage
 
    //Chaneg NavBar Background
    const [scroll, setScroll] = useState(false)
@@ -88,16 +89,15 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
    const NavRight = () => {
       if (loggedIn) {
          return (
-            <ul
-               className="NavRight animation_fade"
-            >
+            <ul className="NavRight animation_fade">
                <li className="UserInfo">
                   <div className="ProfileImgContainer">
-                     <img src={defaultImg} alt="Default" />
+                     <img
+                        src={profile_img === "undefined" ? defaultImg : profile_img} 
+                        alt="Default"
+                     />
                   </div>
-                  <div className="Username">
-                     {localStorage.getItem("username")}
-                  </div>
+                  <div className="Username">{username}</div>
                </li>
                <li onClick={handleLogout}>Logout</li>
             </ul>
@@ -117,18 +117,14 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    if (showBurger) {
       return (
-         <div
-            className={scroll ? "Navbar NavbarActive" : "Navbar"}
-         >
+         <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
             <Burger loggedIn={loggedIn} handleLogout={handleLogout} />
             {SearchBar()}
          </div>
       )
    } else {
       return (
-         <div
-            className={scroll ? "Navbar NavbarActive" : "Navbar"}
-         >
+         <div className={scroll ? "Navbar NavbarActive" : "Navbar"}>
             {NavLeft()}
             {SearchBar()}
             {NavRight()}

@@ -3,6 +3,7 @@ import "./CommentAndReviewStrip.css"
 import defaultImg from "../../../media/image/default-profile.png"
 
 export const CommentStrip = ({ data }) => {
+   console.log(data)
    // const data = {
    //    profile_img: defaultImg,
    //    username: "Haha Wowwowwow",

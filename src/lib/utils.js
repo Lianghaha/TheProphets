@@ -3,7 +3,10 @@ import axios from "axios"
 
 //Can encrypt both String and Object
 export const encrypt = (str) => {
-   const encrypted = CryptoJS.AES.encrypt(str, process.env.REACT_APP_SECRET).toString()
+   const encrypted = CryptoJS.AES.encrypt(
+      str,
+      process.env.REACT_APP_SECRET
+   ).toString()
    // const decrypt = CryptoJS.AES.decrypt(encrypted, process.env.REACT_APP_SECRET)
    // console.log("Encrypted: " + encrypted)
    // console.log("Decrypted: " + decrypt.toString(CryptoJS.enc.Utf8))
@@ -44,21 +47,24 @@ export const clearCookieLocalStorage = () => {
    for (var i = 0; i < str.length; i++) {
       const cur = str[i].split("=")
       const key = cur[0]
-      document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
-      document.cookie = key.trim() + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
+      document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/"
+      document.cookie =
+         key.trim() + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/"
       // console.log(key)
    }
    localStorage.clear()
    console.log("Cookie After: " + document.cookie)
 }
 
-export const setCookieLocalStorage = (email, username, token) => {
-   document.cookie = `identity=${email}`
-   document.cookie = `username=${username}`
-   document.cookie = `token=${token}`
+export const setCookieLocalStorage = (email, username, token, profile_img) => {
+   document.cookie = `identity=${email};path=/`
+   document.cookie = `username=${username};path=/`
+   document.cookie = `token=${token};path=/`
+   document.cookie = `profile_img=${profile_img};path=/`
    localStorage.setItem("identity", email)
    localStorage.setItem("username", username)
    localStorage.setItem("token", token)
+   localStorage.setItem("profile_img", profile_img)
    console.log("=============== setCookieLocalStorage ===============")
    console.log("Cookie After: " + document.cookie)
 }

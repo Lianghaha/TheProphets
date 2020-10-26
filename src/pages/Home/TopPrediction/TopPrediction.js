@@ -15,10 +15,11 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
 
    // Helper for getAndSetPredictionList
    const getData = useCallback(async (page) => {
+      const numPerPage = 2
       let result = false
       let predictionData = []
       await axios
-         .get(`/api/search/predictions?page=${page}`)
+         .get(`/api/search/predictions?page=${page}&&numPerPage=${numPerPage}`)
          .then(async (response) => {
             // console.log("Predictions: ")
             // console.log(response.data)
@@ -36,8 +37,6 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
 
    const getAndSetPredictionList = useCallback(
       async (currentList = [], page = 1) => {
-         const result = await getData(page)
-         console.log(result)
          setPredictionList(currentList.concat(await getData(page)))
          setTopPredictionsReady(true)
       },

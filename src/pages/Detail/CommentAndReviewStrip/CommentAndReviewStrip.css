@@ -119,3 +119,8 @@ PredictionDetail Comment CSS
    color: #ffb400;
    font-size: 1.2rem;
 }
+
+.ReviewStrip .Text {
+   padding-top: 6px;
+   border-top: 1px solid rgba(255, 255, 255, 0.3);
+}

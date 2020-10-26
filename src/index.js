@@ -94,17 +94,9 @@ function App() {
                      path="/login"
                      render={() => <Login setLoggedIn={setLoggedIn} />}
                   />
-                  <Route
-                     path="/"
-                     exact
-                     render={() => (
-                        <Home />
-                     )}
-                  />
+                  <Route path="/" exact render={() => <Home />} />
                   <Route path="/" component={NotFound} />
                </Switch>
-
-               {/* )} */}
             </Spin>
          </div>
       </Router>

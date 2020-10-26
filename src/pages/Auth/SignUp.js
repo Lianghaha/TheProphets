@@ -99,8 +99,35 @@ export const SignUp = ({ setLoggedIn }) => {
          .catch((err) => console.log(err))
    }
 
-   const responseGoogle = (response) => {
+   const responseGoogle = async (response) => {
+      console.log("=============== responseGoogle ===============")
       // console.log(response)
+      // console.log(response.tokenId)
+      await axios
+         .post("/api/google_login", {
+            tokenID: response.tokenId,
+         })
+         .then((response) => {
+            console.log("responeGoogle Response: ")
+            console.log(response.data)
+            const data = response.data
+            const {userInfo} = data
+            if (data.status === 0) {
+               history.push("/")
+               setCookieLocalStorage(
+                  userInfo.googleAcID.toString(),
+                  userInfo.username,
+                  data.tokenRequest.token,
+                  userInfo.profile_img
+               )
+               // console.log(document.cookie)
+               // console.log(parseCookie())
+               setLoggedIn(true)
+            } else {
+               alert(data.message)
+            }
+         })
+         .catch((err) => console.log(err))
    }
 
    useEffect(() => {

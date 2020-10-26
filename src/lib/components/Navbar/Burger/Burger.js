@@ -4,9 +4,8 @@ import "./Burger.css"
 import { slide as Menu } from "react-burger-menu"
 import defaultImg from "../../../../media/image/default-profile.png"
 
-
 export const Burger = ({ loggedIn, handleLogout }) => {
-
+   const { username, profile_img } = localStorage
    //Close Nav Burger
    const handleBurgerClick = () => {
       let crossButton = document.getElementsByClassName("bm-cross-button")[0]
@@ -19,9 +18,14 @@ export const Burger = ({ loggedIn, handleLogout }) => {
          return (
             <div className="UserInfo">
                <div className="ProfileImgContainer">
-                  <img src={defaultImg} alt="Default" />
+                  <img
+                     src={
+                        profile_img === "undefined" ? defaultImg : profile_img
+                     }
+                     alt="Default"
+                  />
                </div>
-               <p id="userGreeting">{localStorage.getItem("username")}</p>
+               <p className="Username">{username}</p>
             </div>
          )
       }
