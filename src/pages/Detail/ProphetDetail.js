@@ -131,7 +131,7 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
                         return <PredictionStrip data={prediction} key={index} />
                      })}
                   </div>
-                  <Button variant="outlined">SHOW MORE</Button>
+                  {/* <Button variant="outlined">SHOW MORE</Button> */}
                </div>
             )}
 

@@ -1,13 +1,18 @@
 .TopProphets {
-   width: 85vw;
+   width: 100%;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    margin: 5vh 0;
+   overflow-x: hidden;
+}
+
+.TopProphets .TitleAndButtons {
+   margin: 0 8.5vw
 }
 
 .TopProphets .ProphetsList {
-   width: 100%;
+   width: 85%;
    margin-top: 2vh;
    /* background-color: blue; */
 }
@@ -18,6 +23,7 @@
    display: flex !important;
    justify-content: center;
 }
+
 
 
 /* AntD Carousel Dots */

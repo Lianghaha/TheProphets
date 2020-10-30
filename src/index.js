@@ -11,11 +11,11 @@ import { ProphetDetail } from "./pages/Detail/ProphetDetail"
 import { PredictionDetail } from "./pages/Detail/PredictionDetail"
 import { SignUp } from "./pages/Auth/SignUp"
 import { Login } from "./pages/Auth/Login"
+import { About } from "./pages/About/About"
 import { Spin } from "antd"
 import { checkLogin } from "./lib/utils"
 // import axios from "axios"
 require("dotenv").config()
-
 function App() {
    const [showPageLoading, setShowPageLoading] = useState(false)
    const [loggedIn, setLoggedIn] = useState(false)
@@ -88,12 +88,23 @@ function App() {
                   />
                   <Route
                      path="/signup"
-                     render={() => <SignUp setLoggedIn={setLoggedIn} />}
+                     render={() => (
+                        <SignUp
+                           setLoggedIn={setLoggedIn}
+                           setShowPageLoading={setShowPageLoading}
+                        />
+                     )}
                   />
                   <Route
                      path="/login"
-                     render={() => <Login setLoggedIn={setLoggedIn} />}
+                     render={() => (
+                        <Login
+                           setLoggedIn={setLoggedIn}
+                           setShowPageLoading={setShowPageLoading}
+                        />
+                     )}
                   />
+                  <Route path="/about" render={() => <About />} />
                   <Route path="/" exact render={() => <Home />} />
                   <Route path="/" component={NotFound} />
                </Switch>

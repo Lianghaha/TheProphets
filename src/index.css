@@ -6,12 +6,13 @@
 /* Title&Description */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
 /* Ratings */
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Stardos+Stencil&display=swap');
 
 /* AntD */
 @import "~antd/dist/antd.css";
 
-* {
+* {   
    --main-color: #252525;
    --main-color-light: #353535;
    --bg: linear-gradient(rgba(0, 0, 0, 0), var(--main-color)),
@@ -21,7 +22,8 @@
    --main-font: 'Assistant', sans-serif;   
    /* 'EB Garamond', serif; */
    --text-font: "Roboto Slab", serif;
-   --number-font: "Special Elite", cursive;
+   --number-font:'Stardos Stencil', cursive;
+    /* "Special Elite", cursive; */
    margin: 0;
    padding: 0;
    -webkit-touch-callout: none; /* iOS Safari */
@@ -42,6 +44,14 @@
    background-color: grey;
    border-radius: 20px;
 }
+
+html {
+   height: 100%;
+}
+
+/* html, body, .root {
+   height: 100%;
+} */
 
 .App {
    width: 100%;

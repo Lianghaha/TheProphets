@@ -5,3 +5,34 @@
    justify-content: center;
    align-content: flex-start;
 }
+
+.Home .Fade-In {
+   opacity: 0;
+   transition: opacity 1200ms ease-in;
+}
+
+.Home .Fade-In.appear {
+   opacity: 1;
+}
+
+.Home .From-Left {
+   transform: translateX(35vw);
+}
+
+.Home .From-Right {
+   transform: translateX(-30vw);
+}
+
+.Home .FR-ShowMore {
+   transform: translateX(-35vw);
+}
+
+.Home .From-Left, .From-Right {
+   transition: opacity 1000ms ease-in, transform 600ms ease-in;
+   opacity: 0;
+}
+
+.Home .From-Left.appear, .From-Right.appear {
+   transform: translateX(0);
+   opacity: 1;
+}

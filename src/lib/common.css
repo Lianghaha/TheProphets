@@ -1,7 +1,12 @@
+/* img default font */
+ img {
+   color: white;
+   font-size: .6rem;
+}
+
 /* Home Page TopProphet/TopPrediction Common CSS */
 .TitleAndButtons {
    width: 100%;
-   margin: 0 1.5vw;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -22,6 +27,35 @@
 .TitleAndButtons h2 {
    color: white;
    margin: 0 0;
+}
+
+
+.animation_bounce {
+   animation-name: bounce;
+   animation-timing-function: ease;
+}
+@keyframes bounce {
+   0% {
+      transform: scale(1, 1) translateY(0);
+   }
+   10% {
+      transform: scale(1.1, 0.9) translateY(0);
+   }
+   30% {
+      transform: scale(0.9, 1.1) translateY(-25px);
+   }
+   50% {
+      transform: scale(1.1, 0.9) translateY(0);
+   }
+   60% {
+      transform: scale(0.9, 1.1) translateY(-12px);
+   }
+   80% {
+      transform: scale(1, 1) translateY(0);
+   }
+   100% {
+      transform: scale(1, 1) translateY(0);
+   }
 }
 
 /* Material UI Button */

@@ -6,13 +6,22 @@ import { BsEyeFill } from "react-icons/bs"
 import { BsEyeSlashFill } from "react-icons/bs"
 import axios from "axios"
 import { useHistory } from "react-router-dom"
-import { clearCookieLocalStorage, encrypt, setCookieLocalStorage } from "../../lib/utils"
+import {
+   clearCookieLocalStorage,
+   encrypt,
+   setCookieLocalStorage,
+   responseGoogle,
+} from "../../lib/utils"
 
 import GoogleLogin from "react-google-login"
 
-export const Login = ({ setLoggedIn }) => {
+export const Login = ({ setLoggedIn, setShowPageLoading }) => {
    //Redirect
    const history = useHistory()
+   //Store Input and Check
+   const [email, setEmail] = useState("")
+   const [emailValid, setEmailValid] = useState(false)
+   const [password, setPassword] = useState("")
 
    //Display Password
    const [showPassword, setShowPassword] = useState(false)
@@ -23,7 +32,7 @@ export const Login = ({ setLoggedIn }) => {
       } else {
          result = { type: "password" }
       }
-      return result 
+      return result
    }
 
    const showPasswordButton = () => {
@@ -50,11 +59,6 @@ export const Login = ({ setLoggedIn }) => {
       )
    }
 
-   //Store Input and Check
-   const [email, setEmail] = useState("")
-   const [emailValid, setEmailValid] = useState(false)
-   const [password, setPassword] = useState("")
-
    const checkEmail = (input) => {
       setEmail(input)
       const regex = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
@@ -77,10 +81,12 @@ export const Login = ({ setLoggedIn }) => {
             console.log(response.data)
             const data = response.data
             if (data.status === 0) {
+               console.log(data)
                setCookieLocalStorage(
                   data.userInfo.identity,
                   data.userInfo.username,
-                  data.tokenRequest.token
+                  data.tokenRequest.token,
+                  data.userInfo.profile_img
                )
                setLoggedIn(true)
                history.push("/")
@@ -91,8 +97,13 @@ export const Login = ({ setLoggedIn }) => {
          .catch((err) => console.log(err))
    }
 
-   const responseGoogle = (response) => {
-      // console.log(response)
+   const handleResponseGoogle = async (response) => {
+      const flag = await responseGoogle(response)
+      if (flag) {
+         history.push("/")
+         setLoggedIn(true)
+         setShowPageLoading(false)
+      }
    }
 
    useEffect(() => {
@@ -151,8 +162,8 @@ export const Login = ({ setLoggedIn }) => {
                      className="GoogleButton"
                      clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
                      buttonText="Login With Google"
-                     onSuccess={responseGoogle}
-                     onFailure={responseGoogle}
+                     onSuccess={handleResponseGoogle}
+                     onFailure={handleResponseGoogle}
                      cookiePolicy={"single_host_origin"}
                   />
                   <Button variant="outlined" onClick={history.goBack}>

@@ -31,9 +31,14 @@ export const Burger = ({ loggedIn, handleLogout }) => {
       }
    }
 
+   const handleBurgerLogout = () => {
+      handleBurgerClick()
+      handleLogout()
+   }
+
    const loginOrOut = () => {
       if (loggedIn) {
-         return <li onClick={handleLogout}>Logout</li>
+         return <li onClick={handleBurgerLogout}>Logout</li>
       }
       return (
          <div>
@@ -47,7 +52,7 @@ export const Burger = ({ loggedIn, handleLogout }) => {
       )
    }
    return (
-      <div className="Burger">
+      <div className="Burger animation_fade">
          <Menu>
             {userInfo()}
             <ul>
@@ -59,6 +64,9 @@ export const Burger = ({ loggedIn, handleLogout }) => {
                </Link>
                <Link to="/predictions" onClick={handleBurgerClick}>
                   <li>Predictions</li>
+               </Link>
+               <Link to="/about" onClick={handleBurgerClick}>
+                  <li>About</li>
                </Link>
                {loginOrOut()}
             </ul>

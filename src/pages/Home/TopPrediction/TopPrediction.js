@@ -15,7 +15,7 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
 
    // Helper for getAndSetPredictionList
    const getData = useCallback(async (page) => {
-      const numPerPage = 2
+      const numPerPage = 4
       let result = false
       let predictionData = []
       await axios
@@ -57,21 +57,21 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
    return (
       <div className="TopPredictions">
          <div className="TitleAndButtons">
-            <h2>Top Predictions</h2>
-            <div className="TitleButtons">
+            <h2 className="From-Left Slide-In">Top Predictions</h2>
+            <div className="TitleButtons From-Right Slide-In FR-ShowMore">
                <Link to="/predictions">
                   <Button variant="outlined">SHOW MORE</Button>
                </Link>
             </div>
          </div>
-         <div className="PredictionsList">
+         <div className="PredictionsList Fade-In">
             {predictionList &&
                predictionList.map((data, index) => {
                   return <PredictionCard key={index} data={data} />
                })}
          </div>
 
-         <div className="TitleButtons">
+         <div className="TitleButtons Fade-In">
             {showLoading ? (
                <Spin size="large" />
             ) : showLoadMoreButton ? (

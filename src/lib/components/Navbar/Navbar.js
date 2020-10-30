@@ -28,7 +28,8 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
    useLayoutEffect(() => {
       const updateSize = () => {
          // console.log([window.innerWidth, window.innerHeight])
-         if (window.innerWidth <= 768) setShowBurger(true)
+         //1050
+         if (window.innerWidth <= 980) setShowBurger(true)
          else setShowBurger(false)
       }
       window.addEventListener("resize", updateSize)
@@ -90,10 +91,17 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
       if (loggedIn) {
          return (
             <ul className="NavRight animation_fade">
+               <Link to="/about">
+                  <li>About</li>
+               </Link>
                <li className="UserInfo">
                   <div className="ProfileImgContainer">
                      <img
-                        src={profile_img === "undefined" ? defaultImg : profile_img} 
+                        src={
+                           profile_img === "undefined" || profile_img === "null"
+                              ? defaultImg
+                              : profile_img
+                        }
                         alt="Default"
                      />
                   </div>
@@ -105,6 +113,9 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
       }
       return (
          <ul className="NavRight animation_fade">
+            <Link to="/about">
+               <li>About</li>
+            </Link>
             <Link to="/signup">
                <li>Sign Up</li>
             </Link>

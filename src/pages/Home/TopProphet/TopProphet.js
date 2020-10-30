@@ -20,7 +20,7 @@ export const TopProphets = ({ setTopProphetsReady }) => {
       carouselRef.current.prev()
    }
    const [prophetList, setProphetList] = useState([])
-   
+
    const getData = useCallback(async () => {
       let prophetData = []
       await axios
@@ -47,13 +47,11 @@ export const TopProphets = ({ setTopProphetsReady }) => {
       getData()
    }, [getData])
 
-   
-
    return (
       <div className="TopProphets">
          <div className="TitleAndButtons">
-            <h2>Top Prophets</h2>
-            <div className="TitleButtons">
+            <h2 className="From-Left Slide-In">Top Prophets</h2>
+            <div className="TitleButtons From-Right Slide-In">
                <Button onClick={CarouselPrev} variant="outlined">
                   <GoChevronLeft color="white" size="1.8em" />
                </Button>
@@ -66,7 +64,7 @@ export const TopProphets = ({ setTopProphetsReady }) => {
             </div>
          </div>
 
-         <div className="ProphetsList">
+         <div className="ProphetsList Fade-In">
             <Carousel ref={carouselRef} {...settings}>
                {prophetList.map((data, index) => {
                   return (

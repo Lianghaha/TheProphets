@@ -32,10 +32,15 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
    position: fixed;
-   width: 6%;
-   height: 2.5%;
-   left: 3%;
-   top: 2%;
+   width: 30px;
+   height: 25px;
+   left: 30px;
+   top: 28px;
+   transition: top 0.3s ease-in;
+}
+
+.NavbarActive .bm-burger-button{
+   top: 15px;
 }
 
 /* Color/shape of burger icon bars */

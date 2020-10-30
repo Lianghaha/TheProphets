@@ -85,6 +85,12 @@
    align-content: flex-start;
 }
 
+.AuthForm .GoogleButtonContainer{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
 .AuthForm .GoogleButton {
    width: 80%;
    height: 40px;

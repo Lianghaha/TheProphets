@@ -10,12 +10,20 @@ import {
    encrypt,
    setCookieLocalStorage,
    clearCookieLocalStorage,
+   responseGoogle,
 } from "../../lib/utils"
 import GoogleLogin from "react-google-login"
 
-export const SignUp = ({ setLoggedIn }) => {
+export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
    //Redirect
    const history = useHistory()
+   //Store Input and Check
+   const [email, setEmail] = useState("")
+   const [emailValid, setEmailValid] = useState(false)
+   const [username, setUsername] = useState("")
+   const [usernameCorrectness, setUsernameCorrectness] = useState(false)
+   const [password, setPassword] = useState("")
+   const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
    //Display Password
    const [showPassword, setShowPassword] = useState(false)
@@ -52,14 +60,6 @@ export const SignUp = ({ setLoggedIn }) => {
          </div>
       )
    }
-
-   //Store Input and Check
-   const [email, setEmail] = useState("")
-   const [emailValid, setEmailValid] = useState(false)
-   const [username, setUsername] = useState("")
-   const [usernameCorrectness, setUsernameCorrectness] = useState(false)
-   const [password, setPassword] = useState("")
-   const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
    const checkEmail = (input) => {
       setEmail(input)
@@ -99,35 +99,13 @@ export const SignUp = ({ setLoggedIn }) => {
          .catch((err) => console.log(err))
    }
 
-   const responseGoogle = async (response) => {
-      console.log("=============== responseGoogle ===============")
-      // console.log(response)
-      // console.log(response.tokenId)
-      await axios
-         .post("/api/google_login", {
-            tokenID: response.tokenId,
-         })
-         .then((response) => {
-            console.log("responeGoogle Response: ")
-            console.log(response.data)
-            const data = response.data
-            const {userInfo} = data
-            if (data.status === 0) {
-               history.push("/")
-               setCookieLocalStorage(
-                  userInfo.googleAcID.toString(),
-                  userInfo.username,
-                  data.tokenRequest.token,
-                  userInfo.profile_img
-               )
-               // console.log(document.cookie)
-               // console.log(parseCookie())
-               setLoggedIn(true)
-            } else {
-               alert(data.message)
-            }
-         })
-         .catch((err) => console.log(err))
+   const handleResponseGoogle = async (response) => {
+      const flag = await responseGoogle(response)
+      if (flag) {
+         history.push("/")
+         setLoggedIn(true)
+         setShowPageLoading(false)
+      }
    }
 
    useEffect(() => {
@@ -210,14 +188,21 @@ export const SignUp = ({ setLoggedIn }) => {
                   >
                      CREATE ACCOUNT
                   </Button>
-                  <GoogleLogin
-                     className="GoogleButton"
-                     clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
-                     buttonText="Login With Google"
-                     onSuccess={responseGoogle}
-                     onFailure={responseGoogle}
-                     cookiePolicy={"single_host_origin"}
-                  />
+                  <div
+                     className="GoogleButtonContainer"
+                     onClick={() => {
+                        setShowPageLoading(true)
+                     }}
+                  >
+                     <GoogleLogin
+                        className="GoogleButton"
+                        clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
+                        buttonText="Login With Google"
+                        onSuccess={handleResponseGoogle}
+                        onFailure={handleResponseGoogle}
+                        cookiePolicy={"single_host_origin"}
+                     />
+                  </div>
                   <Button variant="outlined" onClick={history.goBack}>
                      CANCEL
                   </Button>
