@@ -8,7 +8,8 @@
 
 .Home .Fade-In {
    opacity: 0;
-   transition: opacity 1200ms ease-out;
+   transform: translateY(10vh);
+   transition: opacity 1500ms ease-out, transform 600ms ease-out;
 }
 
 .Home .Fade-In-Show-More {
@@ -18,6 +19,7 @@
 
 .Home .Fade-In.appear,
 .Fade-In-Show-More.appear {
+   transform: translateY(0);
    opacity: 1;
 }
 

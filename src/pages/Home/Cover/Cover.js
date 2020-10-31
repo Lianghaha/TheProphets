@@ -22,7 +22,7 @@ function Cover() {
                className="Icon animation_bounce"
                onClick={() => {
                   window.scroll({
-                     top: window.innerHeight - 50,
+                     top: window.innerHeight - 100,
                      left: 0,
                      behavior: "smooth",
                   })

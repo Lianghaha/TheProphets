@@ -15,7 +15,7 @@ export const About = () => {
                   left: 0,
                   behavior: "smooth",
                })
-               console.log(page * window.innerHeight)
+               // console.log(page * window.innerHeight)
             }}
          >
             <VscFoldDown color="white" size="2.5em" />

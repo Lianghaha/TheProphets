@@ -21,8 +21,8 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
       await axios
          .get(`/api/search/predictions?page=${page}&&numPerPage=${numPerPage}`)
          .then(async (response) => {
-            // console.log("Predictions: ")
-            // console.log(response.data)
+            console.log("Predictions: ")
+            console.log(response.data)
             if (response.data.status === 0) {
                predictionData = response.data.result
                result = predictionData

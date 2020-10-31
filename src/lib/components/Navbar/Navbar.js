@@ -52,7 +52,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    const SearchBar = () => {
       return (
-         <div className="SearchBarContainer animation_fade">
+         <div className="SearchBarContainer animation_fade_slide_down">
             <div className="SearchBar">
                <Input
                   id="SearchInput"
@@ -72,7 +72,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    const NavLeft = () => {
       return (
-         <ul className="NavLeft animation_fade">
+         <ul className="NavLeft animation_fade_slide_down">
             <Link to="/">
                <li>Home</li>
             </Link>
@@ -89,7 +89,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
    const NavRight = () => {
       if (loggedIn) {
          return (
-            <ul className="NavRight animation_fade">
+            <ul className="NavRight animation_fade_slide_down">
                <Link to="/about">
                   <li>About</li>
                </Link>
@@ -111,7 +111,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
          )
       }
       return (
-         <ul className="NavRight animation_fade">
+         <ul className="NavRight animation_fade_slide_down">
             <Link to="/about">
                <li>About</li>
             </Link>

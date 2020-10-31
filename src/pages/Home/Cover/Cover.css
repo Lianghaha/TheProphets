@@ -10,6 +10,7 @@
 
    background: var(--bg);
    background-size: cover;
+   padding-bottom: 5vh;
 }
 
 .CoverText {
@@ -57,30 +58,28 @@
 }
 
 .Cover .animation_fade_slide_top {
-   -webkit-animation: animation_slide_top 2s
-         cubic-bezier(0.25, 0.46, 0.45, 0.94) both,
-      animation_fade 3s;
-   animation: animation_slide_top 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both,
-      animation_fade 3s;
+   -webkit-animation: animation_slide_top 1000ms ease-out,
+      animation_fade 2600ms ease;
+   animation: animation_slide_top 1000ms ease-out, animation_fade 2600ms ease;
 }
 
 @-webkit-keyframes animation_slide_top {
    0% {
-      -webkit-transform: translateY(10vh);
-      transform: translateY(10vh);
+      -webkit-transform: translateY(20vh);
+      transform: translateY(20vh);
    }
    100% {
-      -webkit-transform: translateY(-5vh);
-      transform: translateY(-5vh);
+      -webkit-transform: translateY(0vh);
+      transform: translateY(0vh);
    }
 }
 @keyframes animation_slide_top {
    0% {
-      -webkit-transform: translateY(10vh);
-      transform: translateY(10vh);
+      -webkit-transform: translateY(20vh);
+      transform: translateY(20vh);
    }
    100% {
-      -webkit-transform: translateY(-5vh);
-      transform: translateY(-5vh);
+      -webkit-transform: translateY(0vh);
+      transform: translateY(0vh);
    }
 }

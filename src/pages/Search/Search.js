@@ -264,7 +264,7 @@ export const Search = (props) => {
                   <div
                      className="Clear"
                      onClick={() => {
-                        setScoreAboveFilter(0)
+                        setScoreAboveFilter(-1)
                      }}
                   >
                      Reset

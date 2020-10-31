@@ -12,9 +12,40 @@
    font-size: 1.1rem;
 }
 
-.Navbar .animation_fade {
-   -webkit-animation: animation_fade 3s;
-   animation: animation_fade 3s;
+.Navbar .animation_fade_slide_down {
+   -webkit-animation: animation_slide_down 1000ms ease-out,
+      animation_fade 2000ms ease;
+   animation: animation_slide_down 1000ms ease-out, animation_fade 2000ms ease;
+}
+
+@keyframes animation_slide_down {
+   0% {
+      -webkit-transform: translateY(-5vh);
+      transform: translateY(-5vh);
+   }
+   75% {
+      -webkit-transform: translateY(0.5vh);
+      transform: translateY(0.5vh);
+   }
+   100% {
+      -webkit-transform: translateY(0vh);
+      transform: translateY(0vh);
+   }
+}
+
+@-webkit-keyframes animation_slide_down {
+   0% {
+      -webkit-transform: translateY(-5vh);
+      transform: translateY(-5vh);
+   }
+   75% {
+      -webkit-transform: translateY(0.5vh);
+      transform: translateY(0.5vh);
+   }
+   100% {
+      -webkit-transform: translateY(0vh);
+      transform: translateY(0vh);
+   }
 }
 
 .NavbarActive {
@@ -111,7 +142,7 @@
    margin-right: 8px;
 }
 
-.Navbar .Username{
+.Navbar .Username {
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
