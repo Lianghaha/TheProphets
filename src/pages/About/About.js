@@ -41,12 +41,12 @@ export const About = () => {
                   double major in Computer Science and Statistics and a minor in
                   Ecomonics.
                </p>
-               <p>
+               {/* <p>
                   Besides Web Development, I am also intrested in #History
                   #Economics #Psychology #Investiment ...
-               </p>
+               </p> */}
             </div>
-            <div className="Button">Click me!</div>
+            {/* <div className="Button">Click me!</div> */}
             {getIcon(1)}
          </div>
          <div className="Container">

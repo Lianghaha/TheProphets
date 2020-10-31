@@ -28,8 +28,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
    useLayoutEffect(() => {
       const updateSize = () => {
          // console.log([window.innerWidth, window.innerHeight])
-         //1050
-         if (window.innerWidth <= 980) setShowBurger(true)
+         if (window.innerWidth <= 1070) setShowBurger(true)
          else setShowBurger(false)
       }
       window.addEventListener("resize", updateSize)

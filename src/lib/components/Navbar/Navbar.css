@@ -118,8 +118,7 @@
 }
 
 /* Responsive NavBar Burger */
-/* 1050 */
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1070px) {
    .Navbar {
       justify-content: space-between;
    }

@@ -71,7 +71,7 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
                })}
          </div>
 
-         <div className="TitleButtons Fade-In">
+         <div className="TitleButtons Fade-In Fade-In-Show-More">
             {showLoading ? (
                <Spin size="large" />
             ) : showLoadMoreButton ? (

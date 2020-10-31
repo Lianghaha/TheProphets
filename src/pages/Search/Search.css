@@ -41,16 +41,18 @@
    height: 12vh;
    display: flex;
    align-items: stretch;
-   margin-right: 2%;
+   margin: 20px 10px;
+   margin-left: 3.2%;
 }
 
 .Search .Icon {
-   width: 10%;
+   width: 50px;
    display: flex;
    justify-content: center;
    align-items: center;
-   margin: 0 3%;
+   margin-right: 15px;
    transition: transform .3s ease-in-out;
+   cursor: pointer;
 }
 
 .Search .Icon:hover {
@@ -227,7 +229,7 @@
    }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1220px) {
    .Search .ResultsAndTools {
       width: 90%;
       height: 90%;

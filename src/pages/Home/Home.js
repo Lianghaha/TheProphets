@@ -17,7 +17,7 @@ export const Home = () => {
 
    const appearOptions = {
       threshold: 0,
-      rootMargin: "0px 0px -360px 0px",
+      rootMargin: "0px 0px -260px 0px",
    }
    const appearOnScroll = new IntersectionObserver(
       (entries, appearOnScroll) => {

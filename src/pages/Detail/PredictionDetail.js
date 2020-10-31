@@ -95,6 +95,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
       setNewReviewAccuracy(0)
       setNewReviewDifficulty(0)
       getReviews()
+      getPrediction()
    }
 
    const handleModal = async () => {

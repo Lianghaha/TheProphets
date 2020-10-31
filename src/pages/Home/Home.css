@@ -8,10 +8,16 @@
 
 .Home .Fade-In {
    opacity: 0;
-   transition: opacity 1200ms ease-in;
+   transition: opacity 1200ms ease-out;
 }
 
-.Home .Fade-In.appear {
+.Home .Fade-In-Show-More {
+   opacity: 0;
+   transition: opacity 300ms ease-out;
+}
+
+.Home .Fade-In.appear,
+.Fade-In-Show-More.appear {
    opacity: 1;
 }
 
@@ -27,12 +33,14 @@
    transform: translateX(-35vw);
 }
 
-.Home .From-Left, .From-Right {
-   transition: opacity 1000ms ease-in, transform 600ms ease-in;
+.Home .From-Left,
+.From-Right {
+   transition: opacity 1000ms ease-out, transform 500ms ease-out;
    opacity: 0;
 }
 
-.Home .From-Left.appear, .From-Right.appear {
+.Home .From-Left.appear,
+.From-Right.appear {
    transform: translateX(0);
    opacity: 1;
 }

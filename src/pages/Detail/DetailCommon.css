@@ -65,7 +65,7 @@
    font-size: 1.2rem;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
    .Detail .Content {
       width: 90%;
    }
