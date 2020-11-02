@@ -5,7 +5,7 @@
    /* background-color: pink; */
    /* background-color: black; */
    display: grid;
-   color: white;
+   color: #dddddd;
 }
 
 .About p {
@@ -34,8 +34,8 @@
 .About .Bar hr {
    height: 2px;
    width: 60vw;
-   background-color: white;
-   border: 1px solid white;
+   background-color: #dddddd;
+   border: 1px solid #dddddd;
 }
 
 .About .Answer {

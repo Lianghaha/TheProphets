@@ -12,6 +12,7 @@ import { PredictionDetail } from "./pages/Detail/PredictionDetail"
 import { SignUp } from "./pages/Auth/SignUp"
 import { Login } from "./pages/Auth/Login"
 import { About } from "./pages/About/About"
+import { Test } from "./pages/About/test"
 import { Spin } from "antd"
 import { checkLogin } from "./lib/utils"
 // import axios from "axios"
@@ -105,6 +106,7 @@ function App() {
                      )}
                   />
                   <Route path="/about" render={() => <About />} />
+                  <Route path="/test" render={() => <Test />} />
                   <Route path="/" exact render={() => <Home />} />
                   <Route path="/" component={NotFound} />
                </Switch>

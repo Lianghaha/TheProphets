@@ -104,8 +104,8 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
       if (flag) {
          history.push("/")
          setLoggedIn(true)
-         setShowPageLoading(false)
       }
+      setShowPageLoading(false)
    }
 
    useEffect(() => {

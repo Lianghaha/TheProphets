@@ -50,8 +50,8 @@ export const TopProphets = ({ setTopProphetsReady }) => {
    return (
       <div className="TopProphets">
          <div className="TitleAndButtons">
-            <h2 className="From-Left Slide-In">Top Prophets</h2>
-            <div className="TitleButtons From-Right Slide-In">
+            <h2 className="Slide-Left Slide-Item">Top Prophets</h2>
+            <div className="TitleButtons Slide-Right Slide-Item">
                <Button onClick={CarouselPrev} variant="outlined">
                   <GoChevronLeft color="white" size="1.8em" />
                </Button>
@@ -64,7 +64,7 @@ export const TopProphets = ({ setTopProphetsReady }) => {
             </div>
          </div>
 
-         <div className="ProphetsList Fade-In">
+         <div className="ProphetsList Slide-Up Slide-Item">
             <Carousel ref={carouselRef} {...settings}>
                {prophetList.map((data, index) => {
                   return (

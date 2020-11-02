@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
 import "./TopPrediction.css"
-import PredictionCard from "../../../lib/components/PredictionCard/PredictionCard"
+import {PredictionCard} from "../../../lib/components/PredictionCard/PredictionCard"
 //Button
 import Button from "@material-ui/core/Button"
 import { Spin } from "antd"
@@ -21,8 +21,8 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
       await axios
          .get(`/api/search/predictions?page=${page}&&numPerPage=${numPerPage}`)
          .then(async (response) => {
-            console.log("Predictions: ")
-            console.log(response.data)
+            // console.log("Predictions: ")
+            // console.log(response.data)
             if (response.data.status === 0) {
                predictionData = response.data.result
                result = predictionData
@@ -57,21 +57,21 @@ export const TopPredictions = ({ setTopPredictionsReady }) => {
    return (
       <div className="TopPredictions">
          <div className="TitleAndButtons">
-            <h2 className="From-Left Slide-In">Top Predictions</h2>
-            <div className="TitleButtons From-Right Slide-In FR-ShowMore">
+            <h2 className="Slide-Left Slide-Item">Top Predictions</h2>
+            <div className="TitleButtons Slide-Right Slide-Item FR-ShowMore">
                <Link to="/predictions">
                   <Button variant="outlined">SHOW MORE</Button>
                </Link>
             </div>
          </div>
-         <div className="PredictionsList Fade-In">
+         <div className="PredictionsList Slide-Up Slide-Item">
             {predictionList &&
                predictionList.map((data, index) => {
                   return <PredictionCard key={index} data={data} />
                })}
          </div>
 
-         <div className="TitleButtons Fade-In Fade-In-Show-More">
+         <div className="TitleButtons Fade-In">
             {showLoading ? (
                <Spin size="large" />
             ) : showLoadMoreButton ? (

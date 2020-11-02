@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react"
+import React, { useState, useLayoutEffect, useEffect } from "react"
 import "./Navbar.css"
 import { Link, useHistory } from "react-router-dom"
 import { GoSearch } from "react-icons/go"
@@ -9,8 +9,9 @@ import { clearCookieLocalStorage } from "../../utils"
 
 export const Navbar = ({ loggedIn, setLoggedIn }) => {
    const history = useHistory()
-   const {username, profile_img} = localStorage
+   const { username, profile_img } = localStorage
 
+   const [navBarLoggedIn, setNavBarLoggedIn] = useState(false)
    //Chaneg NavBar Background
    const [scroll, setScroll] = useState(false)
    const changeBackground = () => {
@@ -50,9 +51,56 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
       history.push("/")
    }
 
+   //Animation
+   const animationDelay = (delay) => {
+      if (loggedIn) return {
+         animationDelay: "0ms",
+         transitionDelay: "0ms",
+      }
+      return {
+         animationDelay: delay * 15 + "0ms",
+         transitionDelay: delay * 15 + "0ms",
+      }
+   }
+
+   // const animation = async (NavItems) => {
+   //    const removeAni = async (NavItems) => {
+   //       console.log("111111")
+   //       for (const NavItem of NavItems) {
+   //          console.log("7777777")
+   //          NavItem.classList.remove("animation_fade_slide_down")
+   //       }
+   //    }
+   //    const addAni = async (NavItems) => {
+   //       for (const NavItem of NavItems) {
+   //          console.log("addaddaddadd")
+   //          NavItem.classList.add("animation_fade_slide_down")
+   //       }
+   //    }
+   //    // await removeAni(NavItems)
+   //    addAni(NavItems)
+   // }
+
+   useEffect(() => {
+      setNavBarLoggedIn(loggedIn)
+   }, [loggedIn])
+
+   useEffect(() => {
+      const NavItems = document.getElementsByClassName("NavItem")
+      for (const NavItem of NavItems) {
+         NavItem.classList.add("animation_fade_slide_down")
+      }
+      // animation(NavItems)
+   }, [navBarLoggedIn, showBurger])
+
    const SearchBar = () => {
       return (
-         <div className="SearchBarContainer animation_fade_slide_down">
+         <div
+            className={
+               showBurger ? "SearchBarContainer" : "SearchBarContainer NavItem"
+            }
+            style={animationDelay(3)}
+         >
             <div className="SearchBar">
                <Input
                   id="SearchInput"
@@ -72,55 +120,73 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
 
    const NavLeft = () => {
       return (
-         <ul className="NavLeft animation_fade_slide_down">
+         <ul className="NavLeft">
             <Link to="/">
-               <li>Home</li>
+               <li className="NavItem">
+                  <div className="Block">Home </div>
+               </li>
             </Link>
             <Link to="/prophets">
-               <li>Prophets</li>
+               <li className="NavItem" style={animationDelay(1)}>
+                  Prophets
+               </li>
             </Link>
             <Link to="/predictions">
-               <li>Predictions</li>
+               <li className="NavItem" style={animationDelay(2)}>
+                  Predictions
+               </li>
             </Link>
          </ul>
       )
    }
 
    const NavRight = () => {
-      if (loggedIn) {
-         return (
-            <ul className="NavRight animation_fade_slide_down">
-               <Link to="/about">
-                  <li>About</li>
-               </Link>
-               <li className="UserInfo">
-                  <div className="ProfileImgContainer">
-                     <img
-                        src={
-                           profile_img === "undefined" || profile_img === "null"
-                              ? defaultImg
-                              : profile_img
-                        }
-                        alt="Default"
-                     />
-                  </div>
-                  <div className="Username">{username}</div>
-               </li>
-               <li onClick={handleLogout}>Logout</li>
-            </ul>
-         )
-      }
       return (
-         <ul className="NavRight animation_fade_slide_down">
+         <ul className="NavRight">
             <Link to="/about">
-               <li>About</li>
+               <li className="NavItem" style={animationDelay(4)}>
+                  About
+               </li>
             </Link>
             <Link to="/signup">
-               <li>Sign Up</li>
+               <li
+                  className={navBarLoggedIn ? "NotDisplay" : "NavItem"}
+                  style={animationDelay(5)}
+               >
+                  Sign Up
+               </li>
             </Link>
             <Link to="/login">
-               <li>Login</li>
+               <li
+                  className={navBarLoggedIn ? "NotDisplay" : "NavItem"}
+                  style={animationDelay(6)}
+               >
+                  Login
+               </li>
             </Link>
+            <li
+               className={
+                  navBarLoggedIn ? "UserInfo HoverEffect NavItem" : "NotDisplay"
+               }
+            >
+               <div className="ProfileImgContainer">
+                  <img
+                     src={
+                        profile_img === "undefined" || profile_img === "null"
+                           ? defaultImg
+                           : profile_img
+                     }
+                     alt="Default"
+                  />
+               </div>
+               <div className="Username">{username}</div>
+            </li>
+            <li
+               className={navBarLoggedIn ? "HoverEffect NavItem" : "NotDisplay"}
+               onClick={handleLogout}
+            >
+               Logout
+            </li>
          </ul>
       )
    }

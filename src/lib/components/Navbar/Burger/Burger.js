@@ -52,7 +52,7 @@ export const Burger = ({ loggedIn, handleLogout }) => {
       )
    }
    return (
-      <div className="Burger animation_fade">
+      <div className="Burger">
          <Menu>
             {userInfo()}
             <ul>

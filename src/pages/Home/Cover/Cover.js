@@ -6,7 +6,7 @@ import { VscFoldDown } from "react-icons/vsc"
 function Cover() {
    return (
       <div className="Cover animation_fade">
-         <div className="CoverText animation_fade_slide_top">
+         <div className="CoverText animation_fade_slide_up">
             <h1 className="TextHover">Find The Prophets</h1>
             <p className="TextHover">
                Finding, Rating and Sorting the most reliable prophets have never
@@ -17,7 +17,7 @@ function Cover() {
                predictions
             </p>
          </div>
-         <div className="animation_fade_slide_top">
+         <div className="animation_fade_slide_up">
             <div
                className="Icon animation_bounce"
                onClick={() => {

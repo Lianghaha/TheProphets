@@ -1,8 +1,6 @@
-/* .PredictionCardContainer {
-   width: 46%;
-   background-color: black;
-} */
+
 .PredictionCard {
+   transform-style: preserve-3d;
    --border-radius: 3px;
    width: 46%;
    min-width: 280px;

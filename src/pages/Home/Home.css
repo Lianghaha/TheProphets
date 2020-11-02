@@ -6,24 +6,24 @@
    align-content: flex-start;
 }
 
-.Home .Fade-In {
+.Home .Slide-Up {
    opacity: 0;
    transform: translateY(10vh);
    transition: opacity 1500ms ease-out, transform 600ms ease-out;
 }
 
-.Home .Fade-In-Show-More {
+.Home .Fade-In {
    opacity: 0;
    transition: opacity 300ms ease-out;
 }
 
-.Home .Fade-In.appear,
-.Fade-In-Show-More.appear {
+.Home .Slide-Up.appear,
+.Fade-In.appear {
    transform: translateY(0);
    opacity: 1;
 }
 
-.Home .From-Left {
+/* .Home .From-Left {
    transform: translateX(35vw);
 }
 
@@ -34,15 +34,82 @@
 .Home .FR-ShowMore {
    transform: translateX(-35vw);
 }
-
-.Home .From-Left,
-.From-Right {
-   transition: opacity 1000ms ease-out, transform 500ms ease-out;
+*/
+.Home .Slide-Left, .Slide-Right
+ {
+   transition: opacity 2000ms ease-out;
+   /* , transform 500ms ease-out */
    opacity: 0;
+} 
+
+.Home .Slide-Left.appear {
+   opacity: 1;
+   -webkit-animation: animation_slide_left 1000ms ease-out;
+   animation: animation_slide_left 1000ms ease-out;
 }
 
-.Home .From-Left.appear,
-.From-Right.appear {
-   transform: translateX(0);
+.Home .Slide-Right.appear {
    opacity: 1;
+   -webkit-animation: animation_slide_right 1000ms ease-out;
+   animation: animation_slide_right 1000ms ease-out;
+}
+
+@keyframes animation_slide_left {
+   0% {
+      -webkit-transform: translateX(50vw);
+      transform: translateX(50vw);
+   }
+   75% {
+      -webkit-transform: translateX(-2vw);
+      transform: translateX(-2vw);
+   }
+   100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+
+@-webkit-keyframes animation_slide_left {
+   0% {
+      -webkit-transform: translateX(50vw);
+      transform: translateX(50vw);
+   }
+   75% {
+      -webkit-transform: translateX(-2vw);
+      transform: translateX(-2vw);
+   }
+   100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+
+@keyframes animation_slide_right {
+   0% {
+      -webkit-transform: translateX(-50vw);
+      transform: translateX(-50vw);
+   }
+   75% {
+      -webkit-transform: translateX(2vw);
+      transform: translateX(2vw);
+   }
+   100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+
+@-webkit-keyframes animation_slide_right {
+   0% {
+      -webkit-transform: translateX(-50vw);
+      transform: translateX(-50vw);
+   }
+   75% {
+      -webkit-transform: translateX(2vw);
+      transform: translateX(2vw);
+   }
+   100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
 }
