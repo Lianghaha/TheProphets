@@ -1,29 +1,27 @@
 /* Fonts */
 /* Main */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap');
 /* Title&Description */
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
 /* Ratings */
 /* @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=Stardos+Stencil&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap');
 
 /* AntD */
 @import "~antd/dist/antd.css";
 
-html {   
+html {
    --main-color: #252525;
    --main-color-light: #353535;
    --bg: linear-gradient(rgba(0, 0, 0, 0), var(--main-color)),
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
    --bg-dark: linear-gradient(rgba(0, 0, 0, 0.25), var(--main-color)),
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
-   --main-font: 'Assistant', sans-serif;   
+   --main-font: "Assistant", sans-serif;
    /* 'EB Garamond', serif; */
    --text-font: "Roboto Slab", serif;
-   --number-font:'Stardos Stencil', cursive;
-    /* "Special Elite", cursive; */
+   --number-font: "Stardos Stencil", cursive;
+   /* "Special Elite", cursive; */
    margin: 0;
    padding: 0;
    -webkit-touch-callout: none; /* iOS Safari */
@@ -48,13 +46,13 @@ html {
    border-radius: 20px;
 }
 
-*{
-   box-sizing: border-box
+* {
+   box-sizing: border-box;
+   margin: 0 0;
 }
 
 body {
    background-color: var(--main-color) !important;
-   perspective: 1000px;
 }
 
 .App {

@@ -24,10 +24,13 @@
 .CoverText h1 {
    color: #fff;
    margin-bottom: 10px;
+   font-size: 2.2rem;
 }
 
 .CoverText p {
    margin: 0 0;
+   font-size: 1rem;
+   font-weight: 400;
 }
 
 .Cover .Icon {

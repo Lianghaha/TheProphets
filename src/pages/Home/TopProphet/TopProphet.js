@@ -30,9 +30,6 @@ export const TopProphets = ({ setTopProphetsReady }) => {
             // console.log(response.data)
             if (response.data.status === 0) {
                prophetData = response.data.result
-               for (let i = 0; i < 1; i++) {
-                  prophetData = prophetData.concat(prophetData)
-               }
                // console.log(prophetData)
                setProphetList(prophetData)
                setTopProphetsReady(true)

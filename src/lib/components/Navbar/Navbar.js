@@ -51,7 +51,7 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
       history.push("/")
    }
 
-   //Animation
+   // Animation
    const animationDelay = (delay) => {
       if (loggedIn) return {
          animationDelay: "0ms",
@@ -62,24 +62,6 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
          transitionDelay: delay * 15 + "0ms",
       }
    }
-
-   // const animation = async (NavItems) => {
-   //    const removeAni = async (NavItems) => {
-   //       console.log("111111")
-   //       for (const NavItem of NavItems) {
-   //          console.log("7777777")
-   //          NavItem.classList.remove("animation_fade_slide_down")
-   //       }
-   //    }
-   //    const addAni = async (NavItems) => {
-   //       for (const NavItem of NavItems) {
-   //          console.log("addaddaddadd")
-   //          NavItem.classList.add("animation_fade_slide_down")
-   //       }
-   //    }
-   //    // await removeAni(NavItems)
-   //    addAni(NavItems)
-   // }
 
    useEffect(() => {
       setNavBarLoggedIn(loggedIn)
@@ -127,12 +109,18 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
                </li>
             </Link>
             <Link to="/prophets">
-               <li className="NavItem" style={animationDelay(1)}>
+               <li
+                  className="NavItem"
+                  style={animationDelay(1)}
+               >
                   Prophets
                </li>
             </Link>
             <Link to="/predictions">
-               <li className="NavItem" style={animationDelay(2)}>
+               <li
+                  className="NavItem"
+                  style={animationDelay(2)}
+               >
                   Predictions
                </li>
             </Link>
@@ -144,7 +132,10 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
       return (
          <ul className="NavRight">
             <Link to="/about">
-               <li className="NavItem" style={animationDelay(4)}>
+               <li
+                  className="NavItem"
+                  style={animationDelay(4)}
+               >
                   About
                </li>
             </Link>

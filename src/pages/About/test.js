@@ -1,45 +1,26 @@
 import React, { useEffect } from "react"
 import "./test.css"
-import { PredictionCard } from "../../lib/components/PredictionCard/PredictionCard"
+// import { PredictionCard } from "../../lib/components/PredictionCard/PredictionCard"
 export const Test = () => {
-   const data = {
-      announced_date: "2007",
-      article:
-         "https://www.forbes.com/sites/johnwasik/2018/01/08/how-buffett-won-his-1-million-bet/#bd42122a6cdd",
-      description:
-         "In 2007, Warren Buffett bet a million dollars that an index fund would outperform a collection of hedge funds over the course of 10 years and he finally won that bet",
-      image:
-         "https://g.foolcdn.com/image/?url=https%3A//g.foolcdn.com/editorial/images/468321/fool-not-getty-warren-buffett.jpg&w=2000&op=resize",
-      num_review: 0,
-      prediction_id: 1,
-      prophet_id: 2,
-      result_date: "2017-12-30",
-      score: 0,
-      status: "Result Revealed",
-      title: "Warren Buffett Just Won a $1 Million Bet",
-   }
+//    const data = {
+//       announced_date: "2007",
+//       article:
+//          "https://www.forbes.com/sites/johnwasik/2018/01/08/how-buffett-won-his-1-million-bet/#bd42122a6cdd",
+//       description:
+//          "In 2007, Warren Buffett bet a million dollars that an index fund would outperform a collection of hedge funds over the course of 10 years and he finally won that bet",
+//       image:
+//          "https://g.foolcdn.com/image/?url=https%3A//g.foolcdn.com/editorial/images/468321/fool-not-getty-warren-buffett.jpg&w=2000&op=resize",
+//       num_review: 0,
+//       prediction_id: 1,
+//       prophet_id: 2,
+//       result_date: "2017-12-30",
+//       score: 0,
+//       status: "Result Revealed",
+//       title: "Warren Buffett Just Won a $1 Million Bet",
+//    }
 
    useEffect(() => {
-      //   Movement Animation to happen
-      //   const cards = document.querySelectorAll(".PredictionCard")
-      //   const containers = document.querySelectorAll(".CardContainer")
-      //   console.log(containers)
-      //   Moving Animation Event
-      //   for (let i = 0; i < containers.length; i++) {
-      //      var rect = containers[i].getBoundingClientRect()
-      //      console.log(rect.top, rect.right, rect.bottom, rect.left)
-      //      containers[i].addEventListener("mouseover", (e) => {
-      //         console.log("InnerWidth: " + window.innerWidth)
-      //         console.log("e.pageX: " + e.pageX)
-      //         let xAxis = (window.innerWidth / 2 - e.pageX) / 50
-      //         let yAxis = (window.innerHeight / 2 - e.pageY) / 50
-      //         cards[
-      //            i
-      //         ].style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
-      //      })
-      //   }
-
-      const card = document.querySelector(".PredictionCard")
+      const card = document.querySelector(".Card")
       const container = document.querySelector(".Container")
       //   const dimensions = container.getBoundingClientRect()
       //   console.log(
@@ -52,20 +33,22 @@ export const Test = () => {
       //   const height = dimensions.bottom - dimensions.top
       // console.log("width: " + width)
       // console.log("height: " + height)
-      console.log(
-         "InnerWidth: " +
-            window.innerWidth +
-            " InnerHeight: " +
-            window.innerHeight
-      )
+    //   console.log(
+    //      "InnerWidth: " +
+    //         window.innerWidth +
+    //         " InnerHeight: " +
+    //         window.innerHeight
+    //   )
       container.addEventListener("mouseover", (e) => {
          // console.log("e.pageX: " + e.pageX)
-         let xAxis = window.innerHeight / 2
-         let yAxis = window.innerWidth / 2
+        //  let xAxis = window.innerHeight / 2
+        //  let yAxis = window.innerWidth / 2
          // console.log("xAxis: " + xAxis + " yAxis: " + yAxis)
          //y轴基本找对了
-         let xAxisOffset = -((xAxis - e.pageY) / 20)
-         let yAxisOffset = (yAxis - e.pageX) / 20
+        //  let xAxisOffset = -((xAxis - e.pageY) / 20)
+        //  let yAxisOffset = (yAxis - e.pageX) / 20
+        let xAxisOffset = (e.pageY - window.innerHeight / 2) / 25
+        let yAxisOffset = (window.innerWidth / 2 - e.pageX) / 25
          // console.log(e.pageY)
          // console.log("xAxis: " + xAxis)
          // console.log("yAxis: " + yAxis)
@@ -88,7 +71,7 @@ export const Test = () => {
    return (
       <div className="Test">
          <div className="Container">
-            <PredictionCard data={data} />
+            <div className="Card"></div>
          </div>
       </div>
    )

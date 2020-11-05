@@ -6,9 +6,8 @@
    z-index: 1000;
 
    display: flex;
-
-   list-style: none;
    position: fixed;
+   list-style: none;
    font-size: 1.1rem;
 }
 
@@ -17,18 +16,16 @@
 }
 
 .Navbar .NavItem {
-   /* opacity: 0; */
    transform: translateY(-10vh);
    transition: opacity 2000ms ease, transform 1000ms ease-out;
-   /* -webkit-animation: animation_slide_down 1000ms ease-out;
-   animation: animation_slide_down 1100ms ease-out; */
 }
 
 .Navbar .animation_fade_slide_down {
    transform: translateY(0vh);
-   /* opacity: 1; */
 }
 
+/* -webkit-animation: animation_slide_down 1000ms ease-out;
+   animation: animation_slide_down 1100ms ease-out; */
 /* @keyframes animation_slide_down {
    0% {
       -webkit-transform: translateY(-10vh);
@@ -61,6 +58,7 @@
 
 .NavbarActive {
    /* background: #303030d5; */
+   transform: translateY(0vh);
    background: #000000b0;
    height: 60px;
    padding: 0 !important;
@@ -75,13 +73,15 @@
    padding-inline-start: 0px;
 }
 
-.Navbar ul a, .Navbar .HoverEffect {
+.Navbar ul a,
+.Navbar .HoverEffect {
    color: white;
    background-color: transparent;
    transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
 }
 
-.Navbar ul a:hover, .Navbar .HoverEffect:hover {
+.Navbar ul a:hover,
+.Navbar .HoverEffect:hover {
    background-color: white;
    color: black;
 }
@@ -94,11 +94,6 @@
    padding: 0 20px;
    transition: background-color 0.5s ease-in-out, color 0.3s ease-in-out;
 }
-
-/* .Navbar li:hover {
-   background-color: white;
-   color: black;
-} */
 
 .NavLeft {
    width: 33%;
