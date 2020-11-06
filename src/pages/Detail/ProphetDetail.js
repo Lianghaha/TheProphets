@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react"
 import "./DetailCommon.css"
 import "./ProphetDetail.css"
-import ProphetCard from "../../lib/components/ProphetCard/ProphetCard"
+import ProphetCard from "../../lib/components/ProphetPredictionCard/ProphetCard"
 import Button from "@material-ui/core/Button"
 import { PredictionStrip } from "./PredictionStrip/PredictionStrip"
 import { CommentStrip } from "./CommentAndReviewStrip/CommentStrip"

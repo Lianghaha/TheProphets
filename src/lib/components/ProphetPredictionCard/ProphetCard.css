@@ -1,0 +1,19 @@
+.ProphetCard .ProphetName {
+   text-align: center;
+   font-size: 1.1rem;
+   font-weight: 700;
+}
+
+.ProphetCard .ProphetDescription {
+   text-align: start;
+   word-wrap: break-word;
+   font-size: .85rem;
+}
+
+.ProphetCard .LargeNumber span {
+   margin-left: -8px;
+}
+
+
+
+

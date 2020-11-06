@@ -1,0 +1,88 @@
+.Card {
+   --border-radius: 3px;
+   border-radius: var(--border-radius);
+   min-width: 280px;
+
+   box-shadow: 0px 0px 3px black;
+   filter: brightness(85%);
+   transition: box-shadow 0.5s ease-in-out, filter 0.5s ease-in-out,
+      transform 0.3s ease-in-out;
+
+   display: grid;
+   grid-template: 3fr 4fr/ 1fr;
+   color: black;
+   font-family: var(--text-font);
+}
+/* animation: animation_fade 1s; */
+
+.Card:hover {
+   box-shadow: 0px 0px 8px black;
+   filter: brightness(100%);
+   transform: scale(1.05);
+   color: black;
+}
+
+.Card p {
+   margin: 0 0;
+}
+
+.Card img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.Card .NotImg {
+   background-color: #ffffff;
+   padding: 10px;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.Card .TextSection {
+    margin: 0 10px;
+}
+
+.Card .NumberSectionContainer {
+   width: 100%;
+   min-height: 50px;
+   display: flex;
+   justify-content: center;
+   align-self: flex-end;
+   margin: 10px 0;
+}
+
+.Card .NumberSection {
+   width: 50%;
+   display: grid;
+   justify-content: center;
+}
+
+.Card .LargeNumber {
+   text-align: center;
+   color: #ffb400;
+   font-family: var(--number-font);
+   font-weight: 400;
+   font-size: 2.2rem;
+   margin-bottom: -10px;
+}
+
+.Card .LargeNumber span {
+   font-size: 1rem;
+}
+
+.Card hr {
+   width: 2px;
+   height: 50px;
+   align-self: center;
+   margin-bottom: -6px;
+}
+
+.Card .RatingText {
+   font-size: 0.8rem;
+}

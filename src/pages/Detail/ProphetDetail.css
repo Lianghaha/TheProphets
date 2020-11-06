@@ -1,55 +1,8 @@
-.Detail .ProphetCard {
-   --border-radius: 5px;
-   height: 260px;
-   max-width: 91%;
+.Detail .PredictionStrip {
    margin-top: 30px;
 }
 
-.Detail .ProphetCard:hover {
-   transform: scale(1.01);
-}
-
-.Detail .ProphetCard img {
-   width: 50%;
-   height: 100%;
-   border-radius: 0;
-   border-top-left-radius: var(--border-radius);
-   border-bottom-left-radius: var(--border-radius);
-}
-
-.Detail .ProphetCard .NotImg {
-   width: 50%;
-   height: 100%;
-   border-radius: 0;
-   border-top-right-radius: var(--border-radius);
-   border-bottom-right-radius: var(--border-radius);
-}
-
-.Detail .PredictionStrip {
-      margin-top: 30px;
-   }
-
 @media screen and (max-width: 650px) {
-   .Detail .ProphetCard {
-      height: 500px;
-   }
-
-   .Detail .ProphetCard img {
-      width: 100%;
-      height: 50%;
-      border-radius: 0;
-      border-top-left-radius: var(--border-radius);
-      border-top-right-radius: var(--border-radius);
-   }
-
-   .Detail .ProphetCard .NotImg {
-      width: 100%;
-      height: 50%;
-      border-radius: 0;
-      border-bottom-left-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
-   }
-
    .Detail .PredictionStrip {
       flex-direction: column;
       justify-content: space-between;

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import "./DetailCommon.css"
 import "./PredictionDetail.css"
 import Button from "@material-ui/core/Button"
-import {PredictionCard} from "../../lib/components/PredictionCard/PredictionCard"
+import {PredictionCard} from "../../lib/components/ProphetPredictionCard/PredictionCard"
 import { ReviewStrip } from "./CommentAndReviewStrip/ReviewStrip"
 import { useHistory } from "react-router-dom"
 import axios from "axios"
@@ -30,6 +30,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
             // console.log("Prediction Detail: ")
             // console.log(response.data)
             if (response.data.status === 0) {
+               console.log(response.data.result[0])
                setPrediction(response.data.result[0])
             } else {
                console.log(response.data.err)

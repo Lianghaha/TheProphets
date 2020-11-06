@@ -120,14 +120,13 @@
    grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
    justify-content: center;
    justify-items: center;
-   margin: 0 1vw;
+   margin: 0 30px;
    column-gap: 1vw;
    margin-bottom: 8vh;
 }
 
 .Search .ProphetCard {
-   max-width: 300px;
-   color: black;
+   height: 430px;
    margin: 0 0.5vw;
    margin-top: 5vh;
 }

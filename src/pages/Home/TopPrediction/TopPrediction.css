@@ -18,7 +18,7 @@
    margin: 0 1vw
 }
 
-.PredictionsList .PredictionCard {
+/* .PredictionsList .PredictionCard {
    height: 260px;
    margin: 20px 20px;
    margin-bottom: 50px;
@@ -41,7 +41,7 @@
       width: 100%;
       height: 260px;
    }
-}
+} */
 
 @media screen and (max-width: 860px) {
    .PredictionsList {
@@ -51,7 +51,7 @@
       justify-items: center;
    }
 
-   .PredictionsList .PredictionCard {
+   /* .PredictionsList .PredictionCard {
       max-height: none;
       height: 460px;
       width: 300px;
@@ -75,8 +75,7 @@
 
    .PredictionsList .PredictionCard:last-child {
       margin-bottom: 5vh;
-      /* margin-left: 6.5%; */
-   }
+   } */
 }
 
 .TopPredictions .TitleButtons .ant-spin-lg .ant-spin-dot {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react"
 import "./TopPrediction.css"
-import {PredictionCard} from "../../../lib/components/PredictionCard/PredictionCard"
+import {PredictionCard} from "../../../lib/components/ProphetPredictionCard/PredictionCard"
 //Button
 import Button from "@material-ui/core/Button"
 import { Spin } from "antd"

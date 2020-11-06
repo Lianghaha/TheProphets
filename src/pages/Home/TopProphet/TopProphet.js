@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react"
 import "./TopProphet.css"
-import ProphetCard from "../../../lib/components/ProphetCard/ProphetCard"
+import ProphetCard from "../../../lib/components/ProphetPredictionCard/ProphetCard"
 //Antd
 import { Carousel } from "antd"
 //Icons

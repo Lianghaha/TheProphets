@@ -1,0 +1,34 @@
+.PredictionCard .InfoContainer {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.PredictionCard .PredictionStatus {
+   font-size: 0.9rem;
+   color: #ffb400;
+}
+
+.PredictionCard .PredictionDate {
+}
+
+.PredictionCard .PredictionStatus span {
+   color: #000000;
+   text-align: end;
+}
+
+.PredictionCard .PredictionTitle {
+   font-size: 1rem;
+   line-height: 1.3rem;
+   margin: 5px 0;
+   font-weight: 700;
+}
+
+.PredictionCard .PredictionDescription {
+   font-size: 0.8rem;
+   font-weight: 500;
+   color: #686868;
+   margin-top: 0.3vh;
+}
+
+
