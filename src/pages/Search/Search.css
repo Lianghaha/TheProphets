@@ -21,7 +21,6 @@
 }
 
 .Search .ResultsAndTools {
-   /* border: 3px solid green; */
    margin-top: 100px;
    width: 80%;
    display: flex;
@@ -30,11 +29,10 @@
 }
 
 .Search .Results {
-   /* border: 3px solid orange; */
    width: 70%;
-   height: 98%;
    min-width: 320px;
    border-radius: var(--border-radius);
+   margin-bottom: 5vh;
 }
 
 .Search .SearchText {
@@ -51,7 +49,7 @@
    justify-content: center;
    align-items: center;
    margin-right: 15px;
-   transition: transform .3s ease-in-out;
+   transition: transform 0.3s ease-in-out;
    cursor: pointer;
 }
 
@@ -69,18 +67,16 @@
 .Search .SwitchButtonContainer {
    width: 100%;
    display: flex;
-   /* border: 3px solid red; */
    margin-top: 2%;
    justify-content: center;
 }
 
 .Search .SwitchButton {
-   /* border: 3px solid blue; */
    width: 46%;
    height: 50px;
    display: flex;
    justify-content: center;
-   transition: background-color 0.3s ease-in-out, border-color .6s ease-in-out;
+   transition: background-color 0.3s ease-in-out, border-color 0.6s ease-in-out;
    border: 3px solid grey;
 }
 
@@ -111,42 +107,39 @@
    margin-top: 10vh;
    font-size: 1.6rem;
 }
-.Search .SearchProphetCardsContainer{
-   width: 100%;
+
+/* Prophets */
+.Search .SearchProphetCardsContainer {
+   width: 92%;
 }
 
 .Search .SearchProphetCards {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+   grid-template-columns: repeat(auto-fit, 320px);
    justify-content: center;
    justify-items: center;
-   margin: 0 30px;
-   column-gap: 1vw;
+   column-gap: 50px;
    margin-bottom: 8vh;
 }
 
 .Search .ProphetCard {
    height: 430px;
-   margin: 0 0.5vw;
-   margin-top: 5vh;
+   margin-top: 55px;
 }
 
+/* Predictions  */
 .Search .SearchPredictionCards {
+   width: 92%;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   margin-bottom: 10vh;
+   margin-bottom: 8vh;
 }
 
 .Search .PredictionCard {
-   color: black;
-   width: 91%;
-   height: 240px;
-   margin: 0 0;
-   margin-top: 5vh;
+   margin-top: 50px;
+   min-height: 450px;
 }
-
-
 
 .Search .Tools {
    width: 23%;
@@ -214,20 +207,6 @@
    height: 60vh;
 }
 
-
-/* Responsive */
-@media screen and (max-width: 1680px) {
-   .Search .PredictionCard {
-      height: 270px;
-   }
-}
-
-@media screen and (max-width: 1200px) {
-   .Search .PredictionCard {
-      height: 290px;
-   }
-}
-
 @media screen and (max-width: 1220px) {
    .Search .ResultsAndTools {
       width: 90%;
@@ -265,31 +244,28 @@
    }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (min-width: 750px) {
    .Search .PredictionCard {
-      height: 580px;
-      width: 300px;
+      grid-template: 1fr/ 3fr 4fr;
+      min-height: 235px;
    }
 
    .Search .PredictionCard img {
-      width: 100%;
-      height: 50%;
+      grid-column: 1 / 2;
       border-radius: 0;
       border-top-left-radius: var(--border-radius);
-      border-top-right-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
    }
    .Search .PredictionCard .NotImg {
-      width: 100%;
-      height: 50%;
+      grid-column: 2/ 3;
       border-radius: 0;
-      border-bottom-left-radius: var(--border-radius);
+      border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
    }
 }
 
 
-
-/* Prophets/Predictions Switch Button
+/* Switch Button
 Modified Material Ui Button  */
 .SwitchButton .MuiButtonBase-root {
    height: 100%;
@@ -356,9 +332,6 @@ Modified Material Ui Button  */
 /* Rating Icon */
 .Search .MuiRating-iconEmpty {
    color: rgba(255, 255, 255, 0.3);
-}
-
-.Search .MuiRating-root {
 }
 
 /* Antd  */
