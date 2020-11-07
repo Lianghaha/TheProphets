@@ -72,7 +72,6 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
       for (const NavItem of NavItems) {
          NavItem.classList.add("animation_fade_slide_down")
       }
-      // animation(NavItems)
    }, [navBarLoggedIn, showBurger])
 
    const SearchBar = () => {

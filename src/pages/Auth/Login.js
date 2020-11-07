@@ -77,8 +77,8 @@ export const Login = ({ setLoggedIn, setShowPageLoading }) => {
             encPassword: encPassword,
          })
          .then((response) => {
-            console.log("Login Post Response: ")
-            console.log(response.data)
+            // console.log("Login Post Response: ")
+            // console.log(response.data)
             const data = response.data
             if (data.status === 0) {
                console.log(data)

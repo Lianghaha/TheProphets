@@ -12,8 +12,8 @@
    grid-template: 3fr 4fr/ 1fr;
    color: black;
    font-family: var(--text-font);
+   animation: animation_fade 1s;
 }
-/* animation: animation_fade 1s; */
 
 .Card:hover {
    box-shadow: 0px 0px 8px black;

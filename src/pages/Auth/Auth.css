@@ -9,19 +9,15 @@
    background-size: cover;
 }
 
-
-
 .AuthForm {
-   /* border: 3px solid yellow; */
    margin: 6vh 0;
    width: 80%;
    min-width: 350px;
    max-width: 500px;
-   /* background-color: white; */
    border-radius: 5px;
    background-color: rgba(20, 20, 20, 0.8);
    box-shadow: 0px 0px 5px black;
-   animation: fade 1s;
+   animation: fade 1s ease-in-out;
 }
 
 @-webkit-keyframes fade {
@@ -43,7 +39,6 @@
 }
 
 .AuthForm form {
-   /* background-color: white; */
    display: flex;
    flex-wrap: wrap;
    align-content: flex-start;
@@ -58,7 +53,6 @@
 }
 
 .AuthForm .TextFieldContainer {
-   /* border: 3px solid green; */
    min-height: 80px;
    max-height: 85px;
    width: 100%;
@@ -70,14 +64,12 @@
    margin-top: 18px;
    width: 30px;
    height: 40px;
-   /* background-color: red; */
    display: flex;
    justify-content: center;
    align-items: center;
 }
 
 .AuthForm .ButtonContainer {
-   /* background-color: red; */
    width: 100%;
    display: flex;
    flex-wrap: wrap;
@@ -85,7 +77,7 @@
    align-content: flex-start;
 }
 
-.AuthForm .GoogleButtonContainer{
+.AuthForm .GoogleButtonContainer {
    width: 100%;
    display: flex;
    justify-content: center;
@@ -96,7 +88,7 @@
    height: 40px;
    margin-top: 2vh;
    filter: brightness(90%);
-   transition: filter .3s ease-in-out;
+   transition: filter 0.3s ease-in-out;
 }
 
 .AuthForm .GoogleButton:hover {
@@ -121,11 +113,9 @@
 .AuthForm .NotThisPage {
    padding-bottom: 30px;
    height: 15vh;
-   /* background-color: white; */
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   /* background-color: rgba(0, 0, 0, 0.8); */
    align-content: center;
 }
 
@@ -150,7 +140,6 @@
 }
 
 .MuiTextField-root {
-   /* border: 2px solid green !important; */
 }
 
 /* Border */

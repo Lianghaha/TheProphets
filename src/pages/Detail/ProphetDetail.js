@@ -21,8 +21,6 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
    const [comments, setComments] = useState([])
    const [showModal, setShowModal] = useState(false)
    const [newComment, setNewComment] = useState("")
-   // const [prophetReady, setProphetReady] = useState(false)
-   // const [predictionReady, setPredictionReady] = useState(false)
 
    const getProphet = useCallback(async () => {
       await axios
@@ -58,15 +56,15 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
       await axios
          .get(`/api/comment?prophetID=${prophetID}`)
          .then((response) => {
-            console.log(
-               "=============== Prophet Detail Comments ==============="
-            )
-            console.log(response.data.result)
+            // console.log(
+            //    "=============== Prophet Detail Comments ==============="
+            // )
+            // console.log(response.data.result)
 
             if (response.data.status === 0) {
                setComments(response.data.result)
             } else {
-               console.log(response.data.message)
+               // console.log(response.data.message)
             }
          })
          .catch((err) => console.log(err))
@@ -87,7 +85,7 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
             prophet_id: prophetID,
          })
          .then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
          })
          .catch((err) => console.log(err))
       setShowModal(false)
@@ -182,7 +180,7 @@ export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
 
                <div className="List">
                   {comments.length === 0 ? (
-                     <div className="NoCommentOrReview">No Comments</div>
+                     <div className="NoCommentOrReview">No Comment Found</div>
                   ) : (
                      comments.map((comment, index) => {
                         return <CommentStrip data={comment} key={index} />

@@ -11,8 +11,8 @@
 @import "~antd/dist/antd.css";
 
 html {
-   --main-color: #252525;
-   --main-color-light: #353535;
+   --main-color: #202020;
+   --main-color-light: #303030;
    --bg: linear-gradient(rgba(0, 0, 0, 0), var(--main-color)),
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
    --bg-dark: linear-gradient(rgba(0, 0, 0, 0.25), var(--main-color)),

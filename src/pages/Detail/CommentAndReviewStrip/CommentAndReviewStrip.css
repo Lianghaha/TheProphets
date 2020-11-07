@@ -7,7 +7,8 @@
    padding-right: 10px;
    padding: 30px 0;
    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-   font-size: .9rem;
+   font-size: 0.9rem;
+   animation: animation_fade 1s;
 }
 
 .Strip:hover {
@@ -21,8 +22,6 @@
 .Strip .ImgContainer {
    height: 100%;
    width: 90px;
-   /* min-width: 60px;
-   max-width: 90px; */
    display: flex;
    justify-content: center;
 }
@@ -84,7 +83,6 @@
 }
 
 .Strip .Text {
-   /* margin-top: 10px; */
    font-family: var(--text-font);
    width: 95%;
    word-wrap: break-word;

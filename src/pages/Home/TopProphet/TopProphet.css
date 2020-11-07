@@ -8,23 +8,24 @@
 }
 
 .TopProphets .TitleAndButtons {
-   margin: 0 8.5vw
+   margin: 0 8%
 }
 
 .TopProphets .ProphetsList {
    width: 85%;
    margin-top: 2vh;
-   /* background-color: blue; */
 }
 
 .TopProphets .ProphetCardContainer {
-   background-color: #252525;
    min-height: 500px;
    display: flex !important;
    justify-content: center;
 }
 
-
+.TopProphets .ProphetCard {
+   height: 430px;
+   width: 320px;
+}
 
 /* AntD Carousel Dots */
 .TopProphets .AntDCarouselDots button{

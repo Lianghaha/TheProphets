@@ -83,8 +83,8 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
             encPassword: encPassword,
          })
          .then((response) => {
-            console.log("Register Post Response: ")
-            console.log(response.data)
+            // console.log("Register Post Response: ")
+            // console.log(response.data)
             const data = response.data
             if (data.status === 0) {
                setCookieLocalStorage(email, username, data.tokenRequest.token)
@@ -115,7 +115,7 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
 
    return (
       <div className="SignUp">
-         <div className="AuthForm">
+         <div className="AuthForm slide-fwd-center">
             <form autoComplete="off">
                <h1>Sign Up</h1>
                <div className="TextFieldContainer">

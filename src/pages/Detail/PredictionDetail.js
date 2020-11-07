@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import "./DetailCommon.css"
 import "./PredictionDetail.css"
 import Button from "@material-ui/core/Button"
-import {PredictionCard} from "../../lib/components/ProphetPredictionCard/PredictionCard"
+import { PredictionCard } from "../../lib/components/ProphetPredictionCard/PredictionCard"
 import { ReviewStrip } from "./CommentAndReviewStrip/ReviewStrip"
 import { useHistory } from "react-router-dom"
 import axios from "axios"
@@ -30,7 +30,6 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
             // console.log("Prediction Detail: ")
             // console.log(response.data)
             if (response.data.status === 0) {
-               console.log(response.data.result[0])
                setPrediction(response.data.result[0])
             } else {
                console.log(response.data.err)
@@ -43,15 +42,15 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
       await axios
          .get(`/api/review?predictionID=${predictionID}`)
          .then((response) => {
-            console.log(
-               "=============== Prediction Detail Reviews ==============="
-            )
-            console.log(response.data.result)
+            // console.log(
+            //    "=============== Prediction Detail Reviews ==============="
+            // )
+            // console.log(response.data.result)
 
             if (response.data.status === 0) {
                setReviews(response.data.result)
             } else {
-               console.log(response.data.message)
+               // console.log(response.data.message)
             }
          })
          .catch((err) => console.log(err))
@@ -69,12 +68,8 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
       const a = newReviewAccuracy,
          b = newReviewDifficulty
       const multiple = (a * b) / 10
-      // console.log("multiple: " + multiple)
       const average = (a + b) / 2
-      // console.log("average: " + average)
       const result = 0.2 * multiple + 0.8 * average
-      // console.log("result: " + result)
-      // console.log(Math.round(result * 10) / 10)
       return Math.round(result * 10) / 10
    }
 
@@ -88,7 +83,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
             prediction_id: predictionID,
          })
          .then((response) => {
-            console.log(response.data)
+            // console.log(response.data)
          })
          .catch((err) => console.log(err))
       setShowModal(false)
@@ -193,12 +188,6 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
                               }}
                            />
                         </div>
-                        {/* <div className="Score">
-                           <p className="OverallScore">
-                              Overall Score:{" "}
-                              <span>{calculateOverallScore()}</span>
-                           </p>
-                        </div> */}
                      </div>
                      <TextArea
                         maxLength={reviewMaxLength}
@@ -213,7 +202,7 @@ export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
                </div>
                <div className="List">
                   {reviews.length === 0 ? (
-                     <div className="NoCommentOrReview">No Reviews</div>
+                     <div className="NoCommentOrReview">No Review Found</div>
                   ) : (
                      reviews.map((review, index) => {
                         return <ReviewStrip data={review} key={index} />

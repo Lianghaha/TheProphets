@@ -1,11 +1,11 @@
 .PredictionStrip {
    background-color: white;
-   min-height: 80px;
+   min-height: 100px;
    width: 91%;
    box-shadow: 0px 0px 3px black;
    filter: brightness(85%);
-   transition: box-shadow .5s ease-in-out, filter .5s ease-in-out,
-      transform .5s ease-in-out;
+   transition: box-shadow 0.5s ease-in-out, filter 0.5s ease-in-out,
+      transform 0.5s ease-in-out;
 
    display: flex;
    justify-content: space-between;
@@ -14,7 +14,7 @@
    border-radius: 3px;
    padding: 15px 0;
    padding-left: 15px;
-
+   animation: animation_fade 1s;
 }
 
 .PredictionStrip:hover {
@@ -28,33 +28,31 @@
    margin: 0 0;
 }
 
-.PredictionStrip .Text {
+.PredictionStrip .TextSection {
    width: 75%;
    word-wrap: break-word;
 }
 
-.PredictionStrip .Status {
-   width: 90%;
+.PredictionStrip .PredictionStatus {
    font-size: 0.8rem;
    color: #ffb400;
 }
 
 .PredictionStrip .Title {
-   width: 95%;
    font-size: 1rem;
    line-height: 1.3rem;
    margin-bottom: 0.5vh;
 }
 
 .PredictionStrip .Description {
-   width: 95%;
    font-size: 0.7rem;
    color: rgb(120, 120, 120);
 }
 
 .PredictionStrip .Rating {
    width: 25%;
-   margin-right: 2%;
+   min-width: 110px;
+   margin: 0 2%;
    display: flex;
    flex-direction: column;
    justify-content: center;

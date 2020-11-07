@@ -4,7 +4,10 @@
 
 .Burger li {
    height: 50px;
+   color: white;
+   cursor: pointer;
 }
+
 
 .Burger .UserInfo {
    height: auto;
@@ -39,7 +42,7 @@
    transition: top 0.3s ease-in;
 }
 
-.NavbarActive .bm-burger-button{
+.NavbarActive .bm-burger-button {
    top: 15px;
 }
 

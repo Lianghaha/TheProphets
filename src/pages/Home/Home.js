@@ -4,12 +4,6 @@ import { TopProphets } from "./TopProphet/TopProphet"
 import { TopPredictions } from "./TopPrediction/TopPrediction"
 import { Spin } from "antd"
 import "./Home.css"
-// import Loadable from "react-loadable"
-
-// const AsyncCover = Loadable({
-//    loader: () => import("./Cover/Cover"),
-//    loading: 111,
-// })
 
 export const Home = () => {
    const faders = document.querySelectorAll(".Fade-In")

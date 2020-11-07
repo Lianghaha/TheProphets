@@ -23,18 +23,6 @@
    opacity: 1;
 }
 
-/* .Home .From-Left {
-   transform: translateX(35vw);
-}
-
-.Home .From-Right {
-   transform: translateX(-30vw);
-}
-
-.Home .FR-ShowMore {
-   transform: translateX(-35vw);
-}
-*/
 .Home .Slide-Left, .Slide-Right
  {
    transition: opacity 2000ms ease-out;

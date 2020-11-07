@@ -1,15 +1,11 @@
 import CryptoJS from "crypto-js"
 import axios from "axios"
 
-//Can encrypt both String and Object
 export const encrypt = (str) => {
    const encrypted = CryptoJS.AES.encrypt(
       str,
       process.env.REACT_APP_SECRET
    ).toString()
-   // const decrypt = CryptoJS.AES.decrypt(encrypted, process.env.REACT_APP_SECRET)
-   // console.log("Encrypted: " + encrypted)
-   // console.log("Decrypted: " + decrypt.toString(CryptoJS.enc.Utf8))
    return encrypted
 }
 
@@ -23,9 +19,6 @@ export const getCurrentTime = () => {
 }
 
 export const parseCookie = () => {
-   // document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-   // document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-   // console.log(document.cookie)
    if (document.cookie) {
       const str = document.cookie.split(";")
       // console.log(str)
@@ -40,23 +33,26 @@ export const parseCookie = () => {
 }
 
 export const clearCookieLocalStorage = () => {
-   console.log("=============== clearCookieLocalStorage ===============")
-   console.log("Cookie Before: " + document.cookie)
+   // console.log("=============== clearCookieLocalStorage ===============")
+   // console.log("Cookie Before: " + document.cookie)
    const str = document.cookie.split(";")
-   // console.log(str)
    for (var i = 0; i < str.length; i++) {
       const cur = str[i].split("=")
       const key = cur[0]
       document.cookie = key + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/"
       document.cookie =
          key.trim() + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/"
-      // console.log(key)
    }
    localStorage.clear()
-   console.log("Cookie After: " + document.cookie)
+   // console.log("Cookie After: " + document.cookie)
 }
 
-export const setCookieLocalStorage = (identity, username, token, profile_img) => {
+export const setCookieLocalStorage = (
+   identity,
+   username,
+   token,
+   profile_img
+) => {
    document.cookie = `identity=${identity};path=/`
    document.cookie = `username=${username};path=/`
    document.cookie = `token=${token};path=/`
@@ -65,8 +61,8 @@ export const setCookieLocalStorage = (identity, username, token, profile_img) =>
    localStorage.setItem("username", username)
    localStorage.setItem("token", token)
    localStorage.setItem("profile_img", profile_img)
-   console.log("=============== setCookieLocalStorage ===============")
-   console.log("Cookie After: " + document.cookie)
+   // console.log("=============== setCookieLocalStorage ===============")
+   // console.log("Cookie After: " + document.cookie)
 }
 
 export const checkLogin = async () => {
@@ -80,8 +76,8 @@ export const checkLogin = async () => {
             token: token,
          })
          .then((response) => {
-            console.log("=============== checkLogin ===============")
-            console.log(response)
+            // console.log("=============== checkLogin ===============")
+            // console.log(response)
             if (response.data.status === 0) flag = true
             else {
                clearCookieLocalStorage()
@@ -93,7 +89,7 @@ export const checkLogin = async () => {
 }
 
 export const responseGoogle = async (response) => {
-   console.log("=============== Login responseGoogle ===============")
+   // console.log("=============== Login responseGoogle ===============")
    if (response.error) {
       console.log("responseGoogle error: " + response.error)
       return false
@@ -104,8 +100,8 @@ export const responseGoogle = async (response) => {
          tokenID: response.tokenId,
       })
       .then((response) => {
-         console.log("responeGoogle Response: ")
-         console.log(response.data)
+         // console.log("responeGoogle Response: ")
+         // console.log(response.data)
          const data = response.data
          const { userInfo } = data
          if (data.status === 0) {
@@ -116,8 +112,6 @@ export const responseGoogle = async (response) => {
                userInfo.profile_img
             )
             flag = true
-            // console.log(document.cookie)
-            // console.log(parseCookie())
          } else {
             alert(data.message)
          }

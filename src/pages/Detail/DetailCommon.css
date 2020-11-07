@@ -23,7 +23,6 @@
 }
 
 .Detail .Section {
-   /* background-color: green; */
    width: 90%;
    display: flex;
    flex-wrap: wrap;
@@ -70,15 +69,15 @@
    font-size: 1.2rem;
 }
 
-@media screen and (max-width: 1100px) {
-   .Detail .Content {
-      width: 90%;
-   }
-}
-
 @media screen and (max-width: 1400px) {
    .Detail .Content {
       width: 75%;
+   }
+}
+
+@media screen and (max-width: 1100px) {
+   .Detail .Content {
+      width: 90%;
    }
 }
 

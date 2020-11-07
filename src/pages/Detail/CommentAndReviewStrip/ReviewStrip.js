@@ -4,18 +4,6 @@ import defaultImg from "../../../media/image/default-profile.png"
 import Rating from "@material-ui/lab/Rating"
 
 export const ReviewStrip = ({ data }) => {
-   // const data = {
-   //    profile_img: defaultImg,
-   //    username: "Haha Wowwowwow",
-   //    posted_date: "2020/10/8 @ 1:19:30",
-   //    relative_date: "3 weeks ago",
-   //    accuracy: 9,
-   //    difficulty: 8,
-   //    overall_score: 7.9,
-   //    content:
-   //       "1000 characters The computer wouldn't start. She banged on the side and tried again. Nothing. She lifted it up and dropped it to the table. Still nothing. She banged her closed fist against the top. It was at this moment she saw the irony of trying to fix the machine with violence. What have you noticed today? I noticed that if you outline the eyes, nose, and mouth on your face with your finger, you make an I which makes perfect sense, but is something I never noticed before. What have you noticed today? The computer wouldn't start. She banged on the side and tried again. Nothing. She lifted it up and dropped it to the table. Still nothing. She banged her closed fist against the top. It was at this moment she saw the irony of trying to fix the machine with violence. What",
-   // }
-
    const RatingComponent = (value) => {
       return (
          <Rating
@@ -58,11 +46,6 @@ export const ReviewStrip = ({ data }) => {
                   <div className="Score">
                      <p>Accuracy:</p>
                      {RatingComponent(data.accuracy)}
-                     {/* {RatingComponent(
-                     newCommentAccuracy,
-                     false,
-                     setnewCommentAccuracy
-                  )} */}
                   </div>
                   <div className="Score">
                      <p>Difficulty:</p>
