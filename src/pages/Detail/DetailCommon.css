@@ -84,7 +84,7 @@
 @media screen and (min-width: 750px) {
    .Detail .Card {
       grid-template: 1fr/ 3fr 4fr;
-      min-height: 235px;
+      min-height: 200px;
    }
 
    .Detail .Card img {
