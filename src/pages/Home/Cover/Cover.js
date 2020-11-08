@@ -17,7 +17,7 @@ function Cover() {
                been easier
                <br /> */}
                This website can help you evaluate the reliability of the
-               prophets by letting everyone track and rate prophets' past
+               predictors by letting everyone track and rate predictors' past
                predictions
             </p>
          </div>

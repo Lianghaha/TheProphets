@@ -24,7 +24,7 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
    const [usernameCorrectness, setUsernameCorrectness] = useState(false)
    const [password, setPassword] = useState("")
    const [passwordConfirmation, setPasswordConfirmation] = useState("")
-
+   console.log(process.env.REACT_APP_CLIENTID)
    //Display Password
    const [showPassword, setShowPassword] = useState(false)
    const inputProps = () => {
@@ -176,14 +176,14 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
                <div className="ButtonContainer">
                   <Button
                      variant="outlined"
-                     // disabled={
-                     //    emailValid &&
-                     //    usernameCorrectness &&
-                     //    password.length >= 6 &&
-                     //    password === passwordConfirmation
-                     //       ? false
-                     //       : true
-                     // }
+                     disabled={
+                        emailValid &&
+                        usernameCorrectness &&
+                        password.length >= 6 &&
+                        password === passwordConfirmation
+                           ? false
+                           : true
+                     }
                      onClick={handleSubmit}
                   >
                      CREATE ACCOUNT
@@ -196,7 +196,7 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
                   >
                      <GoogleLogin
                         className="GoogleButton"
-                        clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
+                        clientId={process.env.REACT_APP_CLIENTID}
                         buttonText="Login With Google"
                         onSuccess={handleResponseGoogle}
                         onFailure={handleResponseGoogle}

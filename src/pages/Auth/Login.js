@@ -148,19 +148,16 @@ export const Login = ({ setLoggedIn, setShowPageLoading }) => {
                <div className="ButtonContainer">
                   <Button
                      variant="outlined"
-                     // disabled={
-                     //    emailValid &&
-                     //    password.length >= 6
-                     //       ? false
-                     //       : true
-                     // }
+                     disabled={
+                        emailValid && password.length >= 6 ? false : true
+                     }
                      onClick={handleSubmit}
                   >
                      LOGIN
                   </Button>
                   <GoogleLogin
                      className="GoogleButton"
-                     clientId="120159497383-33l93k1jfajaoa1t1sm39qtnhmeoq9u5.apps.googleusercontent.com"
+                     clientId={process.env.REACT_APP_CLIENTID}
                      buttonText="Login With Google"
                      onSuccess={handleResponseGoogle}
                      onFailure={handleResponseGoogle}

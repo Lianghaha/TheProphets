@@ -18,11 +18,13 @@
 
 .TopProphets .ProphetCardContainer {
    height: 500px;
+   min-width: 280px;
    display: flex !important;
    justify-content: center;
 }
 
 .TopProphets .ProphetCard {
+   margin: 0 50px;
    height: 430px;
    width: 280px;
 }

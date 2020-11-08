@@ -115,7 +115,7 @@
 
 .Search .SearchProphetCards {
    display: grid;
-   grid-template-columns: repeat(auto-fit, 320px);
+   grid-template-columns: repeat(auto-fit, 280px);
    justify-content: center;
    justify-items: center;
    column-gap: 50px;
@@ -129,7 +129,7 @@
 
 /* Predictions  */
 .Search .SearchPredictionCards {
-   width: 92%;
+   width: 80%;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
@@ -138,7 +138,7 @@
 
 .Search .PredictionCard {
    margin-top: 50px;
-   min-height: 450px;
+   min-height: 400px;
 }
 
 .Search .Tools {
@@ -247,7 +247,7 @@
 @media screen and (min-width: 750px) {
    .Search .PredictionCard {
       grid-template: 1fr/ 3fr 4fr;
-      min-height: 235px;
+      min-height: 180px;
    }
 
    .Search .PredictionCard img {
