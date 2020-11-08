@@ -1,19 +1,23 @@
 .ProphetCard .ProphetName {
    text-align: center;
-   font-size: 1.1rem;
+   font-size: 0.9rem;
    font-weight: 700;
 }
 
 .ProphetCard .ProphetDescription {
    text-align: start;
    word-wrap: break-word;
-   font-size: .85rem;
+   font-size: 0.75rem;
+}
+
+.ProphetCard .NotImg .NumberSectionContainer {
+   margin-bottom: 10px;
 }
 
 .ProphetCard .LargeNumber span {
    margin-left: -8px;
 }
 
-
-
-
+.ProphetCard .MuiButton-outlined {
+   align-self: flex-end;
+}

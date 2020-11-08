@@ -64,7 +64,7 @@
    margin: 0 5px !important;
    border-radius: 0% !important;
    color: white !important;
-   transition: background 0.3s ease-in-out !important;
+   transition: background 0.3s ease-in-out;
 }
 
 .MuiButton-root:hover {

@@ -1,6 +1,8 @@
 import React from "react"
 import "./ProphetCard.css"
 import { Link } from "react-router-dom"
+import Button from "@material-ui/core/Button"
+
 
 function ProphetCard({ data }) {
    if (data) {
@@ -9,7 +11,9 @@ function ProphetCard({ data }) {
             className="Card ProphetCard"
             to={`/prophetDetail/${data.prophet_id}`}
          >
-            <img src={data.image} alt="profile" />
+            <div className="ImgContainer">
+               <img src={data.image} alt="profile" />
+            </div>
             <div className="NotImg">
                <div className="TextSection">
                   <h4 className="ProphetName">{data.name}</h4>
@@ -28,6 +32,7 @@ function ProphetCard({ data }) {
                      <p className="RatingText">Predictions</p>
                   </div>
                </div>
+               <Button variant="outlined">View Prophet Detail</Button>
             </div>
          </Link>
       )

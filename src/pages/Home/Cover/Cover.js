@@ -7,13 +7,17 @@ function Cover() {
    return (
       <div className="Cover animation_fade">
          <div className="CoverText animation_fade_slide_up">
-            <h1 className="TextHover">Find The Prophets</h1>
-            <p className="TextHover">
-               Finding, Rating and Sorting the most reliable prophets have never
-               been easier
+            <h1>
+               FindTheProphets.com
                <br />
+               Rate and Find the most reliable prophets
+            </h1>
+            <p>
+               {/* Finding, Rating and Sorting the most reliable prophets have never
+               been easier
+               <br /> */}
                This website can help you evaluate the reliability of the
-               prophets by allowing everyone to track and rate prophet's past
+               prophets by letting everyone track and rate prophets' past
                predictions
             </p>
          </div>

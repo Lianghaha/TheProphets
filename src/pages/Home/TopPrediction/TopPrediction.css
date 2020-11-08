@@ -1,5 +1,5 @@
 .TopPredictions {
-   width: 84%;
+   width: 71.5%;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
@@ -18,7 +18,7 @@
 .TopPredictions .PredictionCard {
    margin-top: 20px;
    margin-bottom: 30px;
-   min-height: 550px;
+   min-height: 450px;
 }
 
 @media screen and (min-width: 650px) {
@@ -28,11 +28,10 @@
 
    .TopPredictions .PredictionCard {
       grid-template: 1fr/ 3fr 4fr;
-      min-height: 235px;
+      min-height: 200px;
    }
 
    .TopPredictions .PredictionCard img {
-      grid-column: 1 / 2;
       border-radius: 0;
       border-top-left-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);

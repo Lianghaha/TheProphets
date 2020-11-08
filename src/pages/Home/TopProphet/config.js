@@ -10,35 +10,35 @@ export const settings = {
    draggable: true,
    responsive: [
       {
-         breakpoint: 2380,
+         breakpoint: 2480,
          settings: {
             slidesToShow: 5,
             slidesToScroll: 5,
          },
       },
       {
-         breakpoint: 2000,
+         breakpoint: 2060,
          settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
          },
       },
       {
-         breakpoint: 1580,
+         breakpoint: 1650,
          settings: {
             slidesToShow: 3,
             slidesToScroll: 3,
          },
       },
       {
-         breakpoint: 1180,
+         breakpoint: 1230,
          settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
          },
       },
       {
-         breakpoint: 780,
+         breakpoint: 818,
          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,

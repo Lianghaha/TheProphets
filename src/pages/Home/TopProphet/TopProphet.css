@@ -8,23 +8,23 @@
 }
 
 .TopProphets .TitleAndButtons {
-   margin: 0 8%
+   margin: 0 14.5%
 }
 
 .TopProphets .ProphetsList {
-   width: 85%;
+   width: 72%;
    margin-top: 2vh;
 }
 
 .TopProphets .ProphetCardContainer {
-   min-height: 500px;
+   height: 500px;
    display: flex !important;
    justify-content: center;
 }
 
 .TopProphets .ProphetCard {
    height: 430px;
-   width: 320px;
+   width: 280px;
 }
 
 /* AntD Carousel Dots */

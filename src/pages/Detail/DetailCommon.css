@@ -88,18 +88,30 @@
    }
 
    .Detail .Card img {
-      grid-column: 1 / 2;
       border-radius: 0;
       border-top-left-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);
    }
    .Detail .Card .NotImg {
-      grid-column: 2/ 3;
       border-radius: 0;
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
    }
 }
+
+/* Material UI Button */
+.Detail .Card .MuiButton-outlined {
+   display: none;
+}
+
+.Detail .Card:hover {
+   box-shadow: 0px 0px 8px black;
+   transform: scale(1);
+   cursor: default;
+}
+
+
+
 
 /* AntD Modal */
 .ant-modal {

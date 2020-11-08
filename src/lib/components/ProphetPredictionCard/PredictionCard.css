@@ -9,11 +9,12 @@
 }
 
 .PredictionCard .PredictionStatus {
-   font-size: 0.9rem;
+   font-size: 0.77rem;
    color: #ffb400;
 }
 
 .PredictionCard .PredictionDate {
+   font-size: 0.77rem;
 }
 
 .PredictionCard .PredictionStatus span {
@@ -22,15 +23,32 @@
 }
 
 .PredictionCard .PredictionTitle {
-   font-size: 1rem;
+   font-size: 0.9rem;
    line-height: 1.3rem;
    margin: 5px 0;
    font-weight: 700;
 }
 
 .PredictionCard .PredictionDescription {
-   font-size: 0.8rem;
+   font-size: 0.75rem;
    font-weight: 500;
    color: #686868;
    margin-top: 0.3vh;
+}
+
+.PredictionCard .ImgContainer .MuiButton-outlined {
+   width: 190px;
+   margin: 0 0 !important;
+   grid-area: 3 / 1 / 4 / 2;
+   z-index: 1;
+   align-self: center;
+   justify-self: center;
+   background: #ae9166c4;
+   border: none !important;
+   color: white !important;
+}
+
+.PredictionCard .MuiButton-root:hover {
+   background: #ae9166 !important;
+   color: white !important;
 }

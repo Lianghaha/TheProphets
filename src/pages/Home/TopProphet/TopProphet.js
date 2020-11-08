@@ -1,4 +1,9 @@
-import React, { useRef, useEffect, useState, useCallback } from "react"
+import React, {
+   useRef,
+   useEffect,
+   useState,
+   useCallback,
+} from "react"
 import "./TopProphet.css"
 import ProphetCard from "../../../lib/components/ProphetPredictionCard/ProphetCard"
 //Antd
@@ -62,7 +67,7 @@ export const TopProphets = ({ setTopProphetsReady }) => {
          </div>
 
          <div className="ProphetsList Slide-Up Slide-Item">
-            <Carousel ref={carouselRef} {...settings}>
+            {prophetList.length > 0 ? <Carousel ref={carouselRef} {...settings}>
                {prophetList.map((data, index) => {
                   return (
                      <div key={index} className="ProphetCardContainer">
@@ -70,7 +75,8 @@ export const TopProphets = ({ setTopProphetsReady }) => {
                      </div>
                   )
                })}
-            </Carousel>
+            </Carousel> : ""}
+            
          </div>
       </div>
    )

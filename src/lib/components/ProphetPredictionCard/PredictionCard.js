@@ -2,6 +2,7 @@ import React from "react"
 import "./PredictionCard.css"
 import "./CardsCommonCSS.css"
 import { Link } from "react-router-dom"
+import Button from "@material-ui/core/Button"
 
 export const PredictionCard = ({ data }) => {
    return (
@@ -9,7 +10,10 @@ export const PredictionCard = ({ data }) => {
          className="Card PredictionCard"
          to={`/predictionDetail/${data.prediction_id}`}
       >
-         <img src={data.image} alt="PredictionImg" />
+         <div className="ImgContainer">
+            <img src={data.image} alt="PredictionImg" />
+            <Button variant="outlined">View Prediction Detail</Button>
+         </div>
          <div className="NotImg">
             <div className="TextSection">
                <div className="InfoContainer">
