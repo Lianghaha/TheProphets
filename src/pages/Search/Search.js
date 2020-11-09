@@ -260,14 +260,14 @@ export const Search = (props) => {
                      {scoreAboveRating(7)}
                      {scoreAboveRating(6)}
                      {scoreAboveRating(5)}
-                  </div>
-                  <div
-                     className="Clear"
-                     onClick={() => {
-                        setScoreAboveFilter(-1)
-                     }}
-                  >
-                     Reset
+                     <div
+                        className="Clear"
+                        onClick={() => {
+                           setScoreAboveFilter(-1)
+                        }}
+                     >
+                        Reset
+                     </div>
                   </div>
                </div>
             </div>
