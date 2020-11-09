@@ -24,7 +24,6 @@ export const SignUp = ({ setLoggedIn, setShowPageLoading }) => {
    const [usernameCorrectness, setUsernameCorrectness] = useState(false)
    const [password, setPassword] = useState("")
    const [passwordConfirmation, setPasswordConfirmation] = useState("")
-   console.log(process.env.REACT_APP_CLIENTID)
    //Display Password
    const [showPassword, setShowPassword] = useState(false)
    const inputProps = () => {
