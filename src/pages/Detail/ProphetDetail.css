@@ -8,10 +8,10 @@
       justify-content: space-between;
    }
 
-   .Detail .PredictionStrip .Text {
+   .Detail .PredictionStrip .TextSection {
       margin-left: 3%;
       margin-right: 3%;
-      width: 100%;
+      width: 95%;
    }
 
    .Detail .PredictionStrip .Rating {

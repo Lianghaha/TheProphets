@@ -10,7 +10,7 @@
 .PredictionsList {
    width: 100%;
    display: grid;
-   grid-template-columns: repeat(auto-fit, 360px);
+   grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
    justify-content: space-evenly;
    justify-items: center;
 }
