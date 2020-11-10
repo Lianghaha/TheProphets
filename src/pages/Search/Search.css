@@ -143,16 +143,35 @@
    max-width: 360px;
 }
 
+.Search .PredictionCard img {
+   max-height: 180px;
+}
+
 @media screen and (min-width: 750px) {
    .Search .PredictionCard {
       max-height: 320px;
       max-width: none;
+   }
+   .Search .PredictionCard img {
+      max-height: 350px;
+   }
+}
+
+@media screen and (min-width: 1200px) {
+   .Search .PredictionCard {
+      max-height: 270px;
+   }
+   .Search .PredictionCard img {
+      max-height: 300px;
    }
 }
 
 @media screen and (min-width: 1650px) {
    .Search .PredictionCard {
       max-height: 220px;
+   }
+   .Search .PredictionCard img {
+      max-height: 250px;
    }
 }
 

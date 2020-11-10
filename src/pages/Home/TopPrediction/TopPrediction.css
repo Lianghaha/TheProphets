@@ -53,6 +53,15 @@
    }
 }
 
+@media screen and (min-width: 900px) {
+   .TopPredictions .PredictionCard {
+      max-height: 300px;
+   }
+   .TopPredictions .PredictionCard img {
+      max-height: 320px;
+   }
+}
+
 @media screen and (min-width: 1050px) {
    .TopPredictions .PredictionCard {
       max-height: 250px;
