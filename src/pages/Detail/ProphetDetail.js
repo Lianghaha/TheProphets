@@ -11,7 +11,7 @@ import { Modal, Input } from "antd"
 import { checkLogin } from "../../lib/utils"
 
 const { TextArea } = Input
-const commentMaxLength = 200
+const commentMaxLength = 600
 
 export const ProphetDetail = ({ prophetID, setShowPageLoading }) => {
    const history = useHistory()

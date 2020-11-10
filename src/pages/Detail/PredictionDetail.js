@@ -11,7 +11,7 @@ import { checkLogin } from "../../lib/utils"
 import Rating from "@material-ui/lab/Rating"
 
 const { TextArea } = Input
-const reviewMaxLength = 200
+const reviewMaxLength = 600
 
 export const PredictionDetail = ({ predictionID, setShowPageLoading }) => {
    const history = useHistory()
