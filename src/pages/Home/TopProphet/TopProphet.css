@@ -29,6 +29,10 @@
    width: 280px;
 }
 
+.TopProphets .ProphetCard img{
+   max-height: 185px;
+}
+
 /* AntD Carousel Dots */
 .TopProphets .AntDCarouselDots button{
     height: 6px !important;

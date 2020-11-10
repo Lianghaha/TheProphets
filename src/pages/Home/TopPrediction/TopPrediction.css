@@ -23,6 +23,10 @@
    max-width: 360px;
 }
 
+.TopPredictions .PredictionCard img {
+   max-height: 180px;
+}
+
 @media screen and (min-width: 650px) {
    .PredictionsList {
       grid-template-columns: 1fr;
@@ -36,6 +40,7 @@
    }
 
    .TopPredictions .PredictionCard img {
+      max-height: 390px;
       border-radius: 0;
       border-top-left-radius: var(--border-radius);
       border-bottom-left-radius: var(--border-radius);
@@ -51,6 +56,9 @@
 @media screen and (min-width: 1050px) {
    .TopPredictions .PredictionCard {
       max-height: 250px;
+   }
+   .TopPredictions .PredictionCard img {
+      max-height: 260px;
    }
 }
 
@@ -69,11 +77,17 @@
    .TopPredictions .PredictionCard {
       max-height: 380px;
    }
+   .TopPredictions .PredictionCard img {
+      max-height: 380px;
+   }
 }
 
 @media screen and (min-width: 2100px) {
    .TopPredictions .PredictionCard {
       max-height: 260px;
+   }
+   .TopPredictions .PredictionCard img {
+      max-height: 280px;
    }
 }
 
