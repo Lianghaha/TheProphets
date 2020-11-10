@@ -4,6 +4,37 @@
    justify-content: center;
 }
 
+.Detail .PredictionCard {
+   max-width: 280px;
+   max-height: 450px;
+}
+
+.Detail .PredictionCard img {
+   max-height: 200px;
+}
+
+@media screen and (min-width: 750px) {
+   .Detail .PredictionCard {
+      max-height: 320px;
+      max-width: none;
+   }
+   .Detail .PredictionCard img {
+      max-height: none;
+   }
+}
+
+@media screen and (min-width: 1100px) {
+   .Detail .PredictionCard {
+      max-height: 300px;
+   }
+}
+
+@media screen and (min-width: 1400px) {
+   .Detail .PredictionCard {
+      max-height: 280px;
+   }
+}
+
 .ant-modal-content p {
    margin: 0 0;
 }

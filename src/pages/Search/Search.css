@@ -139,6 +139,21 @@
 .Search .PredictionCard {
    margin-top: 50px;
    min-height: 400px;
+   max-height: 450px;
+   max-width: 360px;
+}
+
+@media screen and (min-width: 750px) {
+   .Search .PredictionCard {
+      max-height: 320px;
+      max-width: none;
+   }
+}
+
+@media screen and (min-width: 1650px) {
+   .Search .PredictionCard {
+      max-height: 220px;
+   }
 }
 
 .Search .Tools {
@@ -256,13 +271,11 @@
       border-bottom-left-radius: var(--border-radius);
    }
    .Search .PredictionCard .NotImg {
-      grid-column: 2/ 3;
       border-radius: 0;
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
    }
 }
-
 
 /* Switch Button
 Modified Material Ui Button  */
