@@ -22,7 +22,8 @@ html {
    /* 'Mukta', sans-serif; */
    --number-font: "Stardos Stencil", cursive;
    /* "Special Elite", cursive; */
-   --text-font-size: 0.82rem;
+   --text-font-size: 0.85rem;
+   --text-title-size: 1rem;
    margin: 0;
    padding: 0;
    -webkit-touch-callout: none; /* iOS Safari */

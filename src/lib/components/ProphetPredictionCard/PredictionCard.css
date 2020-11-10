@@ -23,7 +23,7 @@
 }
 
 .PredictionCard .PredictionTitle {
-   font-size: 1rem;
+   font-size: var(--text-title-size);
    line-height: 1.3rem;
    margin: 2px 0;
    font-weight: 700;
@@ -31,7 +31,6 @@
 
 .PredictionCard .PredictionDescription {
    font-size: var(--text-font-size);
-   font-weight: 500;
    color: #686868;
    margin-top: 0.3vh;
 }
