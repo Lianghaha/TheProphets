@@ -69,11 +69,6 @@
    margin: 30px 0;
 }
 
-.Detail .ProphetCard {
-   max-width: 280px;
-   max-height: 430px;
-}
-
 @media screen and (min-width: 750px) {
    .Detail .Card {
       grid-template: 1fr/ 3fr 4fr;
@@ -90,27 +85,17 @@
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
    }
-   .Detail .ProphetCard {
-      max-height: 250px;
-      max-width: none;
-   }
 }
 
 @media screen and (min-width: 1100px) {
    .Detail .Content {
       width: 75%;
    }
-   .Detail .ProphetCard {
-      max-height: 235px;
-   }
 }
 
 @media screen and (min-width: 1400px) {
    .Detail .Content {
       width: 60%;
-   }
-   .Detail .ProphetCard {
-      max-height: 200px;
    }
 }
 
