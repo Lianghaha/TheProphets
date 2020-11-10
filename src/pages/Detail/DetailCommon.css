@@ -104,14 +104,15 @@
    display: none;
 }
 
+.Detail .Card {
+   filter: brightness(100%);
+}
+
 .Detail .Card:hover {
    box-shadow: 0px 0px 8px black;
    transform: scale(1);
    cursor: default;
 }
-
-
-
 
 /* AntD Modal */
 .ant-modal {
@@ -145,8 +146,9 @@
 .ant-modal-root .ant-input {
    border-color: rgb(150, 150, 150);
 }
-.ant-modal-root .ant-input:focus, .ant-input-focused {
-   box-shadow: 0 0 0 .8px rgb(150, 150, 150);
+.ant-modal-root .ant-input:focus,
+.ant-input-focused {
+   box-shadow: 0 0 0 0.8px rgb(150, 150, 150);
 }
 
 .wordCount {

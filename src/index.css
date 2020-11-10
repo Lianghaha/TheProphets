@@ -2,7 +2,7 @@
 /* Main */
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap');
 /* Title&Description */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&display=swap');
 /* Ratings */
 /* @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"); */
 @import url('https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap');
@@ -19,7 +19,8 @@ html {
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
    --main-font: "Assistant", sans-serif;
    /* 'EB Garamond', serif; */
-   --text-font: "Roboto Slab", serif;
+   --text-font: 'Mukta', sans-serif;
+   /* "Roboto Slab", serif; */
    --number-font: "Stardos Stencil", cursive;
    /* "Special Elite", cursive; */
    margin: 0;
@@ -57,7 +58,7 @@ body {
 
 .App {
    width: 100%;
-   font: var(--main-font);
+   font-family: var(--main-font);
    font-weight: 600;
    display: flex;
    flex-wrap: wrap;
