@@ -7,6 +7,7 @@
 }
 
 .ProphetCard .ProphetDescription {
+   color: #202020;
    text-align: start;
    word-wrap: break-word;
    font-size: var(--text-font-size);
@@ -22,4 +23,18 @@
 
 .ProphetCard .MuiButton-outlined {
    align-self: flex-end;
+}
+
+/* Material UI Button */
+.ProphetCard .MuiButton-outlined {
+   border: 1.5px solid #ae9166 !important;
+   color: #ae9166 !important;
+   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+   height: 35px;
+   font-size: 0.75rem;
+}
+
+.ProphetCard .MuiButton-root:hover {
+   background: #ae9166 !important;
+   color: white !important;
 }

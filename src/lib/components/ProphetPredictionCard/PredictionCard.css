@@ -35,16 +35,21 @@
    margin-top: 0.3vh;
 }
 
-.PredictionCard .ImgContainer .MuiButton-outlined {
-   width: 190px;
+.PredictionCard .MuiButton-outlined {
+   width: 190px !important;
    margin: 0 0 !important;
-   grid-area: 3 / 1 / 4 / 2;
+   margin-bottom: 6% !important;
+   grid-row: 1 / 2;
+   grid-column: 1 / 2;
    z-index: 1;
-   align-self: center;
+   align-self: flex-end;
    justify-self: center;
    background: #ae9166c4;
    border: none !important;
    color: white !important;
+   height: 35px;
+   font-size: 0.75rem;
+   transition: background 0.3s ease-in-out;
 }
 
 .PredictionCard .MuiButton-root:hover {

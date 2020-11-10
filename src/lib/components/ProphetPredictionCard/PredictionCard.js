@@ -10,10 +10,8 @@ export const PredictionCard = ({ data }) => {
          className="Card PredictionCard"
          to={`/predictionDetail/${data.prediction_id}`}
       >
-         <div className="ImgContainer">
-            <img src={data.image} alt="PredictionImg" />
-            <Button variant="outlined">View Prediction Detail</Button>
-         </div>
+         <img src={data.image} alt="PredictionImg" />
+         <Button variant="outlined">View Prediction Detail</Button>
          <div className="NotImg">
             <div className="TextSection">
                <div className="InfoContainer">
