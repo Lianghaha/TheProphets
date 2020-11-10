@@ -17,7 +17,7 @@ function Cover() {
                been easier
                <br /> */}
                This website can help you evaluate the reliability of the
-               predictors by letting everyone track and rate predictors' past
+               predictors by letting everyone tracks and rates predictors' past
                predictions
             </p>
          </div>

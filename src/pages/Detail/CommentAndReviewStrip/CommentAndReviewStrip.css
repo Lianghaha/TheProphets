@@ -77,9 +77,8 @@
 }
 
 .Strip .Text {
-   font-family: var(--text-font);
-   font-weight: 400;
-   font-size: .78rem;
+   font-weight: 500;
+   font-size: var(--text-font-size);
    width: 95%;
    word-wrap: break-word;
 }

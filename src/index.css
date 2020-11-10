@@ -18,11 +18,11 @@ html {
    --bg-dark: linear-gradient(rgba(0, 0, 0, 0.25), var(--main-color)),
       url("./media/image/WarrenBuffett.jpg") no-repeat center center;
    --main-font: "Assistant", sans-serif;
-   /* 'EB Garamond', serif; */
-   --text-font: 'Mukta', sans-serif;
-   /* "Roboto Slab", serif; */
+   --text-font: "Assistant", sans-serif;
+   /* 'Mukta', sans-serif; */
    --number-font: "Stardos Stencil", cursive;
    /* "Special Elite", cursive; */
+   --text-font-size: 0.82rem;
    margin: 0;
    padding: 0;
    -webkit-touch-callout: none; /* iOS Safari */

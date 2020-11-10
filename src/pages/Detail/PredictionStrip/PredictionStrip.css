@@ -33,8 +33,12 @@
 }
 
 .PredictionStrip .PredictionStatus {
-   font-size: 0.8rem;
+   font-size: var(--text-font-size);
    color: #ffb400;
+}
+
+.PredictionStrip .PredictionDate {
+   font-size: var(--text-font-size);
 }
 
 .PredictionStrip .Title {
@@ -44,7 +48,7 @@
 }
 
 .PredictionStrip .Description {
-   font-size: 0.7rem;
+   font-size: var(--text-font-size);
    color: rgb(120, 120, 120);
 }
 

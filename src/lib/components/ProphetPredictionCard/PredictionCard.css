@@ -9,12 +9,12 @@
 }
 
 .PredictionCard .PredictionStatus {
-   font-size: 0.77rem;
+   font-size: var(--text-font-size);
    color: #ffb400;
 }
 
 .PredictionCard .PredictionDate {
-   font-size: 0.77rem;
+   font-size: var(--text-font-size);
 }
 
 .PredictionCard .PredictionStatus span {
@@ -23,14 +23,14 @@
 }
 
 .PredictionCard .PredictionTitle {
-   font-size: 0.9rem;
+   font-size: 1rem;
    line-height: 1.3rem;
    margin: 2px 0;
    font-weight: 700;
 }
 
 .PredictionCard .PredictionDescription {
-   font-size: 0.75rem;
+   font-size: var(--text-font-size);
    font-weight: 500;
    color: #686868;
    margin-top: 0.3vh;
