@@ -10,7 +10,7 @@
 
 .Detail .Content {
    background-color: var(--main-color-light);
-   width: 60%;
+   width: 90%;
    height: 90%;
    margin-top: 100px;
    margin-bottom: 5vh;
@@ -56,11 +56,6 @@
    margin-bottom: 25px;
 }
 
-.Detail .Card {
-   width: 90%;
-   margin: 30px 0;
-}
-
 .Detail .NoCommentOrReview {
    height: 50px;
    color: white;
@@ -69,16 +64,14 @@
    font-size: 1.2rem;
 }
 
-@media screen and (max-width: 1400px) {
-   .Detail .Content {
-      width: 75%;
-   }
+.Detail .Card {
+   width: 90%;
+   margin: 30px 0;
 }
 
-@media screen and (max-width: 1100px) {
-   .Detail .Content {
-      width: 90%;
-   }
+.Detail .ProphetCard {
+   max-width: 280px;
+   max-height: 430px;
 }
 
 @media screen and (min-width: 750px) {
@@ -96,6 +89,28 @@
       border-radius: 0;
       border-top-right-radius: var(--border-radius);
       border-bottom-right-radius: var(--border-radius);
+   }
+   .Detail .ProphetCard {
+      max-height: 250px;
+      max-width: none;
+   }
+}
+
+@media screen and (min-width: 1100px) {
+   .Detail .Content {
+      width: 75%;
+   }
+   .Detail .ProphetCard {
+      max-height: 235px;
+   }
+}
+
+@media screen and (min-width: 1400px) {
+   .Detail .Content {
+      width: 60%;
+   }
+   .Detail .ProphetCard {
+      max-height: 200px;
    }
 }
 
