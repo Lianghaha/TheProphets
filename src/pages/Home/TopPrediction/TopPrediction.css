@@ -27,6 +27,11 @@
    max-height: 180px;
 }
 
+/* ShowMore move right a little bit */
+.TopPredictions .TitleAndButtons .TitleButtons{
+   margin-right: -0.5%;
+}
+
 @media screen and (min-width: 650px) {
    .PredictionsList {
       grid-template-columns: 1fr;
