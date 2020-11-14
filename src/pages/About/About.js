@@ -34,16 +34,18 @@ export const About = () => {
                <hr />
             </div>
             <div className="Answer">
-               <p className="MyName">Hi! This is Liang</p>
+               <p className="MyName">Hi! I'm Liang</p>
                <p>
-                  I am a web developer graduated from University of Toronto, with
-                  double major in Computer Science and Statistics and a minor in
-                  Ecomonics.
+                  I am a web developer graduated from University of Toronto with
+                  a double major in Computer Science and Statistics, and a minor
+                  in Economics. 
+                  <br />
+                  I am passionate about bringing beautiful ideas
+                  to life, and I love what I do. <span>😉</span>
+                  {/* <br />
+                  Other than being a web developer, I am also a... #DogPerson
+                  #CatPerson #HistoryNerd, #EconomicsBuff, #Foodie  */}
                </p>
-               {/* <p>
-                  Besides Web Development, I am also intrested in #History
-                  #Economics #Psychology #Investiment ...
-               </p> */}
             </div>
             {/* <div className="Button">Click me!</div> */}
             {getIcon(1)}
@@ -54,11 +56,15 @@ export const About = () => {
                <hr />
             </div>
             <p className="Answer">
-               During the pandemic, I saw too many daunting predictions only intended
-               to get attention. I decided to make a website that tracks the
-               predictor’s past predictions, so that everyone can quickly find
-               out whether the predictors are reliable or not and whether we
-               should take their predictions seriously.
+               During the pandemic, I saw too many daunting predictions intended
+               to get attention.
+               <br />
+               To counter irresponsible predictors, I decided to make a website
+               that tracks the predictor’s past predictions.
+               <br />
+               This website enables everyone to quickly find out whether the
+               predictors are reliable and whether we should take their
+               predictions seriously.  
             </p>
             {getIcon(2)}
          </div>
@@ -69,8 +75,8 @@ export const About = () => {
             </div>
             <p className="Answer">
                Logged in users can rate predictions. The rating of the
-               predictions affects the prophet score which indicates the
-               prophet’s reliability rating.
+               predictions affects the predictor’s score which indicates the
+               predictor’s reliability rating. 
             </p>
          </div>
       </div>

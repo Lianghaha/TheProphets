@@ -8,11 +8,11 @@
 }
 
 .TopProphets .TitleAndButtons {
-   margin: 0 15.5%
+   width: 70%;
 }
 
 .TopProphets .ProphetsList {
-   width: 72%;
+   width: 71.5%;
    margin-top: 2vh;
 }
 
@@ -24,9 +24,10 @@
 }
 
 .TopProphets .ProphetCard {
-   margin: 0 50px;
+   margin: 0 15px;
    height: 430px;
-   width: 280px;
+   min-width: 280px;
+   max-width: 420px;
 }
 
 .TopProphets .ProphetCard img{
