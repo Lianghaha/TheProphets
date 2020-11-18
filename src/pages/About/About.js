@@ -39,9 +39,11 @@ export const About = () => {
                   I am a web developer graduated from University of Toronto with
                   a double major in Computer Science and Statistics, and a minor
                   in Economics. 
-                  <br />
-                  I am passionate about bringing beautiful ideas
-                  to life, and I love what I do. <span>😉</span>
+                  <br />I am passionate about bringing beautiful ideas to life,
+                  and I love what I do.{" "}
+                  <span role="img" aria-label="wink">
+                     😉
+                  </span>
                   {/* <br />
                   Other than being a web developer, I am also a... #DogPerson
                   #CatPerson #HistoryNerd, #EconomicsBuff, #Foodie  */}

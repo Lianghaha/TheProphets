@@ -58,8 +58,8 @@ export const Navbar = ({ loggedIn, setLoggedIn }) => {
          transitionDelay: "0ms",
       }
       return {
-         animationDelay: delay * 15 + "0ms",
-         transitionDelay: delay * 15 + "0ms",
+         animationDelay: delay * 10 + "0ms",
+         transitionDelay: delay * 10 + "0ms",
       }
    }
 
