@@ -123,8 +123,12 @@
 }
 
 .Search .ProphetCard {
-   height: 430px;
+   height: 460px;
    margin-top: 55px;
+}
+
+.Search .ProphetCard img {
+   height: 200px;
 }
 
 /* Predictions  */
@@ -149,11 +153,22 @@
 
 @media screen and (min-width: 750px) {
    .Search .PredictionCard {
+      grid-template: 1fr/ 3fr 4fr;
+      min-height: 180px;
       max-height: 320px;
       max-width: none;
    }
+
    .Search .PredictionCard img {
       max-height: 350px;
+      border-radius: 0;
+      border-top-left-radius: var(--border-radius);
+      border-bottom-left-radius: var(--border-radius);
+   }
+   .Search .PredictionCard .NotImg {
+      border-radius: 0;
+      border-top-right-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
    }
 }
 
@@ -168,7 +183,7 @@
 
 @media screen and (min-width: 1650px) {
    .Search .PredictionCard {
-      max-height: 220px;
+      max-height: 250px;
    }
    .Search .PredictionCard img {
       max-height: 250px;
@@ -275,24 +290,6 @@
       max-width: 220px;
       margin-bottom: 2vh;
       margin-left: 1.3vh;
-   }
-}
-
-@media screen and (min-width: 750px) {
-   .Search .PredictionCard {
-      grid-template: 1fr/ 3fr 4fr;
-      min-height: 180px;
-   }
-
-   .Search .PredictionCard img {
-      border-radius: 0;
-      border-top-left-radius: var(--border-radius);
-      border-bottom-left-radius: var(--border-radius);
-   }
-   .Search .PredictionCard .NotImg {
-      border-radius: 0;
-      border-top-right-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
    }
 }
 

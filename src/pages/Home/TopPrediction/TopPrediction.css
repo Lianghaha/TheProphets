@@ -28,7 +28,7 @@
 }
 
 /* ShowMore move right a little bit */
-.TopPredictions .TitleAndButtons .TitleButtons{
+.TopPredictions .TitleAndButtons .TitleButtons {
    margin-right: -0.5%;
 }
 
@@ -78,6 +78,9 @@
 
 @media screen and (min-width: 1250px) {
    .TopPredictions .PredictionCard {
+      max-height: 220px;
+   }
+   .TopPredictions .PredictionCard img {
       max-height: 220px;
    }
 }

@@ -18,7 +18,7 @@
 }
 
 .TopProphets .ProphetCardContainer {
-   height: 500px;
+   height: 510px;
    min-width: 280px;
    display: flex !important;
    justify-content: center;
@@ -26,17 +26,16 @@
 
 .TopProphets .ProphetCard {
    margin: 0 15px;
-   height: 430px;
+   height: 460px;
    min-width: 280px;
    max-width: 420px;
 }
 
-.TopProphets .ProphetCard img{
-   max-height: 185px;
+.TopProphets .ProphetCard img {
+   height: 200px;
 }
 
 /* AntD Carousel Dots */
-.TopProphets .AntDCarouselDots button{
-    height: 6px !important;
+.TopProphets .AntDCarouselDots button {
+   height: 6px !important;
 }
-
