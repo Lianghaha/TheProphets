@@ -21,11 +21,8 @@
    .Detail .ProphetCard {
       max-height: 235px;
    }
-}
-
-@media screen and (min-width: 1400px) {
-   .Detail .ProphetCard {
-      max-height: 200px;
+   .Detail .ProphetCard img {
+      max-height: 235px;
    }
 }
 

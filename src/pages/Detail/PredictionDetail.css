@@ -25,15 +25,19 @@
 
 @media screen and (min-width: 1100px) {
    .Detail .PredictionCard {
-      max-height: 300px;
+      max-height: 235px;
+   }
+
+   .Detail .PredictionCard img {
+      max-height: 235px;
    }
 }
 
-@media screen and (min-width: 1400px) {
+/* @media screen and (min-width: 1400px) {
    .Detail .PredictionCard {
       max-height: 280px;
    }
-}
+} */
 
 .ant-modal-content p {
    margin: 0 0;
@@ -59,10 +63,10 @@
    margin-bottom: -8px;
 }
 
-.ant-modal-content .OverallScore span{
+.ant-modal-content .OverallScore span {
    margin-left: 5px;
    font-family: var(--number-font);
-   color:#ffb400;
+   color: #ffb400;
    font-size: 1.5rem;
 }
 
@@ -75,4 +79,3 @@
 .ant-modal-body {
    padding-top: 0px;
 }
-
