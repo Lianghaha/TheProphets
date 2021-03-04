@@ -1,10 +1,9 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import "./About.css"
 //icon
 import { VscFoldDown } from "react-icons/vsc"
 
 export const About = () => {
-
    const getIcon = (page) => {
       return (
          <div
@@ -58,8 +57,8 @@ export const About = () => {
                <hr />
             </div>
             <p className="Answer">
-               During the pandemic, I saw too many daunting predictions intended
-               to get attention.
+               During the pandemic, I saw too many unreliable daunting predictions intended
+               just to attract attention.
                <br />
                To counter irresponsible predictors, I decided to make a website
                that tracks the predictor’s past predictions.
